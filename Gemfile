@@ -38,8 +38,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  # Use mysql as the database for Active Record
-  gem 'mysql2', '>= 0.3.18', '< 0.5'
+  
   
 end
 
