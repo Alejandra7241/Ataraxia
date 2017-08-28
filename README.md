@@ -1,16 +1,3 @@
-Sintaxis básica:
-
-_italic_ 
-
-**negrilla**
-
-# Encabezado 1
-## Encabezado 2
-### Encabezado 3
-
-poner links: [Texto del link](www.google.com)
-
-
 ## Ataraxia
 
 ### Descripción
