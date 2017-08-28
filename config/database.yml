@@ -50,8 +50,6 @@ test:
 
 production:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
   database: Ataraxia_production
   username: Ataraxia
   password: <%= ENV['ATARAXIA_DATABASE_PASSWORD'] %>
