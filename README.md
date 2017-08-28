@@ -1,24 +1,32 @@
-# README
+Sintaxis básica:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+_italic_ 
 
-Things you may want to cover:
+**negrilla**
 
-* Ruby version
+# Encabezado 1
+## Encabezado 2
+### Encabezado 3
 
-* System dependencies
+poner links: [Texto del link](www.google.com)
 
-* Configuration
 
-* Database creation
+## Ataraxia
 
-* Database initialization
+### Descripción
 
-* How to run the test suite
+Ataraxia es una aplicación web que minimiza el tiempo de estadía de los estudiantes 
+basándose en las mallas curriculares actualizadas de las carreras en la Universidad 
+Nacional de Colombia, sede Bogotá; dadas las condiciones específicas de cada estudiante. 
+Ésta también ofrece ventajas adicionales, como: que el usuario vea el avance en su 
+carrera de una forma gráfica; que pueda consultar las mallas estándar y los énfasis 
+disponibles; y finalmente que pueda editar la malla que ofrece la aplicación web a su gusto.
 
-* Services (job queues, cache servers, search engines, etc.)
+### Equipo: sedUNdnes
 
-* Deployment instructions
+#### Integrantes
 
-* ...
+* Brayan Steven García
+* Laura Morales Ariza
+* Lizzy Tengana Hurtado
+* Nicolás Restrepo Torres
