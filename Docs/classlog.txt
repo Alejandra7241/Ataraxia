@@ -1,1 +1,3 @@
 Creación primer mockup, Home.
+Configuración de la base de datos SQL Lite en test y desarrollo.
+Configuración de la base de datos POSTGRESQL en producción:Heroku.
