@@ -1,7 +1,60 @@
-<h1>
-¡Bienvenido a Ataraxia!
-</h1>
-
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Ataraxia</title><%= csrf_meta_tags %><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div>
+          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+              <div class="item active">
+                <img src="universidad1.jpg" alt="universidad1">
+                  <div class="carousel-caption"></div>
+                </div>
+                <div class="item">
+                  <img src="universidad2.png" alt="universidad2">
+                  </div>
+                  <div class="item">
+                    <img src="universidad1.jpg" alt="universidad1">
+                      </div>
+                    </div>
+                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control"
+                          href="#carousel-example-generic" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                  </div>
+                  <div class="main-text hidden-xs">
+                    <div class="col-md-12 text-center">
+                      <p id="main">
+                         Ataraxia</p>
+                      <div class="row">
+                        <div class="col-xs-12">
+                          <div  class="text-center">
+                            <a href="/users/sign_in" target="_self">
+                              <input type="button" class="btn btn-success btn-large botons" value="Entrar"/>
+                            </a>
+                            <a href="/users/sign_up" target="_self">
+                              <input type="button" class="btn btn-danger btn-large botons" value="Registrarse"/>
+                            </a>
+                            <a href="/users/guest" target="_self">
+                              <input type="button" class="btn btn-primary btn-large botons" value="Entrar como invitado"/>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+              <div id="push"></div>
+            </body>
+          </html>
 <p>
 Ataraxia es una aplicación web que minimiza el tiempo de estadía de los estudiantes 
 basándose en las mallas curriculares actualizadas de las carreras en la Universidad 
