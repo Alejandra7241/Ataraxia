@@ -4,31 +4,37 @@
     <title>Ataraxia</title><%= csrf_meta_tags %><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <div class="container">
-      <div class="row">
-        <div>
-          <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="item active">
-                <img src="universidad1.jpg" alt="universidad1">
-                  <div class="carousel-caption"></div>
+ 
+<div class="container" style="width:100%;height:100%;padding:0px;">
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="universidad1.jpg" alt="universidad1" style="width:100%;height:100%">
+            </div>
+            <div class="item">
+                <img src="universidad2.png" alt="universidad2" style="width:100%;height:100%">
+            </div>
+            <div class="item">
+                <img src="universidad1.jpg" alt="universidad1" style="width:100%;height:100%">
+            </div>
+        </div>
+    </div>
+    
+    
+    <div class="main-text hidden-xs">
+
+
+              <div class="row">
+                <div class="col-xs-12">  
+                  <div>
+                      <a href="/contact" target="_self"><button type="button" class="btn btn-default" aria-label="Left Align" style="margin: 0px 15px">
+                      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                      </button></a>
+                  </div>
                 </div>
-                <div class="item">
-                  <img src="universidad2.png" alt="universidad2">
-                  </div>
-                  <div class="item">
-                    <img src="universidad1.jpg" alt="universidad1">
-                      </div>
-                    </div>
-                    <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                      <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control"
-                          href="#carousel-example-generic" data-slide="next">
-                      <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                  </div>
-                  <div class="main-text hidden-xs">
+              </div>
+
+                    
                     <div class="col-md-12 text-center">
                       <p id="main">
                          Ataraxia</p>
@@ -49,31 +55,8 @@
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-        </div>
-              <div id="push"></div>
-            </body>
-          </html>
-<p>
-Ataraxia es una aplicación web que minimiza el tiempo de estadía de los estudiantes 
-basándose en las mallas curriculares actualizadas de las carreras en la Universidad 
-Nacional de Colombia, sede Bogotá; dadas las condiciones específicas de cada estudiante. 
-Ésta también ofrece ventajas adicionales, como: que el usuario vea el avance en su 
-carrera de una forma gráfica; que pueda consultar las mallas estándar y los énfasis 
-disponibles; y finalmente que pueda editar la malla que ofrece la aplicación web a su gusto.
-</p>
+</div>
 
-<h2>Equipo: sedUNdnes</h2>
-
-<h2>Integrantes</h2>
-
-
-<ul>
-  <li>Brayan Steven García</li>
-  <li>Laura Gineth Morales Ariza</li>
-  <li>Lizzy Tengana Hurtado</li>
-  <li>Nicolás Restrepo Torres</li>
-</ul>
- 
+</body>
+</html>
 
