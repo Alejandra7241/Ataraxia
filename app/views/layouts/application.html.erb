@@ -11,37 +11,35 @@
   </head>
 
   <body>
-    
-    
-    
     <nav class="navbar navbar-default">
 
-	<div class="pull-left" style="right: -30000px"><a href="#" class="navbar-left"><img src="logo_final.png" style="width:15%;height=15%"></a></div>
+	<div class="pull-left" >
+		<a href="#" class="navbar-left"><img src="logo_final.png" style="width:15%;height=15%;margin-top:1%"></a>
+	</div>
     
-		<div class="navbar-header">
-			
-			<%= link_to 'Ataraxia', root_path, :class => 'navbar-brand' %>
-		</div>
+	<div class="navbar-header navbar-left" style="margin-left:-300px;">
+		<%= link_to 'Ataraxia', root_path, {:style=>'color:black;', :class =>'navbar-brand'} %>
+	</div>
 
-		<div id="navbar" class="navbar-collapse collapse">
-			<ul class="nav navbar-nav">
-				<li><%= link_to('', '#') %></li>
-				<li><%= link_to('', '#') %></li>
-				<li><%= link_to('', '#') %></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				<% if user_signed_in? %>
-					<li><%= link_to('My Account', edit_user_registration_path) %></li>
-					<li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-				<% else %>
-					<li> <span class="glyphicon glyphicon-user"> <%= link_to('Sign in', new_user_session_path) %></li> </span>
-					<li> <span class="glyphicon glyphicon-log-in"> <%= link_to('Sign up', new_user_registration_path) %></li> </span>
-					<li> <span class="glyphicon glyphicon-play-circle"> <%= link_to('Sign up', new_user_registration_path) %></li> </span>
-				<% end %>
-			</ul>
-		</div><!--/.nav-collapse -->
+	<div id="navbar" class="navbar-collapse collapse">
+		<ul class="nav navbar-nav">
+			<li><%= link_to('', '#') %></li>
+			<li><%= link_to('', '#') %></li>
+			<li><%= link_to('', '#') %></li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right" style="a-color: black">
+			<% if user_signed_in? %>
+				<li><%= link_to 'My Account', edit_user_registration_path, {:style=>'color:black;'} %></li>
+				<li><%= link_to "Sign out", destroy_user_session_path, {:style=>'color:black;', :method => :delete} %></li>
+			<% else %>
+			  <li><%= link_to "Entrar", new_user_registration_path, {:style=>'color:black;'} %></li>
+				<li><%= link_to "Registrarse", new_user_registration_path, {:style=>'color:black;'} %></li>
+				<li><%= link_to "Entrar como invitado", destroy_user_session_path, {:style=>'color:black;'} %></li>
+			<% end %>
+		</ul>
+	</div><!--/.nav-collapse -->
 	<!--/.container-fluid -->
-</nav>
+	</nav>
 
     <%= yield %>
   </body>
