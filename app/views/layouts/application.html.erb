@@ -12,11 +12,16 @@
 
   <body>
       
+      
+
+      
+      
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <p class="navbar-text pull-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
+    <br> Last signed in at: <strong><%= current_user.last_sign_in_at %></strong> <br>
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
   <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
 <% else %>
@@ -25,9 +30,7 @@
 <% end %>
 </p>
       
-      <ul class="nav">
-  <li class="active"><a href="/ideas">Ideas</a></li>
-</ul>
+      
     <%= yield %>
   </body>
 </html>

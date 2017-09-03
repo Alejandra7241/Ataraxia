@@ -35,6 +35,15 @@ gem 'jbuilder', '~> 2.5'
 
 # Own gems installed by sedUNdnes
 gem 'devise'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+
+# NOTE: The sass-rails gem is included with new Rails applications by default.
+#       Please make sure that it is not already in your Gemfile before uncommenting it.
+# gem 'sass-rails'
+gem 'jquery-rails'
+
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
