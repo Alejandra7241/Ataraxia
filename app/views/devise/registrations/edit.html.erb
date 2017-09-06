@@ -1,48 +1,54 @@
-
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-
-
-
+<br>
+<br>
+<img src="/universidad3.jpg" id="fondo" alt="please">
+<div class="row" style="position: relative; top: 4%;">
+		<div class = "col-sm-4"></div>
+		<div class = "col-sm-4 well"  style="background: rgba(255, 255, 255, 0.8);">
+            <div align="center"><img src="/logo_final.png" alt="graduacion" height="30%" width="30%">
+            <h1>Editar a <%= resource_name.to_s.humanize %></h1></div>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <%= devise_error_messages! %>
+              <br>
+              <form> 
+                  <div class="form-group">
+                      <label class="control-label" for="Nombre">Correo electrónico</label>
+                      <%= f.email_field :email, autofocus: true, class: "form-control", id: "Nombre" %>
+                  </div>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
+                  
+                  <div class="form-group">
+                      <label class="control-label" for="Correo">Nueva contraseña</label>
+                      <i>(dejar en blanco si no quiere cambiarla)</i>
+                      <%= f.password_field :password, autocomplete: "off", type: "password", class: "form-control", placeholder: "Introduzca la nueva contraseña" %>
+                      <% if @minimum_password_length %>
+                        <em>Mínimo <%= @minimum_password_length %> caracteres</em>
+                      <% end %>
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label" for="Nombre">Confirmar nueva contraseña</label>
+                      <%= f.password_field :password_confirmation, autocomplete: "off", type: "password", class: "form-control", placeholder: "Confirme la nueva contraseña" %>
+                      
+                  </div>
+                  <div class="form-group">
+                      <label class="control-label" for="Mensaje">Contraseña actual</label>
+                      <%= f.password_field :current_password, autocomplete: "off", type: "password", class: "form-control", placeholder: "Introduzca la contraseña actual"  %>
+                  </div>
+                  <br>
+                  <div class="form-group pull-right" >
+                    <input type="reset" class="btn btn-default" value="Limpiar"> 
+                    <%= f.submit "Actualizar datos", class: "btn btn-primary" %>        
+                  </div>
+                  <div id="respuesta" style="display: none;"></div>
+              </form>
+            <% end %>
+            <br><br>
+            <h3>Cancelar mi cuenta</h3>
+            <p>¿Desea eliminar su cuenta de Ataraxia permanentemente?</p> 
+            <p><%= button_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "¿Está seguro que desea eliminar su cuenta?" }, method: :delete, class: "btn btn-danger" %></p>
+            <%= link_to "Back", :back %>
+        </div>
+        <div class = "col-sm-4"></div>
+</div>
 
