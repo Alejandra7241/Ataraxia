@@ -28,8 +28,8 @@
 		<ul class="nav navbar-nav navbar-right" style="a-color: black">
 			<li> <%= link_to 'Ataraxia', root_path, {:style=>'color:white; position: relative; left: -1790%'} %> </li>
 			<% if user_signed_in? %>
-				<li><%= link_to 'My Account', edit_user_registration_path, {:style=>'color:white;'} %></li>
-				<li><%= link_to "Sign out", destroy_user_session_path, {:style=>'color:white;', :method => :delete} %></li>
+				<li><%= link_to 'Mi cuenta', edit_user_registration_path, {:style=>'color:white;'} %></li>
+				<li><%= link_to "Salir", destroy_user_session_path, {:style=>'color:white;', :method => :delete} %></li>
 			<% else %>
 				<li><%= link_to "Entrar", new_user_session_path %></li>
 				<li><%= link_to "Registrarse", new_user_registration_path %></li>
@@ -39,7 +39,7 @@
 	</div><!--/.nav-collapse -->
 	<!--/.container-fluid -->
 	</nav>
-
+<%= yield %>
 
 		<footer>
     <div class="navbar navbar-inverse navbar-fixed-bottom">
@@ -47,12 +47,12 @@
             <div class="navbar-collapse collapse" id="footer-body">
                 <ul class="nav navbar-nav">
                 		<li> <%= link_to 'Contactenos', root_path, {:style=>'position: relative; left: -340%'} %> </li>
-                		<li> <%= link_to 'GitHub', "https://github.com/sedUNdnes/Ataraxia", {:style=>'position: relative; left: -450%'} %> </li
+                		<li> <%= link_to 'GitHub', "https://github.com/sedUNdnes/Ataraxia", {:style=>'position: relative; left: -450%'} %> </li>
                 </ul>
             </div>
         </div>
     </div>
 </footer>
-    <%= yield %>
+    
   </body>
 </html>
