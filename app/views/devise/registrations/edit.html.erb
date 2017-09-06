@@ -5,7 +5,7 @@
 		<div class = "col-sm-4"></div>
 		<div class = "col-sm-4 well"  style="background: rgba(255, 255, 255, 0.8);">
             <div align="center"><img src="/logo_final.png" alt="graduacion" height="30%" width="30%">
-            <h1>Editar a <%= resource_name.to_s.humanize %></h1></div>
+            <h1>Editar usuario</h1></div>
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
               <%= devise_error_messages! %>
               <br>
