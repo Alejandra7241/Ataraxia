@@ -41,15 +41,27 @@
                       <div class="row">
                         <div class="col-xs-12">
                           <div  class="text-center">
-                            <a href="/users/sign_in" target="_self">
-                              <input type="button" class="btn btn-success btn-large botons" value="Entrar"/>
-                            </a>
-                            <a href="/users/sign_up" target="_self">
-                              <input type="button" class="btn btn-danger btn-large botons" value="Registrarse"/>
-                            </a>
-                            <a href="/users/guest" target="_self">
+                            
+                            
+                                <% if user_signed_in? %>
+                                
+                              
+                                 <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
+                                <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
+    
+                      			<% else %>
+                                <div class="btn-group">
+                                <%= link_to "Entrar", new_user_session_path, :class => "btn btn-success btn-large botons" %>
+                                <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-danger btn-large botons"
+                                 # Cuando se sepa la ruta reemplazar: link_to "Entrar como invitado", :controller => :my_controller, :action => :index, :class => "btn btn-primary btn-large botons"
+                                %>
+                                 
+                                  
+                                 <a href="/users/guest" target="_self">
                               <input type="button" class="btn btn-primary btn-large botons" value="Entrar como invitado"/>
                             </a>
+                              </div>
+                      			<% end %>
                           </div>
                         </div>
                       </div>
