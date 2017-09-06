@@ -28,12 +28,21 @@
 		<ul class="nav navbar-nav navbar-right" style="a-color: black">
 			<li> <%= link_to 'Ataraxia', root_path, {:style=>'color:white; position: relative; left: -1790%'} %> </li>
 			<% if user_signed_in? %>
-				<li><%= link_to 'Mi cuenta', edit_user_registration_path, {:style=>'color:white;'} %></li>
-				<li><%= link_to "Salir", destroy_user_session_path, {:style=>'color:white;', :method => :delete} %></li>
+				
+            
+            <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Mi cuenta
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li> <%= link_to 'Editar perfil', edit_user_registration_path, {:style=>'color:black;'} %></li>
+          <li><%= link_to 'Cerrar sesión', destroy_user_session_path, :method => :delete %></li>
+         
+        </ul>
+      </li>
 			<% else %>
 				<li><%= link_to "Entrar", new_user_session_path %></li>
 				<li><%= link_to "Registrarse", new_user_registration_path %></li>
-				<li><%= link_to "Entrar como invitado", destroy_user_session_path %></li>
+				
 			<% end %>
 		</ul>
 	</div><!--/.nav-collapse -->
