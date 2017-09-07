@@ -20,3 +20,8 @@
 
 ### Posibles features para desarrollar en el siguiente sprint: 
 
+* Diferenciar cuando inicia sesión un administrador o un estudiante
+* Ventana principal de invitado
+* Ventana principal de estudiante
+* Ventana principal de administrador
+* Perfil del estudiante
