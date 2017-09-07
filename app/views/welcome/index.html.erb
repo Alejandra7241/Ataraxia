@@ -46,7 +46,7 @@
                                 <% if user_signed_in? %>
                                 
                               
-                                 <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
+                                <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
                                 <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
     
                       			<% else %>
