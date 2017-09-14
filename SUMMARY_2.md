@@ -1,3 +1,12 @@
+## Sprint 2
+
+### Features y actividades desarrolladas:
+
+* Corregir Modelo entidad relación: Brayan Garcia.
+* Implementar un Favicon: Brayan Garcia.
+* Implementación de un Footer: Brayan Garcia.
+* Editada estetica Login: Brayab Garcia 
+
 ## Sprint 1
 
 ### Features y actividades desarrolladas:
