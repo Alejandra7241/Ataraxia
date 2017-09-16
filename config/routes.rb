@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 #  end
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
+  get 'users/create' => 'users#create'
   resources :contact
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
