@@ -1,11 +1,15 @@
 class ContactController < ApplicationController
     def index
-        puts "Dub dub"
-        @nombre = params[:nombre]
-        @correo = params[:correo]
-        @asunto = params[:asunto]
-        @opinion = params[:mensaje]
-        puts "Pickle poooost: nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@opinion}"
+    puts "Dub dub"
+    if(params.has_key?(:post))
+        @nombre = params[:post][:nombre]
+        @correo = params[:post][:correo]
+        @asunto = params[:post][:asunto]
+        @mensaje = params[:post][:mensaje]
+        puts "Pickle poooost: nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@mensaje}"
+        UserMailer.contact_send_email(@nombre,@correo,@asunto,@mensaje).deliver_later
+        #redirect_to contact_path
+    end
     end
     def submit_opinion
     puts "Wubbaaaaaaaaaaaaaa"
