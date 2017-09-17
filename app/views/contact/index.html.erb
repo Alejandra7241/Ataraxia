@@ -12,27 +12,45 @@ style="position: fixed;
 		<div class = "col-sm-4 well"  style="background: rgba(255, 255, 255, 0.8);">
             <div align="center"><img src="/logo_final.png" alt="graduacion" height="30%" width="30%">
             <h1>¡Danos tu opinion!</h1></div>
+                                    <%= form_for :post, :url => examplepostmethod_path do |f|  %>
+                          <p>
+                
+                            Nombre <%= f.label :nombre %><br>
+                            <%= f.text_field :nombre %>
+                          </p>
+                        
+                          <p>
+                            <%= f.label :correo %><br>
+                            <%= f.text_area :correo %>
+                          </p>
+                        
+                          <p>
+                            <%= f.submit %>
+                          </p>
+                        <% end %>
                         <br>
                         <form>
                             <div class="form-group">
                                 <label class="control-label" for="Nombre">Nombres</label>
-                                <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca su nombre" required autofocus />
+                                <input type="text" name='nombre' class="form-control" id="Nombre" placeholder="Introduzca su nombre" required autofocus />
                             </div>            
                             <div class="form-group">
                                 <label class="control-label" for="Correo">Dirección de Correo Electrónico</label>
-                                <input type="email" class="form-control" id="Correo" name="Correo" placeholder="Introduzca su correo electrónico" required />
+                                <input type="email" name='correo' class="form-control" id="Correo"  placeholder="Introduzca su correo electrónico" required />
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="Nombre">Asunto</label>
-                                <input type="text" class="form-control" id="Nombre" name="Nombre" placeholder="Introduzca el asunto" required autofocus />
+                                <input type="text" name='asunto' class="form-control" id="Nombre"  placeholder="Introduzca el asunto" required autofocus />
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="Mensaje">Mensaje</label>
-                                <textarea rows="5" cols="30" class="form-control" id="Mensaje" name="Mensaje" placeholder="Introduzca su mensaje" required ></textarea>
+                                <textarea rows="5" cols="30" class="form-control" id="Mensaje" name="mensaje" placeholder="Introduzca su mensaje" required ></textarea>
                             </div>
-                            <div class="form-group" >                
-                                <input type="submit" class="btn btn-primary" value="Enviar">
-                                <input type="reset" class="btn btn-default" value="Limpiar">                
+                            <div class="form-group" >     
+                                    
+                                <%= link_to 'Enviar post', submit_opinion_path(:nombre => session[:nombre], :correo => session[:correo], :asunto =>  session[:asunto]), method: :post, :class => "btn btn-primary", :type => "submit" %>
+                                <input type="submit" class="btn btn-primary" name='submit_opinion' value="Enviar">
+                                <input type="reset" class="btn btn-default" value="Limpiar">   
                             </div>
                             <div id="respuesta" style="display: none;"></div>
                         </form>
@@ -40,4 +58,5 @@ style="position: fixed;
         </div>
         <div class = "col-sm-4"></div>
 </div>
+
 

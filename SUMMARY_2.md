@@ -2,10 +2,13 @@
 
 ### Features y actividades desarrolladas:
 
-* Corregir Modelo entidad relación: Brayan Garcia.
 * Implementar un Favicon: Brayan Garcia.
 * Implementación de un Footer: Brayan Garcia.
-* Editada estetica Login: Brayab Garcia 
+* Correción del bug del scroll: Brayan Garcia.
+* Implementación para diferenciar el rol que se loguea: Nicolas Restrepo.
+* Editada estetica Login: Brayan Garcia.
+* Mejorada estetica del landing; Brayan Garcia.
+* Implementación de la gema annotate: Brayan Garcia.
 
 ## Sprint 1
 

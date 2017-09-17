@@ -35,12 +35,14 @@ gem 'jbuilder', '~> 2.5'
 
 # Own gems installed by sedUNdnes
 gem 'devise'
-gem 'bootstrap-sass', '~> 3.2.0'
+gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem "figaro"
+gem 'annotate'
+
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.
-#       Please make sure that it is not already in your Gemfile before uncommenting it.
+#       Please make sure that it is not alreabundy in your Gemfile before uncommenting it.
 # gem 'sass-rails'
 gem 'jquery-rails'
 
@@ -53,6 +55,8 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  #Own gems
+  gem 'letter_opener_web'
 
 end
 

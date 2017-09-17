@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ataraxia</title><%= csrf_meta_tags %><%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %><%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <title>Ataraxia</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
   </head>
   <body>
  
@@ -46,9 +49,7 @@
                                 <% if user_signed_in? %>
                                 
                               
-                                <%= puts "j" 
-                                UserMailer.welcome_email(User.first) 
-                                link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
+                                <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
                                 <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
     
                       			<% else %>
@@ -73,4 +74,3 @@
 
 </body>
 </html>
-

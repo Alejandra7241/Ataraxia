@@ -12,7 +12,14 @@ Rails.application.routes.draw do
 #  end
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
+  get 'admin/malla' => 'admin#malla'
+  get 'student/historia_academica' => 'student#historia_academica'
   get 'users/create' => 'users#create'
-  resources :contact
+  get 'contact', to: 'contact#index', as: 'contact'
+  post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  post "post", to:  "contact#submit_opinion", as: 'examplepostmethod'
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end

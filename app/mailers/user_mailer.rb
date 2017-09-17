@@ -5,6 +5,14 @@ class UserMailer < ApplicationMailer
     @user = user
     @url  = 'http://example.com/login'
     puts "It's working?"
-    mail(to: 'nrestrepot@unal.edu.co', subject: 'Welcome to My Awesome Site')
+    mail(to: @user.email , subject: 'Bienvenido a Ataraxia inmundo animal')
   end
+  
+  def contact_send_email(user)
+    @user = user
+    @url  = 'http://example.com/login'
+    puts "It's working?"
+    mail(to: 'ataraxiasedundnes@gmail.com', subject: "Solicitud de concato por parte de #{@user.email}")
+  end
+  
 end
