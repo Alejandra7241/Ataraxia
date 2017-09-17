@@ -20,4 +20,8 @@ class UsersController < ApplicationController
       end
     end
   end
+  def confirm_email(user)
+    @user = user
+    puts "Confirme su email"
+  end
 end

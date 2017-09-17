@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #devise_for :admins
-  devise_for :users
+  devise_for :users, controllers: { confirmations: 'confirmations' }
   #devise_for :users, controllers: { sessions: 'users/sessions' }
   #resources :usuarios, as: :users, only: [ :index ]
   root 'welcome#index'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'users/create' => 'users#create'
   get 'contact', to: 'contact#index', as: 'contact'
   post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
+  get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post "post", to:  "contact#submit_opinion", as: 'examplepostmethod'
   if Rails.env.development?
