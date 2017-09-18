@@ -1,16 +1,16 @@
 
 
-<h1>La historia academica procesada arroja los siguientes datos: </h1>
+<h1>La historia academica de <%= @nombre %> en la carrera <%= @carrera %> arroja los siguientes datos: </h1>
 
 <h2>
     <% @hap.each do |element| %>
-    <li>Las materias del semestre <%= @current_semester %> son: </li>
-    <li><%= element %></li>
+    <li>Las materias del semestre <%= @current_semester %> son: </li> <br>
+    <%= element %>
     <br>
     <% @current_semester +=1 %>
     <% end %>
     <br><br>
-    El PAPA es <%=@papa %> y el Promedio Academico es <%=@pa%>
+    El PAPA es <%=@papa %>, el Promedio Academico es <%=@pa%>, el porcentaje es <%=@porcentaje%>%, le quedan <%= @bolsa %> créditos disponibles para hacer con ellos lo que se le dé la gana :v
 </h2>
 
     

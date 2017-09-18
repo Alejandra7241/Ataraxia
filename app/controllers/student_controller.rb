@@ -19,15 +19,29 @@ class StudentController < ApplicationController
     current_semester = 1
     ponderacion = 0.0
     ponderacion_pa = 0.0
+    nombre = ""
+    porcentaje = 0.0
+    creditos_aprobados = 0.0
+    creditos_requeridos = 0.0
+    creditos_sobrantes = 0
+    checking_name = false
     informacion.each_line do |line|
         
         if line =~ /\d/
             line = line.split.join(" ")
             processing = line.split(' ')
             if processing[0].to_i == 1
-                puts "SÍ"
                 checking_notes = true
                 next
+            end
+            if processing[0] == "exigidos"
+                creditos_requeridos = processing[-3].to_f
+            end
+            if processing[0] == "aprobados" && processing[1] == "plan"
+                creditos_aprobados = processing[-1].to_f
+            end
+            if processing[0] == "cupo" && processing[2] == "créditos" && processing[-2] == "pendientes"
+                creditos_sobrantes = processing[-1].to_i
             end
             if checking_notes
                 checking = Integer(processing[0]) rescue nil
@@ -57,10 +71,29 @@ class StudentController < ApplicationController
                     ponderacion_pa += creditos*nota unless nota.to_i < 3
                 end
                 arr[codigo_actual.to_i] = nota
-                puts "El codigo de la materia es #{codigo_actual.to_i} y la nota es #{nota} y el semestre es #{current_semester}"
+                #puts "El codigo de la materia es #{codigo_actual.to_i} y la nota es #{nota} y el semestre es #{current_semester}"
             end
-            #puts line
+            puts line
+        else
+            line = line.split.join(" ")
+            line = line.split(' ')
+            i = 0
+            #puts "#{line[0]} ::: #{line[0] == "estudiante"} -> #{checking_name}"
+            if line[0] == "estudiante"
+                checking_name = true 
+                next
+            end
+            if checking_name
+                while line[i] != "terminar" do
+                    #puts "line #{line}"
+                    nombre += line[i].to_s.capitalize + " "
+                    i +=1
+                end
+                checking_name = false
+            
+            end
         end
+        
     end
     puts "Materias :3"
     current_semester = 1
@@ -74,14 +107,19 @@ class StudentController < ApplicationController
     papa = ponderacion/creditos_totales.to_f
     pa = ponderacion_pa/creditos_totales_pa.to_f
     puts ""
-    puts "El PAPA es #{papa} y el Promedio Academico es #{pa}"
+    porcentaje = (creditos_aprobados*100)/creditos_requeridos
+    puts "El PAPA es #{papa} y el Promedio Academico es #{pa} y el nombre es #{nombre}, el porcentaje es #{porcentaje}"
     #puts informacion[\d*\s*[|]\s*[a-z]*\s*[a-z]*\s*[a-z]*\s*[a-z]\s*[a-z]*$]
     puts "///////////////////////////////////////////////////////////////////////////////////////////"
     #redirect_to root_path
     @pa = pa
     @papa = papa
     @hap = hap
+    @carrera = codigo_carrera
+    @porcentaje = porcentaje
+    @nombre = nombre
     puts "senid to view"
     @current_semester = 1
+    @bolsa = creditos_sobrantes
     end
 end

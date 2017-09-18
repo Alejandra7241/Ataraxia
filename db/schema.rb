@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170918042040) do
+ActiveRecord::Schema.define(version: 20170918202127) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -34,13 +34,13 @@ ActiveRecord::Schema.define(version: 20170918042040) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "materia", force: :cascade do |t|
+  create_table "subjects", force: :cascade do |t|
     t.integer "codigo"
     t.string "prerrequisitos"
     t.string "materias_que_abre"
     t.integer "creditos"
     t.string "nombre"
-    t.integer "porcentajeminimo"
+    t.float "porcentajeminimo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -62,6 +62,12 @@ ActiveRecord::Schema.define(version: 20170918042040) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.float "papa", default: 0.0
+    t.float "pa", default: 0.0
+    t.float "percentage", default: 0.0
+    t.integer "carrer", default: -1
+    t.string "name", default: "Estudiante sin nombre asignado"
+    t.integer "avaliable_credits", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

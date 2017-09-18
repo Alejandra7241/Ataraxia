@@ -2,14 +2,16 @@
 
 one:
   codigo: 
+  prerrequisitos: MyString
   materias_que_abre: MyString
   creditos: 1
   nombre: MyString
-  porcentajeminimo: 1
+  porcentajeminimo: 1.5
 
 two:
   codigo: 
+  prerrequisitos: MyString
   materias_que_abre: MyString
   creditos: 1
   nombre: MyString
-  porcentajeminimo: 1
+  porcentajeminimo: 1.5

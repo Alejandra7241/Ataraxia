@@ -1,12 +1,12 @@
-class CreateMateria < ActiveRecord::Migration[5.1]
+class CreateSubjects < ActiveRecord::Migration[5.1]
   def change
-    create_table :materia do |t|
+    create_table :subjects do |t|
       t.integer :codigo
       t.string :prerrequisitos
       t.string :materias_que_abre
       t.integer :creditos
       t.string :nombre
-      t.integer :porcentajeminimo
+      t.float :porcentajeminimo
 
       t.timestamps
     end
