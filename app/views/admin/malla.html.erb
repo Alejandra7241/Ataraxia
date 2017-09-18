@@ -18,43 +18,77 @@
           </thead>
           <tbody>
             <tr>
-              <td align="center"> <a href="#" id="addB">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
-              <td align="center"> <a href="#" onClick="alert('Hello World!')">  <img width="50%"  class="img-responsive add" src="/add.png" class="img-fluid" alt="logo" /> </a> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp" %> </td>
             </tr>
           </tbody>
         </table>
       </div>
-      
   </div>
   <div class="row">
-    <button id="addB">Open Modal</button>
-
     <!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-      <h2>Modal Header</h2>
-    </div>
-    <div class="modal-body">
-      <p>Some text in the Modal Body</p>
-      <p>Some other text...</p>
-    </div>
-    <div class="modal-footer">
-      <h3>Modal Footer</h3>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header modal-agregar">
+          <h2 align="center">Agregar Materia</h2>
+        </div>
+        <div class="modal-body">
+          <form>
+            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <h3>Materia ya existente:</h3>
+            <div class="form-group">
+              <%= f.label :codigo, 'Código:' %><br>
+              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+            </div>
+            <h3>Nueva Materia:</h3>
+            <div class="form-group">
+              <%= f.label :codigo, 'Código:' %><br>
+              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :nombre, 'Nombre:' %><br>
+              <%= f.text_field :nombre, placeholder: "Introduzca el nombre", autofocus: true, :class => 'form-control' %>
+            </div>
+            <div class="form-group">
+              <%= f.label :creditos, 'Número de creditos:' %><br>
+              <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
+            </div> 
+             <div class="form-group">
+              <%= f.label :pre, 'Prerrequisitos:' %><br>
+              <%= f.text_field :pre, placeholder: "Introduzca los prerrequisitos", autofocus: true, :class => 'form-control' %>
+            </div> 
+            <div class="form-group" align="center">     
+              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            <div id="respuesta" style="display: none;"></div>
+            <% end %>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
-
-</div>
+  <div class="row">
+    <!-- The Modal -->
+    <div id="myModal2" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header modal-ayuda">
+          <h2 align="center">Ventana de ayuda</h2>
+        </div>
+        <div class="modal-body" >
+          <div align="center"><img width="80%" class="img-responsive" src="/ayuda_admin.png" class="img-fluid" alt="help" /></div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

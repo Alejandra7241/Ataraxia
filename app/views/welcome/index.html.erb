@@ -22,55 +22,39 @@
             </div>
         </div>
     </div>
-    
-    
     <div class="main-text hidden-xs">
-
-
-              <div class="row">
-                <div class="col-xs-12">  
-                  <div>
-                      <a href="/contact" target="_self"><button type="button" class="btn btn-default" aria-label="Left Align" style="margin: 0px 15px">
-                      <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-                      </button></a>
+      <div class="row">
+        <div class="col-xs-12">  
+          <div>
+            <a href="/contact" target="_self"><button type="button" class="btn btn-default" aria-label="Left Align" style="margin: 0px 15px">
+            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+            </button></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 text-center">
+          <p id="main">Ataraxia</p>
+          <div class="row">
+              <div class="col-xs-12">
+                <div  class="text-center">
+                  <% if user_signed_in? %>
+                  <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
+                  <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
+                  <% else %>
+                  <div class="btn-group">
+                    <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-primary btn-large botons"
+                    # Cuando se sepa la ruta reemplazar: link_to "Entrar como invitado", :controller => :my_controller, :action => :index, :class => "btn btn-primary btn-large botons"
+                    %>
+                    <%= link_to "Entrar", new_user_session_path, :class => "btn btn-info btn-large botons" %>
+                    <a onclick='alert("Lo sentimos, esta funcionalidad aún no está implementada")' target="_self"><input type="button" class="btn btn-info btn-large botons disabled" value="Invitado"/> </a>
                   </div>
+                  <% end %>
                 </div>
               </div>
-
-                    
-                    <div class="col-md-12 text-center">
-                      <p id="main">
-                         Ataraxia</p>
-                      <div class="row">
-                        <div class="col-xs-12">
-                          <div  class="text-center">
-                            
-                            
-                                <% if user_signed_in? %>
-                                
-                              
-                                <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-success btn-large botons" %>
-                                <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
-    
-                      			<% else %>
-                                <div class="btn-group">
-                                <%= link_to "Entrar", new_user_session_path, :class => "btn btn-success btn-large botons" %>
-                                <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-danger btn-large botons"
-                                 # Cuando se sepa la ruta reemplazar: link_to "Entrar como invitado", :controller => :my_controller, :action => :index, :class => "btn btn-primary btn-large botons"
-                                %>
-                                 
-                                  
-                                 <a href="/users/guest" target="_self">
-                              <input type="button" class="btn btn-primary btn-large botons" value="Entrar como invitado"/>
-                            </a>
-                              </div>
-                      			<% end %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-</div>
+            </div>
+          </div>
+        </div>
+      </div>
 
 </body>
 </html>
