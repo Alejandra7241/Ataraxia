@@ -94,6 +94,8 @@ Rails.application.configure do
   
   # Mailer configurations
   config.action_mailer.delivery_method = :smtp
+  #This configuration is needed for Heroku and depends on the URL
+  config.action_mailer.default_url_options = { :host => 'ataraxia-sedundnes.herokuapp.com' }
   # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
    :address              => "smtp.gmail.com",
