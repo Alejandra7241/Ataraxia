@@ -1,0 +1,2 @@
+class Historiaacademica < ApplicationRecord
+end
