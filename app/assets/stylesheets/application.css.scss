@@ -37,15 +37,21 @@
   z-index: -1;
 }
 
-.wel{
-  margin-bottom: 76px;
+.well{
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .row{
   position: relative;
-    margin-right: 0px;
-    margin-left: 0px;
-    margin-bottom: 76px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: 40px;
+  margin-bottom: 50px;
+}
+
+.imageWell{
+  width: 35%;
+  height: 35%; 
 }
 
 // .full 

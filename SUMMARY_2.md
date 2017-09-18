@@ -9,6 +9,9 @@
 * Editada estetica Login: Brayan Garcia.
 * Mejorada estetica del landing; Brayan Garcia.
 * Implementación de la gema annotate: Brayan Garcia.
+* Corrección de la importación de Bootstrap y el application.css.scss y application.html.rb : Laura Morales
+* Creación de clases para las vistas: login, registro, editar perfil, contactos, olvidar contraseña y arreglar sus respectivos htmls: Laura Morales 
+* 
 
 ## Sprint 1
 

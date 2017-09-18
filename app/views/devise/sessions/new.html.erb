@@ -1,11 +1,9 @@
 <img src="/universidad3.jpg" class="bottomImage">
-<br>
-<br>
 <div class="row">
 		<div class = "col-sm-4"></div>
-		<div class = "col-sm-4 well" style="background: rgba(255, 255, 255, 0.8);">
+		<div class = "col-sm-4 well">
       <h1 align="center">¡Iniciar Sesión con Ataraxia!</h1>
-      <div align="center"><img src="/logo_final.png" alt="graduacion" height="50%" width="50%" ></div>
+      <div align="center"><img src="/logo_final.png" class="imageWell"></div>
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <br>
         <div class="field">
@@ -29,8 +27,9 @@
           <%= f.submit "Acceder", class: 'btn btn-success myButton' %>
         </div>
       <% end %>
-    
+      
     <div style="text-align:center"><%= render "devise/shared/links" %></div>
+    <br>
     </div>
 
     <div class = "col-sm-4"></div>
