@@ -10,13 +10,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170917163556) do
+ActiveRecord::Schema.define(version: 20170918042040) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
     t.string "subject"
     t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "historiaacademicas", force: :cascade do |t|
+    t.text "informacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "mallas", force: :cascade do |t|
+    t.string "tipo"
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "materia", force: :cascade do |t|
+    t.integer "codigo"
+    t.string "prerrequisitos"
+    t.string "materias_que_abre"
+    t.integer "creditos"
+    t.string "nombre"
+    t.integer "porcentajeminimo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

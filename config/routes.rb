@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #devise_for :admins
+  #devise_for :users
   devise_for :users, controllers: { confirmations: 'confirmations' }
   #devise_for :users, controllers: { sessions: 'users/sessions' }
   #resources :usuarios, as: :users, only: [ :index ]
@@ -13,7 +13,9 @@ Rails.application.routes.draw do
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
   get 'admin/malla' => 'admin#malla'
-  get 'student/historia_academica' => 'student#historia_academica'
+  get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
+  post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
+  get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   get 'users/create' => 'users#create'
   get 'contact', to: 'contact#index', as: 'contact'
   post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
