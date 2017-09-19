@@ -66,8 +66,8 @@ ActiveRecord::Schema.define(version: 20170919053535) do
     t.float "pa", default: 0.0
     t.float "percentage", default: 0.0
     t.integer "carrer", default: -1
-    t.string "name", default: "Sin nombre"
-    t.string "last_name", default: "Sin apellido"
+    t.string "name"
+    t.string "last_name"
     t.integer "avaliable_credits", default: 0
     t.string "profile_picture", default: "nope"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
