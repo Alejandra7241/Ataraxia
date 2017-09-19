@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(params[:user])
+    @user = User.new(user_params)
  
     respond_to do |format|
       if @user.save
@@ -20,6 +20,12 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  private
+  def user_params
+    params.require(:user).permit(:name, :last_name, :avatar, :email, :password, :password_confirmation)
+  end
+  
   def confirm_email(user)
     @user = user
     puts "Confirme su email"

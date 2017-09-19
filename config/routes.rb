@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
   post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
-  get 'users/create' => 'users#create'
+  post 'users/create' => 'users#create'
   get 'contact', to: 'contact#index', as: 'contact'
   post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
   get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'

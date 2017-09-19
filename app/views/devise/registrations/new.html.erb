@@ -4,7 +4,7 @@
 		<div class = "col-sm-4 well">
       <h1 align="center">¡Registrate en Ataraxia!</h1>
         <div align="center"><img src="/logo_final.png" class="imageWell"></div>
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= form_for @user, url: users_create_path, html: { multipart: true } do |f| %>
           <%= devise_error_messages! %>
           <br>
           <div class="field">
@@ -16,8 +16,8 @@
             <%= f.text_field :last_name, placeholder: 'Ingrese sus apellidos', class: 'form-control'%>
           </div>
           <div class="field">
-            <%= f.label :profile_picture %><br />
-            <%= f.text_field :profile_picture, placeholder: 'Ingrese sus foto (temp)', class: 'form-control'%>
+            <%= f.label :avatar %><br />
+            <%= f.file_field :avatar %>
           </div>
           <div class="field">
             <%= f.label :email %><br />

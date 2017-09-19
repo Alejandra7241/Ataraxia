@@ -39,6 +39,7 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem "figaro"
 gem 'annotate'
+gem "paperclip", "~> 5.0.0"
 
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.

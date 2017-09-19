@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170919053535) do
+ActiveRecord::Schema.define(version: 20170919201310) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "name"
@@ -62,6 +62,10 @@ ActiveRecord::Schema.define(version: 20170919053535) do
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.float "papa", default: 0.0
     t.float "pa", default: 0.0
     t.float "percentage", default: 0.0
@@ -69,7 +73,6 @@ ActiveRecord::Schema.define(version: 20170919053535) do
     t.string "name"
     t.string "last_name"
     t.integer "avaliable_credits", default: 0
-    t.string "profile_picture", default: "nope"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
