@@ -4,7 +4,9 @@ class AddColumnsToUser < ActiveRecord::Migration[5.1]
     add_column :users, :pa, :float, :default => 0.0
     add_column :users, :percentage, :float, :default => 0.0
     add_column :users, :carrer, :integer, :default => -1
-    add_column :users, :name, :string, :default => "Estudiante sin nombre asignado"
+    add_column :users, :name, :string, :default => "Sin nombre"
+    add_column :users, :last_name, :string, :default => "Sin apellido"
     add_column :users, :avaliable_credits, :integer, :default => 0
+    add_column :users, :profile_picture, :string, :default => "nope"
   end
 end
