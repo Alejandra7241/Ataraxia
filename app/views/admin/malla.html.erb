@@ -1,7 +1,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" class="back">
-        <table class="table table-bordered .table-responsive ">
+        <table id="myTable" class="table table-bordered .table-responsive ">
           <thead class="thead"> 
             <tr>
               <th class="semestre">Semestre 1</th>
@@ -17,17 +17,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => 'reset()' %> </td>
+            <tr id="mytr">
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
             </tr>
           </tbody>
         </table>
@@ -88,6 +88,26 @@ function showFundamentacion() {
     var y = document.getElementById('fundamentacion');
     y.style.display='block';
 }
+
+//function addCol(){
+   //Find a <table> element with id="myTable":
+  //var table = document.getElementById("myTable");
+
+ //Create an empty <tr> element and add it to the 1st position of the table:
+  //var row = document.getElementById("mytr");
+  //row.style.id="";
+  //var row2 = table.insertRow(2);
+  //row2.style.id="mytr";
+ //Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+  //var cell1 = row.insertCell(0);
+  //var cell2 = row2.insertCell(0);
+  //cell2.align = "center";
+ //Add some text to the new cells:
+  //cell1.innerHTML = "Materia";
+  //cell2.innerHTML = '<%=  link_to image_tag("/add.png", width: "100"), "#", "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => "addCol()" %>';
+//}
+
+
 </script>
   <!-- The Modal Agregar Materia-->
   <div id="myModal" class="modal fade" role="dialog">
