@@ -5,11 +5,14 @@ Rails.application.routes.draw do
   #resources :usuarios, as: :users, only: [ :index ]
   root 'welcome#index'
   
+  resources :users
+  
 #  devise_for :users, :skip => [:registrations] # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-password                                         
 #  as :user do
 #    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
 #    put 'users' => 'devise/registrations#update', :as => 'user_registration'            
 #  end
+  
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
   get 'admin/malla' => 'admin#malla'
