@@ -1,1 +1,111 @@
-<h1>SHOW</h1>
+<%= stylesheet_link_tag "profile.css" %>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+            <br>
+            <br>
+            <div align="center"><%= image_tag @user.avatar.url(:small) %></div>
+            <br>
+            <br>
+            <p><b>Nombre:</b></p>
+            <p>&emsp;<%=h @user.name %> <%=h @user.last_name %></p>
+            <p><b>Correo:</b></p>
+            <p>&emsp;<%=h @user.email %></p>
+            <p><b>Carrera:</b></p>
+            <p>&emsp;<%=h @user.carrer %></p>
+        </div>
+        <div class="col-sm-9">
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="tab" href="#info">Mi información</a></li>
+                <li><a data-toggle="tab" href="#mallas">Mis mallas</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="info" class="tab-pane fade in active">
+                    <div class="signpost">
+                        <div style="height:65px;"></div>
+                        <table style="width:100%" align="center">
+                          <tr>
+                            <th><%=h @user.pa %></th>
+                            <th><%=h @user.papa %></th>
+                            <th>No existe en db</th>
+                          </tr>
+                          <tr>
+                            <td>P.A.</td>
+                            <td>P.A.P.A.</td>
+                            <td>P.A.P.I.</td>
+                          </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="boardpost">
+                        <div style="height:30px;"></div>
+                        <div class="bpostContent" align="center">
+                            <div class="container" style="width:100%">
+                                <p align="left"><b>Avance en la carrera:</b></p>
+                                <div class="progress" style="margin-left:10%">                                   
+                                    <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.percentage %>%">
+                                      <%=h @user.percentage %>%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" style="width:100%">
+                                <p align="left"><b>Avance materias de fundamentación:</b>
+                                <div class="progress" style="margin-left:10%">                                   
+                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
+                                      Falta campo en db
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" style="width:100%">
+                                <p align="left"><b>Avance materias disciplinares:</b></p>
+                                <div class="progress" style="margin-left:10%">                                   
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
+                                      Falta campo en db
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" style="width:100%">
+                                <p align="left"><b>Avance en electivas:</b></p>
+                                <div class="progress" style="margin-left:10%">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
+                                      Falta campo en db
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="height:20px;"></div>
+                    </div>
+                </div>                
+                <div id="mallas" class="tab-pane fade">
+                    <br>
+                    <div class="container" style="width:90%">
+                        <div class="row">
+                            <div class="col-sm-4"><b>TIPO</b></div>
+                            <div class="col-sm-4"><b>NOMBRE</b></div>
+                            <div class="col-sm-4"><b>Opciones</b></div>
+                        </div>
+                        <br>
+                        <!-- for each malla-->
+                        <div class="row">
+                            <div class="col-sm-4">Estándar</div>
+                            <div class="col-sm-4">Sistemas</div>
+                            <div class="col-sm-4">
+                                <span>
+                                    <a href="#" class="btn btn-info">
+                                        <span class="glyphicon glyphicon-download-alt"></span> 
+                                    </a>
+                                </span>
+                                <span>
+                                  <a href="#" class="btn btn-danger">
+                                    <span class="glyphicon glyphicon-remove"></span>
+                                  </a>
+                                </span>
+                            </div>                            
+                        </div>
+                        <!-- end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

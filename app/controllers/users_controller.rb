@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
-  def index
-   @users = User.all
-  end
+  
+  before_action :authenticate_user!, only: [:show]
   
   def show
-
+   @user = User.find(params[:id])
+  end
+  
+  def index
+   @users = User.all
   end
   
   # GET /users/new
@@ -44,6 +47,6 @@ class UsersController < ApplicationController
   
   
   def confirm_email
-
   end
+
 end
