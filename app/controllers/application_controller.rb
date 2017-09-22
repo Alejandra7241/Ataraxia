@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   private
@@ -11,3 +12,4 @@ class ApplicationController < ActionController::Base
   #before_action :authenticate_user!
   
 end
+

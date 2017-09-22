@@ -1,7 +1,32 @@
 class StudentController < ApplicationController
+    
+    before_action :require_login
+    
+    private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "Recuerda registrarte/iniciar sesión primero para realizar esta acción"
+        redirect_to root_path
+      end
+    end
     def historia_academica
     #When HA setted, redirect with filter
     @history = Historiaacademica.new
+    
+    
+    
+    
+    
+    private
+    def require_login
+      unless user_signed_in?
+        flash[:error] = "Recuerda registrarte/iniciar sesión primero para realizar esta acción"
+        redirect_to root_path
+      end
+    end
+    
+    
+    
  
     end
     def procesar_historia_academica
@@ -121,5 +146,18 @@ class StudentController < ApplicationController
     puts "senid to view"
     @current_semester = 1
     @bolsa = creditos_sobrantes
+    puts "Infomracion importante"
+    puts current_user.name
+    splitting = nombre.split(' ')
+    apellidos = splitting[-2] + " " +  splitting[-1]
+    nombre_sin_apellido = ""
+    i = 0
+    while i < (splitting.length)-2 do
+      nombre_sin_apellido += splitting[i]
+      nombre_sin_apellido += " " if i < (splitting.length)-3
+      i +=1
+    end
+    User.update(current_user.id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes )
+    puts User.find(current_user.id) 
     end
 end

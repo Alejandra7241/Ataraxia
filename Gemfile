@@ -58,6 +58,7 @@ group :development, :test do
   gem 'sqlite3'
   #Own gems
   gem 'letter_opener_web'
+  gem 'dotenv-rails'
 
 end
 

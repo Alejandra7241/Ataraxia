@@ -38,8 +38,6 @@
     <% else %>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to " Registrarse", new_user_registration_path, :class => 'glyphicon glyphicon-user'%></li>
-        <li><%= link_to " Entrar", new_user_session_path, :class => 'glyphicon glyphicon-log-in' %></li>
         <li><%= link_to "<p class='glyphicon glyphicon-user'></p>&nbsp;Registrarse".html_safe, new_user_registration_path, :class => "navbar-brand" %></li>
         <li><%= link_to "<p class='glyphicon glyphicon-log-in'></p>&nbsp;Entrar".html_safe, new_user_session_path, :class => "navbar-brand" %></li>
       </ul>

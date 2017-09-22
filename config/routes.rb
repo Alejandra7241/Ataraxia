@@ -25,7 +25,15 @@ Rails.application.routes.draw do
   get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post "post", to:  "contact#submit_opinion", as: 'examplepostmethod'
+  post 'admin/agregarmateria'
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
   end
+  
+  #Adding subjects via post
+  post 'admin/new_optativa', to: 'admin#new_optativa', as: 'submit_materia_optativa'
+  post 'admin/new_electiva', to: 'admin#new_electiva', as: 'submit_materia_electiva'
+  post 'admin/new_fundamentacion', to: 'admin#new_fundamentacion', as: 'submit_materia_fundamentacion'
+  post 'admin/new_disciplinar', to: 'admin#new_disciplinar', as: 'submit_materia_disciplinar'
+  post 'admin/materia_existente', to: 'admin#materia_existente', as: 'submit_materia_existente'
 end

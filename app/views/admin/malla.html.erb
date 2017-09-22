@@ -109,7 +109,7 @@ function showFundamentacion() {
 
 
 </script>
-  <!-- The Modal Agregar Materia-->
+  <!-- El Modal Agregar Materia-->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
@@ -127,7 +127,7 @@ function showFundamentacion() {
           </div>
           <div id="existente" style="display: none;">
             <form>
-            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <%= form_for :post, :url => submit_materia_existente_path do |f|  %>
             <h3>Materia ya existente:</h3>
             <div class="form-group">
               <%= f.label :codigo, 'Código:' %><br>
@@ -146,7 +146,7 @@ function showFundamentacion() {
             <h4>Por favor seleccione la tipologia.</h4>
             <div class="form-group" align="center">     
               <button type="button" class="btn btn-default" onclick="showElectiva()">Electiva</button>
-              <button type="button" class="btn btn-default" onclick="showOptativa()">optativa</button>
+              <button type="button" class="btn btn-default" onclick="showOptativa()">Optativa</button>
               <button type="button" class="btn btn-default" onclick="showDisciplinar()">Disciplinar</button>
               <button type="button" class="btn btn-default" onclick="showFundamentacion()">Fundamentación</button>
             </div>
@@ -154,7 +154,7 @@ function showFundamentacion() {
           <div id="electiva" style="display: none;">
             <h3>Agregar una nueva electiva:</h3>
             <form>
-            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <%= form_for :post, :url => submit_materia_electiva_path do |f|  %>
             <div class="form-group">
               <%= f.label :creditos, 'Número de creditos:' %><br>
               <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
@@ -170,7 +170,7 @@ function showFundamentacion() {
           <div id="optativa" style="display: none;">
             <h3>Agregar una optativa:</h3>
             <form>
-            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <%= form_for :post, :url => submit_materia_optativa_path do |f|  %>
             <div class="form-group">
               <%= f.label :codigo, 'Código:' %><br>
               <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
@@ -198,7 +198,7 @@ function showFundamentacion() {
           <div id="disciplinar" style="display: none;">
             <h3>Agregar una materia disciplinar:</h3>
             <form>
-            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <%= form_for :post, :url => submit_materia_disciplinar_path do |f|  %>
             <div class="form-group">
               <%= f.label :codigo, 'Código:' %><br>
               <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
@@ -226,7 +226,7 @@ function showFundamentacion() {
           <div id="fundamentacion" style="display: none;">
             <h3>Agregar una materia de fundamentación:</h3>
             <form>
-            <%= form_for :post, :url => submit_opinion_path do |f|  %>
+            <%= form_for :post, :url => submit_materia_fundamentacion_path do |f|  %>
             <div class="form-group">
               <%= f.label :codigo, 'Código:' %><br>
               <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
