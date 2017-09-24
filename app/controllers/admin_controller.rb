@@ -14,45 +14,17 @@ class AdminController < ApplicationController
       redirect_to root_path
     end
   end
+  def index
+      puts "I'm at index motherfuckers!"
+  end
+  
   
   def malla
-    puts "codigo"
-    puts params[:post][:codigo]
-    outs "codigo2"
-    puts @codigo
-    
+    @subject = Subject.new
+    puts "Subject:"
+    puts @subject
   end
   
-  def new_disciplinar
-    puts "codigo"
-    puts params[:post][:codigo]
-    outs "codigo2"
-    puts @codigo
-    redirect_to root_path
-  end
-  
-  def new_electiva
-    puts "codigo"
-    puts params[:post][:codigo]
-    outs "codigo2"
-    puts @codigo
-    redirect_to root_path
-  end
-  
-  def new_fundamentacion
-    puts "codigo"
-    puts params[:post][:codigo]
-    outs "codigo2"
-    puts @codigo
-    redirect_to root_path
-  end
-  
-  def new_optativa
-    puts "codigo"
-    puts params[:post][:codigo]
-    outs "codigo2"
-    puts @codigo
-    redirect_to root_path
-  end
+
   
 end

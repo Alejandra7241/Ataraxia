@@ -16,6 +16,7 @@
     <div class="col-md-6">
         <div style="margin-top: -13%; padding: 8% 5% 8% 5%;">
              <div class="form-group">
+                            <% @history = Historiaacademica.new %>
                             <%= form_for @history, :url => submit_historia_academica_path, method: :post do |f|  %>
                             <div id="respuesta" style="display: none;"></div>
                             <%= f.text_area :informacion, required: true,  :class => 'form-control', rows: 13 %>      

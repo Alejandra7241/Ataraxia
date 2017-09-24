@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   #devise_for :users
   devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
   #devise_for :users, controllers: { sessions: 'users/sessions' }
@@ -15,7 +16,9 @@ Rails.application.routes.draw do
   
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
-  get 'admin/malla' => 'admin#malla'
+  get 'admin/malla', to: 'admin#malla', as: "admin_malla"
+  get 'testadmin/malla', to: 'testadmin#malla'
+  post 'subjects/create', to: 'subjects#create'
   get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
   post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
@@ -36,4 +39,5 @@ Rails.application.routes.draw do
   post 'admin/new_fundamentacion', to: 'admin#new_fundamentacion', as: 'submit_materia_fundamentacion'
   post 'admin/new_disciplinar', to: 'admin#new_disciplinar', as: 'submit_materia_disciplinar'
   post 'admin/materia_existente', to: 'admin#materia_existente', as: 'submit_materia_existente'
+  resources :subjects
 end

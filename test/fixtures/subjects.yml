@@ -1,17 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  codigo: 
-  prerrequisitos: MyString
-  materias_que_abre: MyString
-  creditos: 1
-  nombre: MyString
-  porcentajeminimo: 1.5
+  code: 1
+  name: MyString
+  credits: 1
+  pre: MyString
 
 two:
-  codigo: 
-  prerrequisitos: MyString
-  materias_que_abre: MyString
-  creditos: 1
-  nombre: MyString
-  porcentajeminimo: 1.5
+  code: 1
+  name: MyString
+  credits: 1
+  pre: MyString

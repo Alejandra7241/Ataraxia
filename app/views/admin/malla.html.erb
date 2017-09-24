@@ -1,33 +1,23 @@
+<% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion'] %>
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" class="back">
         <table id="myTable" class="table table-bordered .table-responsive ">
           <thead class="thead"> 
             <tr>
-              <th class="semestre">Semestre 1</th>
-              <th class="semestre">Semestre 2</th>
-              <th class="semestre">Semestre 3</th>
-              <th class="semestre">Semestre 4</th>
-              <th class="semestre">Semestre 5</th>
-              <th class="semestre">Semestre 6</th>
-              <th class="semestre">Semestre 7</th>
-              <th class="semestre">Semestre 8</th>
-              <th class="semestre">Semestre 9</th>
-              <th class="semestre">Semestre 10</th>
+              <% i = 1 %>
+              <% 10.times do %>
+              <th class="semestre">Semestre <%= i %></th>
+              <% i +=1 %>
+              <% end %>
             </tr>
           </thead>
           <tbody>
             <tr id="mytr">
+              <% 10.times do %>
               <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
-              <td align="center"> <%=  link_to image_tag("/add.png", width: '100'), '#', "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText",  :onclick => 'reset()' %> </td>
+              <% end %>
             </tr>
           </tbody>
         </table>
@@ -53,59 +43,32 @@ function reset() {
 }
 
 function showExistente() {
+    console.log("Existente")
     var x = document.getElementById('principal');
     x.style.display='none';
     var y = document.getElementById('existente');
     y.style.display='block';
 }
 function showNueva() {
+    console.log("Existente")
     var x = document.getElementById('principal');
     x.style.display='none';
     var y = document.getElementById('nueva');
     y.style.display='block';
 }
-function showElectiva() {
-    var x = document.getElementById('nueva');
-    x.style.display='none';
-    var y = document.getElementById('electiva');
-    y.style.display='block';
-}
-function showOptativa() {
-    var x = document.getElementById('nueva');
-    x.style.display='none';
-    var y = document.getElementById('optativa');
-    y.style.display='block';
-}
-function showDisciplinar() {
-    var x = document.getElementById('nueva');
-    x.style.display='none';
-    var y = document.getElementById('disciplinar');
-    y.style.display='block';
-}
-function showFundamentacion() {
-    var x = document.getElementById('nueva');
-    x.style.display='none';
-    var y = document.getElementById('fundamentacion');
-    y.style.display='block';
+
+function showMateria(tipo_materia){
+  console.log(tipo_materia);
+  document.getElementById("labelMateria").innerHTML = 'Agregar una materia ' + tipo_materia.toString() + ' :';
+  document.getElementById('setTypology').value = tipo_materia;
+  var x = document.getElementById('nueva');
+  x.style.display='none';
+  var y = document.getElementById('newMateria');
+  y.style.display='block';
 }
 
-//function addCol(){
-   //Find a <table> element with id="myTable":
-  //var table = document.getElementById("myTable");
 
- //Create an empty <tr> element and add it to the 1st position of the table:
-  //var row = document.getElementById("mytr");
-  //row.style.id="";
-  //var row2 = table.insertRow(2);
-  //row2.style.id="mytr";
- //Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-  //var cell1 = row.insertCell(0);
-  //var cell2 = row2.insertCell(0);
-  //cell2.align = "center";
- //Add some text to the new cells:
-  //cell1.innerHTML = "Materia";
-  //cell2.innerHTML = '<%=  link_to image_tag("/add.png", width: "100"), "#", "data-target" => "#myModal", "data-toggle"=>"modal", :class=>"MainNavText", :id=>"MainNavHelp", :onclick => "addCol()" %>';
-//}
+
 
 
 </script>
@@ -144,113 +107,28 @@ function showFundamentacion() {
           <div id="nueva" style="display: none;">
             <h3>Agregar una nueva materia:</h3>
             <h4>Por favor seleccione la tipologia.</h4>
-            <div class="form-group" align="center">     
-              <button type="button" class="btn btn-default" onclick="showElectiva()">Electiva</button>
-              <button type="button" class="btn btn-default" onclick="showOptativa()">Optativa</button>
-              <button type="button" class="btn btn-default" onclick="showDisciplinar()">Disciplinar</button>
-              <button type="button" class="btn btn-default" onclick="showFundamentacion()">Fundamentación</button>
-            </div>
-          </div>
-          <div id="electiva" style="display: none;">
-            <h3>Agregar una nueva electiva:</h3>
-            <form>
-            <%= form_for :post, :url => submit_materia_electiva_path do |f|  %>
-            <div class="form-group">
-              <%= f.label :creditos, 'Número de creditos:' %><br>
-              <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
-            </div> 
-            <div class="form-group" align="center">     
-              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
-              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
-            </div>
-            <div id="respuesta" style="display: none;"></div>
+            <div class="form-group" align="center"> 
+            <% tipos_materia.each do |x|   %>
+              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
             <% end %>
-          </form>
+            </div>
           </div>
-          <div id="optativa" style="display: none;">
-            <h3>Agregar una optativa:</h3>
-            <form>
-            <%= form_for :post, :url => submit_materia_optativa_path do |f|  %>
-            <div class="form-group">
-              <%= f.label :codigo, 'Código:' %><br>
-              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :nombre, 'Nombre:' %><br>
-              <%= f.text_field :nombre, placeholder: "Introduzca el nombre", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :creditos, 'Número de creditos:' %><br>
-              <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
-            </div> 
-             <div class="form-group">
-              <%= f.label :pre, 'Prerrequisitos:' %><br>
-              <%= f.text_field :pre, placeholder: "Introduzca los prerrequisitos", autofocus: true, :class => 'form-control' %>
-            </div> 
-            <div class="form-group" align="center">     
-              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
-              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
-            </div>
-            <div id="respuesta" style="display: none;"></div>
-            <% end %>
-            </form>
-          </div>
-          <div id="disciplinar" style="display: none;">
-            <h3>Agregar una materia disciplinar:</h3>
-            <form>
-            <%= form_for :post, :url => submit_materia_disciplinar_path do |f|  %>
-            <div class="form-group">
-              <%= f.label :codigo, 'Código:' %><br>
-              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :nombre, 'Nombre:' %><br>
-              <%= f.text_field :nombre, placeholder: "Introduzca el nombre", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :creditos, 'Número de creditos:' %><br>
-              <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
-            </div> 
-             <div class="form-group">
-              <%= f.label :pre, 'Prerrequisitos:' %><br>
-              <%= f.text_field :pre, placeholder: "Introduzca los prerrequisitos", autofocus: true, :class => 'form-control' %>
-            </div> 
-            <div class="form-group" align="center">     
-              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
-              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
-            </div>
-            <div id="respuesta" style="display: none;"></div>
-            <% end %>
-            </form>
-          </div>
-          <div id="fundamentacion" style="display: none;">
-            <h3>Agregar una materia de fundamentación:</h3>
-            <form>
-            <%= form_for :post, :url => submit_materia_fundamentacion_path do |f|  %>
-            <div class="form-group">
-              <%= f.label :codigo, 'Código:' %><br>
-              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :nombre, 'Nombre:' %><br>
-              <%= f.text_field :nombre, placeholder: "Introduzca el nombre", autofocus: true, :class => 'form-control' %>
-            </div>
-            <div class="form-group">
-              <%= f.label :creditos, 'Número de creditos:' %><br>
-              <%= f.text_field :creditos, placeholder: "Introduzca el número de creditos", autofocus: true, :class => 'form-control' %>
-            </div> 
-             <div class="form-group">
-              <%= f.label :pre, 'Prerrequisitos:' %><br>
-              <%= f.text_field :pre, placeholder: "Introduzca los prerrequisitos", autofocus: true, :class => 'form-control' %>
-            </div> 
-            <div class="form-group" align="center">     
-              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
-              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
-            </div>
-            <div id="respuesta" style="display: none;"></div>
-            <% end %>
-            </form>
-          </div>
+          <div id="newMateria" style="display: none;">
+            <h3 id="labelMateria"></h3>
+                        <form action="/subjects/create" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                          <label class="col-sm-2 control-label" for="input-name">Codigo</label>
+                          <input type="text" name="code" value="" placeholder="Introduzca el código" id="name" class="form-control" />
+                          <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
+                          <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
+                          <label class="col-sm-2 control-label" for="input-price">Creditos</label>
+                          <input type="text" name="credits" value="" placeholder="Creditos" id="price" class="form-control" /
+                          <label class="col-sm-2 control-label" for="input-description1">Prerrequisitos</label>
+                          <input type="text" name="pre" value="" placeholder="Introduzca los prerrequisitos" id="discount" class="form-control" />
+                          <input type="hidden" name="typology" id="setTypology" value="" />
+                          <input type="submit" class="btn btn-primary" value="Agregar materia">
+                          <input type="reset" class="btn btn-default" value="Limpiar">
+                          </form>
         </div>
       </div>
     </div>
@@ -273,7 +151,6 @@ function showFundamentacion() {
   </div>
 
 </div>
-
 
 
 
