@@ -1,6 +1,6 @@
 class ContactController < ApplicationController
     def index
-    puts "Dub dub"
+
     if(params.has_key?(:post))
         @nombre = params[:post][:nombre]
         @correo = params[:post][:correo]
@@ -12,7 +12,6 @@ class ContactController < ApplicationController
     end
     end
     def submit_opinion
-    #puts "Wubbaaaaaaaaaaaaaa"
     @nombre = params[:post][:nombre]
     @correo = params[:post][:correo]
     @asunto = params[:post][:asunto]

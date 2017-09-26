@@ -5,7 +5,7 @@ class UserMailer < ApplicationMailer
     @user = user
     @url  = 'http://example.com/login'
     puts "It's working?"
-    mail(to: @user.email , subject: 'Bienvenido a Ataraxia inmundo animal')
+    mail(to: @user.email , subject: 'Bienvenido a Ataraxia')
   end
   
   def contact_send_email(nombre,correo,asunto,mensaje)
