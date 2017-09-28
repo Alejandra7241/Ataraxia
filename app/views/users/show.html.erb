@@ -4,7 +4,7 @@
         <div class="col-sm-3">
             <br>
             <br>
-            <div align="center"><%= image_tag @user.avatar.url(:small) %></div>
+            <div align="center"><%= image_tag @user.avatar.url(:medium)%></div>
             <br>
             <br>
             <p><b>Nombre:</b></p>
@@ -25,14 +25,12 @@
                         <div style="height:65px;"></div>
                         <table style="width:100%" align="center">
                           <tr>
-                            <th><%=h @user.pa %></th>
-                            <th><%=h @user.papa %></th>
-                            <th>No existe en db</th>
+                            <th><%=h @user.pa.round(2) %></th>
+                            <th><%=h @user.papa.round(2) %></th>
                           </tr>
                           <tr>
                             <td>P.A.</td>
                             <td>P.A.P.A.</td>
-                            <td>P.A.P.I.</td>
                           </tr>
                         </table>
                     </div>
@@ -44,7 +42,7 @@
                                 <p align="left"><b>Avance en la carrera:</b></p>
                                 <div class="progress" style="margin-left:10%">                                   
                                     <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.percentage %>%">
-                                      <%=h @user.percentage %>%
+                                      <%=h @user.percentage.round(2) %>%
                                     </div>
                                 </div>
                             </div>

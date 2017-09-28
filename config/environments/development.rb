@@ -26,7 +26,7 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
-  # Don't care if the mailer can't send.
+  # Cares if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
@@ -39,8 +39,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = {host: "localhost:3000"}
   
   #Uncomment smtp instead of letter_opener to actually send emails
-  config.action_mailer.delivery_method = :letter_opener
-  #config.action_mailer.delivery_method = :smtp
+  #config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
   
   
   config.action_mailer.smtp_settings = {
