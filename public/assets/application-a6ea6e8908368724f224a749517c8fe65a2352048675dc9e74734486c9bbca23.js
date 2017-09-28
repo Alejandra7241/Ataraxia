@@ -14375,30 +14375,50 @@ return jQuery;
 
 
 (function() {
-  var btn, modal, span;
 
-  modal = document.getElementById('myModal');
-
-  btn = document.getElementById('addB');
-
-  span = document.getElementsByClassName('close')[0];
-
-  btn.onclick = function() {
-    alert('hoooola');
-    modal.style.display = 'block';
-  };
-
-  span.onclick = function() {
-    modal.style.display = 'none';
-  };
-
-  window.onclick = function(event) {
-    if (event.target === modal) {
-      modal.style.display = 'none';
-    }
-  };
 
 }).call(this);
+
+
+
+function reset() {
+    var x = document.getElementById('principal');
+    x.style.display='block';
+    var z = document.getElementById('existente');
+    z.style.display='none';
+    var z = document.getElementById('nueva');
+    z.style.display='none';
+    var a = document.getElementById('newMateria');
+    a.style.display='none';
+
+}
+
+function showExistente() {
+    console.log("Existente");
+    var x = document.getElementById('principal');
+    x.style.display='none';
+    var y = document.getElementById('existente');
+    y.style.display='block';
+}
+function showNueva() {
+    console.log("Existente");
+    var x = document.getElementById('principal');
+    x.style.display='none';
+    var y = document.getElementById('nueva');
+    y.style.display='block';
+}
+
+function showMateria(tipo_materia){
+  console.log(tipo_materia);
+  document.getElementById("labelMateria").innerHTML = 'Agregar una materia ' + tipo_materia.toString() + ' :';
+  document.getElementById('setTypology').value = tipo_materia;
+  var x = document.getElementById('nueva');
+  x.style.display='none';
+  var y = document.getElementById('newMateria');
+  y.style.display='block';
+}
+
+;
 (function() {
   (function() {
     (function() {
@@ -15031,6 +15051,10 @@ return jQuery;
 
 
 }).call(this);
+(function() {
+
+
+}).call(this);
 // This is a manifest file that'll be compiled into application.js, which will include all the files
 // listed below.
 //
@@ -15048,35 +15072,6 @@ return jQuery;
 
 
 
-
-
-
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("addB");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-    alert("hoooola");
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
 
 
 

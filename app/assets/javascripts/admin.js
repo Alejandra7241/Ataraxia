@@ -1,6 +1,5 @@
 
 
-alert("JavaScript working");
 
 function reset() {
     var x = document.getElementById('principal');

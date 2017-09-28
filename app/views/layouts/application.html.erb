@@ -53,9 +53,9 @@
   <nav class="navbar navbar-inverse navbar-fixed-bottom" style="margin: 0px 0px 0px 0px;">
     <div class="container-fluid">
       <div class="navbar-footer">
-        <%= link_to 'Contactenos', root_path, :class => "navbar-brand" %>
-        <%= link_to 'GitHub', 'https://github.com/sedUNdnes', :class => "navbar-brand" %>
-        <%= link_to 'Facebook', 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand" %>
+        <%= link_to 'Contáctenos', contact_direct_path, :class => "navbar-brand" %>
+        <%= link_to 'GitHub', 'https://github.com/sedUNdnes', :class => "navbar-brand", :target => "_blank"%>
+        <%= link_to 'Facebook', 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand", :target => "_blank" %>
       </div>
         
       <% if user_signed_in? %>

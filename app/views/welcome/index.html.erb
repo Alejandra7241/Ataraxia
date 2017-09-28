@@ -26,9 +26,7 @@
       <div class="row">
         <div class="col-xs-12">  
           <div>
-            <a href="/contact" target="_self"><button type="button" class="btn btn-default" aria-label="Left Align" style="margin: 0px 15px">
-            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-            </button></a>
+            <%= link_to "<p class='glyphicon glyphicon-envelope'></p>".html_safe, contact_direct_path, :target => "_self", :class => "btn btn-default" %>
           </div>
         </div>
       </div>

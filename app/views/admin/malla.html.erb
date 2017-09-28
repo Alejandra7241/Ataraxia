@@ -8,7 +8,7 @@
             <tr>
               <% i = 1 %>
               <% 10.times do %>
-              <th class="semestre">Semestre <%= i %></th>
+              <th ><p class="semestre" style="font-size: 50%">Semestre <br> <%= i %></p></th>
               <% i +=1 %>
               <% end %>
             </tr>
@@ -16,7 +16,7 @@
           <tbody>
             <tr id="mytr">
               <% 10.times do %>
-                <td align="center"> <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe,'#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> </td>
+                <td align="center"> <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> </td>
               <% end %>
             </tr>
           </tbody>

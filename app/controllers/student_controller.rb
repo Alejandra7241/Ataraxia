@@ -14,6 +14,7 @@ class StudentController < ApplicationController
       end
     end
     
+    public
     def historia_academica
       #When HA setted, redirect with filter
       @history = Historiaacademica.new
@@ -49,6 +50,7 @@ class StudentController < ApplicationController
                     checking_notes = true
                     next
                 end
+                puts processing[0]
                 if processing[0] == "exigidos"
                     creditos_requeridos = processing[-3].to_f
                 end
