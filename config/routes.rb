@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :cars
   resources :subjects
   #devise_for :users
   devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}

@@ -40,3 +40,6 @@ end
 
 Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) , credits: Faker::Number.between(2, 4), pre: "Calculo Integral"}])
 
+250.times do
+Car.create([{model: Faker::Name.first_name}])
+end
