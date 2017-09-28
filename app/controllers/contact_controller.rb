@@ -8,7 +8,7 @@ class ContactController < ApplicationController
         @mensaje = params[:post][:mensaje]
         #puts "Pickle poooost: nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@mensaje}"
         UserMailer.contact_send_email(@nombre,@correo,@asunto,@mensaje).deliver_later
-        redirect_to contact_path
+        redirect_to contact_direct_path
     end
     end
     def submit_opinion
@@ -18,6 +18,6 @@ class ContactController < ApplicationController
     @opinion = params[:post][:opinion]
     
     #puts "nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@opinion}"
-    redirect_to contact_path
+    redirect_to contact_direct_path
     end
 end
