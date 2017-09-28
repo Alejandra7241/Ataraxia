@@ -40,6 +40,12 @@ class StudentController < ApplicationController
         creditos_aprobados = 0.0
         creditos_requeridos = 0.0
         creditos_sobrantes = 0
+        porcentaje_fundamentacion = 0.0
+        porcentaje_disciplinar = 0.0
+        porcentaje_electivas = 0.0
+        creditos_exigidos_fundamentacion = 0
+        creditos_exigidos_disciplinar = 0
+        creditos_exigidos_electivas = 0
         checking_name = false
         informacion.each_line do |line|
             
@@ -50,12 +56,23 @@ class StudentController < ApplicationController
                     checking_notes = true
                     next
                 end
-                puts processing[0]
+                #puts processing[0]
                 if processing[0] == "exigidos"
                     creditos_requeridos = processing[-3].to_f
+                    puts "Esta!"
+                    puts processing
+                    creditos_exigidos_fundamentacion = processing[1].to_f
+                    creditos_exigidos_disciplinar = processing[2].to_f
+                    creditos_exigidos_electivas = processing[3].to_f
+                    
                 end
                 if processing[0] == "aprobados" && processing[1] == "plan"
                     creditos_aprobados = processing[-1].to_f
+                    puts "Esta!"
+                    puts processing
+                    porcentaje_fundamentacion = (((processing[2].to_f)*100)/creditos_exigidos_fundamentacion)
+                    porcentaje_disciplinar = (((processing[3].to_f)*100)/creditos_exigidos_disciplinar)
+                    porcentaje_electivas = (((processing[4].to_f)*100)/creditos_exigidos_electivas)
                 end
                 if processing[0] == "cupo" && processing[2] == "créditos" && processing[-2] == "pendientes"
                     creditos_sobrantes = processing[-1].to_i
@@ -135,7 +152,10 @@ class StudentController < ApplicationController
         @carrera = codigo_carrera
         @porcentaje = porcentaje
         @nombre = nombre
-        puts "senid to view"
+        puts "PORCENTAJEEES"
+        puts porcentaje_disciplinar
+        puts porcentaje_electivas
+        puts porcentaje_fundamentacion
         @current_semester = 1
         @bolsa = creditos_sobrantes
         puts "Informacion importante"
@@ -149,7 +169,7 @@ class StudentController < ApplicationController
           nombre_sin_apellido += " " if i < (splitting.length)-3
           i +=1
     end
-    User.update(current_user.id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes )
+    User.update(current_user.id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas )
     puts User.find(current_user.id) 
     end
 end

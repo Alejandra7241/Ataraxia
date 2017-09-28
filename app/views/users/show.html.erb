@@ -49,24 +49,24 @@
                             <div class="container" style="width:100%">
                                 <p align="left"><b>Avance materias de fundamentación:</b>
                                 <div class="progress" style="margin-left:10%">                                   
-                                    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                      Falta campo en db
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_f %>%">
+                                      <%=h @user.p_f.round(2) %>%
                                     </div>
                                 </div>
                             </div>
                             <div class="container" style="width:100%">
                                 <p align="left"><b>Avance materias disciplinares:</b></p>
                                 <div class="progress" style="margin-left:10%">                                   
-                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                      Falta campo en db
+                                    <div class="progress-bar progress-bar-default" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_d %>%">
+                                      <%=h @user.p_d.round(2) %>%
                                     </div>
                                 </div>
                             </div>
                             <div class="container" style="width:100%">
                                 <p align="left"><b>Avance en electivas:</b></p>
                                 <div class="progress" style="margin-left:10%">
-                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%">
-                                      Falta campo en db
+                                    <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_e %>%">
+                                      <%=h @user.p_e.round(2) %>%
                                     </div>
                                 </div>
                             </div>
