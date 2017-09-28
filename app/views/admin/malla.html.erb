@@ -1,5 +1,5 @@
 <% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion'] %>
-
+<%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" class="back">
@@ -16,58 +16,93 @@
           <tbody>
             <tr id="mytr">
               <% 10.times do %>
-              <td align="center"> <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe,'#', "data-target" => "#myModal", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> </td>
-                                  
+                <td align="center"> <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe,'#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> </td>
               <% end %>
             </tr>
           </tbody>
         </table>
       </div>
   </div>
-<script>
 
-function reset() {
-    var x = document.getElementById('principal');
-    x.style.display='block';
-    var z = document.getElementById('existente');
-    z.style.display='none';
-    var z = document.getElementById('nueva');
-    z.style.display='none';
-    var a = document.getElementById('newMateria');
-    a.style.display='none';
+<!-- The Modal Ayuda -->
 
-}
+  <div id="myModal3" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-ayuda">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Ventana de ayuda</h2>
+        </div>
+        <div class="modal-body" >
+          <div align="center"><img width="80%" class="img-responsive" src="/ayuda_admin.png" class="img-fluid" alt="help" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- El Modal Agregar Materia-->
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-agregar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Agregar Materia</h2>
+        </div>
+        <div class="modal-body">
+          <div id="principal">
+            <div class="form-group" align="center">     
+              <button type="button" class="btn btn-default" onclick="showNueva()">Nueva Materia</button>
+              <button type="button" class="btn btn-default" onclick="showExistente()">Materia ya existente</button>
+            </div>
+          </div>
+          <div id="existente" style="display: none;">
+            <form>
+            <%= form_for :post, :url => submit_materia_existente_path do |f|  %>
+            <h3>Materia ya existente:</h3>
+            <div class="form-group">
+              <%= f.label :codigo, 'Código:' %><br>
+              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+            </div>
+            <div class="form-group" align="center">     
+              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            <div id="respuesta" style="display: none;"></div>
+            <% end %>
+          </form>
+          </div>
+          <div id="nueva" style="display: none;">
+            <h3>Agregar una nueva materia:</h3>
+            <h4>Por favor seleccione la tipologia.</h4>
+            <div class="form-group" align="center"> 
+            <% tipos_materia.each do |x|   %>
+              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
+            <% end %>
+            </div>
+          </div>
+          <div id="newMateria" style="display: none;">
+            <h3 id="labelMateria"></h3>
+                        <form action="/subjects/create" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                          <label class="col-sm-2 control-label" for="input-name">Codigo</label>
+                          <input type="text" name="code" value="" placeholder="Introduzca el código" id="name" class="form-control" />
+                          <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
+                          <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
+                          <label class="col-sm-2 control-label" for="input-price">Creditos</label>
+                          <input type="text" name="credits" value="" placeholder="Creditos" id="price" class="form-control" /
+                          <label class="col-sm-2 control-label" for="input-description1">Prerrequisitos</label>
+                          <input type="text" name="pre" value="" placeholder="Introduzca los prerrequisitos" id="discount" class="form-control" />
+                          <input type="hidden" name="typology" id="setTypology" value="" />
+                          <input type="submit" class="btn btn-primary" value="Agregar materia">
+                          <input type="reset" class="btn btn-default" value="Limpiar">
+                          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
-function showExistente() {
-    console.log("Existente")
-    var x = document.getElementById('principal');
-    x.style.display='none';
-    var y = document.getElementById('existente');
-    y.style.display='block';
-}
-function showNueva() {
-    console.log("Existente")
-    var x = document.getElementById('principal');
-    x.style.display='none';
-    var y = document.getElementById('nueva');
-    y.style.display='block';
-}
-
-function showMateria(tipo_materia){
-  console.log(tipo_materia);
-  document.getElementById("labelMateria").innerHTML = 'Agregar una materia ' + tipo_materia.toString() + ' :';
-  document.getElementById('setTypology').value = tipo_materia;
-  var x = document.getElementById('nueva');
-  x.style.display='none';
-  var y = document.getElementById('newMateria');
-  y.style.display='block';
-}
-
-
-
-
-
-</script>
   <!-- El Modal Agregar Materia-->
   <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -129,22 +164,8 @@ function showMateria(tipo_materia){
       </div>
     </div>
   </div>
+</div>
 
-<!-- The Modal Ayuda -->
-  <div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
-        <div class="modal-header modal-ayuda">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Ventana de ayuda</h2>
-        </div>
-        <div class="modal-body" >
-          <div align="center"><img width="80%" class="img-responsive" src="/ayuda_admin.png" class="img-fluid" alt="help" /></div>
-        </div>
-      </div>
-    </div>
-  </div>
 
 </div>
 

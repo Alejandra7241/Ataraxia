@@ -10,7 +10,7 @@ class StudentController < ApplicationController
         redirect_to root_path
       end
       if user_signed_in? && current_user.admin?
-        redirect_to admin_malla_path
+        redirect_to admin_index_path
       end
     end
     
@@ -136,7 +136,7 @@ class StudentController < ApplicationController
         puts "senid to view"
         @current_semester = 1
         @bolsa = creditos_sobrantes
-        puts "Infomracion importante"
+        puts "Informacion importante"
         puts current_user.name
         splitting = nombre.split(' ')
         apellidos = splitting[-2] + " " +  splitting[-1]
