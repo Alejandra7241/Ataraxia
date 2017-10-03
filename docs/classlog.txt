@@ -1,3 +1,15 @@
+
+Clase 03 - Octubre - 2017
+
+* Intentar sacar el ajax del modal corrigiendo la sintaxis en javascript : Nicolás Restrepo.
+* Hacer la barra de navegación estática : Brayan García - Laura Morales.
+* Arreglar estilos de las notificaciones (alertas) : Laura Morales.
+* Agregar imagen de usuario en el header : Brayan García.
+* Asosiación de los modelos malla con semestres en la base de datos : Lizzy Tengana. 
+
+
+Clase pasada
+
 Creación primer mockup, Home.
 Configuración de la base de datos SQL Lite en test y desarrollo.
 Configuración de la base de datos POSTGRESQL en producción:Heroku.
