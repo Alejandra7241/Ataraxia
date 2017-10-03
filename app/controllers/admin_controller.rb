@@ -27,13 +27,13 @@ class AdminController < ApplicationController
   end
   
   def materia_existente
-    puts "WOW!"
+   
     
     puts params[:subject][:code]
     #@nombre = Subject.find_by(id: params[:subject][:code]).name unless Subject.find_by(id: params[:subject][:code]).name.nil?
     @code = 4868694;
     respond_to do |format|
-    format.js { render :js => "ajaxexample(#{params[:subject][:code]});" }
+    format.js { render :js => "#{160}" }
     end
    
   end

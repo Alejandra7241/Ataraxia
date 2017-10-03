@@ -1,10 +1,20 @@
 
 
 
-function ajaxexample(passingcode){
+function example(){
+    var sucess_path = "/";
+  //  $("body").html("");
+    $.ajax({
+          type: "POST",
+          url: sucess_path,
+          data: "11",
+          success: function(data){
+              alert("Worked!");
+              console.log(data);
+          }
+        });
     
- 
-    var code = passingcode;
+    
 }
 function reset() {
     var x = document.getElementById('principal');
