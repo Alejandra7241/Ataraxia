@@ -1,6 +1,11 @@
 
 
 
+function ajaxexample(passingcode){
+    
+ 
+    var code = passingcode;
+}
 function reset() {
     var x = document.getElementById('principal');
     x.style.display='block';
@@ -21,11 +26,12 @@ function showExistente() {
     y.style.display='block';
 }
 function showNueva() {
-    console.log("Existente");
+    console.log("Nueva");
     var x = document.getElementById('principal');
     x.style.display='none';
     var y = document.getElementById('nueva');
     y.style.display='block';
+    alert("Admin");
 }
 
 function showMateria(tipo_materia){
@@ -37,4 +43,6 @@ function showMateria(tipo_materia){
   var y = document.getElementById('newMateria');
   y.style.display='block';
 }
+
+
 

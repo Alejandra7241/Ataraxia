@@ -1,3 +1,7 @@
+
+<% @user.p_f = 0 if @user.p_f.nil? %>
+<% @user.p_d = 0 if @user.p_d.nil? %>
+<% @user.p_e = 0 if @user.p_e.nil? %>
 <%= stylesheet_link_tag "profile.css" %>
 <div class="container">
     <div class="row">

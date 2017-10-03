@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :cars
   resources :subjects
   #devise_for :users
-  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations'}
+  devise_for :users, controllers: { confirmations: 'confirmations', registrations: 'registrations', :omniauth_callbacks => "users/omniauth_callbacks" }
   #devise_for :users, controllers: { sessions: 'users/sessions' }
   #resources :usuarios, as: :users, only: [ :index ]
   root 'welcome#index'
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
+  get 'student/index' => 'student#index'
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'testadmin/malla', to: 'testadmin#malla'
   post 'subjects/create', to: 'subjects#create'
@@ -35,10 +36,6 @@ Rails.application.routes.draw do
   end
   
   #Adding subjects via post
-  post 'admin/new_optativa', to: 'admin#new_optativa', as: 'submit_materia_optativa'
-  post 'admin/new_electiva', to: 'admin#new_electiva', as: 'submit_materia_electiva'
-  post 'admin/new_fundamentacion', to: 'admin#new_fundamentacion', as: 'submit_materia_fundamentacion'
-  post 'admin/new_disciplinar', to: 'admin#new_disciplinar', as: 'submit_materia_disciplinar'
   post 'admin/materia_existente', to: 'admin#materia_existente', as: 'submit_materia_existente'
   resources :subjects
 end

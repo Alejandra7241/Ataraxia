@@ -42,6 +42,10 @@ gem 'annotate'
 gem "paperclip", "~> 5.0.0"
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'will_paginate', '~> 3.1.0'
+gem 'jquery-turbolinks'
+gem 'twitter-typeahead-rails'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.
 #       Please make sure that it is not alreabundy in your Gemfile before uncommenting it.

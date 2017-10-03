@@ -45,6 +45,8 @@
                     %>
                     <%= link_to "Entrar", new_user_session_path, :class => "btn btn-info btn-large botons" %>
                     <a onclick='alert("Lo sentimos, esta funcionalidad aún no está implementada")' target="_self"><input type="button" class="btn btn-info btn-large botons disabled" value="Invitado"/> </a>
+                     <!--link_to "Entrar con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-info btn-large botons" -->
+                    <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
                   </div>
                   <% end %>
                 </div>

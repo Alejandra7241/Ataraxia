@@ -15,7 +15,7 @@ disponibles; y finalmente que pueda editar la malla que ofrece la aplicación we
 
 #### Integrantes
 
-* Brayan Steven García
-* Laura Morales Ariza
-* Lizzy Tengana Hurtado
-* Nicolás Restrepo Torres
+* - Brayan Garcia - bsgarciac@unal.edu.co - ScrumMaster - Desarrollador
+* Nicolás Restrepo Torres - nrestrepot@unal.edu.co - Desarrollador
+* Lizzy Tengana Hurtado - ltenganah@unal.edu.co - Desarrolladora
+* Laura Morales Ariza - lgmoralesa@unal.edu.co - Desarrolladora

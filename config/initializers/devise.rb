@@ -279,6 +279,10 @@ Devise.setup do |config|
   
   # Comment this line for undone grace period for unconfirmed users
   config.allow_unconfirmed_access_for = 365.days
+  
+  
+  config.omniauth :google_oauth2, '1061914456760-cskr6e50uovg8ep6198bs2f8jqda3sjq.apps.googleusercontent.com', 'rmYTdZxbCUVKuwafOUmdRp2J', {}
+  config.omniauth :facebook, "1954623151471160", "06ea6ebd368f4825557ea15941e68f15"
   # If we need to take this permanently for some reason, apply this:
   # in User.rb
   # protected

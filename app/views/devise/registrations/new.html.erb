@@ -1,3 +1,4 @@
+<%= devise_error_messages! %>
 <img src="/universidad3.jpg" class="bottomImage">
 <div class="row">
   <div class = "col-sm-4"></div>
@@ -29,12 +30,12 @@
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> caracteres mínimo)</em>
             <% end %><br />
-            <%= f.password_field :password, autocomplete: "off", placeholder: 'Ingrese su contraseña', class: 'form-control' %>
+            <%= f.password_field :password, autocomplete: "off", autofocus: true, placeholder: 'Ingrese su contraseña', class: 'form-control' %>
           </div>
           <br>
           <div class="field">
             <%= f.label :password_confirmation %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: 'Confirme su contraseña', class: 'form-control' %>
+            <%= f.password_field :password_confirmation, autocomplete: "off", autofocus: true, placeholder: 'Confirme su contraseña', class: 'form-control' %>
           </div>
           <br>
           <div class="actions" style="text-align:center">

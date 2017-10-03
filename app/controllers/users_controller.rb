@@ -1,6 +1,18 @@
 class UsersController < ApplicationController
   
   before_action :authenticate_user!, only: [:show]
+  before_action :restrict_access
+    
+  private
+  def restrict_access
+    puts "////////// #{current_user.id} #{params[:id]} /////// #{current_user.id == params[:id]}"
+    unless current_user.id.to_i == params[:id].to_i
+      flash[:notice] = "Solo puedes ver tu propio perfil."
+      redirect_to current_user
+    end
+  end
+    
+  public
   
   def show
    @user = User.find(params[:id])

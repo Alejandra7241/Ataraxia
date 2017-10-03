@@ -14,6 +14,7 @@ class AdminController < ApplicationController
       redirect_to root_path
     end
   end
+  public
   def index
       puts "I'm at index motherfuckers!"
   end
@@ -22,7 +23,19 @@ class AdminController < ApplicationController
   def malla
     @subject = Subject.new
     puts "Subject:"
-    puts @subject
+    print @subject
+  end
+  
+  def materia_existente
+    puts "WOW!"
+    
+    puts params[:subject][:code]
+    #@nombre = Subject.find_by(id: params[:subject][:code]).name unless Subject.find_by(id: params[:subject][:code]).name.nil?
+    @code = 4868694;
+    respond_to do |format|
+    format.js { render :js => "ajaxexample(#{params[:subject][:code]});" }
+    end
+   
   end
   
 

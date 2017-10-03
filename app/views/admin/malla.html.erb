@@ -1,6 +1,11 @@
 <% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion'] %>
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div class="container-fluid">
+  
+  
+
+  
+  
     <div class="row">
         <div class="col-md-12" class="back">
         <table id="myTable" class="table table-bordered .table-responsive ">
@@ -58,20 +63,40 @@
             </div>
           </div>
           <div id="existente" style="display: none;">
-            <form>
-            <%= form_for :post, :url => submit_materia_existente_path do |f|  %>
+          
+            <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
             <h3>Materia ya existente:</h3>
             <div class="form-group">
-              <%= f.label :codigo, 'Código:' %><br>
-              <%= f.text_field :codigo, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <%= f.label :code, 'Código:' %><br>
+              <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <span id="banana-variable" style="display:none"><% @subject.code %></span>
+              <%= content_tag :div, id: 'container', data: {source: @subject.code}%>
+                      <table class="table table-striped" id="tblGrid">
+                    <thead id="tblHead">
+                      <tr>
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th class="text-right">Tipología</th>
+                      </tr>
+                    </thead>
+                    <tbody id= "change">
+                      <tr><td>Long Island, NY, USA</td>
+                        <td>3</td>
+                        <td class="text-right">45001</td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
             </div>
             <div class="form-group" align="center">     
-              <%= f.submit 'Agregar materia', :class => 'btn btn-primary' %>
+              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
             </div>
+            
+            
             <div id="respuesta" style="display: none;"></div>
             <% end %>
-          </form>
+          
           </div>
           <div id="nueva" style="display: none;">
             <h3>Agregar una nueva materia:</h3>
