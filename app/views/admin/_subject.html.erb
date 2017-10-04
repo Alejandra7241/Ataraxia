@@ -1,5 +1,10 @@
-<div>
-    <p align="left"><%= subj.credits %></p>
-    <p align="center"><%= subj.name %></p>
-    <p>---</p>
+<div id="subj">
+    <% if subj.typology=='B' %>
+        <div class="rcorners1" align="left" style="background:#FEC34C;"><%= subj.credits %></div>
+    <% elsif subj.typology=='C' %>
+        <div class="rcorners1" align="left" style="background:#00FF00;"><%= subj.credits %></div>
+    <% elsif subj.typology=='L' %>
+        <div class="rcorners1" align="left" style="background:#00FEFF;"><%= subj.credits %></div>
+    <% end %>
+    <div class="rcorners2" align="center"><%= subj.name %></div>
 </div>
