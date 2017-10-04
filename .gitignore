@@ -22,4 +22,5 @@
 /config/application.yml
 
 #Ignore secrets.yml file
-config/secrets.yml
+/config/secrets.yml
+
