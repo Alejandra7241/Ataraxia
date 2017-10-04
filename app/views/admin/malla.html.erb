@@ -11,17 +11,20 @@
         <table id="myTable" class="table table-bordered .table-responsive ">
           <thead class="thead"> 
             <tr>
-              <% i = 1 %>
-              <% 10.times do %>
-              <th ><p class="semestre" style="font-size: 50%">Semestre <br> <%= i %></p></th>
-              <% i +=1 %>
+              <% @malla.semesters.each do |sem| %>
+                <th >
+                  <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                </th>
               <% end %>
             </tr>
           </thead>
           <tbody>
             <tr id="mytr">
-              <% 10.times do %>
-                <td align="center"> <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> </td>
+              <% @malla.semesters.each do |sem| %>
+                <td align="center">
+                  <p>Lalala <%= sem.number %></p>
+                  <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> 
+                </td>
               <% end %>
             </tr>
           </tbody>

@@ -10,6 +10,7 @@
 
 #Validar todas las tablas que 
 
+=begin
 
 public
 def range_for_papa (min, max)
@@ -43,3 +44,10 @@ Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) ,
 250.times do
 Car.create([{model: Faker::Name.first_name}])
 end
+
+=end
+
+mallaSis = Malla.create({tipo:'Estándar', nombre: 'Ingeniería de Sistemas', })
+#mallaSis = Malla.find_by name: 'Ingeniería de Sistemas'
+mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}])
+
