@@ -24,6 +24,7 @@ class AdminController < ApplicationController
     @subject = Subject.new
     puts "Subject:"
     print @subject
+    @malla = Malla.find_by nombre: 'Ingeniería de Sistemas'
   end
   
   def materia_existente
