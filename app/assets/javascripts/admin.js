@@ -1,20 +1,21 @@
 
 
 
-function example(){
-    var sucess_path = "/";
-  //  $("body").html("");
-    $.ajax({
-          type: "POST",
-          url: sucess_path,
-          data: "11",
-          success: function(data){
-              alert("Worked!");
-              console.log(data);
-          }
-        });
-    
-    
+function searchSubject(name,code,typology){
+    //console.log(code)
+    $('#tableQuery').each(function() {
+        $(this).hide();
+    });
+    $("#tbodyid").empty();
+    if(code != -1){
+        document.getElementById("jschange").innerHTML = '';
+        $('#tableQuery').each(function() {
+        $(this).show();
+    });
+    $('#tableQuery > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td class="text-right">' + typology  + '</td><td>POST agregar materia </td></tr>');
+    }else{
+        document.getElementById("jschange").innerHTML = 'No se han encontrado materias con ese código';
+    }
 }
 function reset() {
     var x = document.getElementById('principal');

@@ -27,17 +27,15 @@ class AdminController < ApplicationController
   end
   
   def materia_existente
-   
-    
-    puts params[:subject][:code]
-    #@nombre = Subject.find_by(id: params[:subject][:code]).name unless Subject.find_by(id: params[:subject][:code]).name.nil?
-    @code = 4868694;
+    @code =  params[:subject][:code]
+    @subject = Subject.find_by_code(@code)
     respond_to do |format|
-    format.js { render :js => "#{160}" }
+      unless @subject.nil?
+        format.js { render :js => "searchSubject('#{@subject.name}','#{@subject.code}','#{@subject.typology}')" }
+      else
+        format.js { render :js => "searchSubject('x','-1','x')" }
+      end
     end
    
   end
-  
-
-  
 end
