@@ -47,10 +47,40 @@ end
 
 =end
 
-#mallaSis = Malla.create({tipo:'Estándar', nombre: 'Ingeniería de Sistemas', })
-mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas'
-#mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}])
-#sem = mallaSis.semesters.find_by number: 1
-#sem.subjects.create([{code: 1000004, name: 'Cálculo diferencial', credits: 4, typology: 'B'}, {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3, typology: 'C'}, {code: 2015734, name: 'Programación de computadores', credits: 3, typology: 'C'}])
+#---------- Malla estándar Ingeniería de Sistemas y Computación ----------#
 
-mallaSis.semesters.create([{:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+# mallaSis = Malla.create({tipo:'Estándar', nombre: 'Ingeniería de Sistemas y Computación', })
+# mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas y Computación'
+=begin
+mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+
+sem = mallaSis.semesters.find_by number: 1
+sem.subjects.create([{code: 1000004, name: 'Cálculo diferencial', credits: 4, typology: 'B'}, {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3, typology: 'C'}, {code: 2015734, name: 'Programación de computadores', credits: 3, typology: 'C'}, {code: 9999999, name: 'Libre elección', credits: 3, typology: 'L'}])
+
+sem = mallaSis.semesters.find_by number: 2
+sem.subjects.create([{code: 1000019, name: 'Fundamentos de mecánica', credits: 4, typology: 'B'},{code: 1000005, name: 'Cálculo integral', credits: 4, typology: 'B'},{code: 1000003, name: 'Álgebra lineal', credits: 4, typology: 'B'},{code: 2016375, name: 'Programación orientada a objetos', credits: 3, typology: 'C'}])
+
+sem = mallaSis.semesters.find_by number: 3
+sem.subjects.create([{code: 1000013, name: 'Probabilidad y estadística', credits: 3, typology: 'B'}, {code: 1000006, name: 'Calculo en varias variables', credits: 4, typology: 'B'},{code: 2025963, name: 'Matemáticas discretas I', credits: 4, typology: 'B'},{code: 2016353, name: 'Bases de datos', credits: 3, typology: 'C'},{code: 2016698, name: 'Elementos de computadores', credits: 3, typology: 'C'}])
+
+sem = mallaSis.semesters.find_by number: 4
+sem.subjects.create([{code: 1000017, name: 'Fundamentos de electricidad y magnetismo', credits: 4, typology: 'B'},{code: 2015703, name: 'Ingeniería económica', credits: 3, typology: 'B'},{code: 2025964, name: 'Matemáticas discretas II', credits: 4, typology: 'B'},{code: 2016699, name: 'Estructuras de datos', credits: 3, typology: 'C'},{code: 2016697, name: 'Arquitectura de computadores', credits: 3, typology: 'C'}])
+
+sem = mallaSis.semesters.find_by number: 5
+sem.subjects.create([{code: 2025970, name: 'Modelos y simulación', credits: 3, typology: 'C'},{code: 2015702, name: 'Gerencia y gestión de proyectos', credits: 3, typology: 'B'},{code: 2025967, name: 'Redes de computadores', credits: 3, typology: 'C'},{code: 2016701, name: 'Ingeniería de software I', credits: 3, typology: 'C'},{code: 2015174, name: 'Introducción a la teória de la computación', credits: 4, typology: 'B'}])
+
+sem = mallaSis.semesters.find_by number: 6
+sem.subjects.create([{code: 2025971, name: 'Optimización', credits: 3, typology: 'C'},{code: 2015970, name: 'Métodos Númericos', credits: 3, typology: 'B'},{code: 2025982, name: 'Sistemas de información', credits: 3, typology: 'C'},{code: 2016702, name: 'Ingeniería de software II', credits: 3, typology: 'C'},{code: 2016696, name: 'Algoritmos', credits: 3, typology: 'B'},{code: 2016707, name: 'Sistemas operativos', credits: 3, typology: 'C'}])
+
+sem = mallaSis.semesters.find_by number: 7
+sem.subjects.create([{code: 2025969, name: 'Modelos estocastícos y simulación en computación y comunicaciones', credits: 3, typology: 'C'},{code: 2025994, name: 'Teoría de la información y sistemas de comunicaciones', credits: 3, typology: 'C'},{code: 2016703, name: 'Pensamiento sistemico', credits: 3, typology: 'C'},{code: 2016716, name: 'Arquitectura de software', credits: 3, typology: 'C'},{code: 2025966, name: 'Lenguajes de programación', credits: 3, typology: 'C'},{code: 2025995, name: 'Introducción a los sistemas inteligentes', credits: 3, typology: 'C'}])
+
+sem = mallaSis.semesters.find_by number: 8
+sem.subjects.create([{code: 2016722, name: 'Computación paralela y distribuida', credits: 3, typology: 'C'},{code: 2025960, name: 'Computación visual', credits: 3, typology: 'C'},{code: 2024045, name: 'Taller de proyectos interdisciplinarios', credits: 3, typology: 'C'},{code: 2025983, name: 'Arquitectura de infraestructura y gobierno de TICs', credits: 3, typology: 'C'},{code: 2025972, name: 'Criptografía y seguridad de la información', credits: 3, typology: 'C'},{code: 9999990, name: 'Libre elección', credits: 2, typology: 'L'}])
+
+sem = mallaSis.semesters.find_by number: 9
+sem.subjects.create([{code: 9999991, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999992, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999993, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999994, name: 'Libre elección', credits: 4, typology: 'L'}])
+
+sem = mallaSis.semesters.find_by number: 10
+sem.subjects.create([{code: 9999995, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999996, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999997, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999998, name: 'Trabajo de grado', credits: 6, typology: 'C'}])
+=end
