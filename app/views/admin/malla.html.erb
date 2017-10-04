@@ -22,7 +22,9 @@
             <tr id="mytr">
               <% @malla.semesters.each do |sem| %>
                 <td align="center">
-                  <p>Lalala <%= sem.number %></p>
+                  <% sem.subjects.each do |subj| %>
+                    <%= render partial: "subject", locals: {subj: subj} %>
+                  <% end %>
                   <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> 
                 </td>
               <% end %>
