@@ -47,6 +47,7 @@ gem 'twitter-typeahead-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
+
 # NOTE: The sass-rails gem is included with new Rails applications by default.
 #       Please make sure that it is not alreabundy in your Gemfile before uncommenting it.
 # gem 'sass-rails'
