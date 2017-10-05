@@ -19,7 +19,7 @@ class StudentController < ApplicationController
       if User.check_complete_data_for_academic_history(current_user.id)
           # puts "AH setted"
           #flash[:notice] = "Para volver a introducir la historia academica, busca la opción en editar perfil."
-          redirect_to student_main_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_main_path)
+          redirect_to student_index_path  unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_index_path )
           #redirect_to get_historia_academica_path
       else
           # puts " AH unsetted"
@@ -187,6 +187,6 @@ class StudentController < ApplicationController
     
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas )
     flash[:notice] = "Tu historia academica se ha guardado correctamente."
-    redirect_to student_main_path
+    redirect_to student_index_path 
     end
 end
