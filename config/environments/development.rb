@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  SUPER_SECRET_KEY = Rails.application.secrets.super_secret_key
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
@@ -47,10 +47,10 @@ Rails.application.configure do
   address:              'smtp.gmail.com',
   port:                 587,
   domain:               'gmail.com',
-  user_name:            ENV['GMAIL_USERNAME'],
-  password:             ENV['GMAIL_PASSWORD'],
-  authentication:       'plain'
-  # enable_starttls_auto: true
+  user_name:            'ataraxiasedundnes@gmail.com',
+  password:             'ataraxiaSMsedUNdnes',
+  authentication:       'plain',
+  enable_starttls_auto: true 
   # ^ ^ remove this option ^ ^
 }
   

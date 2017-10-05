@@ -5,7 +5,11 @@ class UsersController < ApplicationController
     
   private
   def restrict_access
-    puts "////////// #{current_user.id} #{params[:id]} /////// #{current_user.id == params[:id]}"
+    # if current_user.nil?
+    #   flash[:notice] = "Tienes que estar registrado."
+    #   redirect_to root_path
+    #   return
+    # end
     unless current_user.id.to_i == params[:id].to_i
       flash[:notice] = "Solo puedes ver tu propio perfil."
       redirect_to current_user

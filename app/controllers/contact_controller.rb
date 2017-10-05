@@ -8,6 +8,7 @@ class ContactController < ApplicationController
         @mensaje = params[:post][:mensaje]
         #puts "Pickle poooost: nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@mensaje}"
         UserMailer.contact_send_email(@nombre,@correo,@asunto,@mensaje).deliver_later
+        puts Rails.application.secrets.gmail_password
         redirect_to contact_direct_path
     end
     end

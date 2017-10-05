@@ -21,6 +21,7 @@ class AdminController < ApplicationController
   
   
   def malla
+  
     @subject = Subject.new
     puts "Subject:"
     print @subject
