@@ -17,12 +17,7 @@ Rails.application.routes.draw do
   
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
-<<<<<<< HEAD
   get 'student/index', to: 'student#index', as: 'student_main'
-=======
-  get 'student/index' => 'student#index'
-  get 'contact/index2' => 'contact#index2'
->>>>>>> d40abc591fc5531e3d1c4986003112b1ee3dc627
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'testadmin/malla', to: 'testadmin#malla'
   post 'subjects/create', to: 'subjects#create'
