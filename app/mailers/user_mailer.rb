@@ -13,7 +13,7 @@ class UserMailer < ApplicationMailer
     @correo = correo
     @asunto = asunto
     @mensaje = mensaje
-    mail(to: 'ataraxiasedundnes@gmail.com', subject: "Solicitud de concato por parte de #{@nombre}")
+    mail(to: 'ataraxiasedundnes@gmail.com', subject: "Solicitud de contacto por parte de #{@nombre}")
   end
   
 end
