@@ -2,8 +2,10 @@ class StudentController < ApplicationController
     
 
     before_action :require_login
-    
+    before_action :check_academic_history, only: [:historia_academica, :index]
+    #self.check_complete_data_for_academic_history(id)
     private
+    
     def require_login
       unless user_signed_in?
         flash[:error] = "Recuerda registrarte/iniciar sesión primero para realizar esta acción"
@@ -13,8 +15,21 @@ class StudentController < ApplicationController
         redirect_to admin_index_path
       end
     end
-    
+    def check_academic_history
+      if User.check_complete_data_for_academic_history(current_user.id)
+          # puts "AH setted"
+          #flash[:notice] = "Para volver a introducir la historia academica, busca la opción en editar perfil."
+          redirect_to student_main_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_main_path)
+          #redirect_to get_historia_academica_path
+      else
+          # puts " AH unsetted"
+          flash[:notice] = "Primero actualiza tus datos pegando tu historia academica."
+          redirect_to get_historia_academica_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(get_historia_academica_path)
+      end
+    end
     public
+    def index
+    end
     def historia_academica
       #When HA setted, redirect with filter
       @history = Historiaacademica.new
@@ -169,7 +184,9 @@ class StudentController < ApplicationController
           nombre_sin_apellido += " " if i < (splitting.length)-3
           i +=1
     end
-    User.update(current_user.id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas )
-    puts User.find(current_user.id) 
+    
+    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas )
+    flash[:notice] = "Tu historia academica se ha guardado correctamente."
+    redirect_to student_main_path
     end
 end

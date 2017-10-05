@@ -48,4 +48,16 @@ class User < ApplicationRecord
   # def name                   # custom getter
   # "Dearest " + @name        # make it nice
   # end
+  
+  def self.check_complete_data_for_academic_history(id)
+    @user = User.find_by(id: id)
+    if @user.name.nil? || @user.percentage.nil? || @user.papa.nil? || @user.pa.nil? || @user.carrer.nil? || @user.last_name.nil? || @user.avaliable_credits.nil? || @user.p_d.nil? || @user.p_f.nil? || @user.p_e.nil? 
+      return false
+    end
+    return true
+  end
+  
+  def self.set_data_from_academic_history(id, nombre_sin_apellido, porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas)
+      User.update(id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas )
+    end
 end

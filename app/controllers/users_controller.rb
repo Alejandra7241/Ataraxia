@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :authenticate_user!, only: [:show]
-  before_action :restrict_access
+  before_action :restrict_access, only: [:show]
     
   private
   def restrict_access
