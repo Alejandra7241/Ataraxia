@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get 'welcome/empty' => 'welcome#empty'
   get 'admin/index' => 'admin#index'
   get 'student/index' => 'student#index'
+  get 'contact/index2' => 'contact#index2'
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'testadmin/malla', to: 'testadmin#malla'
   post 'subjects/create', to: 'subjects#create'
