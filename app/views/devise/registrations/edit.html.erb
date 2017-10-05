@@ -4,7 +4,7 @@
 		<div class = "col-sm-4"></div>
 		<div class = "col-sm-4 well">
             <!--<div align="center"><img src="/logo_final.png" class="imageWell">-->
-            <div align="center"><%= image_tag @user.avatar.url(:small) %>
+            <div align="center"><%= image_tag current_user.avatar.url(:small) %>
               <h1>Editar Cuenta</h1>
             </div>
             <%= form_for @user, url: users_create_path, html: { multipart: true } do |f| %>
@@ -15,8 +15,9 @@
                   <%= f.label :avatar %><br />
                   <%= f.file_field :avatar %>
                 </div> 
+                <br>
                 <div class="form-group">
-                    <label class="control-label" for="Nombre">Correo electrónico</label>
+                    <label class="control-label" for="Nombre">Correo electrónico:</label>
                     <%= f.email_field :email, autofocus: true, class: "form-control", id: "Nombre" %>
                 </div>
                 <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -24,35 +25,35 @@
                 <% end %>
                   
                 <div class="form-group">
-                    <label class="control-label" for="Correo">Nueva contraseña</label>
-                    <i>(dejar en blanco si no quiere cambiarla)</i>
-                    <%= f.password_field :password, autocomplete: "off", type: "password", class: "form-control", placeholder: "Introduzca la nueva contraseña" %>
+                    <label class="control-label" for="Correo">Nueva contraseña:</label>
+                    <%= f.password_field :password, autocomplete: "off", type: "password", class: "form-control", placeholder: "Introduzca la nueva contraseña, dejar en blanco si no quiere cambiarla" %>
                     <% if @minimum_password_length %>
                       <em>Mínimo <%= @minimum_password_length %> caracteres</em>
                     <% end %>
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="Nombre">Confirmar nueva contraseña</label>
+                    <label class="control-label" for="Nombre">Confirmar nueva contraseña:</label>
                     <%= f.password_field :password_confirmation, autocomplete: "off", type: "password", class: "form-control", placeholder: "Confirme la nueva contraseña" %>
                     
                 </div>
                 <div class="form-group">
-                    <label class="control-label" for="Mensaje">Contraseña actual</label>
+                    <label class="control-label" for="Mensaje">Contraseña actual:</label>
                     <%= f.password_field :current_password, autocomplete: "off", type: "password", class: "form-control", placeholder: "Introduzca la contraseña actual"  %>
                 </div>
                 <br>
-                <div class="form-group pull-right" >
+                <div class="form-group pull-left" >
                   <input type="reset" class="btn btn-default" value="Limpiar"> 
-                  <%= f.submit "Actualizar datos", class: "btn btn-primary" %>        
+                  <%= f.submit "Guardar", class: "btn btn-primary" %>
+                  <%= button_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "¿Está seguro que desea eliminar su cuenta?" }, method: :delete, class: "btn btn-danger" %>
                 </div>
+                <% unless current_user.admin? %>
+                  <div class="form-group pull-right" >
+                    <%= link_to 'Actualizar historia academica', get_historia_academica_path, :class => "btn btn-info" %></div>
+                  </div>
+                <% end %>
                 <div id="respuesta" style="display: none;"></div>
               </form>
             <% end %>
-            <br><br>
-            <h3>Cancelar mi cuenta</h3>
-            <p>¿Desea eliminar su cuenta de Ataraxia permanentemente?</p> 
-            <p><%= button_to "Eliminar mi cuenta", registration_path(resource_name), data: { confirm: "¿Está seguro que desea eliminar su cuenta?" }, method: :delete, class: "btn btn-danger" %></p>
-            <%= link_to "Back", :back %>
         </div>
         <div class = "col-sm-4"></div>
 </div>
