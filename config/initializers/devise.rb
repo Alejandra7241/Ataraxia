@@ -8,10 +8,12 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = 'd32aff7667e4f97f3b3059a4cb803f55546fd7c34a92539ba721a66dc980a713bb7d76ae5dc2bb9514976f879541897153153d1a0864b08f26c6d1a60ae67c52'
   if Rails.env.production?
-    config.secret_key = ENV['secret_key_base']
+    #config.secret_key = ENV['secret_key_base']
+    config.secret_key = '6fade12ac0dc80458c887a1e313f490ab8671ba8937a39dd73350141b186f3b307336ca5f65a8580633f041eee024dfc506c8d4e2abb87b03b3b56f6b7cb85be'
     config.mailer_sender = ENV['gmail_username']
   else
     config.secret_key = Rails.application.secrets.secret_key_base
+    config.mailer_sender = Rails.application.secrets.gmail_username
   end
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
