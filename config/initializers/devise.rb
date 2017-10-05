@@ -12,7 +12,7 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'ataraxiasedundnes@gmail.com'
+  config.mailer_sender = ENV['GMAIL_USERNAME']
   #config.mailer_sender = 'please-change-me-at-config-initializers-devise@example.com'
 
   # Configure the class responsible to send e-mails.
@@ -281,8 +281,8 @@ Devise.setup do |config|
   config.allow_unconfirmed_access_for = 365.days
   
   
-  config.omniauth :google_oauth2, '1061914456760-cskr6e50uovg8ep6198bs2f8jqda3sjq.apps.googleusercontent.com', 'rmYTdZxbCUVKuwafOUmdRp2J', {}
-  config.omniauth :facebook, "1954623151471160", "06ea6ebd368f4825557ea15941e68f15"
+  config.omniauth :google_oauth2, ENV['API_GOOGLE_USERNAME'], ENV['API_GOOGLE_SECRET'], {}
+  config.omniauth :facebook, ENV['API_FACEBOOK_USERNAME'], ENV['API_FACEBOOK_SECRET']
   # If we need to take this permanently for some reason, apply this:
   # in User.rb
   # protected
