@@ -1,6 +1,9 @@
 class ContactController < ApplicationController
     def index
-
+    puts "/7//////////"
+    puts ENV['GMAIL_PASSWORD']
+    puts ENV['GMAIL_PASSWORD']
+    puts ENV['GMAIL_USERNAME']
     if(params.has_key?(:post))
         @nombre = params[:post][:nombre]
         @correo = params[:post][:correo]
