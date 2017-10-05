@@ -46,7 +46,7 @@ gem 'jquery-turbolinks'
 gem 'twitter-typeahead-rails'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
-
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.
 #       Please make sure that it is not alreabundy in your Gemfile before uncommenting it.
@@ -64,7 +64,7 @@ group :development, :test do
   gem 'sqlite3'
   #Own gems
   gem 'letter_opener_web'
-  gem 'dotenv-rails', :require => 'dotenv/rails-now'
+  
 
 end
 
