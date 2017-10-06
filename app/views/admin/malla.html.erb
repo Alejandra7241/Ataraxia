@@ -23,7 +23,7 @@
               <% @malla.semesters.each do |sem| %>
                 <td align="center">
                   <% sem.subjects.each do |subj| %>
-                    <%= render partial: "subject", locals: {subj: subj, modal: subj} %>
+                    <%= render partial: "subject", locals: {subj: subj} %>
                   <% end %>
                   <br>
                   <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> 
@@ -136,6 +136,9 @@
 
 
 </div>
+
+<!-- El Modal mostrar materia partial
+<div class="modal"></div>-->
 
 
 
