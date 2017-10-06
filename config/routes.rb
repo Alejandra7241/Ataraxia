@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'testadmin/malla', to: 'testadmin#malla'
   post 'subjects/create', to: 'subjects#create'
+  get 'subjects/show', to:'subjects#show', as: 'show'
+  get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'
+  get 'admin/open_modal', to: 'admin#open_modal', as: 'admin_open_modal'
   get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
   post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root

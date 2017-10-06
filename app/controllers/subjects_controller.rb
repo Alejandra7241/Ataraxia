@@ -10,6 +10,7 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
+    @malla = Malla.find_by nombre: 'Ingeniería de Sistemas y Computación'
   end
 
   # GET /subjects/new
@@ -76,4 +77,5 @@ class SubjectsController < ApplicationController
       #params.require(:subject).permit(:code, :name, :credits, :pre)
       params.permit(:code, :name, :credits, :pre, :typology)
     end
+
 end

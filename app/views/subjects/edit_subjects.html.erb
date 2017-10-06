@@ -1,0 +1,30 @@
+    <div class="row">
+        <div class="col-md-12" class="back">
+        <table id="tableSemesters" class="table table-bordered .table-responsive ">
+          <thead class="thead"> 
+            <tr>
+              <% @malla.semesters.each do |sem| %>
+                <th >
+                  <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="mytr">
+              <% @malla.semesters.each do |sem| %>
+                <td align="center">
+                  <% sem.subjects.each do |subj| %>
+                    <%= link_to '', "data-target" => "#editingSubjects", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' do %>
+                    <%= render partial: "subject", locals: {subj: subj, modal: subj} %>
+                    <% end %>
+                  <% end %>
+                  <br>
+                  <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> 
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>

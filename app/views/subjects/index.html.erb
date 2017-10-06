@@ -1,28 +1,48 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Subjects</h1>
 
-<table>
+
+
+  <h1 class="text-center">Navegación por las materias</h3>
+  <ul class="nav nav-pills nav-justified" style= "font-size:30px;">
+
+    <li class="active"><a href="#">Todas las materias</a></li>
+    <li><%= link_to 'Buscar por código',  '#' %></li>
+    <li><%= link_to 'Buscar por carrera',  '#' %></li>
+    <li><%= link_to 'Buscar por tipologia',  '#' %></li>
+    <li><%= link_to 'Buscar por créditos',  '#' %></li>
+  </ul>
+
+<table class="table">
   <thead>
     <tr>
-      <th>Code</th>
-      <th>Name</th>
-      <th>Credits</th>
-      <th>Pre</th>
-      <th colspan="3"></th>
+      <th>Código</th>
+      <th>Nombre</th>
+      <th>Creditos</th>
+      <th>Prerrequisitos</th>
+      <th colspan="3">Acción </th>
     </tr>
   </thead>
 
   <tbody>
     <% @subjects.each do |subject| %>
-      <tr>
+      <% if subject.typology == 'C' %>
+      <tr class="success">
+      <% elsif subject.typology == 'B' %>
+      <tr class = "info">
+      <% elsif subject.typology == 'L' %>
+      <tr class = "warning">
+      <% else %>
+      <tr class="active">
+      <% end %>
+      
         <td><%= subject.code %></td>
         <td><%= subject.name %></td>
         <td><%= subject.credits %></td>
-        <td><%= subject.pre %></td>
-        <td><%= link_to 'Show', subject %></td>
-        <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
-        <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class= "text-center"><%= subject.pre %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;' '></p>".html_safe, subject %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;' '></p>".html_safe, edit_subject_path(subject) %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;' '></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>
       </tr>
     <% end %>
   </tbody>

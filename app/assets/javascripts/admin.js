@@ -1,5 +1,22 @@
+$('#editingSubjects').on('shown.bs.modal', function (e){
+    alert("I want this to appear after the modal has opened!");
+});
 
 
+
+$( "#editingSubjects" ).on('shown', function(){
+    alert("I want this to ad!");
+});
+
+
+
+$('#editingSubjects').on('show', function(){
+  alert('The modal is show');
+});
+
+$('#editingSubjects').on('shown', function(){
+  alert('The modal is shown');
+});
 
 function searchSubject(name,code,typology){
     //console.log(code)

@@ -40,4 +40,12 @@ class AdminController < ApplicationController
     end
    
   end
+  def h
+    puts "joij"
+  end
+  
+  def open_modal
+    @s = Subject.find(params[:s])
+    render partial: "modal_subject", locals: {subj: @s}
+  end
 end
