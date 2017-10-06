@@ -3,7 +3,6 @@
 <head>
   <title>Ataraxia</title>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   
@@ -53,30 +52,9 @@
   </div>
 </nav>
 
-<%= render 'layouts/messages' %>
-<%= yield %>
-
-<footer>
-  <nav class="navbar navbar-inverse navbar-fixed-bottom" style="margin: 0px 0px 0px 0px;">
-    <div class="container-fluid">
-      <div class="navbar-footer">
-        <%= link_to 'Contáctenos', contact_direct_path, :class => "navbar-brand" %>
-        <%= link_to 'GitHub', 'https://github.com/sedUNdnes', :class => "navbar-brand", :target => "_blank"%>
-        <%= link_to 'Facebook', 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand", :target => "_blank" %>
-      </div>
-        
-      <% if user_signed_in? %>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal3", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-        </ul>
-      </div>
-      <% end %>
-    </div>
-  </nav>
-</footer>
-
-
-
+  <br><br><br>
+  <%= render 'layouts/messages' %>
+  <%= yield %>
+  <br><br>
 </body>
 </html>

@@ -23,7 +23,7 @@ class StudentController < ApplicationController
           #redirect_to get_historia_academica_path
       else
           # puts " AH unsetted"
-          flash[:notice] = "Primero actualiza tus datos pegando tu historia academica."
+          flash[:notice] = "Primero actualiza tus datos pegando tu historia académica."
           redirect_to get_historia_academica_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(get_historia_academica_path)
       end
     end
@@ -186,7 +186,7 @@ class StudentController < ApplicationController
     end
     
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas )
-    flash[:notice] = "Tu historia academica se ha guardado correctamente."
+    flash[:notice] = "Tu historia académica se ha guardado correctamente."
     redirect_to student_index_path 
     end
 end
