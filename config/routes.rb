@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   post 'users/create' => 'users#create'
   get 'contact/index', to: 'contact#index', as: 'contact_direct'
+  get 'guess/index' => 'contact#index2', as: "guess_index"
   post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
   get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
