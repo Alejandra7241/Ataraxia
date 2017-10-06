@@ -1,0 +1,28 @@
+<footer>
+  <nav class="navbar navbar-inverse navbar-fixed-bottom" style="margin: 0px 0px 0px 0px;">
+    <div class="container-fluid">
+      <div class="navbar-footer">
+        <%= link_to 'Contáctenos', contact_direct_path, :class => "navbar-brand" %>
+        <%= link_to 'GitHub', 'https://github.com/sedUNdnes', :class => "navbar-brand", :target => "_blank"%>
+        <%= link_to 'Facebook', 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand", :target => "_blank" %>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav navbar-right">
+          <% if vista=="admin_malla" %>
+            <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal3", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+          <% end %>
+          <% if vista=="guess_malla" %>
+            <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+            <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe,'#', "data-target" => "#myModal7", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+          <% end %>
+          <% if vista=="student_malla" %>
+            <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+            <li><%= link_to "<p class='glyphicon glyphicon-heart'></p>".html_safe,'#', "data-target" => "#myModal5", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+            <li><%= link_to "<p class='glyphicon glyphicon-pencil'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+            <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe,'#', "data-target" => "#myModal7", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</footer>
