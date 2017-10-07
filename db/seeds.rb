@@ -86,7 +86,163 @@ sem.subjects.create([{code: 9999995, name: 'Libre elección', credits: 4, typolo
 =end
 
 
-mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas y Computación'
+#mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas y Computación'
 
-career = Career.create({name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
+#career = Career.create({name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
+#career.mallas << mallaSis
+
+=begin
+# Tipología para materias de ing Sis ya creadas
+
+mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas y Computación'
+career = Career.find_by name: 'Ingeniería de Sistemas y Computación'
 career.mallas << mallaSis
+
+subj = Subject.find_by(code: '1000004')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025975')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2015734')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '1000019')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '1000005')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '1000003')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2016375')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '1000013')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '1000006')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025963')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2016353')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016698')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '1000017')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2015703')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025964')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2016699')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016697')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025970')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2015702')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025967')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016701')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2015174')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025971')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2015970')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2025982')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016702')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016696')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'B')
+
+subj = Subject.find_by(code: '2016707')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025969')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025994')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016703')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016716')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025966')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025995')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2016722')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025960')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2024045')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025983')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '2025972')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+
+subj = Subject.find_by(code: '9999999')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999990')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999991')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999992')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999993')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999994')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999995')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999996')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999997')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'L')
+
+subj = Subject.find_by(code: '9999998')
+career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
+=end
+

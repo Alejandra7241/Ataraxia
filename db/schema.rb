@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171007001246) do
+ActiveRecord::Schema.define(version: 20171007065205) do
+
+  create_table "career_has_subjects", force: :cascade do |t|
+    t.string "typology"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "career_id"
+    t.integer "subject_id"
+    t.index ["career_id"], name: "index_career_has_subjects_on_career_id"
+    t.index ["subject_id"], name: "index_career_has_subjects_on_subject_id"
+  end
 
   create_table "careers", force: :cascade do |t|
     t.string "name"
@@ -74,7 +84,6 @@ ActiveRecord::Schema.define(version: 20171007001246) do
     t.string "pre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "typology"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,13 +1,13 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div id="subj">
     <% @@subject_global = subj.name %>
-    <% if subj.typology=='B' %>
+    <% if typ=='B' %>
         <div class="rcorners1" align="left" style="background:#FEC34C;"><%= subj.credits %></div>
-    <% elsif subj.typology=='C' %>
+    <% elsif typ=='C' %>
         <div class="rcorners1" align="left" style="background:#00FF00;"><%= subj.credits %></div>
-    <% elsif subj.typology=='L' %>
+    <% elsif typ=='L' %>
         <div class="rcorners1" align="left" style="background:#00FEFF;"><%= subj.credits %></div>
     <% end %>
   <div class="rcorners2" align="center">
-<%= link_to subj.name, admin_open_modal_path(:s => subj.id), remote: true %></div>
+<%= link_to subj.name, admin_open_modal_path(:s => subj.id, :typ => typ), remote: true %></div>
 </div>

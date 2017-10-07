@@ -27,7 +27,8 @@ class AdminController < ApplicationController
     @subject = Subject.new
     puts "Subject:"
     print @subject
-    @malla = Malla.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    @career = Career.find_by id: 1
+    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
   end
   
   def materia_existente
@@ -52,7 +53,7 @@ class AdminController < ApplicationController
     name = @subject.name
     code = @subject.code
     pre = @subject.pre
-    typology = @subject.typology
+    typology = params[:typ]
     credits = @subject.credits
     respond_to do |format|
        format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{pre}','#{typology}')" }
