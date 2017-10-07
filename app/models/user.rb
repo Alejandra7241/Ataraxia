@@ -11,9 +11,6 @@ class User < ApplicationRecord
   validates_attachment_size :avatar, :less_than => 5.megabytes
   validates_attachment_content_type :avatar, :content_type => ['image/jpeg', 'image/png']
   
-  
-  
-  
     
   def self.from_omniauth(access_token)
     data = access_token.info
@@ -59,5 +56,11 @@ class User < ApplicationRecord
   
   def self.set_data_from_academic_history(id, nombre_sin_apellido, porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas)
       User.update(id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas )
-    end
+  end
+    
+  def self.is_admin(admin)
+    @admin = User.where(admin: true)
+  end
+    
 end
+
