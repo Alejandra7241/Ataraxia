@@ -16,12 +16,14 @@ class AdminController < ApplicationController
   end
   public
   def index
-      puts "I'm at index motherfuckers!"
+      @malla = Malla.new
   end
   
   
-  def malla
-  
+  def malla(nombre='')
+    puts "/////////////////"
+    puts nombre
+    
     @subject = Subject.new
     puts "Subject:"
     print @subject
@@ -45,10 +47,16 @@ class AdminController < ApplicationController
   end
   
   def open_modal
-    @s = Subject.find(params[:s])
-    respond_to do |format|
-       format.js
-    end
     puts "Mmmodal action"
+    @subject = Subject.find(params[:s])
+    name = @subject.name
+    code = @subject.code
+    pre = @subject.pre
+    typology = @subject.typology
+    credits = @subject.credits
+    respond_to do |format|
+       format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{pre}','#{typology}')" }
+    end
+    
   end
 end

@@ -1,25 +1,36 @@
-$('#editingSubjects').on('shown.bs.modal', function (e){
-    alert("I want this to appear after the modal has opened!");
-});
 
 
-
-$( "#editingSubjects" ).on('shown', function(){
-    alert("I want this to ad!");
-});
-
-
-
-$('#editingSubjects').on('show', function(){
-  alert('The modal is show');
-});
-
-$('#editingSubjects').on('shown', function(){
-  alert('The modal is shown');
-});
+function modal_for_subject(code,name,credits,pre,typology){
+    console.log(name);
+    //$('#editingSubjectsi').modal('toggle');
+    document.getElementById("nameSubjectModal").innerHTML = name + ' - ' + code;
+    document.getElementById("subjectData").innerHTML = '';
+    document.getElementById("subjectData").innerHTML += 'Materia: ' + name;
+    document.getElementById("subjectData").innerHTML += ' Código: ' + code;
+    document.getElementById("subjectData").innerHTML += ' Creditos: ' + credits;
+    document.getElementById("subjectData").innerHTML += ' Tipología: ' + typology;
+    $('#editingSubjectsii').modal('show');
+    switch (typology) {
+        case 'B':
+            document.getElementById("divSubjectModal").className = "modal-header modal-disciplinar";
+            break;
+        case 'L':
+            document.getElementById("divSubjectModal").className = "modal-header modal-electiva";
+            break;
+        case 'C':
+            document.getElementById("divSubjectModal").className = "modal-header modal-fundamentacion";
+            break;
+        
+        default:
+            document.getElementById("divSubjectModal").className = "modal-header modal-optativa";
+            break;
+    }
+}
 
 function searchSubject(name,code,typology){
     //console.log(code)
+    
+    
     $('#tableQuery').each(function() {
         $(this).hide();
     });
@@ -29,11 +40,27 @@ function searchSubject(name,code,typology){
         $('#tableQuery').each(function() {
         $(this).show();
     });
-    $('#tableQuery > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td class="text-right">' + typology  + '</td><td>POST agregar materia </td></tr>');
+    $('#tableQuery > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td class="text-right">' + typology  + '</td><td><%= link_to \'New Subject\', new_subject_path %> </td></tr>');
     }else{
         document.getElementById("jschange").innerHTML = 'No se han encontrado materias con ese código';
     }
+    
+    //Duplicated, remove later with black magic
+        $('#tableQueryPrerrequisitos').each(function() {
+        $(this).hide();
+    });
+    $("#tbodyidPrerrequisitos").empty();
+    if(code != -1){
+        document.getElementById("jschangeii").innerHTML = '';
+        $('#tableQueryPrerrequisitos').each(function() {
+        $(this).show();
+    });
+    $('#tableQueryPrerrequisitos > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td class="text-right">' + typology  + '</td><td><%= link_to \'New Subject\', new_subject_path %> </td></tr>');
+    }else{
+        document.getElementById("jschangeii").innerHTML = 'No se han encontrado materias con ese código';
+    }
 }
+
 function reset() {
     var x = document.getElementById('principal');
     x.style.display='block';

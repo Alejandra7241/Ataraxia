@@ -42,6 +42,7 @@ gem 'annotate'
 gem "paperclip", "~> 5.0.0"
 gem 'faker', :git => 'git://github.com/stympy/faker.git', :branch => 'master'
 gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 gem 'jquery-turbolinks'
 gem 'twitter-typeahead-rails'
 gem 'omniauth-google-oauth2'

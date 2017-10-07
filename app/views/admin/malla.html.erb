@@ -78,7 +78,7 @@
               <%= f.label :code, 'Código:' %><br>
               <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
               <h3 id = "jschange"></h3>
-                      <table class="table table-striped" id="tableQuery" style="display: none;">
+                      <table class="table table-striped" id="tableQuery" style="display: none;" >
                     <thead id="tblHead">
                       <tr>
                         <th>Materia</th>
@@ -140,7 +140,91 @@
 <!-- El Modal mostrar materia partial
 <div class="modal"></div>-->
 
-
+ <div id="editingSubjectsii" class="modal fade" role="dialog">
+      
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div id="divSubjectModal" class="modal-header modal-disciplinar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 id= "nameSubjectModal" align="center"></h2>
+        </div>
+        <p id="subjectData"></p>
+        <div class="modal-body">
+            <h1 class = "text-left"><b>Prerrequisitos: </b></h1>
+    <table class="table" id = "prerrequisitosSubjectModal"  style="font-size: 14px;"  >
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Tipología</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="success">
+        <td>1919</td>
+        <td>Lenguajes de programación</td>
+        <td>Disciplinar</td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, '#', data: { confirm: '¿Esta seguro de borrar esa materia?', style: "color:red" } %></td>
+      </tr>
+      <tr class="info">
+        <td>19179</td>
+        <td>Cálculo en varias variables</td>
+        <td>Fundamentación</td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, '#', data: { confirm: '¿Esta seguro de borrar esa materia?', style: "color:red" } %></td>
+      </tr>
+      <tr class="warning">
+        <td>1919</td>
+        <td>Gráfica interactiva</td>
+        <td>Electiva</td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, '#', data: { confirm: '¿Esta seguro de borrar esa materia?', style: "color:red" } %></td>
+      </tr>
+      <tr class="active">
+        <td>1919</td>
+        <td>Esa materia</td>
+        <td>Optativa</td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, '#', data: { confirm: '¿Esta seguro de borrar esa materia?', style: "color:red" } %></td>
+      </tr>
+    </tbody>
+  </table>
+    <div id="existente">
+          
+            <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
+            <h3>Agregar un prerrequisito por código:</h3>
+            <div class="form-group">
+              <%= f.label :code, 'Código:' %><br>
+              <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <h3 id = "jschangeii"></h3>
+                      <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none;">
+                    <thead id="tblHead">
+                      <tr>
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th class="text-right">Tipología</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyidPrerrequisitos">
+                    </tbody>
+                  </table>
+                  
+                  
+            </div>
+            <div class="form-group" align="center">     
+              <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            
+            
+            <div id="respuesta" style="display: none;"></div>
+            <% end %>
+          
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -12,7 +12,7 @@
     <li><%= link_to 'Buscar por tipologia',  '#' %></li>
     <li><%= link_to 'Buscar por créditos',  '#' %></li>
   </ul>
-
+ <%= will_paginate @subjects, renderer: BootstrapPagination::Rails,  :previous_label => 'Página anterior', :next_label => 'Página siguiente', class: "text-center"%>
 <table class="table">
   <thead>
     <tr>
@@ -25,6 +25,7 @@
   </thead>
 
   <tbody>
+     
     <% @subjects.each do |subject| %>
       <% if subject.typology == 'C' %>
       <tr class="success">
@@ -40,14 +41,15 @@
         <td><%= subject.name %></td>
         <td><%= subject.credits %></td>
         <td class= "text-center"><%= subject.pre %></td>
-        <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;' '></p>".html_safe, subject %></td>
-        <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;' '></p>".html_safe, edit_subject_path(subject) %></td>
-        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;' '></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;'></p>".html_safe, subject %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;'></p>".html_safe, edit_subject_path(subject) %></td>
+        <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>
       </tr>
     <% end %>
+   
   </tbody>
 </table>
-
+   
 <br>
 <%= render 'layouts/footer', :vista=> "normal"%>
 <%= link_to 'New Subject', new_subject_path %>
