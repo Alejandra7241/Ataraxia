@@ -46,6 +46,9 @@ class AdminController < ApplicationController
   
   def open_modal
     @s = Subject.find(params[:s])
-    render partial: "modal_subject", locals: {subj: @s}
+    respond_to do |format|
+       format.js
+    end
+    puts "Mmmodal action"
   end
 end

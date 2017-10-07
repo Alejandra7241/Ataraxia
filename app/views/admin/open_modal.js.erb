@@ -1,0 +1,5 @@
+#populate modal
+$('.editingSubjects').html('#{ escape_javascript(<%= render partial: 'modal_subject', locals: {subj: @s} %>)}');
+
+#render modal
+$('.editingSubjects').modal('show');
