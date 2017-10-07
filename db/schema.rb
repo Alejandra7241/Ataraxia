@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171004033448) do
+ActiveRecord::Schema.define(version: 20171007001246) do
+
+  create_table "careers", force: :cascade do |t|
+    t.string "name"
+    t.string "department"
+    t.string "faculty"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cars", force: :cascade do |t|
     t.string "model"
@@ -38,6 +46,8 @@ ActiveRecord::Schema.define(version: 20171004033448) do
     t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "career_id"
+    t.index ["career_id"], name: "index_mallas_on_career_id"
   end
 
   create_table "semester_has_subjects", force: :cascade do |t|

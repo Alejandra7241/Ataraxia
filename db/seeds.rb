@@ -84,3 +84,9 @@ sem.subjects.create([{code: 9999991, name: 'Libre elección', credits: 4, typolo
 sem = mallaSis.semesters.find_by number: 10
 sem.subjects.create([{code: 9999995, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999996, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999997, name: 'Libre elección', credits: 4, typology: 'L'},{code: 9999998, name: 'Trabajo de grado', credits: 6, typology: 'C'}])
 =end
+
+
+mallaSis = Malla.find_by nombre:'Ingeniería de Sistemas y Computación'
+
+career = Career.create({name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
+career.mallas << mallaSis
