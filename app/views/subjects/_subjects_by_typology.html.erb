@@ -1,0 +1,39 @@
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Creditos</th>
+          <th>Prerrequisitos</th>
+          <th colspan="3">Acción </th>
+        </tr>
+      </thead>
+    
+      <tbody>
+         
+        <% @subjects_by_typology.each do |subject| %>
+        <% if subject.career_has_subjects.find_by(career_id: 1).typology == typology_searched %>
+          <% if typology_searched == 'C' %>
+          <tr class="success">
+          <% typology_searched == 'B' %>
+          <tr class = "info">
+          <% typology_searched == 'L' %>
+          <tr class = "warning">
+          <% else %>
+          <tr class="active">
+          <% end %>
+          
+            <td><%= subject.code %></td>
+            <td><%= subject.name %></td>
+            <td><%= subject.credits %></td>
+            <td class= "text-center"><%= subject.pre %></td>
+            <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;'></p>".html_safe, subject %></td>
+            <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;'></p>".html_safe, edit_subject_path(subject) %></td>
+            <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>
+          </tr>
+        <% end %>
+        <% end %>
+       
+      </tbody>
+    </table>

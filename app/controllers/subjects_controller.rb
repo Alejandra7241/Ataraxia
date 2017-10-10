@@ -6,6 +6,8 @@ class SubjectsController < ApplicationController
   def index
     #@subjects = Subject.all
     @subjects = Subject.paginate(page: params[:page], per_page: 6) 
+    @subjects_by_typology = Subject.paginate(page: params[:page], per_page: 6) 
+    @subject_search = Subject.new
   end
 
   # GET /subjects/1
@@ -17,9 +19,6 @@ class SubjectsController < ApplicationController
   # GET /subjects/new
   def new
     @subject = Subject.new
-    respond_to do |f|
-      f.js
-    end
   end
 
   # GET /subjects/1/edit
