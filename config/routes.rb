@@ -19,9 +19,6 @@ Rails.application.routes.draw do
   get 'student/index' => 'student#index'
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'testadmin/malla', to: 'testadmin#malla'
-  post 'subjects/create', to: 'subjects#create'
-  post 'admin/add_pre', to: 'admin#add_pre'
-  post 'admin/add_existing_subject', to: 'admin#add_existing_subject'
   get 'subjects/show', to:'subjects#show', as: 'show'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'
   get 'admin/open_modal', to: 'admin#open_modal', as: 'admin_open_modal'
@@ -43,5 +40,10 @@ Rails.application.routes.draw do
   #Adding subjects via post
   post 'admin/materia_existente', to: 'admin#materia_existente', as: 'submit_materia_existente'
   post 'admin/search_prerequisite', to:'admin#search_prerequisite', as: 'search_prerequisite'
+  post 'admin/change_semester', to: 'admin#change_semester', as: 'change_semester'
+  post 'admin/remove_pre', to: 'admin#remove_pre'
+  post 'subjects/create', to: 'subjects#create'
+  post 'admin/add_pre', to: 'admin#add_pre'
+  post 'admin/add_existing_subject', to: 'admin#add_existing_subject'
   resources :subjects
 end

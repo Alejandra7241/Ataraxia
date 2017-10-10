@@ -41,9 +41,6 @@ end
 
 Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) , credits: Faker::Number.between(2, 4), pre: "Calculo Integral"}])
 
-250.times do
-Car.create([{model: Faker::Name.first_name}])
-end
 
 =end
 
@@ -246,13 +243,13 @@ subj = Subject.find_by(code: '9999998')
 career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
 =end
 
-=begin
+
 career = Career.find_by(name: 'Ingeniería de Sistemas y Computación')
 career.code = 2879
 career.save
-=end
 
 
+=begin
 # *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
 
 # Cálculo integral
@@ -262,3 +259,15 @@ chs_prerrequisito = CareerHasSubject.find_by(career_id: Career.find_by(code: 287
 
 # Agregar Diferencial a los followers (prerrequisitos) de Integral
 chs_materia.followers << chs_prerrequisito
+=end
+
+# Algoritmos 2016696
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id) 
+
+# Discretas II 2025964
+chs_pre = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id)
+chs_materia.followers << chs_pre
+
+# Probabilidad 1000013
+chs_pre = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000013).id)
+chs_materia.followers << chs_pre

@@ -11,4 +11,36 @@ class CareerHasSubject < ApplicationRecord
     has_many :followee_requisites, foreign_key: :follower_id, class_name: "Requisite"    
     # source: :followee matches with the belong_to :followee identification in the Requisite model   
     has_many :followees, through: :followee_requisites, source: :followee
+    
+    
+    
+    def self.get_prerequisites(code_carrer, code_subject)
+        if self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followers.first.nil?
+            return []
+        else
+            return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followers
+        end
+    end
+    
+    def self.get_opened_subjects(code_carrer, code_subject)
+        self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees.subject
+    end
+    
+    
+    def self.has_prerequisites(code_carrer, code_subject)
+        return CareerHasSubject.get_prerequisites(code_carrer, code_subject).any?
+    end
+    
+    def self.add_pre(id_career, id_subj, id_pre)
+        chs_materia = CareerHasSubject.find_by(career_id: id_career, subject_id: id_subj) 
+        chs_prerrequisito = CareerHasSubject.find_by(career_id: id_career, subject_id: id_pre) 
+        chs_materia.followers << chs_prerrequisito
+    end
+    
+    def self.remove_pre(id_career, id_subj, id_pre)
+        chs_materia = CareerHasSubject.find_by(career_id: id_career, subject_id: id_subj) 
+        chs_prerrequisito = CareerHasSubject.find_by(career_id: id_career, subject_id: id_pre) 
+        Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
+    end
+
 end

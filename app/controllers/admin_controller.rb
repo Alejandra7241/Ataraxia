@@ -23,7 +23,7 @@ class AdminController < ApplicationController
   
   def malla(nombre='')
     puts nombre
-    
+    @user = User.new
     @subject = Subject.new
     puts "Subject:"
     print @subject
@@ -57,6 +57,8 @@ class AdminController < ApplicationController
     name = @subject.name unless @subject.nil?
     code = @subject.code unless @subject.nil?
     typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.nil?
+    # Alternativa: 
+    # typology = CareerHasSubject.find_by(career_id: @career.id, subject_id: @subject.id).typology
     respond_to do |format|
       format.js { render :js => "addPrerequisite('#{name}','#{code}','#{typology}', '#{@subject_to_add_code}')" }
     end
@@ -66,8 +68,13 @@ class AdminController < ApplicationController
   def add_pre
     #@subject = Subject.new(subject_params)
     #puts @subject.typology
+    puts "()())()()()()()()()()"
+    puts params[:code]
+    puts params[:code_to_add]
+    puts "()())()()()()()()()()"
     @subject = Subject.find_by_code(params[:code])
     @subject_added = Subject.find_by_code(params[:code_to_add])
+    CareerHasSubject.add_pre(1, @subject_added.id, @subject.id)
     puts params[:code]
     respond_to do |format|
       #if @subject.save
@@ -81,9 +88,27 @@ class AdminController < ApplicationController
     end
   end
   
-  def add_existing_subject
+  
+  def remove_pre
     #@subject = Subject.new(subject_params)
     #puts @subject.typology
+    @subject = Subject.find_by_code(params[:code])
+    @subject_removed = Subject.find_by_code(params[:code_to_remove])
+    CareerHasSubject.remove_pre(1, @subject_removed.id, @subject.id)
+    puts params[:code]
+    respond_to do |format|
+      #if @subject.save
+      flash[:error] = "Fue eliminada la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " como prerrequisito de la materia " + @subject_removed.name
+      format.html { redirect_to admin_malla_path }
+        #format.json { render :show, status: :created, location: @subject }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @subject.errors, status: :unprocessable_entity }
+      #end
+    end
+  end
+  
+  def add_existing_subject
     @subject = Subject.find_by_code(params[:code])
     puts params[:code]
     respond_to do |format|
@@ -104,12 +129,30 @@ class AdminController < ApplicationController
     @subject = Subject.find(params[:s])
     name = @subject.name
     code = @subject.code
-    pre = @subject.pre
+    preList = ""
+    puts code
+    if CareerHasSubject.has_prerequisites(2879,code) == true
+      puts "Entro"
+      CareerHasSubject.get_prerequisites(2879, code).each do |pre|
+        cur_subj = Subject.find(pre.subject_id)
+        typology = cur_subj.career_has_subjects.find_by(career_id: 1).typology unless cur_subj.nil?
+        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+      end
+    end
+    preList.chop!
+    puts "#####//////////"
+    print preList
+    puts "#########/////"
     typology = params[:typ]
     credits = @subject.credits
     respond_to do |format|
-       format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{pre}','#{typology}')" }
+      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}')" }
     end
     
+  end
+  
+  
+  def change_semester
+    puts "Changed!"
   end
 end

@@ -27,11 +27,15 @@ class SubjectsController < ApplicationController
 
   # POST /subjects
   # POST /subjects.json
-  def create
+  def create(goes_to_some_career = false)
     @subject = Subject.new(subject_params)
+    puts "s"
     puts @subject.typology
     respond_to do |format|
       if @subject.save
+        if goes_to_some_career == true
+           puts "s"
+        end
         format.html { redirect_to admin_malla_path }
         format.json { render :show, status: :created, location: @subject }
       else
