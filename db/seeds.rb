@@ -246,3 +246,19 @@ subj = Subject.find_by(code: '9999998')
 career.career_has_subjects << CareerHasSubject.new( :subject => subj, :typology => 'C')
 =end
 
+=begin
+career = Career.find_by(name: 'Ingeniería de Sistemas y Computación')
+career.code = 2879
+career.save
+=end
+
+
+# *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
+
+# Cálculo integral
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id) 
+# Cálculo diferencial
+chs_prerrequisito = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000004).id)
+
+# Agregar Diferencial a los followers (prerrequisitos) de Integral
+chs_materia.followers << chs_prerrequisito
