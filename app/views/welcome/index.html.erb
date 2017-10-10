@@ -51,7 +51,7 @@
                     %>
                     <%= link_to "Entrar", new_user_session_path, :class => "btn btn-info btn-large botons" %>
                      <%= link_to "Entrar como invitado", guess_index_path, :class => "btn btn-info btn-large botons" %>
-                     <% if Rails.env.development? %>
+                     <% if Rails.env.production? %>
                      <%= link_to "Entrar con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-info btn-large botons" %>
                      <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path , :class => "btn btn-info btn-large botons "%> 
                   
