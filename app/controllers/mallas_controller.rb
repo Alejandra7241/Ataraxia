@@ -85,8 +85,12 @@ class MallasController < ApplicationController
     sem = Malla.first.semesters.find_by(number: @semester)
     added = true
     sem.subjects << new_subj rescue added = false
+    if @subject_exists
+      flash[:error] = "Ese código ya existe, intenta con otro o busca la materia en las existentes." unless added
+    else
+      flash[:error] = "Ese materia ya existe en esta malla." unless added
+    end
     flash[:notice] = "Se ha agregado satisfactoriamente la materia #{new_subj.name} con código #{new_subj.code} al semestre  #{@semester}" if added
-    flash[:error] = "Ese código ya existe, intenta con otro o busca la materia en las existentes." unless added
     redirect_to admin_malla_path
   end
   private
