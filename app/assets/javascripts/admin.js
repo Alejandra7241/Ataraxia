@@ -1,4 +1,4 @@
-
+var current_semester = -1;
 
 function modal_for_subject(code,name,credits,typology, array_prerequisites){
     console.log(name);
@@ -140,7 +140,11 @@ function addPrerequisite(name,code,typology, code_to_add){
     
 }
 
-function reset() {
+function reset_and_assign(current_semesterr) {
+    console.log(current_semester);
+    console.log(current_semesterr);
+    current_semester = current_semesterr
+    console.log(current_semester);
     var x = document.getElementById('principal');
     x.style.display='block';
     var z = document.getElementById('existente');
@@ -169,9 +173,30 @@ function showNueva() {
 }
 
 function showMateria(tipo_materia){
+    document.getElementById("labelMateria").innerHTML = 'Agregar una materia ' + tipo_materia.toString() + ' :';
+    switch (tipo_materia) {
+        case 'disciplinar':
+            tipo_materia = 'C';
+            break;
+        case 'electiva':
+            tipo_materia = 'L';
+
+            break;
+        case 'fundamentacion':
+            tipo_materia = 'B';
+            document.getElementById("divSubjectModal").className = "modal-header modal-fundamentacion";
+            break;
+        case 'nivelacion':
+            tipo_materia = 'P';
+            break;
+        default:
+            tipo_materia = 'O'
+            break;
+    }
   console.log(tipo_materia);
-  document.getElementById("labelMateria").innerHTML = 'Agregar una materia ' + tipo_materia.toString() + ' :';
   document.getElementById('setTypology').value = tipo_materia;
+  document.getElementById('setSemester').value = current_semester;
+  document.getElementById('exists').value = false;
   var x = document.getElementById('nueva');
   x.style.display='none';
   var y = document.getElementById('newMateria');

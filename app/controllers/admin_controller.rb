@@ -132,7 +132,6 @@ class AdminController < ApplicationController
     preList = ""
     puts code
     if CareerHasSubject.has_prerequisites(2879,code) == true
-      puts "Entro"
       CareerHasSubject.get_prerequisites(2879, code).each do |pre|
         cur_subj = Subject.find(pre.subject_id)
         typology = cur_subj.career_has_subjects.find_by(career_id: 1).typology unless cur_subj.nil?

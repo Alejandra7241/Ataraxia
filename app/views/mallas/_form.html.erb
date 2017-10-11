@@ -1,0 +1,17 @@
+<%= form_with(model: malla, local: true) do |form| %>
+  <% if malla.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(malla.errors.count, "error") %> prohibited this malla from being saved:</h2>
+
+      <ul>
+      <% malla.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

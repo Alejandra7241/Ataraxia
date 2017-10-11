@@ -2,11 +2,17 @@
 <div id="subj">
     <% @@subject_global = subj.name %>
     <% if typ=='B' %>
-        <div class="rcorners1" align="left" style="background:#FEC34C;"><%= subj.credits %></div>
+        <div class="rcorners1" align="left" style="background:#FEC34C;">Créditos: <%= subj.credits %> <br> Fundamentación</div>
     <% elsif typ=='C' %>
-        <div class="rcorners1" align="left" style="background:#00FF00;"><%= subj.credits %></div>
+        <div class="rcorners1" align="left" style="background:#00FF00;">Créditos: <%= subj.credits %> <br> Disciplinar</div>
     <% elsif typ=='L' %>
-        <div class="rcorners1" align="left" style="background:#00FEFF;"><%= subj.credits %></div>
+        <div class="rcorners1" align="left" style="background:#00FEFF;">Créditos: <%= subj.credits %> <br> Libre elección</div>
+    <% elsif typ=='O' %>
+        <div class="rcorners1" align="left" style="background:#91A3B0;">Créditos: <%= subj.credits %> <br> Optativa</div>
+    <% elsif typ=='P' %>
+        <div class="rcorners1" align="left" style="background:#88B04B;">Créditos: <%= subj.credits %> <br>Nivelación</div>
+    <% else %>
+        <div class="rcorners1" align="left" style="background:#C00000;">Créditos: <%= subj.credits %>  <br> No asignado</div>
     <% end %>
   <div class="rcorners2" align="center">
 <%= link_to subj.name, admin_open_modal_path(:s => subj.id, :typ => typ), remote: true %></div>

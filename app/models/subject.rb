@@ -15,5 +15,4 @@ class Subject < ApplicationRecord
     def self.find_by_code(code)
         Subject.find_by(code: code)
     end
-    
 end

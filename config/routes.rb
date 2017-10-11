@@ -45,5 +45,6 @@ Rails.application.routes.draw do
   post 'subjects/create', to: 'subjects#create'
   post 'admin/add_pre', to: 'admin#add_pre'
   post 'admin/add_existing_subject', to: 'admin#add_existing_subject'
+  post 'mallas/add_subject_to_malla', to: 'mallas#add_subject_to_malla'
   resources :subjects
 end
