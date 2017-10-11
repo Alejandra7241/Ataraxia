@@ -1,0 +1,106 @@
+<% career = Career.find_by name: malla.nombre %>
+<% m = career.mallas.find_by nombre: malla.nombre%>
+<div class="row">
+        <div class="col-md-12" class="back">
+        <table id="tableSemesters" class="table table-bordered .table-responsive ">
+          <thead class="thead"> 
+            <tr>
+              <% m.semesters.each do |sem| %>
+                <th >
+                  <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                </th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="mytr">
+              <% current_semester = 1 %>
+              <% m.semesters.each do |sem| %>
+                <td align="center">
+                  <% sem.subjects.each do |subj| %>
+                  
+                    <%= render partial: "admin/subject", locals: {subj: subj, typ: subj.career_has_subjects.find_by(career_id: @career.id).typology } %>
+                  <% end %>
+                  <br>
+                  <% if vista=="admin_malla" %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                  <%end%>
+                  <% current_semester += 1%>
+                </td>
+              <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+  
+  <!-- El Modal mostrar materia partial
+<div class="modal"></div>-->
+
+ <div id="editingSubjectsii" class="modal fade" role="dialog">
+      
+    <div class="modal-dialog modal-lg">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div id="divSubjectModal" class="modal-header modal-disciplinar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h1 id= "nameSubjectModal" align="center"></h2>
+        </div>
+        <% form_for @user, :url => change_semester_path, :remote => true do |f|  %>
+        <%= f.select :name, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %>
+        <%= f.submit 'Cambiar semestre', :class => 'btn btn-primary' %>
+        <% end %>
+        <p id="subjectData"></p>
+        <div class="modal-body">
+            <h1 class = "text-left"><b>Prerrequisitos: </b></h1>
+            <h3 id = "jschangeiii"></h3>
+    <table class="table table-striped" id = "tablePrerrequisitosSubjectModal"  style="font-size: 14px;"  >
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Tipología</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="tbodyidPrerrequisitosSubjectModal">
+    </tbody>
+  </table>
+    <div id="existente">
+          
+            <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
+            <h3>Agregar un prerrequisito por código:</h3>
+            <div class="form-group">
+              <%= f.label :code, 'Código:' %><br>
+              <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <%= f.hidden_field :code_subject_to_add %>
+              <h3 id = "jschangeii"></h3>
+                      <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none;">
+                    <thead id="tblHead">
+                      <tr>
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th class="text-right">Tipología</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyidPrerrequisitos">
+                    </tbody>
+                  </table>
+                  
+                  
+            </div>
+            <div class="form-group" align="center">     
+              <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            
+            
+            <div id="respuesta" style="display: none;"></div>
+            <% end %>
+          
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

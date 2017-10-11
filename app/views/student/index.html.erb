@@ -19,7 +19,16 @@
         <div style="background-color: PapayaWhip ;   padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Malla Estandar</h2> 
             <p style="font-size:15px">Consulta las mallas estandar para carrera en la Universidad Nacional de Colombia, sede Bogotá.</p>
-            <div align="center" ><%= link_to '¡Consultar!', admin_malla_path, :class => "btn btn-success btn-lg disabled" %></div>
+             <div align="center">
+                <div class="dropdown" style="display: inline-block">
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
+                    <ul class="dropdown-menu">Mallas existentes
+                    <% Malla.all.each do |malla| %>
+                    <li><%= link_to malla.nombre, student_malla_estandar_path %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
     <div class="col-md-3" style="margin: 2% 0% 0% 0%;">

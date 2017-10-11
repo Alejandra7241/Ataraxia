@@ -25,3 +25,4 @@ class ContactController < ApplicationController
     redirect_to contact_direct_path
     end
 end
+
