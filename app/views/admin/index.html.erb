@@ -9,15 +9,14 @@
             </div>
         </div>
     <div class="col-md-6">
-        <div style="background-color: lightblue;  padding: 8% 0px 8% 5%;>">
+        <div style="background-color: lightblue; padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Mallas curriculares</h2> 
             <p style="font-size:15px">Crea o edita las malla estandar para las carreras en la Universidad Nacional de Colombia, <br> sede Bogotá</p>
             <div align="center">
                 <%= link_to '¡Crear Nueva!', '#', "data-target" => "#setNameNewCurricular", "data-toggle"=>"modal", :class => "btn btn-success btn-lg" %>
-                <div class="dropdown">
-                    <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes
-                        <span class="caret"></span></button>
-                    <ul class="dropdown-menu">Mallas existentes</li>
+                <div class="dropdown" style="display: inline-block">
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
+                    <ul class="dropdown-menu">Mallas existentes
                     <% Malla.all.each do |malla| %>
                     <li><%= link_to malla.nombre, admin_malla_path %></li>
                     <% end %>
