@@ -8,6 +8,9 @@ class Subject < ApplicationRecord
     
     validates :code, :presence => true
     validates :code, :uniqueness => true
+    
+    
+    #validates :code, nume
     #Testing
     #METODO de rails
     # Código pero SQL 

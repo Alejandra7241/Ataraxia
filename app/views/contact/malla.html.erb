@@ -1,6 +1,5 @@
-<% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
+<% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion'] %>
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
-
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-12" class="back">
@@ -16,7 +15,6 @@
           </thead>
           <tbody>
             <tr id="mytr">
-              <% current_semester = 1 %>
               <% @malla.semesters.each do |sem| %>
                 <td align="center">
                   <% sem.subjects.each do |subj| %>
@@ -24,8 +22,7 @@
                     <%= render partial: "subject", locals: {subj: subj, typ: subj.career_has_subjects.find_by(career_id: @career.id).typology } %>
                   <% end %>
                   <br>
-                  <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                  <% current_semester += 1%>
+                  <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => 'reset()' %> 
                 </td>
               <% end %>
             </tr>
@@ -75,7 +72,7 @@
             <h3>Materia ya existente:</h3>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
-              <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
               <h3 id = "jschange"></h3>
                       <table class="table table-striped" id="tableQuery" style="display: none;" >
                     <thead id="tblHead">
@@ -113,17 +110,15 @@
           </div>
           <div id="newMateria" style="display: none;">
             <h3 id="labelMateria"></h3>
-                        <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                        <form action="/subjects/create" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                           <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                          <label class="col-sm-2 control-label" for="input-name">Código</label>
-                          <input type="text" name="code" value="" required pattern = "^\d+$" title = "El código debe contener sólo números" placeholder="Introduzca el código" id="name" class="form-control" />
+                          <label class="col-sm-2 control-label" for="input-name">Codigo</label>
+                          <input type="text" name="code" value="" placeholder="Introduzca el código" id="name" class="form-control" />
                           <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
                           <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
-                          <label class="col-sm-2 control-label" for="input-price">Créditos</label>
-                          <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
+                          <label class="col-sm-2 control-label" for="input-price">Creditos</label>
+                          <input type="text" name="credits" value="" placeholder="Creditos" id="price" class="form-control" />
                           <input type="hidden" name="typology" id="setTypology" value="" />
-                          <input type="hidden" name="semester" id="setSemester" value="" />
-                          <input type="hidden" name="exists" id="exists" value="" />
                           <input type="submit" class="btn btn-primary" value="Agregar materia">
                           <input type="reset" class="btn btn-default" value="Limpiar">
                           </form>
