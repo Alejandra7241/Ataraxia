@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -43,6 +44,8 @@ end
 
 
 
+=======
+>>>>>>> 45b2575c8581fe97d6d9374f512a01f7878edcbc
 # ***************************** Lista de Materias***********************************
 
 Subject.create([

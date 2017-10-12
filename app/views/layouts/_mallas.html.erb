@@ -17,8 +17,12 @@
               <% @malla.semesters.each do |sem| %>
                 <td align="center">
                   <% sem.subjects.each do |subj| %>
-                  
-                    <%= render partial: "admin/subject", locals: {subj: subj, typ: subj.career_has_subjects.find_by(career_id: @career.id).typology } %>
+                    <% if vista=="admin_malla" %> 
+                    <%= render partial: "admin/subject", locals: {vista2: "admin_malla", subj: subj, typ: subj.career_has_subjects.find_by(career_id: @career.id).typology } %>
+                    
+                    <% else %>
+                    <%= render partial: "admin/subject", locals: {vista2: "", subj: subj, typ: subj.career_has_subjects.find_by(career_id: @career.id).typology } %>
+                    <% end %>
                   <% end %>
                   <br>
                   <% if vista=="admin_malla" %>

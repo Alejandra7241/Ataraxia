@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6" style="margin-top: 4%;" width="100%">
+            <div align="center" style="vertical-align: middle;">
+                <img  width="60%" class="img-responsive" src="/logo_final.png" class="img-fluid" alt="logo" />
+                <h1>¡Bienvenido a Ataraxia!</h1>
+                <h3>Por favor escoje una opción</h3>
+                <h4>No olvides registrarte para ver más opciones</h4>
+            </div>
+        </div>
+    <div class="col-md-6" style="margin-top: 4%;">
+        <div style="background-color: lightblue;  padding: 8% 0px 8% 5%;>">
+            <h2 style="font-size:60px">Ver una malla</h2> 
+            <p style="font-size:15px">Consulta los planes curriculares de las carreras que estás interesado. </p>
+             <div align="center">
+                <div class="dropdown" style="display: inline-block">
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
+                    <ul class="dropdown-menu">Mallas existentes
+                    <% Malla.all.each do |malla| %>
+                    <li><%= link_to malla.nombre, contact_malla_path %></li>
+                    <% end %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer', :vista=> "normal"%>
