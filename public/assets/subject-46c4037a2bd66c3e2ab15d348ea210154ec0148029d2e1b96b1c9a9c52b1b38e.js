@@ -28,3 +28,4 @@ function searchSubject(name,code,typology){
     
     
 }
+;

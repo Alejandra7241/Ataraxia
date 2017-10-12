@@ -41,23 +41,24 @@
 <div class="modal"></div>-->
 
  <div id="editingSubjectsii" class="modal fade" role="dialog">
-      
     <div class="modal-dialog modal-lg">
     <!-- Modal content -->
       <div class="modal-content" style="width: 100%;">
         <div id="divSubjectModal" class="modal-header modal-disciplinar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h1 id= "nameSubjectModal" align="center"></h2>
+          <h2 id= "nameSubjectModal" align="center"></h2>
         </div>
         <% form_for @user, :url => change_semester_path, :remote => true do |f|  %>
         <%= f.select :name, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %>
         <%= f.submit 'Cambiar semestre', :class => 'btn btn-primary' %>
         <% end %>
-        <p id="subjectData"></p>
+        
         <div class="modal-body">
-            <h1 class = "text-left"><b>Prerrequisitos: </b></h1>
-            <h3 id = "jschangeiii"></h3>
-    <table class="table table-striped" id = "tablePrerrequisitosSubjectModal"  style="font-size: 14px;"  >
+          <div id="subjectData"></div>
+            <br>
+            <h4 class = "text-left"><b>Prerrequisitos: </b></h4>
+            <h5 id = "jschangeiii"></h5>
+    <table class="table table-striped" id = "tablePrerrequisitosSubjectModal"  style="font-size: 7px;"  >
     <thead>
       <tr>
         <th>Código</th>
@@ -72,33 +73,30 @@
     <div id="existente">
           
             <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
-            <h3>Agregar un prerrequisito por código:</h3>
+                        <br>
+            <h4><b>Agregar un prerrequisito por código:</b></h4>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
               <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
               <%= f.hidden_field :code_subject_to_add %>
               <h3 id = "jschangeii"></h3>
-                      <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none;">
+                <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none; font-size: 7px;">
                     <thead id="tblHead">
                       <tr>
                         <th>Materia</th>
                         <th>Código</th>
-                        <th class="text-right">Tipología</th>
+                        <th>Tipología</th>
                         <th>Acción</th>
                       </tr>
                     </thead>
                     <tbody id="tbodyidPrerrequisitos">
                     </tbody>
                   </table>
-                  
-                  
             </div>
             <div class="form-group" align="center">     
               <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
             </div>
-            
-            
             <div id="respuesta" style="display: none;"></div>
             <% end %>
           
