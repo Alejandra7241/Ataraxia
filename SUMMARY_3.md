@@ -17,12 +17,25 @@
 * Restringir la vista del perfil de cada usuario para que solo pueda ver su propio pérfil: Nicolás Restrepo Torres
 * Implementar la funcionalidad para agregar una materia a la base de datos desde la malla: Nicolás Restrepo Torres
 * Implementar la funciolidad para agregar una materia a la malla actual desde la malla: Nicolás Restrepo Torres
-* 
-* 
+* Implementar botón ayuda, para un estudiante y un invitado, mostrando el modal de ayuda: Brayan Garcia
+* Implementar vista menú para estudiante: Brayan Garcia
+* Implementar funcionalidad a 'Malla estandar' en la vista menú para estudiante: Brayan Garcia
+* Modificar el header mostrando la foto del usuario que esté registrado: Brayan Garcia
+* Hacer el header y el footer estatico, arreglando errores que tengan: Brayan Garcia, Laura Morales
+* Agregada funcionalidad para que el usuario pueda cambiar su historia académica desde la vista de editar perfil: Brayan Garcia.
+* Hacer vista y funcionalidad para el menú de un invitado: Brayan Garcia
+* Arreglado bug que mostraba el botón de ayuda en todas las vistas: Brayan Garcia
+* Hacer footer para un invitado: Brayan Garcia
+* Mostrar la malla estandar en estudiante e invitado: Brayan Garcia
 
 ### Posibles features para desarrollar en el siguiente sprint: 
 
-* 
+* Funcionalidad para crear una nueva malla desde el botón 'crear nueva malla'
+* Funcional el dropdown que muestra las mallas existentes.
+* Implementado modulo "Electivas/Optativas permitidas"
+* Poblar la base de datos con las mallas de la facultad de ingenieria. 
+* Mostrar la malla de avance para un estudiante.
+* Mostrar la malla personal para un estudiante.
 
 ## Ataraxia
 
