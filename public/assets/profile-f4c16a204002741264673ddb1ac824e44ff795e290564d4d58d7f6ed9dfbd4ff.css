@@ -1,0 +1,35 @@
+.signpost{
+	height: 160px;
+    width: 100%;
+	background: url('http://www.pngmart.com/files/3/Signboard-PNG-Pic.png') center center no-repeat;
+    background-size: 100% 100%;
+	position: relative;
+	text-align: center;
+	font-weight: 400;
+}
+
+th {
+    text-align: center;
+    font-size: 2.5em;
+}
+
+td { 
+    width: 10%; 
+    font-size: 1.8em;
+}
+
+.boardpost{
+	background: url('http://londonstudentrent.co.uk/images/cork-board-border.png') center;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+	position: relative;
+	text-align: center;
+}
+
+.bpostContent{
+    font-size: 1em;
+    width: 50%;
+    margin: auto;
+}
+
+

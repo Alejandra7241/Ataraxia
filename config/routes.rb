@@ -48,5 +48,6 @@ Rails.application.routes.draw do
   post 'admin/add_pre', to: 'admin#add_pre'
   post 'admin/add_existing_subject', to: 'admin#add_existing_subject'
   post 'mallas/add_subject_to_malla', to: 'mallas#add_subject_to_malla'
+  get 'admin/remove_subject/:code', to: 'admin#remove_subject', as: 'remove_subject'
   resources :subjects
 end
