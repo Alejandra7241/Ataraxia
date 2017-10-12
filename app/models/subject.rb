@@ -7,8 +7,13 @@ class Subject < ApplicationRecord
     has_many :careers, through: :career_has_subjects
     
     validates :code, :presence => true
+    validates :code, numericality: { only_integer: true }
     validates :code, :uniqueness => true
     
+    
+    validates :credits, :presence => true 
+    validates :credits, numericality: { only_integer: true }
+
     
     #validates :code, nume
     #Testing

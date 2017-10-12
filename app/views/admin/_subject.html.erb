@@ -1,5 +1,8 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div id="subj">
+    <% if vista2 == "admin_malla" %>
+        <button type="button" class="close" style="padding-right: 5px;" data-dismiss="modal">&times;</button>
+    <%end%>
     <% @@subject_global = subj.name %>
     <% if typ=='B' %>
         <div class="rcorners1" align="center" style="background:#FEC34C;"><%= subj.credits %> </div>
@@ -15,6 +18,7 @@
         <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
     <% end %>
   <div class="rcorners2" align="center">
+      
     <%= link_to subj.name, admin_open_modal_path(:s => subj.id, :typ => typ), remote: true, :style => 'color: black' %>
     </div>
 </div>
