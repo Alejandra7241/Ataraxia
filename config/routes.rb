@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'student/index' => 'student#index'
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
   get 'contact/malla', to: 'contact#malla', as: "contact_malla"
+  get 'student/malla_estandar', to: 'student#malla_estandar', as: "student_malla_estandar"
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'subjects/show', to:'subjects#show', as: 'show'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'

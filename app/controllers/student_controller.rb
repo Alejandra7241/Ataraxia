@@ -4,6 +4,17 @@ class StudentController < ApplicationController
     before_action :require_login
     before_action :check_academic_history, only: [:historia_academica, :index]
     #self.check_complete_data_for_academic_history(id)
+    
+    def malla_estandar(nombre='')
+    puts nombre
+    @user = User.new
+    @subject = Subject.new
+    puts "Subject:"
+    print @subject
+    @career = Career.find_by id: 1
+    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    end
+  
     private
     
     def require_login
@@ -30,6 +41,7 @@ class StudentController < ApplicationController
     public
     def index
     end
+
     def historia_academica
       #When HA setted, redirect with filter
       @history = Historiaacademica.new
@@ -189,4 +201,6 @@ class StudentController < ApplicationController
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
     redirect_to student_index_path 
     end
+
+    
 end
