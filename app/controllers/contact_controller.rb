@@ -1,9 +1,7 @@
 class ContactController < ApplicationController
     def index
-    puts "/7//////////"
-    puts ENV['GMAIL_PASSWORD']
-    puts ENV['GMAIL_PASSWORD']
-    puts ENV['GMAIL_USERNAME']
+        
+    @malla = Malla.new
     if(params.has_key?(:post))
         @nombre = params[:post][:nombre]
         @correo = params[:post][:correo]
@@ -24,5 +22,16 @@ class ContactController < ApplicationController
     #puts "nombre: #{@nombre}, correo: #{@correo}, asunto: #{@asunto}, opinion: #{@opinion}"
     redirect_to contact_direct_path
     end
+    
+    def malla(nombre='')
+    puts nombre
+    @user = User.new
+    @subject = Subject.new
+    puts "Subject:"
+    print @subject
+    @career = Career.find_by id: 1
+    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    end
+    
 end
 

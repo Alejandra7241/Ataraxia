@@ -1,11 +1,10 @@
-<% career = Career.find_by name: malla.nombre %>
-<% m = career.mallas.find_by nombre: malla.nombre%>
+<%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div class="row">
         <div class="col-md-12" class="back">
         <table id="tableSemesters" class="table table-bordered .table-responsive ">
           <thead class="thead"> 
             <tr>
-              <% m.semesters.each do |sem| %>
+              <% @malla.semesters.each do |sem| %>
                 <th >
                   <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
                 </th>
@@ -15,7 +14,7 @@
           <tbody>
             <tr id="mytr">
               <% current_semester = 1 %>
-              <% m.semesters.each do |sem| %>
+              <% @malla.semesters.each do |sem| %>
                 <td align="center">
                   <% sem.subjects.each do |subj| %>
                   

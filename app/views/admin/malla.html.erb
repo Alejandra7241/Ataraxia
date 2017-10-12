@@ -1,8 +1,9 @@
 <% tipos_materia = ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
-<%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+
 
 <div class="container-fluid">
-    <%= render 'layouts/mallas', :vista =>"admin_malla"%>
+  
+<%= render 'layouts/mallas', :vista =>"admin_malla"%>
 
 <!-- The Modal Ayuda -->
 
@@ -39,7 +40,7 @@
               <button type="button" class="btn btn-default" onclick="showExistente()">Materia ya existente</button>
             </div>
           </div>
-          <div id="existente" style="display: none;">
+          <div id="existente2" style="display: none;">
           
             <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
             <h3>Materia ya existente:</h3>

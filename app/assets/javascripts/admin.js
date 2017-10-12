@@ -147,7 +147,7 @@ function reset_and_assign(current_semesterr) {
     console.log(current_semester);
     var x = document.getElementById('principal');
     x.style.display='block';
-    var z = document.getElementById('existente');
+    var z = document.getElementById('existente2');
     z.style.display='none';
     var z = document.getElementById('nueva');
     z.style.display='none';
@@ -160,7 +160,7 @@ function showExistente() {
     console.log("Existente");
     var x = document.getElementById('principal');
     x.style.display='none';
-    var y = document.getElementById('existente');
+    var y = document.getElementById('existente2');
     y.style.display='block';
 }
 function showNueva() {
