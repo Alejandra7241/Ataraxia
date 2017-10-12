@@ -1,0 +1,35 @@
+/* line 1, /home/ubuntu/workspace/Ataraxia/app/assets/stylesheets/_subject.scss */
+.rcorners1 {
+  border-radius: 5px 5px 0px 0px;
+  border: 1px solid #000000;
+  border-width: 1px 1px 0px 1px;
+  padding: 3px 3px 3px 7px;
+  height: 100%;
+  font-size: 50%;
+}
+
+/* line 12, /home/ubuntu/workspace/Ataraxia/app/assets/stylesheets/_subject.scss */
+.rcorners2 {
+  border-radius: 0px 0px 5px 5px;
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  padding: 1px;
+  height: 70px;
+  font-size: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* align horizontal */
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* align vertical */
+}
+
+/* line 25, /home/ubuntu/workspace/Ataraxia/app/assets/stylesheets/_subject.scss */
+#subj {
+  margin: 7px 2px 0px 2px;
+}
