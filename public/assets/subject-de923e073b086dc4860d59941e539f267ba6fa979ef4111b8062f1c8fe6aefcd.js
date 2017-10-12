@@ -20,7 +20,7 @@ function searchSubject(name,code,typology){
         $('#tableQuery').each(function() {
         $(this).show();
     });
-    $('#tableQuery > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td>' + typology  + '</td><td class="text-center"> ' + postLink + '</td></tr>');
+    $('#tableQuery > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td>sdadas' + typology  + '</td><td class="text-center"> ' + postLink + '</td></tr>');
     }else{
         document.getElementById("jschange").innerHTML = 'No se han encontrado materias con ese código';
     }
@@ -28,3 +28,4 @@ function searchSubject(name,code,typology){
     
     
 }
+;

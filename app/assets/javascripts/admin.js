@@ -5,13 +5,26 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites){
     console.log(array_prerequisites);
     console.log(array_prerequisites.length)
     //$('#editingSubjectsi').modal('toggle');
-    document.getElementById("nameSubjectModal").innerHTML = name + ' - ' + code;
-    document.getElementById("subjectData").innerHTML = '';
-    document.getElementById("subjectData").innerHTML += 'Materia: ' + name;
-    document.getElementById("subjectData").innerHTML += ' Código: ' + code;
-    document.getElementById("subjectData").innerHTML += ' Creditos: ' + credits;
-    document.getElementById("subjectData").innerHTML += ' Tipología: ' + typology;
+    document.getElementById("nameSubjectModal").innerHTML = name;
+    document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
     $('#editingSubjectsii').modal('show');
+    switch (typology) {
+        case 'B':
+            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Fundamentación</h4>';
+            break;
+        case 'L':
+            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Electiva</h4>';
+            break;
+        case 'C':
+            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología:: </b>Disciplinar</h4>';
+            break;
+        case 'O':
+            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Optativa</h4>';
+            break;
+        case 'P':
+            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Nivelación</h4>';
+            break;
+    }
     switch (typology) {
         case 'B':
             document.getElementById("divSubjectModal").className = "modal-header modal-disciplinar";
@@ -99,7 +112,25 @@ function searchSubject(name,code,typology){
         $('#tableQueryPrerrequisitos').each(function() {
         $(this).show();
     });
-    $('#tableQueryPrerrequisitos > tbody:last-child').append(' <tr><td>' + name+ '</td><td>' + code + '</td><td class="text-right">' + typology  + '</td><td> ' + postLink + '</td></tr>');
+    $('#tableQueryPrerrequisitos > tbody:last-child').append(' <tr><td>' + code + '</td><td>' + code + '</td>');
+    switch (typology) {
+        case 'B':
+            $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Fundamentación</td><td> ' + postLink + '</td></tr>');
+            break;
+        case 'L':
+             $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Electiva</td><td> ' + postLink + '</td></tr>');
+            break;
+        case 'C':
+             $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Disciplinar</td><td> ' + postLink + '</td></tr>');
+            break;
+        case 'O':
+             $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Optativa</td><td> ' + postLink + '</td></tr>');
+            break;
+        case 'P':
+             $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Nivelación</td><td> ' + postLink + '</td></tr>');
+            break;
+    }
+    
     }else{
         document.getElementById("jschangeii").innerHTML = 'No se han encontrado materias con ese código';
     }
