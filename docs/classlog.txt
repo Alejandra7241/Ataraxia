@@ -15,3 +15,11 @@ Configuración de la base de datos SQL Lite en test y desarrollo.
 Configuración de la base de datos POSTGRESQL en producción:Heroku.
 Creación segundo mockup: Login.
 Creación tercer mockup: Registro.
+
+
+Clase 12 - Octubre - 2017
+
+* Corregir errores y revisar el despliegue: Nicolás Restrepo Torres
+* Corregir el archivo seeds.rb para producción, consultas en el modelo de malla para eliminar las materias: Lizzy Tengana 
+* Agregar y hacer funcional el botón de eliminar una materia de la malla: Laura Morales
+* Corregir estética de la vista de los prerequisitos del modal: Brayan García
