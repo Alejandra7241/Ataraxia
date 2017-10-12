@@ -10,7 +10,6 @@
 
 #Validar todas las tablas que 
 
-=begin
 
 public
 def range_for_papa (min, max)
@@ -42,7 +41,7 @@ end
 Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) , credits: Faker::Number.between(2, 4), pre: "Calculo Integral"}])
 
 
-=end
+
 
 # ***************************** Lista de Materias***********************************
 
