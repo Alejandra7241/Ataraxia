@@ -38,7 +38,7 @@ user.password_confirmation = 'valid_password'
 user.save!
 end
 
-Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) , credits: Faker::Number.between(2, 4), pre: "Calculo Integral"}])
+#Subject.create([{name: "Calculo no diferencial", code: Faker::Number.number(7) , credits: Faker::Number.between(2, 4), pre: "Calculo Integral"}])
 
 
 
@@ -58,6 +58,7 @@ Subject.create([
         {code: 2025963, name: 'Matemáticas discretas I', credits: 4},
         {code: 2016353, name: 'Bases de datos', credits: 3},
         {code: 2016698, name: 'Elementos de computadores', credits: 3},
+        {code: 1000019, name: 'Fundamentos de mecánica', credits: 4},
         {code: 1000017, name: 'Fundamentos de electricidad y magnetismo', credits: 4},
         {code: 2015703, name: 'Ingeniería económica', credits: 3},
         {code: 2025964, name: 'Matemáticas discretas II', credits: 4},
