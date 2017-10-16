@@ -104,8 +104,10 @@
             <%= form_for @subject_search, :url => submit_materia_existente_path, :remote => true do |f|  %>
             <h2 style="text-align: center;">Buscar una materia ya existente por número de créditos:</h2>
             <div class="form-group">
+              <div style="padding: 0px 180px 0px 180px;">
               <%= f.label :credits, 'Créditos:' %><br>
               <%= f.text_field :credits, placeholder: "Introduzca el número de créditos", autofocus: true, :class => 'form-control' %>
+              </div>
               <h1 id = "jschange"></h1>
                       <table class="table table-striped" id="tableQuery" style="display: none;" >
                     <thead id="tblHead">
