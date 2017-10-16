@@ -20,23 +20,38 @@ class SubjectsController < ApplicationController
   def new
     @subject = Subject.new
   end
-
+  
+  def edit_existing_subject
+    @code =  params[:subject][:code]
+    @subject = Subject.find_by_code(@code)
+    name = @subject.name unless @subject.nil?
+    code = @subject.code unless @subject.nil?
+    id = @subject.id unless @subject.nil?
+    credits = @subject.credits unless @subject.nil?
+    typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.nil?
+    respond_to do |format|
+      unless @subject.nil?
+        format.js { render :js => "editASubject('#{id}','#{name}','#{code}','#{typology}','#{credits}')" }
+      else
+        format.js { render :js => "editASubject('-1', 'x','-1','x','-1')" }
+      end
+    end
+   
+  end
   # GET /subjects/1/edit
   def edit
   end
 
   # POST /subjects
   # POST /subjects.json
-  def create(goes_to_some_career = false)
-    @subject = Subject.new(subject_params)
-    puts "s"
-    puts @subject.typology
+  def create
+    @subject = Subject.new
+    @subject.name = params[:subject][:name]
+    @subject.code = params[:subject][:code]
+    @subject.credits = params[:subject][:credits]
     respond_to do |format|
       if @subject.save
-        if goes_to_some_career == true
-           puts "s"
-        end
-        format.html { redirect_to admin_malla_path }
+        format.html { redirect_to @subject, notice: 'La materia fue creada con éxito.' }
         format.json { render :show, status: :created, location: @subject }
       else
         format.html { render :new }
@@ -51,7 +66,7 @@ class SubjectsController < ApplicationController
   def update
     respond_to do |format|
       if @subject.update(subject_params)
-        format.html { redirect_to @subject, notice: 'Subject was successfully updated.' }
+        format.html { redirect_to @subject, notice: 'La materia fue editada con éxito' }
         format.json { render :show, status: :ok, location: @subject }
       else
         format.html { render :edit }
@@ -65,7 +80,7 @@ class SubjectsController < ApplicationController
   def destroy
     @subject.destroy
     respond_to do |format|
-      format.html { redirect_to subjects_url, notice: 'Subject was successfully destroyed.' }
+      format.html { redirect_to subjects_url, notice: 'La materia fue eliminada.' }
       format.json { head :no_content }
     end
   end
@@ -78,8 +93,9 @@ class SubjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subject_params
-      #params.require(:subject).permit(:code, :name, :credits, :pre)
-      params.permit(:code, :name, :credits, :pre, :typology)
+      #params.permit(:utf8, :authenticity_token, :commit, :subject)
+      #params.require(:subject).permit(:code, :name, :credits)
+      
     end
 
 end

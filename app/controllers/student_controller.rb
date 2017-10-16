@@ -2,7 +2,8 @@ class StudentController < ApplicationController
     
 
     before_action :require_login
-    before_action :check_academic_history, only: [:historia_academica, :index]
+    #DESCOMENTAAAAAAAAAAAAAAAAAAAAAAAAAR DESPUÉS DE PROBAR
+    #before_action :check_academic_history, only: [:historia_academica, :index]
     #self.check_complete_data_for_academic_history(id)
     
     def malla_estandar(nombre='')
@@ -156,7 +157,6 @@ class StudentController < ApplicationController
             end
             
         end
-        puts "Materias :3"
         current_semester = 1
         hap.each do |semester|
             puts "Las materias del semestre #{current_semester} son"
@@ -199,7 +199,10 @@ class StudentController < ApplicationController
     
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas )
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
-    redirect_to student_index_path 
+    puts "Array of subjects !!!! #{@hap} y #{@carrera} con #{current_user.id}"
+    Career.add_array_of_subjects(@carrera, current_user.id, @hap)
+
+    redirect_to student_index_path
     end
 
     
