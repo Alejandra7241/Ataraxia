@@ -3,7 +3,12 @@
 ### Features y actividades desarrolladas:
 
 * Implementar que si se está logueado que los campos del contact se muestren predeterminadamente (nombre, correo): Laura Morales
-* Implementar un mensaje de error cuando no se loguea con la contraseña incorrecta o no existe el correo entre otras alertas: Laura Morales
+* Validar que los campos de correo sean válidos en el registro y el login usando expresiones regulares: Laura Morales
+* Validar que los campos sean válidos al agregar materia con doble validacion en frontend y backend: Laura Morales
+* Implementar un mensaje de error cuando se loguea con la contraseña incorrecta o no existe el correo, en general todas las alertas de devise: Laura Morales
+* Organizar los todos los assets (.coffee .js .sass .css): Laura Morales
+* Agregar funcionalidad para eliminar en pantalla la materia elegida: Laura Morales
+* Arreglar el bug de las 3 columnas más anchas en la malla: Laura Morales
 * Implementar un sign_in con una red social, Google: Nicolás Restrepo Torres
 * Ocultar variables sensibles en los entornos de desarrollo y producción: Nicolás Restrepo Torres
 * Implementar un filtro para que la historia academica solo pueda ser puesta inicialmente una vez: Nicolás Restrepo Torres
@@ -27,6 +32,13 @@
 * Arreglado bug que mostraba el botón de ayuda en todas las vistas: Brayan Garcia
 * Hacer footer para un invitado: Brayan Garcia
 * Mostrar la malla estandar en estudiante e invitado: Brayan Garcia
+* Frontend modal prerrequisitos: Brayan Garcia
+* Agregar funcionalidad para mostrar en pantalla las materias de una malla: Lizzy Tengana
+* Implementar que el botón de añadir/eliminar prerequisitos funcione: Lizzy Tengana - Nicolas Restrepo
+* Agregar funcionalidad para ver información de las materias: Lizzy Tengana - Nicolas Restrepo
+* Conectar las materias por prerrequisitos en la DB: Lizzy Tengana
+* Poblar base de datos con los planes curriculares del departamento: Lizzy Tengana
+* Actualizar modelo E/R: Lizzy Tengana
 
 ### Posibles features para desarrollar en el siguiente sprint: 
 
