@@ -36,12 +36,13 @@ class AdminController < ApplicationController
     @subject = Subject.find_by_code(@code)
     name = @subject.name unless @subject.nil?
     code = @subject.code unless @subject.nil?
+    credits = @subject.credits unless @subject.nil?
     typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.nil?
     respond_to do |format|
       unless @subject.nil?
-        format.js { render :js => "searchSubject('#{name}','#{code}','#{typology}')" }
+        format.js { render :js => "searchSubject('#{name}','#{code}','#{typology}','#{credits}')" }
       else
-        format.js { render :js => "searchSubject('x','-1','x')" }
+        format.js { render :js => "searchSubject('x','-1','x','-1')" }
       end
     end
    

@@ -66,12 +66,9 @@ class MallasController < ApplicationController
     @code = params[:code].to_i
     @typology = params[:typology]
     @semester = params[:semester].to_i
-    puts "jejeje"
     @subject_exists = true if params[:exists] == 'true'
     @subject_exists = false if params[:exists] == 'false'
-    puts params[:exists].is_a?(String)
-    puts @subject_exists
-    puts @subject_exists.is_a?(String)
+    puts "Es una cadena? #{@subject_exists.is_a?(String)} el valor es #{@subject_exists}"
     puts "jeje"
     unless @subject_exists
       @name = params[:name]
@@ -80,6 +77,7 @@ class MallasController < ApplicationController
     else
       new_subj = Subject.find_by_code(@code)
     end
+    puts "Aqui está el nombre #{new_subj.name}"
     career = Career.find(1)
     career.career_has_subjects << CareerHasSubject.new( :subject => new_subj, :typology => @typology)
     sem = Malla.first.semesters.find_by(number: @semester)
@@ -88,7 +86,7 @@ class MallasController < ApplicationController
     if @subject_exists
       flash[:error] = "Ese código ya existe, intenta con otro o busca la materia en las existentes." unless added
     else
-      flash[:error] = "Ese materia ya existe en esta malla." unless added
+      flash[:error] = "Esa materia ya existe en esta malla." unless added
     end
     flash[:notice] = "Se ha agregado satisfactoriamente la materia #{new_subj.name} con código #{new_subj.code} al semestre  #{@semester}" if added
     redirect_to admin_malla_path
