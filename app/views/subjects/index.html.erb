@@ -2,27 +2,24 @@
 <%= javascript_include_tag 'subject', "data-turbolinks-track" => true %>
 <p id="notice"><%= notice %></p>
 
-  <h1 class="text-center">Navegación por las materias</h3>
-  <ul class="nav nav-pills nav-justified" style= "font-size:30px;">
-
+  <ul class="nav nav-pills nav-justified" style= "font-size:15px; padding-bottom: 15px">
     <li class="active"><%= link_to 'Todas las materias',  '#', "data-toggle"=>"pill", "href"=>"#allSubjects" %></li>
     <li><%= link_to 'Buscar por código',  '#', "data-toggle"=>"pill", "href"=>"#searchByCode" %></li>
     <li><%= link_to 'Buscar por carrera',  '#', "data-toggle"=>"pill", "href"=>"#searchByCarrer" %></li>
-    <li><%= link_to 'Buscar por tiplogía',  '#', "data-toggle"=>"pill", "href"=>"#searchByTypology" %></li>
+    <!--<li><#%= link_to 'Buscar por tiplogía',  '#', "data-toggle"=>"pill", "href"=>"#searchByTypology" %></li>-->
     <li><%= link_to 'Buscar por créditos',  '#', "data-toggle"=>"pill", "href"=>"#searchByCredits" %></li>
   </ul>
   
   <div class="tab-content">
   <div id= "allSubjects" class="tab-pane fade in active">
-     <%= will_paginate @subjects, renderer: BootstrapPagination::Rails,  :previous_label => 'Página anterior', :next_label => 'Página siguiente', class: "text-center"%>
-    <table class="table">
-      <thead>
+    
+    <table class="table  table-bordered .table-responsive " style="font-size: 10px">
+      <thead >
         <tr>
-          <th>Código</th>
-          <th>Nombre</th>
-          <th>Creditos</th>
-          <th>Prerrequisitos</th>
-          <th colspan="3">Acción </th>
+          <th><p style=" text-align: center;">Código</p></th>
+          <th><p style=" text-align: center;"> Nombre</p></th>
+          <th><p style=" text-align: center;">Creditos</th>
+          <th><p style=" text-align: center;">Acción</p> </th>
         </tr>
       </thead>
     
@@ -38,44 +35,49 @@
           <% else %>
           <tr class="active">
           <% end %>
-          
             <td><%= subject.code %></td>
             <td><%= subject.name %></td>
-            <td><%= subject.credits %></td>
-            <td class= "text-center"><%= subject.pre %></td>
-            <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;'></p>".html_safe, subject %></td>
-            <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;'></p>".html_safe, edit_subject_path(subject) %></td>
-            <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>
+            <td><p style="text-align: center"><%= subject.credits %></p></td>
+            <td><div style="text-align: center"><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 20px;' ></p>".html_safe, subject %>
+              <%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 20px;'></p>".html_safe, edit_subject_path(subject) %>
+              <%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 20px'></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %> </div></td>
           </tr>
         <% end %>
-       
+         <tr>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td> <div style="text-align: center"><%= link_to "<p class='glyphicon glyphicon-ok' style= 'font-size: 20px;'></p>".html_safe, new_subject_path %></div>
+         </tr>
       </tbody>
     </table>
-    <%= link_to 'Nueva materia', new_subject_path, class: "btn btn-info btn-block" %>
-       
+    <div align="center"><%= will_paginate @subjects, renderer: BootstrapPagination::Rails,  :previous_label => 'Página anterior', :next_label => 'Página siguiente', class: "text-center"%></div>
     <br>
     <%= render 'layouts/footer', :vista=> "normal"%>
     </div>
     <div id="searchByCode" class="tab-pane fade">
       <%= form_for @subject_search, :url => submit_materia_existente_path, :remote => true do |f|  %>
-            <h1>Buscar una materia ya existente por código:</h1>
+            <h2 style="text-align: center;"><br>Buscar una materia ya existente por código:<br></h2>
+            <br>
             <div class="form-group">
+              <div style="padding: 0px 180px 0px 180px;">
               <%= f.label :code, 'Código:' %><br>
               <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              </div>
               <h1 id = "jschange"></h1>
-                      <table class="table table-striped" id="tableQuery" style="display: none;" >
+                <table class="table table-striped" id="tableQuery" style="display: none; font-size: 10px" >
                     <thead id="tblHead">
                       <tr>
-                        <th>Materia</th>
-                        <th>Código</th>
-                        <th class="text-right">Tipología</th>
-                        <th>Acción</th>
+                        <th><p style=" text-align: center;">Materia</p></th>
+                        <th><p style=" text-align: center;">Código</p></th>
+                        <th><p style=" text-align: center;">Tipología</p></th>
+                        <th><p style=" text-align: center;">Acción</p></th>
                       </tr>
                     </thead>
                     <tbody id="tbodyid">
                     </tbody>
                   </table>
-            </div>
+              </div>
             <div class="form-group" align="center">     
               <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
@@ -85,7 +87,7 @@
       </div>
       <div id="searchByCarrer" class="tab-pane fade">
         <div class="container-fluid">
-          <h1>Buscar una materia por carrera, se muestran las materias por carrera:</h1>
+          <h2 style="text-align: center;">Buscar una materia por carrera, se muestran las materias por carrera:</h2>
             <div id="carrer_container"> 
                 <% Malla.all.each do |carrer| %>
                    <div class="rcorners1" align="left" style="background:green;"><%= carrer.semesters.count %></div>
@@ -100,7 +102,7 @@
 
     <div id="searchByCredits" class="tab-pane fade">
             <%= form_for @subject_search, :url => submit_materia_existente_path, :remote => true do |f|  %>
-            <h1>Buscar una materia ya existente por número de créditos:</h1>
+            <h2 style="text-align: center;">Buscar una materia ya existente por número de créditos:</h2>
             <div class="form-group">
               <%= f.label :credits, 'Créditos:' %><br>
               <%= f.text_field :credits, placeholder: "Introduzca el número de créditos", autofocus: true, :class => 'form-control' %>
