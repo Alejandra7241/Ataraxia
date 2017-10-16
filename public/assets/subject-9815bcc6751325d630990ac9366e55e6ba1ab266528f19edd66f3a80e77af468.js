@@ -22,3 +22,4 @@ function editASubject(id,name, code, typology, credits){
         document.getElementById("jschange").innerHTML = 'No se han encontrado materias con ese código';
     }
 }
+;
