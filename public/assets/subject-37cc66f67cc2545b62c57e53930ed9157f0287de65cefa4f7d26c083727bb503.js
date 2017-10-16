@@ -22,3 +22,4 @@ function editASubject(id,name, code, typology, credits){
         document.getElementById("jschange").innerHTML = '<h3 style="text-align: center">No se han encontrado materias con ese código</h3>';
     }
 }
+;
