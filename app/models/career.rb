@@ -1,10 +1,11 @@
 class Career < ApplicationRecord
+    has_many :standard_mallas
     has_many :mallas
     
     has_many :career_has_subjects
     has_many :subjects, through: :career_has_subjects
     
-    
+    # TODO modificar métodos
     def self.find_by_code(code)
         self.find_by(code: code)
     end

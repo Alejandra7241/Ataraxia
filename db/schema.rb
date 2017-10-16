@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009201022) do
+ActiveRecord::Schema.define(version: 20171016233842) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -47,12 +47,13 @@ ActiveRecord::Schema.define(version: 20171009201022) do
   end
 
   create_table "mallas", force: :cascade do |t|
-    t.string "tipo"
-    t.string "nombre"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "student_id"
     t.integer "career_id"
     t.index ["career_id"], name: "index_mallas_on_career_id"
+    t.index ["student_id"], name: "index_mallas_on_student_id"
   end
 
   create_table "requisites", force: :cascade do |t|
@@ -60,6 +61,16 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "standard_mallas", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "career_id"
+    t.integer "admin_id"
+    t.index ["admin_id"], name: "index_standard_mallas_on_admin_id"
+    t.index ["career_id"], name: "index_standard_mallas_on_career_id"
   end
 
   create_table "subjects", force: :cascade do |t|
