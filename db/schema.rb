@@ -31,12 +31,6 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.integer "code"
   end
 
-  create_table "cars", force: :cascade do |t|
-    t.string "model"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "contacts", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -66,23 +60,6 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.integer "followee_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "semester_has_subjects", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "semester_id"
-    t.integer "subject_id"
-    t.index ["semester_id"], name: "index_semester_has_subjects_on_semester_id"
-    t.index ["subject_id"], name: "index_semester_has_subjects_on_subject_id"
-  end
-
-  create_table "semesters", force: :cascade do |t|
-    t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "malla_id"
-    t.index ["malla_id"], name: "index_semesters_on_malla_id"
   end
 
   create_table "subjects", force: :cascade do |t|
