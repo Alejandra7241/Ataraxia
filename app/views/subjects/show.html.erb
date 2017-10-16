@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Code:</strong>
-  <%= @subject.code %>
-</p>
+<h1 class="text-center">  <%= @subject.name %> - <%= @subject.code %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @subject.name %>
-</p>
+
+
 
 <p>
   <strong>Credits:</strong>
   <%= @subject.credits %>
 </p>
 
-<p>
-  <strong>Pre:</strong>
-  <%= @subject.pre %>
-</p>
+<h2>  <%= @subject.name %> pertenece a las siguientes carreras (mostrar carrera y tipologia en la carrera): </h2>
 
-<%= link_to 'Edit', edit_subject_path(@subject) %> |
-<%= link_to 'Back', subjects_path %>
+<h2>  <%= @subject.name %> tiene como prerequisitos en cada una de las carreras: </h2>
+
+<h2>  <%= @subject.name %> abre materias en cada una de las carreras: </h2>
+
+<%= link_to 'Editar', edit_subject_path(@subject) %> |
+<%= link_to 'Atrás', subjects_path %>

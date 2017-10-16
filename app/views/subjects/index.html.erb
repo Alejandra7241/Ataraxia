@@ -56,7 +56,7 @@
     <%= render 'layouts/footer', :vista=> "normal"%>
     </div>
     <div id="searchByCode" class="tab-pane fade">
-      <%= form_for @subject_search, :url => submit_materia_existente_path, :remote => true do |f|  %>
+      <%= form_for @subject_search, :url => edit_existing_subject_path, :remote => true do |f|  %>
             <h2 style="text-align: center;"><br>Buscar una materia ya existente por código:<br></h2>
             <br>
             <div class="form-group">
@@ -70,7 +70,7 @@
                       <tr>
                         <th><p style=" text-align: center;">Materia</p></th>
                         <th><p style=" text-align: center;">Código</p></th>
-                        <th><p style=" text-align: center;">Tipología</p></th>
+                        <th><p style=" text-align: center;">Créditos</p></th>
                         <th><p style=" text-align: center;">Acción</p></th>
                       </tr>
                     </thead>

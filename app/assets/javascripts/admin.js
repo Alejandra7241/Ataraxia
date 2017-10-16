@@ -195,8 +195,6 @@ function action_for_typology(typology, number_action){
 
 
 function addPrerequisite(name,code,typology, code_to_add){
-    console.log(code);
-    console.log("CODEEEE");
     var postLink =  `   <form action="/admin/add_pre" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                         <button type="submit">
                         <input type="hidden" name="code" id="setCode" value="` + code +`" />
