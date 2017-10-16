@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get 'admin/open_modal', to: 'admin#open_modal', as: 'admin_open_modal'
   get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
   post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
+  get 'student/procesar_historia_academica', to: 'student#procesar_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   post 'users/create' => 'users#create'
   get 'contact/index', to: 'contact#index', as: 'contact_direct'

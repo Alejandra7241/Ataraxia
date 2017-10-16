@@ -16,8 +16,13 @@
             <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe,'#', "data-target" => "#myModal7", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
           <% end %>
           <% if vista=="student_malla" %>
-            <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-            <li><%= link_to "<p class='glyphicon glyphicon-heart'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
+             <%if s_vista=="estandar" %>
+                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+             <%elsif s_vista=="avance"%>
+               <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
+             <%elsif s_vista=="personal"%>
+               <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
+             <%end%>
             <li><%= link_to "<p class='glyphicon glyphicon-pencil'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
             <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
           <% end %>
