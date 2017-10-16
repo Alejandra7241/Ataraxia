@@ -1,5 +1,23 @@
-<h1>New Subject</h1>
+
+
+
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6" style="margin-top: 8%;" width="100%">
+            <div align="center">
+                <img  width="60%" class="img-responsive" src="/logo_final.png" class="img-fluid" alt="logo" />
+                <h1>Crea una materia</h1>
+            </div>
+        </div>
+    <div class="col-md-6"  style="margin-top: 5%;" width="100%">
+        <h1 style="text-align: center;">Nueva Materia</h1>
 
 <%= render 'form', subject: @subject %>
 
 <%= link_to 'Back', subjects_path %>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer', :vista=> "normal"%>
