@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017003359) do
+ActiveRecord::Schema.define(version: 20171017015900) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20171017003359) do
   end
 
   create_table "mallas", force: :cascade do |t|
-    t.string "type"
+    t.string "tipo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "student_id"
@@ -79,8 +79,8 @@ ActiveRecord::Schema.define(version: 20171017003359) do
     t.datetime "updated_at", null: false
     t.integer "standard_malla_id"
     t.integer "career_has_subject_id"
-    t.index ["career_has_subject_id"], name: "index_s_malla_has_chs_on_chs", unique: true
-    t.index ["standard_malla_id"], name: "index_s_malla_has_chs_on_s_malla", unique: true
+    t.index ["career_has_subject_id"], name: "index_s_malla_has_chs_on_chs"
+    t.index ["standard_malla_id"], name: "index_s_malla_has_chs_on_s_malla"
   end
 
   create_table "standard_mallas", force: :cascade do |t|
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 20171017003359) do
     t.datetime "updated_at", null: false
     t.integer "career_id"
     t.integer "admin_id"
-    t.string "type"
+    t.string "tipo"
     t.index ["admin_id"], name: "index_standard_mallas_on_admin_id"
     t.index ["career_id"], name: "index_standard_mallas_on_career_id"
   end

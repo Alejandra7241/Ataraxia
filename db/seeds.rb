@@ -87,18 +87,23 @@ Subject.create([
 
 career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
 
-mallaSis = Malla.create({tipo:'Estándar', nombre: 'Ingeniería de Sistemas y Computación'})
-career.mallas << mallaSis
+mallaSis = StandardMalla.create({tipo:'Estándar', career: career, admin: User.first})
+career.standard_mallas << mallaSis
 
-mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
 
 # Semestre 1
-sem = mallaSis.semesters.find_by number: 1
 
 subj = Subject.find_by(code: 1000004)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create(:subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+StandardMallaHasCareerHasSubject.create(:standard_malla => mallaSis, :career_has_subject => chs, :semester => 1)
 
+subj = Subject.find_by(code: 2025975)
+chs = CareerHasSubject.create(:subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+StandardMallaHasCareerHasSubject.create(:standard_malla => mallaSis, :career_has_subject => chs, :semester => 1)
+
+=begin
 subj = Subject.find_by(code: 2025975)
 career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
 sem.subjects << subj
@@ -567,7 +572,7 @@ sem.subjects << subj
 
 #-------------------------------------------------------------------------------------------
 
-
+=end
 
 # *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
 =begin
