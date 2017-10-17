@@ -5,6 +5,9 @@ class CareerHasSubject < ApplicationRecord
     has_many :standard_malla_has_career_has_subjects
     has_many :standard_mallas, through: :standard_malla_has_career_has_subjects
     
+    has_many :malla_has_career_has_subjects
+    has_many :mallas, through: :malla_has_career_has_subjects
+    
     # follower_requisites "names" the Requisite join table for accessing through the follower association
     has_many :follower_requisites, foreign_key: :followee_id, class_name: "Requisite" 
     # source: :follower matches with the belong_to :follower identification in the Requisite model 
