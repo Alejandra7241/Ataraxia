@@ -17,8 +17,8 @@
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
-                    <% Malla.all.each do |malla| %>
-                    <li><%= link_to malla.nombre, admin_malla_path %></li>
+                    <% StandardMalla.all.each do |malla| %>
+                    <li><%= link_to Career.find(malla.career_id).name, admin_malla_path %></li>
                     <% end %>
                     </ul>
                   </div>
@@ -49,10 +49,10 @@
           <h4 class="modal-title">Nueva malla</h4>
         </div>
         <div class="modal-body">
-             <%= form_for @malla, :url => admin_malla_path(@malla.nombre), :remote => true do |f|  %>
+             <%= form_for @malla, :url => admin_malla_path(@malla.name), :remote => true do |f|  %>
             <div class="form-group">
-              <%= f.label :nombre, 'Nombre:' %><br>
-              <%= f.text_field :nombre, placeholder: "Introduzca el nombre de la nueva malla", autofocus: true, :class => 'form-control' %>
+              <%= f.label :name, 'Nombre:' %><br>
+              <%= f.text_field :name, placeholder: "Introduzca el nombre de la nueva malla", autofocus: true, :class => 'form-control' %>
             </div>
             <div class="form-group" align="center">     
               <%= f.submit '¡Crear malla con ese nombre!', :class => 'btn btn-primary' %>

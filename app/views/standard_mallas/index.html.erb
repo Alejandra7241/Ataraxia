@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Standard Mallas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @standard_mallas.each do |standard_malla| %>
+      <tr>
+        <td><%= link_to 'Show', standard_malla %></td>
+        <td><%= link_to 'Edit', edit_standard_malla_path(standard_malla) %></td>
+        <td><%= link_to 'Destroy', standard_malla, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Standard Malla', new_standard_malla_path %>

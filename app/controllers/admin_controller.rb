@@ -17,18 +17,18 @@ class AdminController < ApplicationController
   end
   public
   def index
-      @malla = Malla.new
+      @malla = StandardMalla.new
   end
   
   
-  def malla(nombre='')
-    puts nombre
+  def malla(name='')
+    puts name
     @user = User.new
     @subject = Subject.new
     puts "Subject:"
     print @subject
     @career = Career.find_by id: 1
-    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    @standard_malla = @career.standard_mallas.find_by(tipo: 'Estándar')
   end
   
   def materia_existente
