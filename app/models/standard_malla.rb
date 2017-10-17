@@ -2,6 +2,9 @@ class StandardMalla < ApplicationRecord
     belongs_to :career
     belongs_to :user
     
+    has_many :standard_malla_has_career_has_subjects
+    has_many :career_has_subjects, through: :standard_malla_has_career_has_subjects
+    
     # TODO modifirar métodos
     def self.remove_subject_from_malla(code)
         subj = Subject.find_by(code: code)
