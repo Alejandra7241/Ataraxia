@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   get 'admin/index' => 'admin#index'
   get 'student/index' => 'student#index'
   get 'admin/malla', to: 'admin#malla', as: "admin_malla"
-  get 'contact/malla', to: 'contact#malla', as: "contact_malla"
+  get 'guess/malla', to: 'guess#malla', as: "guess_malla"
   get 'student/malla_estandar', to: 'student#malla_estandar', as: "student_malla_estandar"
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'subjects/show', to:'subjects#show', as: 'show'
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   post 'users/create' => 'users#create'
   get 'contact/index', to: 'contact#index', as: 'contact_direct'
-  get 'guess/index' => 'contact#index2', as: "guess_index"
+  get 'guess/index' => 'guess#index', as: "guess_index"
   post 'contact/submit_opinion', to: 'contact#submit_opinion', as: 'submit_opinion'
   get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

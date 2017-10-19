@@ -15,10 +15,10 @@
             <p style="font-size:15px">Consulta los planes curriculares de las carreras que estás interesado. </p>
              <div align="center">
                 <div class="dropdown" style="display: inline-block">
-                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
                     <% Malla.all.each do |malla| %>
-                    <li><%= link_to malla.nombre, contact_malla_path %></li>
+                    <li><%= link_to malla.nombre, guess_malla_path %></li>
                     <% end %>
                     </ul>
                 </div>
