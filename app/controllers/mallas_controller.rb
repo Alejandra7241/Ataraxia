@@ -79,10 +79,11 @@ class MallasController < ApplicationController
     end
     puts "Aqui está el nombre #{new_subj.name}"
     career = Career.find(1)
-    career.career_has_subjects << CareerHasSubject.new( :subject => new_subj, :typology => @typology)
+    chs = CareerHasSubject.new( :subject => new_subj, :typology => @typology)
+    career.career_has_subjects << chs
     sem = Malla.first.semesters.find_by(number: @semester)
     added = true
-    sem.subjects << new_subj rescue added = false
+    sem.career_has_subjects << chs rescue added = false
     if @subject_exists
       flash[:error] = "Ese código ya existe, intenta con otro o busca la materia en las existentes." unless added
     else

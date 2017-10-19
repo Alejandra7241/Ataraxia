@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 20171009201022) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
+    t.decimal "progress_req", precision: 5, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "career_id"
@@ -26,15 +27,13 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.string "name"
     t.string "department"
     t.string "faculty"
+    t.integer "b_credits"
+    t.integer "c_credits"
+    t.integer "l_credits"
+    t.integer "p_credits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "code"
-  end
-
-  create_table "cars", force: :cascade do |t|
-    t.string "model"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "contacts", force: :cascade do |t|
@@ -54,7 +53,6 @@ ActiveRecord::Schema.define(version: 20171009201022) do
 
   create_table "mallas", force: :cascade do |t|
     t.string "tipo"
-    t.string "nombre"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "career_id"
@@ -72,9 +70,9 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "semester_id"
-    t.integer "subject_id"
+    t.integer "career_has_subject_id"
+    t.index ["career_has_subject_id"], name: "index_semester_has_subjects_on_career_has_subject_id"
     t.index ["semester_id"], name: "index_semester_has_subjects_on_semester_id"
-    t.index ["subject_id"], name: "index_semester_has_subjects_on_subject_id"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -89,7 +87,7 @@ ActiveRecord::Schema.define(version: 20171009201022) do
     t.integer "code"
     t.string "name"
     t.integer "credits"
-    t.string "pre"
+    t.decimal "average_grade", precision: 2, scale: 1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -5,7 +5,8 @@ class CreateSubjects < ActiveRecord::Migration[5.1]
       t.integer :code
       t.string :name
       t.integer :credits
-      t.string :pre
+      t.decimal :average_grade, precision: 2, scale: 1
+      
 
       t.timestamps
     end

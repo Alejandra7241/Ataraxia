@@ -27,7 +27,6 @@
             <td><%= subject.code %></td>
             <td><%= subject.name %></td>
             <td><%= subject.credits %></td>
-            <td class= "text-center"><%= subject.pre %></td>
             <td><%= link_to "<p class='glyphicon glyphicon-log-in' style= 'font-size: 60px;'></p>".html_safe, subject %></td>
             <td><%= link_to "<p class='glyphicon glyphicon-edit' style= 'font-size: 60px;'></p>".html_safe, edit_subject_path(subject) %></td>
             <td><%= link_to "<p class='glyphicon glyphicon-remove' style= 'font-size: 60px;'></p>".html_safe, subject, method: :delete, data: { confirm: '¿Esta seguro de borrar esa materia?' } %></td>

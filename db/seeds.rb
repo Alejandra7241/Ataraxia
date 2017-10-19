@@ -38,7 +38,7 @@ Subject.create([
         {code: 2025995, name: 'Introducción a los sistemas inteligentes', credits: 3},
         {code: 2016722, name: 'Computación paralela y distribuida', credits: 3},
         {code: 2025960, name: 'Computación visual', credits: 3},
-        {code: 2024045, name: 'Taller de proyectos interdisciplinarios'},
+        {code: 2024045, name: 'Taller de proyectos interdisciplinarios', credits: 3},
         {code: 2025983, name: 'Arquitectura de infraestructura y gobierno de TICs', credits: 3},
         {code: 2025972, name: 'Criptografía y seguridad de la información', credits: 3},
         {code: 9999990, name: 'Libre elección', credits: 2},
@@ -87,7 +87,7 @@ Subject.create([
 
 career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
 
-mallaSis = Malla.create({tipo:'Estándar', nombre: 'Ingeniería de Sistemas y Computación'})
+mallaSis = Malla.create({tipo:'Estándar'})
 career.mallas << mallaSis
 
 mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
@@ -96,236 +96,285 @@ mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:num
 sem = mallaSis.semesters.find_by number: 1
 
 subj = Subject.find_by(code: 1000004)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025975)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015734)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999999)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 2
 sem = mallaSis.semesters.find_by number: 2
 
 subj = Subject.find_by(code: 1000019)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000005)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000003)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016375)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 3
 sem = mallaSis.semesters.find_by number: 3
 
 subj = Subject.find_by(code: 1000013)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000006)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025963)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016353)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016698)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 4
 sem = mallaSis.semesters.find_by number: 4
 
 subj = Subject.find_by(code: 1000017)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015703)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025964)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016699)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016697)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 5
 sem = mallaSis.semesters.find_by number: 5
 
 subj = Subject.find_by(code: 2025970)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015702)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025967)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016701)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015174)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 6
 sem = mallaSis.semesters.find_by number: 6
 
 subj = Subject.find_by(code: 2025971)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015970)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025982)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016702)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016696)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016707)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 7
 sem = mallaSis.semesters.find_by number: 7
 
 subj = Subject.find_by(code: 2025969)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025994)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016703)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016716)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025966)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025995)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 8
 sem = mallaSis.semesters.find_by number: 8
 
 subj = Subject.find_by(code: 2016722)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025960)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2024045)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025983)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025972)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999990)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 9
 sem = mallaSis.semesters.find_by number: 9
 
 subj = Subject.find_by(code: 9999991)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999992)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999993)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999994)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 10
 sem = mallaSis.semesters.find_by number: 10
 
 subj = Subject.find_by(code: 9999995)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999996)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999997)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999998)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #-------------------------------------------------------------------------------------------
 
 
@@ -334,7 +383,7 @@ sem.subjects << subj
 
 career = Career.create({code: 2546, name: 'Ingeniería Industrial', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
 
-mallaInd = Malla.create({tipo:'Estándar', nombre: 'Ingeniería Industrial'})
+mallaInd = Malla.create({tipo:'Estándar'})
 career.mallas << mallaInd
 
 mallaInd.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
@@ -343,227 +392,274 @@ mallaInd.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:num
 sem = mallaInd.semesters.find_by number: 1
 
 subj = Subject.find_by(code: 1000004)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015811)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016601)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015734)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 2
 sem = mallaInd.semesters.find_by number: 2
 
 subj = Subject.find_by(code: 1000005)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000003)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016615)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016375)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999999)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 3
 sem = mallaInd.semesters.find_by number: 3
 
 subj = Subject.find_by(code: 1000006)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000019)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016592)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2026488)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015178)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 4
 sem = mallaInd.semesters.find_by number: 4
 
 subj = Subject.find_by(code: 1000007)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 1000017)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016610)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2026551)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025993)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 5
 sem = mallaInd.semesters.find_by number: 5
 
 subj = Subject.find_by(code: 2025970)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025971)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025986)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016619)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016618)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016379)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'B')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 6
 sem = mallaInd.semesters.find_by number: 6
 
 subj = Subject.find_by(code: 2025987)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015702)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016741)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016613)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016589)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 7
 sem = mallaInd.semesters.find_by number: 7
 
 subj = Subject.find_by(code: 2025988)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2025982)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016609)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016614)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016616)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 8
 sem = mallaInd.semesters.find_by number: 8
 
 subj = Subject.find_by(code: 2016605)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2016600)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 2015701)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'C')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999991)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 9
 sem = mallaInd.semesters.find_by number: 9
 
 subj = Subject.find_by(code: 9999992)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999993)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999994)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999995)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 
 # Semestre 10
 sem = mallaInd.semesters.find_by number: 10
 
 subj = Subject.find_by(code: 9999998)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999996)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999997)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 subj = Subject.find_by(code: 9999910)
-career.career_has_subjects << CareerHasSubject.create( :subject => subj, :typology => 'L')
-sem.subjects << subj
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 #-------------------------------------------------------------------------------------------
 

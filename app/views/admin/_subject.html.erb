@@ -1,25 +1,25 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 <div id="subj">
     <% if vista2 == "admin_malla" %>
-    <% @code = subj.code %>
-        <%= link_to "&times;".html_safe, remove_subject_path(@code), :class => 'close', :style => 'padding-right: 5px;' %></li>
+    <% @subj = Subject.find(chs.subject_id) %>
+        <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %></li>
     <%end%>
-    <% @@subject_global = subj.name %>
+    <% @@subject_global = @subj.name %>
     <% if typ=='B' %>
-        <div class="rcorners1" align="center" style="background:#FEC34C;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#FEC34C;"><%= @subj.credits %> </div>
     <% elsif typ=='C' %>
-        <div class="rcorners1" align="center" style="background:#00FF00;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#00FF00;"><%= @subj.credits %> </div>
     <% elsif typ=='L' %>
-        <div class="rcorners1" align="center" style="background:#00FEFF;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#00FEFF;"><%= @subj.credits %> </div>
     <% elsif typ=='O' %>
-        <div class="rcorners1" align="center" style="background:#91A3B0;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#91A3B0;"><%= @subj.credits %> </div>
     <% elsif typ=='P' %>
-        <div class="rcorners1" align="center" style="background:#88B04B;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#88B04B;"><%= @subj.credits %> </div>
     <% else %>
-        <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
+        <div class="rcorners1" align="center" style="background:#C00000;"><%= @subj.credits %> </div>
     <% end %>
   <div class="rcorners2" align="center">
       
-    <%= link_to subj.name, admin_open_modal_path(:s => subj.id, :typ => typ), remote: true, :style => 'color: black' %>
+    <%= link_to @subj.name, admin_open_modal_path(:s => chs.subject_id, :typ => typ), remote: true, :style => 'color: black' %>
     </div>
 </div>
