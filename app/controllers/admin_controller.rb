@@ -27,8 +27,8 @@ class AdminController < ApplicationController
     @subject = Subject.new
     puts "Subject:"
     print @subject
-    @career = Career.find_by id: 1
-    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    @career = Career.find(1)
+    @malla = @career.mallas.first
   end
   
   def materia_existente
@@ -161,8 +161,10 @@ class AdminController < ApplicationController
     
     #@subject = Subject.new(subject_params)
     #puts @subject.typology
-    @subject = Subject.find_by_code(params[:code])
-    Malla.remove_subject_from_malla(@subject.code)
+    @chs_id = params[:chs_id].to_i
+    @sem_id = params[:sem_id].to_i
+    @subject = Subject.find(CareerHasSubject.find(@chs_id).subject_id)
+    Malla.remove_subject_from_malla(@chs_id, @sem_id)
     respond_to do |format|
       #if @subject.save
       flash[:notice] = "Fue eliminada la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " de la malla actual."

@@ -2,10 +2,10 @@ class Malla < ApplicationRecord
     belongs_to :career
     has_many :semesters
     
-    def self.remove_subject_from_malla(code)
-        subj = Subject.find_by(code: code)
-        sem = subj.semesters.first.id
-        SemesterHasSubject.find_by(semester_id: sem, subject_id: subj.id).destroy
+    def self.remove_subject_from_malla(chs_id, sem_id)
+        #subj = Subject.find_by(code: code)
+        #sem = subj.semesters.first.id
+        SemesterHasSubject.find_by(semester_id: sem_id, career_has_subject_id: chs_id).destroy
         
         #eliminar en el semestre, 
         #clase_12_oct
