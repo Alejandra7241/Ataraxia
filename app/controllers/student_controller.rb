@@ -205,11 +205,9 @@ class StudentController < ApplicationController
     redirect_to student_index_path
     end
     
-    def malla_avance
+    def malla_personal
       @user = current_user
-      
-      @malla_avance = Malla.find_by(student_id: current_user.id)
-
+      @malla_personal = Malla.find_by(student_id: current_user.id)
     end
 
     
