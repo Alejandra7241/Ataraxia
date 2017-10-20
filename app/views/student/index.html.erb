@@ -24,7 +24,7 @@
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
                     <% Malla.all.each do |malla| %>
-                    <li><%= link_to malla.nombre, student_malla_estandar_path %></li>
+                    <li><%= link_to Career.find(malla.career_id).name, student_malla_estandar_path %></li>
                     <% end %>
                     </ul>
                 </div>
@@ -42,7 +42,7 @@
         <div style="background-color: LightSalmon ;   padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Malla Avance</h2> 
             <p style="font-size:15px">Consulta tu avance en la carrera de una forma grafica e interactiva.</p>
-            <div align="center" ><%= link_to '¡Ver!', admin_malla_path, :class => "btn btn-success btn-lg disabled" %></div>
+            <div align="center" ><%= link_to '¡Ver!', progress_malla_current_student_path, :class => "btn btn-success btn-lg" %></div>
         </div>
     </div>
   </div>

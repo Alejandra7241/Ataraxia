@@ -1,8 +1,8 @@
 class Malla < ApplicationRecord
     belongs_to :career
     has_many :semesters
-    belongs_to :admin, class_name: "User"
-    belongs_to :student, class_name: "User"
+    belongs_to :admin, class_name: "User", optional: true
+    belongs_to :student, class_name: "User", optional: true
     
     def self.remove_subject_from_malla(chs_id, sem_id)
         #subj = Subject.find_by(code: code)

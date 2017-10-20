@@ -1,4 +1,6 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+<% @user = user %>
+<% @malla = malla %>
 <div class="row">
         <div class="col-md-12" class="back">
         <table id="tableSemesters" class="table table-bordered .table-responsive ">
@@ -70,6 +72,8 @@
     <tbody id="tbodyidPrerrequisitosSubjectModal">
     </tbody>
   </table>
+  
+  <% unless vista == "student_malla" %>
     <div id="existente">
           
             <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
@@ -101,6 +105,7 @@
             <% end %>
           
           </div>
+          <% end %>
       </div>
     </div>
   </div>
