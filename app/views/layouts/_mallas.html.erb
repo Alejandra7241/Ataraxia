@@ -20,9 +20,9 @@
                 <td align="center">
                   <% sem.career_has_subjects.each do |chs| %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "admin/subject", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
+                    <%= render partial: "admin/subject.html.erb", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
                     <% else %>
-                    <%= render partial: "admin/subject", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
+                    <%= render partial: "admin/subject.html.erb", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
                     <% end %>
                   <% end %>
                   <br>
@@ -40,6 +40,8 @@
   
   <!-- El Modal mostrar materia partial
 <div class="modal"></div>-->
+
+<% if pdf!="yes" %>
 
  <div id="editingSubjectsii" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -109,3 +111,4 @@
     </div>
   </div>
 </div>
+<% end %>

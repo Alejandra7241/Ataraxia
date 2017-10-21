@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-      
         <title>Malla</title>
         <meta charset="UTF-8">
         <%= wicked_pdf_stylesheet_link_tag 'application' %>
-
     </head>
-
+    
     <body>
-       <%= render 'layouts/mallas.html.erb', :vista =>"guess_malla", :user => current_user, :malla => @malla%>
+        <%= render 'layouts/mallas.html.erb', :vista =>"guess_malla", :pdf => "yes" , :user => current_user, :malla => @malla%>
     </body>
 </html>

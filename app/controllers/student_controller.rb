@@ -10,7 +10,23 @@ class StudentController < ApplicationController
         @subject = Subject.new
         @career = Career.find(params[:id].to_i)
         @malla = @career.mallas.find_by(tipo: "Estándar")
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_estandar', pdf:'malla_ataraxia'}
+        end 
     end
+    
+    def malla_personal
+      @user = current_user
+      @subject = Subject.new
+      @malla_personal = Malla.find_by(student_id: current_user.id)
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_personal', pdf:'malla_ataraxia'}
+        end
+    end    
   
     private
     
@@ -83,7 +99,6 @@ class StudentController < ApplicationController
                 #puts processing[0]
                 if processing[0] == "exigidos"
                     creditos_requeridos = processing[-3].to_f
-                    puts "Esta!"
                     puts processing
                     creditos_exigidos_fundamentacion = processing[1].to_f
                     creditos_exigidos_disciplinar = processing[2].to_f
@@ -192,7 +207,7 @@ class StudentController < ApplicationController
           nombre_sin_apellido += splitting[i]
           nombre_sin_apellido += " " if i < (splitting.length)-3
           i +=1
-    end
+        end
     
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
@@ -201,12 +216,5 @@ class StudentController < ApplicationController
 
     redirect_to student_index_path
     end
-    
-    def malla_personal
-      @user = current_user
-      @subject = Subject.new
-      @malla_personal = Malla.find_by(student_id: current_user.id)
-    end
-
     
 end
