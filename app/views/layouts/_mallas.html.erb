@@ -45,7 +45,7 @@
                     <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem} %>
                     
                     <% else %>
-                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem } %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem } %>
                     <% end %>
                   <% end %>
                   <br>  
@@ -380,9 +380,8 @@
 </div>
 
 
+<% end %>
 
 
 
 
-
-         
