@@ -11,21 +11,28 @@
                   <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
                 </th>
               <% end %>
+              <% if add_subjects_enabled %>
+                 <th >
+                  <p class="semestre" style="font-size: 50%"> ¡Añadir Semestre!</p>
+                </th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
             <tr id="mytr">
               <% current_semester = 1 %>
               <% @malla.semesters.each do |sem| %>
+              <% empty_semester = true %>
                 <td align="center">
                   <% sem.career_has_subjects.each do |chs| %>
+                  <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
                     <%= render partial: "admin/subject", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
+                    
                     <% else %>
                     <%= render partial: "admin/subject", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
                     <% end %>
                   <% end %>
-<<<<<<< HEAD
                   
                   <% sem.subjects.each do |student_subj| %>
                     <% if vista=="admin_malla" %> 
@@ -42,15 +49,27 @@
                       <%= link_to "<p class='glyphicon glyphicon-remove'></p>".html_safe, '#', "data-target" => "#removeSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
                      <br>
                     <% end %>
-=======
-                  <br>
->>>>>>> 989f811ab004815b372712ec2aeb42725c74b329
                   <% if vista=="admin_malla" %>
-                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                  <% else if vista == "student_malla"  && current_semester >= user.current_semester%>
+                  
+                  
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                   
+                  <% end %>
+                     
                   <%end%>
                   <% current_semester += 1%>
                 </td>
+                 
               <% end %>
+              
+              <% current_semester -= 1%>
+                <td align="center">
+                  <% if add_subjects_enabled %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addNewSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                  <% end %>
+                </td>
             </tr>
           </tbody>
         </table>
