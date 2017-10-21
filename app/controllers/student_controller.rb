@@ -6,14 +6,10 @@ class StudentController < ApplicationController
     #before_action :check_academic_history, only: [:historia_academica, :index]
     #self.check_complete_data_for_academic_history(id)
     
-    def malla_estandar(nombre='')
-    puts nombre
-    @user = User.new
-    @subject = Subject.new
-    puts "Subject:"
-    print @subject
-    @career = Career.find_by id: 1
-    @malla = Malla.find_by(career_id: Career.find_by(code: 2879))
+    def malla_estandar
+        @subject = Subject.new
+        @career = Career.find(params[:id].to_i)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
     end
   
     private

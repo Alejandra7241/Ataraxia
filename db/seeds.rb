@@ -87,8 +87,7 @@ Subject.create([
 
 career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
 
-mallaSis = Malla.create({tipo:'Estándar'})
-career.mallas << mallaSis
+mallaSis = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
 
@@ -383,8 +382,7 @@ sem.career_has_subjects << chs
 
 career = Career.create({code: 2546, name: 'Ingeniería Industrial', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
 
-mallaInd = Malla.create({tipo:'Estándar'})
-career.mallas << mallaInd
+mallaInd = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaInd.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
 

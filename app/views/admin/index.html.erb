@@ -17,8 +17,8 @@
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
-                    <% Malla.all.each do |malla| %>
-                    <li><%= link_to Career.find(malla.career_id).name, admin_malla_path %></li>
+                     <% Career.all.each do |career| %>
+                        <li><%= link_to career.name, admin_malla_path(career.id) %></li>
                     <% end %>
                     </ul>
                   </div>
@@ -49,19 +49,7 @@
           <h4 class="modal-title">Nueva malla</h4>
         </div>
         <div class="modal-body">
-             <%= form_for @malla, :url => admin_malla_path(@malla.id), :remote => true do |f|  %>
-            <div class="form-group">
-              <%= f.label :tipo, 'Tipo de malla:' %><br>
-              <%= f.text_field :tipo, placeholder: "ej: Estándar", autofocus: true, :class => 'form-control' %>
-              <p>Falta dropdown para carrera</p>
-            </div>
-            <div class="form-group" align="center">     
-              <%= f.submit '¡Crear malla!', :class => 'btn btn-primary' %>
-            </div>
-            
-            
-            <div id="respuesta" style="display: none;"></div>
-            <% end %>
+         
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
