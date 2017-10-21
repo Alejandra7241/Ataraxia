@@ -64,7 +64,7 @@ Rails.application.routes.draw do
   end
   
   #Adding subjects via post
-  post 'admin/materia_existente', to: 'admin#materia_existente', as: 'submit_materia_existente'
+  post 'subjects/add_existing_subject/:constraint/:data/:code_career', to: 'subjects#add_existing_subject', as: 'submit_materia_existente'
   post 'subjects/edit_existing_subject', to: 'subjects#edit_existing_subject', as: 'edit_existing_subject'
   post 'admin/search_prerequisite', to:'admin#search_prerequisite', as: 'search_prerequisite'
   post 'admin/change_semester', to: 'admin#change_semester', as: 'change_semester'

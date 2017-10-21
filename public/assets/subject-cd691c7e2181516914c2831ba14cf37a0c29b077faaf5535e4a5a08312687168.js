@@ -93,3 +93,4 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
     // }
     
 }
+;

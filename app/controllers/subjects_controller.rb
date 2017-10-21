@@ -84,6 +84,31 @@ class SubjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def add_existing_subject
+    @constraint = params[:constraint]
+    puts params[:data]
+    @code =  params[:subject][:code]
+    #@subject = Subject.find_by_code(@code)
+    @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
+    puts "Baia baia #{@subject}"
+    name = @subject.name unless @subject.is_a? Integer
+    code = @subject.code unless @subject.is_a? Integer
+    credits = @subject.credits unless @subject.is_a? Integer
+    typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.is_a? Integer
+    respond_to do |format|
+      unless @subject.is_a? Integer
+        
+        format.js { render :js => "searchSubject('#{name}','#{code}','#{typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}')" }
+      else
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1')" } if @subject == -1
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1')" } if @subject == 0
+      end
+    end
+    
+   
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

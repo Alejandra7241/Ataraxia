@@ -81,71 +81,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites){
 
 
 
-function searchSubject(name,code,typology, credits){
-    //console.log(code)
-    
-    var postLink =  `   <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
-                        <button type="submit">
-                        <input type="hidden" name="code" id="setCode" value="` + code +`" />
-                        <input type="hidden" name="typology" id="setTypology" value="` + typology +`" />
-                        <input type="hidden" name="exists" id="exists" value="` + true +`" />
-                        <input type="hidden" name="semester" id="setSemester" value="` + current_semester +`" />
-                           <span class="glyphicon glyphicon-ok"></span>
-                        </button>
-                        </form> `;
-    
-    console.log(postLink);
-    
-    $('#tableQuery').each(function() {
-        $(this).hide();
-    });
-    $("#tbodyid").empty();
-    if(code != -1){
-        document.getElementById("jschange").innerHTML = '';
-        $('#tableQuery').each(function() {
-        $(this).show();
-    });
-    var firsttr = action_for_typology(typology, 1);
-    $('#tableQuery > tbody:last-child').append( firsttr + '<td>' + name+ '</td><td>' + code + '</td><td>' + credits  + '</td><td class="text-center"> ' + postLink + '</td></tr>');
-    }else{
-        document.getElementById("jschange").innerHTML = 'No se han encontrado materias con ese código';
-    }
-    
-        
-    //Duplicated, remove later with black magic
-    //     $('#tableQueryPrerrequisitos').each(function() {
-    //     $(this).hide();
-    // });
-    // $("#tbodyidPrerrequisitos").empty();
-    // if(code != -1){
-    //     document.getElementById("jschangeii").innerHTML = '';
-    //     $('#tableQueryPrerrequisitos').each(function() {
-    //     $(this).show();
-    // });
-    // $('#tableQueryPrerrequisitos > tbody:last-child').append(' <tr><td>' + code + '</td><td>' + code + '</td>');
-    // switch (typology) {
-    //     case 'B':
-    //         $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Fundamentación</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'L':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Electiva</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'C':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Disciplinar</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'O':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Optativa</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'P':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Nivelación</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    // }
-    
-    // }else{
-    //     document.getElementById("jschangeii").innerHTML = 'No se han encontrado materias con ese código';
-    // }
-    
-}
+
 
 
 function action_for_typology(typology, number_action){
@@ -228,38 +164,7 @@ function addPrerequisite(name,code,typology, code_to_add){
     
 }
 
-function reset_and_assign(current_semesterr) {
-    console.log(current_semester);
-    console.log(current_semesterr);
-    current_semester = current_semesterr
-    console.log(current_semester);
-    var x = document.getElementById('principal');
-    x.style.display='block';
-    var z = document.getElementById('existente2');
-    z.style.display='none';
-    var z = document.getElementById('nueva');
-    z.style.display='none';
-    var a = document.getElementById('newMateria');
-    a.style.display='none';
 
-}
-
-
-function reset_and_assign(current_semesterr) {
-    console.log(current_semester);
-    console.log(current_semesterr);
-    current_semester = current_semesterr
-    console.log(current_semester);
-    var x = document.getElementById('principal');
-    x.style.display='block';
-    var z = document.getElementById('existente2');
-    z.style.display='none';
-    var z = document.getElementById('nueva');
-    z.style.display='none';
-    var a = document.getElementById('newMateria');
-    a.style.display='none';
-
-}
 
 function showExistente() {
     console.log("Existente");

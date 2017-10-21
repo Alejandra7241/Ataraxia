@@ -1,4 +1,10 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+<%= javascript_include_tag 'subject', "data-turbolinks-track" => true %>
+<% if vista == "student_malla" %>
+<%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
+<% end %>
+
+<% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = user %>
 <% @malla = malla %>
 <div class="row">
@@ -11,27 +17,65 @@
                   <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
                 </th>
               <% end %>
+              <% if add_subjects_enabled %>
+                 <th >
+                  <p class="semestre" style="font-size: 50%"> ¡Añadir Semestre!</p>
+                </th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
             <tr id="mytr">
               <% current_semester = 1 %>
               <% @malla.semesters.each do |sem| %>
+              <% empty_semester = true %>
                 <td align="center">
                   <% sem.career_has_subjects.each do |chs| %>
+                  <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "admin/subject.html.erb", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
+                    <%= render partial: "admin/subject", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
+                    
                     <% else %>
                     <%= render partial: "admin/subject.html.erb", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
                     <% end %>
                   <% end %>
-                  <br>
+                  
+                  <% sem.subjects.each do |student_subj| %>
+                    <% if vista=="admin_malla" %> 
+                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem} %>
+                    
+                    <% else %>
+                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem } %>
+                    <% end %>
+                  <% end %>
+                  <br>  
+                  
+                  
+                   <% if empty_semester && current_semester == @malla.semesters.length  %>
+                      <%= link_to "<p class='glyphicon glyphicon-remove'></p>".html_safe, '#', "data-target" => "#removeSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                     <br>
+                    <% end %>
                   <% if vista=="admin_malla" %>
-                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#myModal2", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                  <% else if vista == "student_malla"  && current_semester >= user.current_semester%>
+                  
+                  
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                   
+                  <% end %>
+                     
                   <%end%>
                   <% current_semester += 1%>
                 </td>
+                 
               <% end %>
+              
+              <% current_semester -= 1%>
+                <td align="center">
+                  <% if add_subjects_enabled %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addNewSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                  <% end %>
+                </td>
             </tr>
           </tbody>
         </table>
@@ -111,4 +155,234 @@
     </div>
   </div>
 </div>
-<% end %>
+
+
+
+  
+  <!-- El Modal Agregar Materia-->
+  <div id="addSubjectFromAdmin" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-agregar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Agregar Materia</h2>
+        </div>
+        <div class="modal-body">
+          <div id="principal">
+            <div class="form-group" align="center">     
+              <button type="button" class="btn btn-default" onclick="showNueva()">Nueva Materia</button>
+              <button type="button" class="btn btn-default" onclick="showExistente()">Materia ya existente</button>
+            </div>
+          </div>
+          <% if vista == "admin_malla" %>
+          <div id="existente2" style="display: none;">
+          
+            <%= form_for @subject, :url => submit_materia_existente_path(1, -1), :remote => true do |f|  %>
+            <h3>Materia ya existente:</h3>
+            <div class="form-group">
+              <%= f.label :code, 'Código:' %><br>
+              <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <h3 id = "jschange"></h3>
+                      <table class="table table-striped" id="tableQuery" style="display: none;" >
+                    <thead id="tblHead">
+                      <tr>
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th class="text-center">Créditos</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyid">
+                    </tbody>
+                  </table>
+                  
+                  
+            </div>
+            <div class="form-group" align="center">     
+              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            
+            
+            <div id="respuesta" style="display: none;"></div>
+            
+          
+          </div>
+          
+          <% end %>
+          
+          <div id="nueva" style="display: none;">
+            <h3>Agregar una nueva materia:</h3>
+            <h4>Por favor seleccione la tipologia.</h4>
+            <div class="form-group" align="center"> 
+            <% tipos_materia.each do |x|   %>
+              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
+            <% end %>
+            </div>
+          </div>
+          
+          <% end %>
+          <div id="newMateria" style="display: none;">
+            <h3 id="labelMateria"></h3>
+                        <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+                          <label class="col-sm-2 control-label" for="input-name">Código</label>
+                          <input type="text" name="code" value="" required pattern = "^\d+$" title = "El código debe contener sólo números" placeholder="Introduzca el código" id="name" class="form-control" />
+                          <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
+                          <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
+                          <label class="col-sm-2 control-label" for="input-price">Créditos</label>
+                          <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
+                          <input type="hidden" name="typology" id="setTypology" value="" />
+                          <input type="hidden" name="semester" id="setSemester" value="" />
+                          <input type="hidden" name="exists" id="exists" value="" />
+                          <input type="submit" class="btn btn-primary" value="Agregar materia">
+                          <input type="reset" class="btn btn-default" value="Limpiar">
+                          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <div id="addNewSemester" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-agregar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Añadir un nuevo semestre</h2>
+        </div>
+        <div class="modal-body">
+          <div id="principal">
+            <div class="form-group" align="center">
+              <%= link_to "¡Añadir semestre #{ @malla.semesters.length+1}!", new_semester_path(@malla.id), class: "btn btn-success" %>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+  <div id="removeSemester" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-agregar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Añadir un nuevo semestre</h2>
+        </div>
+        <div class="modal-body">
+          <div id="principal">
+            <div class="form-group" align="center">
+              <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), class: "btn btn-danger" %>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+  <div id="addSubjectFromStudent" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-agregar">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Agregar Materia</h2>
+        </div>
+        <div class="modal-body">
+          <strong>¿Cómo deseas buscar la materia a agregar?</strong>
+          
+          <div id="searching">
+            <div class="form-group" align="center">    
+            
+            <% search_by.each do |criteria| %>
+            <% onclick = "search_by( '" + criteria + "' ) " %>
+             <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
+              <% end%>
+            </div>
+          </div>
+
+          <div id="codigo" style="display: none;">
+
+            <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find(@malla.career_id).code), :remote => true do |f|  %>
+            <h3>Agregar materia por código:</h3>
+            <div class="form-group">
+              <%= f.label :code, 'Código:' %><br>
+              <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+              <h3 id = "jschange"></h3>
+                      <table class="table table-striped" id="tableQuery" style="display: none;" >
+                    <thead id="tblHead">
+                      <tr>
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th class="text-center">Créditos</th>
+                        <th>Acción</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tbodyid">
+                    </tbody>
+                  </table>
+                  
+                  
+            </div>
+            <div class="form-group" align="center">     
+              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
+              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+            </div>
+            
+            
+            <div id="respuesta" style="display: none;"></div>
+            
+          
+          </div>
+          
+          
+          
+          <div id="todas" style="display: none;">
+            <h3>Agregar una nueva materia:</h3>
+            <h4>Por favor seleccione la tipologia.</h4>
+            <div class="form-group" align="center"> 
+            <% search_by.each do |x|   %>
+              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
+            <% end %>
+            </div>
+          </div>
+          
+          <% end %>
+          <div id="tipologia" style="display: none;">
+           <div class="form-group" align="center">    
+            
+            <% search_by.each do |criteria| %>
+            <% onclick = "search_by( '" + criteria + "' ) " %>
+             <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
+              <% end%>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+         

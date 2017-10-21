@@ -1,4 +1,5 @@
-<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => "no" %>
+
+<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => "no", search_by: ['todas', 'codigo', 'tipologia'] %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
 <!-- The Modal Ayuda -->
 
