@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   #Menú
   get 'admin/index' => 'admin#index'
   #Malla
-  get 'admin/malla', to: 'admin#malla', as: "admin_malla"
+  get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
   #Otros
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'
@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   #Menú
   get 'guess/index' => 'guess#index', as: "guess_index"
   #Malla
-  get 'guess/malla', to: 'guess#malla', as: "guess_malla"
+  get 'guess/malla/:id', to: 'guess#malla', as: "guess_malla"
 # ESTUDIANTE
   #Menú
   get 'student/index' => 'student#index'
@@ -46,9 +46,11 @@ Rails.application.routes.draw do
   get 'student/procesar_historia_academica', to: 'student#procesar_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   #Mallas
-  get 'student/malla_estandar', to: 'student#malla_estandar', as: 'student_malla_estandar'
+  get 'student/malla_estandar/:id', to: 'student#malla_estandar', as: 'student_malla_estandar'
   get 'student/malla_personal', to: 'student#malla_personal', as: 'student_malla_personal'
   get 'student/malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
+  
+  
   #get 'student/malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
 # MATERIAS
   get 'subjects/show', to:'subjects#show', as: 'show'
@@ -75,4 +77,9 @@ Rails.application.routes.draw do
   get 'mallas/add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
   get 'mallas/remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   resources :subjects
+  
+  
+  
+  
+  
 end

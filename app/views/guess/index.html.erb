@@ -17,8 +17,8 @@
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
-                    <% Malla.all.each do |malla| %>
-                    <li><%= link_to malla.nombre, guess_malla_path %></li>
+                     <% Career.all.each do |career| %>
+                        <li><%= link_to career.name, guess_malla_path(career.id) %></li>
                     <% end %>
                     </ul>
                 </div>
