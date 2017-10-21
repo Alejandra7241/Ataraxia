@@ -1,4 +1,10 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+<%= javascript_include_tag 'subject', "data-turbolinks-track" => true %>
+<% if vista == "student_malla" %>
+<%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
+<% end %>
+
+<% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = user %>
 <% @malla = malla %>
 <div class="row">
@@ -161,7 +167,7 @@
           <% if vista == "admin_malla" %>
           <div id="existente2" style="display: none;">
           
-            <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
+            <%= form_for @subject, :url => submit_materia_existente_path(1, -1), :remote => true do |f|  %>
             <h3>Materia ya existente:</h3>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
@@ -288,13 +294,22 @@
           <h2 align="center">Agregar Materia</h2>
         </div>
         <div class="modal-body">
-
-    
-          <div id="existente2" style="display: none;">
+          <strong>¿Cómo deseas buscar la materia a agregar?</strong>
           
-        
-            <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
-            <h3>Materia ya existente:</h3>
+          <div id="searching">
+            <div class="form-group" align="center">    
+            
+            <% search_by.each do |criteria| %>
+            <% onclick = "search_by( '" + criteria + "' ) " %>
+             <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
+              <% end%>
+            </div>
+          </div>
+
+          <div id="codigo" style="display: none;">
+
+            <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find(@malla.career_id).code), :remote => true do |f|  %>
+            <h3>Agregar materia por código:</h3>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
               <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
@@ -325,29 +340,38 @@
           
           </div>
           
-      
-
+          
+          
+          <div id="todas" style="display: none;">
+            <h3>Agregar una nueva materia:</h3>
+            <h4>Por favor seleccione la tipologia.</h4>
+            <div class="form-group" align="center"> 
+            <% search_by.each do |x|   %>
+              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
+            <% end %>
+            </div>
+          </div>
           
           <% end %>
-          <div id="newMateria" style="display: none;">
-            <h3 id="labelMateria"></h3>
-                        <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
-                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                          <label class="col-sm-2 control-label" for="input-name">Código</label>
-                          <input type="text" name="code" value="" required pattern = "^\d+$" title = "El código debe contener sólo números" placeholder="Introduzca el código" id="name" class="form-control" />
-                          <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
-                          <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
-                          <label class="col-sm-2 control-label" for="input-price">Créditos</label>
-                          <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
-                          <input type="hidden" name="typology" id="setTypology" value="" />
-                          <input type="hidden" name="semester" id="setSemester" value="" />
-                          <input type="hidden" name="exists" id="exists" value="" />
-                          <input type="submit" class="btn btn-primary" value="Agregar materia">
-                          <input type="reset" class="btn btn-default" value="Limpiar">
-                          </form>
+          <div id="tipologia" style="display: none;">
+           <div class="form-group" align="center">    
+            
+            <% search_by.each do |criteria| %>
+            <% onclick = "search_by( '" + criteria + "' ) " %>
+             <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
+              <% end%>
+            </div>
         </div>
       </div>
     </div>
   </div>
 
 </div>
+
+
+
+
+
+
+
+         

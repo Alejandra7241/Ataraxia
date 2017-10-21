@@ -87,7 +87,6 @@ class StudentController < ApplicationController
                 #puts processing[0]
                 if processing[0] == "exigidos"
                     creditos_requeridos = processing[-3].to_f
-                    puts "Esta!"
                     puts processing
                     creditos_exigidos_fundamentacion = processing[1].to_f
                     creditos_exigidos_disciplinar = processing[2].to_f

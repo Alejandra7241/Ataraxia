@@ -40,4 +40,9 @@ class Career < ApplicationRecord
         current_semester += 1
       end
     end
+    
+    
+    def self.find_carrer_code_by_malla(malla)
+        self.find(malla.career_id).code
+    end
 end

@@ -25,8 +25,8 @@ function editASubject(id,name, code, typology, credits){
 
 
 
-function searchSubject(name,code,typology, credits, message, malla_id, code_career){
-    console.log(current_semester)
+function searchSubject(name,code,typology, credits, message){
+    //console.log(code)
     
     var postLink =  `   <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                         <button type="submit">
@@ -34,8 +34,6 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
                         <input type="hidden" name="typology" id="setTypology" value="` + typology +`" />
                         <input type="hidden" name="exists" id="exists" value="` + true +`" />
                         <input type="hidden" name="semester" id="setSemester" value="` + current_semester +`" />
-                        <input type="hidden" name="malla_id" id="setMallaId" value="` + malla_id +`" />
-                        <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
                            <span class="glyphicon glyphicon-ok"></span>
                         </button>
                         </form> `;
@@ -93,3 +91,4 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
     // }
     
 }
+;

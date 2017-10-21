@@ -63,13 +63,13 @@ class MallasController < ApplicationController
   
   
   def add_subject_to_malla()
+    @malla = Malla.find(params[:malla_id])
     @code = params[:code].to_i
     @typology = params[:typology]
     @semester = params[:semester].to_i
     @subject_exists = true if params[:exists] == 'true'
     @subject_exists = false if params[:exists] == 'false'
     puts "Es una cadena? #{@subject_exists.is_a?(String)} el valor es #{@subject_exists}"
-    puts "jeje"
     unless @subject_exists
       @name = params[:name]
       @credits = params[:credits].to_i
@@ -77,11 +77,11 @@ class MallasController < ApplicationController
     else
       new_subj = Subject.find_by_code(@code)
     end
-    puts "Aqui está el nombre #{new_subj.name}"
-    career = Career.find(1)
+    puts "Aqui está el nombre #{new_subj.name} y el semestre #{@semester}"
+    career = Career.find_by(code: params[:code_career])
     chs = CareerHasSubject.new( :subject => new_subj, :typology => @typology)
     career.career_has_subjects << chs
-    sem = Malla.first.semesters.find_by(number: @semester)
+    sem = @malla.semesters.find_by(number: @semester)
     added = true
     sem.career_has_subjects << chs rescue added = false
     if @subject_exists
@@ -90,7 +90,7 @@ class MallasController < ApplicationController
       flash[:error] = "Esa materia ya existe en esta malla." unless added
     end
     flash[:notice] = "Se ha agregado satisfactoriamente la materia #{new_subj.name} con código #{new_subj.code} al semestre  #{@semester}" if added
-    redirect_to admin_malla_path
+    redirect_back fallback_location: root_path
   end
   
   
