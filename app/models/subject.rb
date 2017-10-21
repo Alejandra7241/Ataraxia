@@ -4,6 +4,9 @@ class Subject < ApplicationRecord
     has_many :career_has_subjects
     has_many :careers, through: :career_has_subjects
     
+    has_many :semester_has_student_subjects
+    has_many :semesters, through: :semester_has_student_subjects
+    
     validates :code, :presence => true
     validates :code, numericality: { only_integer: true }
     validates :code, :uniqueness => true

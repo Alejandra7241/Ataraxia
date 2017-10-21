@@ -33,6 +33,15 @@
                     <%= render partial: "admin/subject", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
                     <% end %>
                   <% end %>
+                  
+                  <% sem.subjects.each do |student_subj| %>
+                    <% if vista=="admin_malla" %> 
+                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem} %>
+                    
+                    <% else %>
+                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem } %>
+                    <% end %>
+                  <% end %>
                   <br>  
                   
                   
