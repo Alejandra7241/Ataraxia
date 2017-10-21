@@ -72,5 +72,7 @@ Rails.application.routes.draw do
   post 'admin/add_existing_subject', to: 'admin#add_existing_subject'
   post 'mallas/add_subject_to_malla', to: 'mallas#add_subject_to_malla'
   get 'admin/remove_subject/:chs_id/:sem_id', to: 'admin#remove_subject', as: 'remove_subject'
+  get 'mallas/add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
+  get 'mallas/remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   resources :subjects
 end

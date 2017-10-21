@@ -92,6 +92,23 @@ class MallasController < ApplicationController
     flash[:notice] = "Se ha agregado satisfactoriamente la materia #{new_subj.name} con código #{new_subj.code} al semestre  #{@semester}" if added
     redirect_to admin_malla_path
   end
+  
+  
+  def add_new_semester
+    semester_added = Malla.add_semester(params[:id])
+    flash[:notice] = "Se ha añadido exitosamente el semestre #{semester_added}-" unless semester_added == -1
+    flash[:error] = "Ha ocurrido un problema, lo intentaremos arreglar." if semester_added == -1
+    redirect_back fallback_location: root_path
+  end
+  
+  
+  
+  def remove_semester
+    semester_removed = Malla.remove_semester(params[:id], params[:semester])
+    flash[:notice] = "Se ha eliminado exitosamente el semestre #{semester_removed}." unless semester_removed == -1
+    flash[:error] = "Ha ocurrido un problema, lo intentaremos arreglar." if semester_removed == -1
+    redirect_back fallback_location: root_path
+  end
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_malla

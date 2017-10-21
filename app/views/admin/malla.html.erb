@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
   
-<%= render 'layouts/mallas', :vista =>"admin_malla"%>
+<%= render 'layouts/mallas', :vista =>"admin_malla", add_subjects_enabled = true%>
 
 <!-- The Modal Ayuda -->
 
@@ -23,87 +23,7 @@
   </div>
   
   
-  
-  <!-- El Modal Agregar Materia-->
-  <div id="myModal2" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
-        <div class="modal-header modal-agregar">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Agregar Materia</h2>
-        </div>
-        <div class="modal-body">
-          <div id="principal">
-            <div class="form-group" align="center">     
-              <button type="button" class="btn btn-default" onclick="showNueva()">Nueva Materia</button>
-              <button type="button" class="btn btn-default" onclick="showExistente()">Materia ya existente</button>
-            </div>
-          </div>
-          <div id="existente2" style="display: none;">
-          
-            <%= form_for @subject, :url => submit_materia_existente_path, :remote => true do |f|  %>
-            <h3>Materia ya existente:</h3>
-            <div class="form-group">
-              <%= f.label :code, 'Código:' %><br>
-              <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
-              <h3 id = "jschange"></h3>
-                      <table class="table table-striped" id="tableQuery" style="display: none;" >
-                    <thead id="tblHead">
-                      <tr>
-                        <th>Materia</th>
-                        <th>Código</th>
-                        <th class="text-center">Créditos</th>
-                        <th>Acción</th>
-                      </tr>
-                    </thead>
-                    <tbody id="tbodyid">
-                    </tbody>
-                  </table>
-                  
-                  
-            </div>
-            <div class="form-group" align="center">     
-              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
-              <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
-            </div>
-            
-            
-            <div id="respuesta" style="display: none;"></div>
-            <% end %>
-          
-          </div>
-          <div id="nueva" style="display: none;">
-            <h3>Agregar una nueva materia:</h3>
-            <h4>Por favor seleccione la tipologia.</h4>
-            <div class="form-group" align="center"> 
-            <% tipos_materia.each do |x|   %>
-              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
-            <% end %>
-            </div>
-          </div>
-          <div id="newMateria" style="display: none;">
-            <h3 id="labelMateria"></h3>
-                        <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
-                          <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-                          <label class="col-sm-2 control-label" for="input-name">Código</label>
-                          <input type="text" name="code" value="" required pattern = "^\d+$" title = "El código debe contener sólo números" placeholder="Introduzca el código" id="name" class="form-control" />
-                          <label class="col-sm-2 control-label" for="input-description1">Nombre</label>
-                          <textarea class="form-control" name="name" placeholder="Introduzca el nombre" style="min-width: 100%; max-width: 100%" id="description"></textarea>
-                          <label class="col-sm-2 control-label" for="input-price">Créditos</label>
-                          <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
-                          <input type="hidden" name="typology" id="setTypology" value="" />
-                          <input type="hidden" name="semester" id="setSemester" value="" />
-                          <input type="hidden" name="exists" id="exists" value="" />
-                          <input type="submit" class="btn btn-primary" value="Agregar materia">
-                          <input type="reset" class="btn btn-default" value="Limpiar">
-                          </form>
-        </div>
-      </div>
-    </div>
-  </div>
 
-</div>
   <%= render 'layouts/footer', :vista=> "admin_malla"%>
 
 

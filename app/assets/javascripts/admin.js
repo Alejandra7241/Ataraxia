@@ -244,6 +244,23 @@ function reset_and_assign(current_semesterr) {
 
 }
 
+
+function reset_and_assign(current_semesterr) {
+    console.log(current_semester);
+    console.log(current_semesterr);
+    current_semester = current_semesterr
+    console.log(current_semester);
+    var x = document.getElementById('principal');
+    x.style.display='block';
+    var z = document.getElementById('existente2');
+    z.style.display='none';
+    var z = document.getElementById('nueva');
+    z.style.display='none';
+    var a = document.getElementById('newMateria');
+    a.style.display='none';
+
+}
+
 function showExistente() {
     console.log("Existente");
     var x = document.getElementById('principal');

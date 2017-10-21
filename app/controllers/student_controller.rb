@@ -13,7 +13,7 @@ class StudentController < ApplicationController
     puts "Subject:"
     print @subject
     @career = Career.find_by id: 1
-    @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+    @malla = Malla.find_by(career_id: Career.find_by(code: 2879))
     end
   
     private
@@ -179,7 +179,8 @@ class StudentController < ApplicationController
         @carrera = codigo_carrera
         @porcentaje = porcentaje
         @nombre = nombre
-        puts "PORCENTAJEEES"
+        semestre_actual = @hap.length+1
+        puts "PORCENTAJEEES #{@hap.length}"
         puts porcentaje_disciplinar
         puts porcentaje_electivas
         puts porcentaje_fundamentacion
@@ -197,7 +198,7 @@ class StudentController < ApplicationController
           i +=1
     end
     
-    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas )
+    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
     puts "Array of subjects !!!! #{@hap} y #{@carrera} con #{current_user.id}"
     Career.add_array_of_subjects(@carrera, current_user.id, @hap)
@@ -207,6 +208,7 @@ class StudentController < ApplicationController
     
     def malla_personal
       @user = current_user
+      @subject = Subject.new
       @malla_personal = Malla.find_by(student_id: current_user.id)
     end
 

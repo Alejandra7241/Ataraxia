@@ -14,7 +14,6 @@ class Career < ApplicationRecord
     code_career = code_career.to_i
     id_user = id_user.to_i
     puts "String: #{code_career} // #{id_user}"
-    puts "HA de Lizzy #{subjects}"
     career = Career.find_by_code(code_career)
     begin
         Malla.find_by(student_id: id_user).destroy

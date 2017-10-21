@@ -12,7 +12,16 @@ class Malla < ApplicationRecord
         #eliminar en el semestre, 
         #clase_12_oct
     end
+    def self.add_semester(id_malla)
+        Semester.create(number: Malla.find(id_malla).semesters.length + 1, malla_id: id_malla.to_i) rescue return -1
+        Malla.find(id_malla).semesters.length
+    end
     
+    
+    def self.remove_semester(id_malla, semester)
+        Semester.find_by(number: semester, malla_id: id_malla.to_i).destroy rescue return -1
+        semester
+    end
     
     def self.find_malla_by_tipo(tipo)
         Malla.find_by(tipo: tipo)
@@ -24,6 +33,8 @@ class Malla < ApplicationRecord
     
     def self.find_unique()
     end
+    
+    
     
 
 end
