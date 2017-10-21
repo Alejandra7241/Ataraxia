@@ -89,11 +89,11 @@
         <div class="container-fluid">
           <h2 style="text-align: center;">Buscar una materia por carrera, se muestran las materias por carrera:</h2>
             <div id="carrer_container"> 
-                <% Malla.all.each do |malla| %>
-                   <div class="rcorners1" align="left" style="background:green;"><%= malla.semesters.count %></div>
+                <% Career.all.each do |career| %>
+                   <div class="rcorners1" align="left" style="background:green;"></div>
                     <div class="rcorners2" align="center">
                       <i class="glyphicon glyphicon-tower"></i>
-                        <%= link_to Career.find(malla.career_id).name, admin_open_modal_path(:s => 54, :typ => 546), remote: true %></div>
+                        <%= link_to career.name, admin_open_modal_path(:s => 54, :typ => 546), remote: true %></div>
                 <% end %>
             </div>
           
