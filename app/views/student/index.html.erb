@@ -23,8 +23,8 @@
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
-                    <% Malla.all.each do |malla| %>
-                    <li><%= link_to Career.find(malla.career_id).name, student_malla_estandar_path %></li>
+                    <% Career.all.each do |career| %>
+                        <li><%= link_to career.name, student_malla_estandar_path(career.id) %></li>
                     <% end %>
                     </ul>
                 </div>

@@ -27,11 +27,16 @@ class Career < ApplicationRecord
         semester.each do |code_subject, grade_subject|
             puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
             subj = Subject.find_by(code: code_subject)
-            unless subj.nil?
+            if subj.nil?
+                subj = Subject.create({code: code_subject, name: code_subject.to_s, credits: 0})
+                SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+            else
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
                     sem.career_has_subjects << chs 
+
                 rescue
+                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
                 end
             end
             

@@ -21,14 +21,10 @@ class AdminController < ApplicationController
   end
   
   
-  def malla(nombre='')
-    puts nombre
-    @user = User.new
+  def malla
     @subject = Subject.new
-    puts "Subject:"
-    print @subject
-    @career = Career.find(1)
-    @malla = @career.mallas.first
+    @career = Career.find(params[:id].to_i)
+    @malla = @career.mallas.find_by(tipo: "Estándar")
   end
   
 

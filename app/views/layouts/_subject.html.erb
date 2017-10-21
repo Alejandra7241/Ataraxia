@@ -1,0 +1,22 @@
+<%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+<div id="subj">
+
+    <% if typ=='B' %>
+        <div class="rcorners1" align="center" style="background:#FEC34C;"><%= subj.credits %> </div>
+    <% elsif typ=='C' %>
+        <div class="rcorners1" align="center" style="background:#00FF00;"><%= subj.credits %> </div>
+    <% elsif typ=='L' %>
+        <div class="rcorners1" align="center" style="background:#00FEFF;"><%= subj.credits %> </div>
+    <% elsif typ=='O' %>
+        <div class="rcorners1" align="center" style="background:#91A3B0;"><%= subj.credits %> </div>
+    <% elsif typ=='P' %>
+        <div class="rcorners1" align="center" style="background:#88B04B;"><%= subj.credits %> </div>
+    <% else %>
+        <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
+    <% end %>
+  <div class="rcorners2" align="center">
+      
+    <%= link_to subj.name, admin_open_modal_path(:s => subj.id, :typ => typ), remote: true, :style => 'color: black' %>
+    </div>
+ 
+</div>

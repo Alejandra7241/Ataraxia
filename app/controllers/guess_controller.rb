@@ -8,13 +8,9 @@ class GuessController < ApplicationController
     end
     
     
-    def malla(nombre='')
-        puts nombre
-        @user = User.new
+    def malla
         @subject = Subject.new
-        puts "Subject:"
-        print @subject
-        @career = Career.find_by id: 1
-        @malla = @career.mallas.find_by nombre: 'Ingeniería de Sistemas y Computación'
+        @career = Career.find(params[:id].to_i)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
     end
 end
