@@ -28,6 +28,8 @@ Rails.application.routes.draw do
   get 'admin/index' => 'admin#index'
   #Malla
   get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
+  #Career
+  post 'admin/career', to: 'admin#career', as: "admin_career"
   #Otros
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'

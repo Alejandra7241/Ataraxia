@@ -13,7 +13,7 @@
             <h2 style="font-size:60px">Mallas curriculares</h2> 
             <p style="font-size:15px">Crea o edita las malla estandar para las carreras en la Universidad Nacional de Colombia, <br> sede Bogotá</p>
             <div align="center">
-                <%= link_to '¡Crear Nueva!', '#', "data-target" => "#setNameNewCurricular", "data-toggle"=>"modal", :class => "btn btn-success btn-lg" %>
+                <%= link_to '¡Crear Nueva!', "#setNameNewCurricular", "data-toggle"=>"modal", :class => "btn btn-success btn-lg" %>
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
                     <ul class="dropdown-menu">Mallas existentes
@@ -45,11 +45,28 @@
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Nueva malla</h4>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 align="center">Carrera</h2>
         </div>
         <div class="modal-body">
-         
+             <%= form_for @career, :url => admin_career_path, :remote => true do |f|  %>
+            <div class="form-group">
+                <%= f.label :code, 'Código:' %><br>
+                <%= f.text_field :code, :class => 'form-control' %>
+                <%= f.label :name, 'Nombre de la carrera:' %><br>
+                <%= f.text_field :name, autofocus: true, :class => 'form-control' %>
+                <%= f.label :faculty, 'Facultad:' %><br>
+                <%= f.text_field :faculty, :class => 'form-control' %>
+                <%= f.label :department, 'Departamento:' %><br>
+                <%= f.text_field :department, :class => 'form-control' %>
+            </div>
+            <div class="form-group" align="center">    
+              <%= f.submit '¡Crear malla!', :class => 'btn btn-primary' %>
+            </div>
+            
+           
+           <div id="respuesta" style="display: none;"></div>
+            <% end %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>

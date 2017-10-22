@@ -17,7 +17,14 @@ class AdminController < ApplicationController
   end
   public
   def index
-      @malla = Malla.new
+      @career = Career.new
+      
+  end
+  
+  def career
+    @career = Career.create(code: params[:career][:code].to_i, name: params[:career][:name], faculty: params[:career][:faculty], department: params[:career][:department])
+    @career.mallas.create({tipo: "Estándar"})
+    redirect_to admin_malla_path(@career.id)
   end
   
   
