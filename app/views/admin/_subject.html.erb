@@ -1,12 +1,12 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
+<%= javascript_include_tag 'subject', "data-turbolinks-track" => true %>
 <div id="subj">
     
     
-    <% @subj = Subject.find(chs.subject_id) %>
-    <% if vista2 == "admin_malla" %>
+    <% @subj = Subject.find(chs.subject_id)  %>
     
         <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %></li>
-    <%end%>
+
     <% @@subject_global = @subj.name%>
     <% if typ=='B' %>
         <div class="rcorners1" align="center" style="background:#FEC34C;"><%= @subj.credits %> </div>
@@ -23,7 +23,7 @@
     <% end %>
   <div class="rcorners2" align="center">
       
-    <%= link_to @subj.name, admin_open_modal_path(:s => chs.subject_id, :typ => typ), remote: true, :style => 'color: black' %>
+    <%= link_to @subj.name, open_modal_for_subject_path(:s => chs.subject_id, :typ => typ), remote: true, :style => 'color: black' %>
     </div>
  
 </div>

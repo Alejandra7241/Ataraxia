@@ -148,8 +148,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
     var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink;
     var array_of_subjects  = array_prerequisites.split(";")
     if(array_prerequisites.length == 0){
-       if (role == "admin_malla") document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';
-       else document.getElementById("jschangeiii").innerHTML = 'Esta materia no tiene prerequisitos.';
+        document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';   
     }else{
         document.getElementById("jschangeiii").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
@@ -178,3 +177,4 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
     }
    
 }
+;

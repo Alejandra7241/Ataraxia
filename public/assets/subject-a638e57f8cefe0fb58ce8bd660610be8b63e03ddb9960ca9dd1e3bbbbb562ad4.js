@@ -178,3 +178,4 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
     }
    
 }
+;
