@@ -5,7 +5,7 @@
 <% end %>
 
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
-<% @user = user %>
+<% @user = current_user %>
 <% @malla = malla %>
 <div class="row">
         <div class="col-md-12" class="back">
@@ -84,7 +84,7 @@
   
   <!-- El Modal mostrar materia partial
 <div class="modal"></div>-->
-
+<!--Brayan, fix this plox, before i get a heart attack-->
 <% if pdf!="yes" %>
 
  <div id="editingSubjectsii" class="modal fade" role="dialog">
@@ -237,6 +237,8 @@
                           <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
                           <input type="hidden" name="typology" id="setTypology" value="" />
                           <input type="hidden" name="semester" id="setSemester" value="" />
+                          <input type="hidden" name="malla_id" id="setMalla" value="<%= @malla.id %>" />
+                          <input type="hidden" name="code_career" id="setCodeCareer" value="<%= Career.find_carrer_code_by_malla(@malla) %>" />
                           <input type="hidden" name="exists" id="exists" value="" />
                           <input type="submit" class="btn btn-primary" value="Agregar materia">
                           <input type="reset" class="btn btn-default" value="Limpiar">
@@ -279,7 +281,7 @@
       <div class="modal-content" style="width: 100%;">
         <div class="modal-header modal-agregar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Añadir un nuevo semestre</h2>
+          <h2 align="center">Eliminar un semestre</h2>
         </div>
         <div class="modal-body">
           <div id="principal">
