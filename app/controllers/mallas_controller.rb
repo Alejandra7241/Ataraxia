@@ -62,7 +62,7 @@ class MallasController < ApplicationController
   end
   
   
-  def add_subject_to_malla()
+  def add_subject_to_malla
     @malla = Malla.find(params[:malla_id])
     @code = params[:code].to_i
     @typology = params[:typology]

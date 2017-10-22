@@ -2,9 +2,9 @@
 
 
 <div class="container-fluid">
-  
+  <h1 align="center"><%= @career.name %></h1>  
 
-<%= render 'layouts/mallas', :vista =>"admin_malla", add_subjects_enabled: true, :pdf => "no", :user => User.first, :malla => Malla.first %>
+<%= render 'layouts/mallas', :vista =>"admin_malla", add_subjects_enabled: true, :pdf => "no", :malla => @malla %>
 
 <!-- The Modal Ayuda -->
 
