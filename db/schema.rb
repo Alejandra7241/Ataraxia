@@ -99,7 +99,8 @@ ActiveRecord::Schema.define(version: 20171021173700) do
 
   create_table "subjects", force: :cascade do |t|
     t.integer "code"
-    t.string "name"
+    t.string "name", limit: 100
+    t.string "alias_name", limit: 40
     t.integer "credits"
     t.decimal "average_grade", precision: 2, scale: 1
     t.datetime "created_at", null: false

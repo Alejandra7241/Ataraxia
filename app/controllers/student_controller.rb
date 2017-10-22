@@ -59,7 +59,9 @@ class StudentController < ApplicationController
       #When HA setted, redirect with filter
       @history = Historiaacademica.new
     end
-    
+    def is_number? string
+      true if Float(string) rescue false
+    end
     def procesar_historia_academica
         puts "Procesando esta historia academica:"
         puts "///////////////////////////////////////////////////////////////////////////////////////////"
@@ -69,6 +71,8 @@ class StudentController < ApplicationController
         #puts informacion
         checking_notes = false
         hap = Array.new
+        new_subjects = Array.new
+        new_subjects_hash = {}
         arr = {}
         creditos_totales = 0
         creditos_totales_pa = 0
@@ -107,7 +111,6 @@ class StudentController < ApplicationController
                 end
                 if processing[0] == "aprobados" && processing[1] == "plan"
                     creditos_aprobados = processing[-1].to_f
-                    puts "Esta!"
                     puts processing
                     porcentaje_fundamentacion = (((processing[2].to_f)*100)/creditos_exigidos_fundamentacion)
                     porcentaje_disciplinar = (((processing[3].to_f)*100)/creditos_exigidos_disciplinar)
@@ -121,12 +124,14 @@ class StudentController < ApplicationController
                     if processing[0] == "promedio"
                         checking_notes = false
                         hap << arr
+                        new_subjects << new_subjects_hash
                         arr = {}
                         next
                     end
                     unless checking.nil?
                         print arr
                         hap << arr
+                        new_subjects << new_subjects_hash
                         current_semester += 1
                         arr = {}
                         next
@@ -134,7 +139,31 @@ class StudentController < ApplicationController
                     #hap[:first] ||= processing[0]
                     codigo_actual = processing[0].split('-')
                     codigo_actual = codigo_actual[0]
+                    index_for_nombre = 1
+                    nombre_materia = ""
+                    procesando_nombre_terminado = false
+                    while true
+                        puts "Que pasa #{index_for_nombre} #{processing[index_for_nombre]}"
+                        
+
+
+                        procesando_nombre_terminado = true if is_number?( processing[index_for_nombre] )
+                        if procesando_nombre_terminado
+                            break
+                        end
+                        nombre_materia += processing[index_for_nombre] + " "
+                        if index_for_nombre == 1
+                            nombre_materia.capitalize!
+                        end
+                        puts "Que pasa #{index_for_nombre} #{procesando_nombre_terminado}"
+                        index_for_nombre += 1
+                
+                        if index_for_nombre > 20
+                            break
+                        end
+                    end
                     nota = Float(processing[-1]) rescue processing[-1].upcase
+                    creditos = Integer(processing[-4]) rescue creditos = 3
                     flag = Float(nota) rescue false
                     if flag
                         creditos = processing[-3].to_f
@@ -144,7 +173,10 @@ class StudentController < ApplicationController
                         ponderacion_pa += creditos*nota unless nota.to_i < 3
                     end
                     arr[codigo_actual.to_i] = nota
-                    #puts "El codigo de la materia es #{codigo_actual.to_i} y la nota es #{nota} y el semestre es #{current_semester}"
+                    new_subjects_hash[codigo_actual.to_i] = [nota, nombre_materia, creditos.to_i]
+
+                    puts "El codigo de la materia es #{codigo_actual.to_i} y la nota es #{nota} y el semestre es #{current_semester}"
+                    puts "El nombre de esa materia es #{nombre_materia}, los creditos son #{creditos}"
                 end
                 puts line
             else
@@ -190,6 +222,7 @@ class StudentController < ApplicationController
         @carrera = codigo_carrera
         @porcentaje = porcentaje
         @nombre = nombre
+        @new_subjects = new_subjects
         semestre_actual = @hap.length+1
         puts "PORCENTAJEEES #{@hap.length}"
         puts porcentaje_disciplinar
@@ -211,8 +244,10 @@ class StudentController < ApplicationController
     
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
+    puts "yyyyyyyyyyysdsadsadsa"
+    #print @new_subjects
     puts "Array of subjects !!!! #{@hap} y #{@carrera} con #{current_user.id}"
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap)
+    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects)
 
     redirect_to student_index_path
     end

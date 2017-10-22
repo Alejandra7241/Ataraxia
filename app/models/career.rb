@@ -9,8 +9,16 @@ class Career < ApplicationRecord
         self.find_by(code: code)
     end
     
+    def self.search_in_new_subjects(subjects_array, code)
+        subjects_array.each do |elem|
+            elem.each do |key, value| 
+                return value if code == key
+            end
+        end
+    end
     
-    def self.add_array_of_subjects(code_career, id_user, subjects)
+    
+    def self.add_array_of_subjects(code_career, id_user, subjects, new_subjects)
     code_career = code_career.to_i
     id_user = id_user.to_i
     puts "String: #{code_career} // #{id_user}"
@@ -27,8 +35,12 @@ class Career < ApplicationRecord
         semester.each do |code_subject, grade_subject|
             puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
             subj = Subject.find_by(code: code_subject)
+            puts "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"
+            
             if subj.nil?
-                subj = Subject.create({code: code_subject, name: code_subject.to_s, credits: 0})
+                current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
+                puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
+                subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
                 SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
             else
                 begin

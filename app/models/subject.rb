@@ -1,4 +1,6 @@
 class Subject < ApplicationRecord
+    before_save :truncate_name_alias
+    
     attr_accessor :code_subject_to_add
     
     has_many :career_has_subjects
@@ -46,5 +48,16 @@ class Subject < ApplicationRecord
         puts "Kam hier"
         return current_subject
         
+    end
+    
+    def truncate_name_alias
+        alias_size = Subject.columns_hash['alias_name'].limit
+        if self.name.length > alias_size
+            name_size = Subject.columns_hash['name'].limit
+            self.name = self.name.truncate(name_size)
+            self.alias_name = self.name.truncate(alias_size-3) + '...'
+        else
+            self.alias_name = self.name
+        end
     end
 end
