@@ -119,8 +119,12 @@ class StudentController < ApplicationController
                 if processing[0] == "cupo" && processing[2] == "créditos" && processing[-2] == "pendientes"
                     creditos_sobrantes = processing[-1].to_i
                 end
+                puts "///"
+                
                 if checking_notes
-                    checking = Integer(processing[0]) rescue nil
+                    checking = 666 if is_number?( processing[0] )
+                    checking = nil unless is_number?( processing[0] )
+                    puts "#{processing} -> #{processing[0]} -> #{checking}"
                     if processing[0] == "promedio"
                         checking_notes = false
                         hap << arr
@@ -137,13 +141,14 @@ class StudentController < ApplicationController
                         next
                     end
                     #hap[:first] ||= processing[0]
+                    #puts "What's going on? #{processing}"
                     codigo_actual = processing[0].split('-')
                     codigo_actual = codigo_actual[0]
                     index_for_nombre = 1
                     nombre_materia = ""
                     procesando_nombre_terminado = false
                     while true
-                        puts "Que pasa #{index_for_nombre} #{processing[index_for_nombre]}"
+                        #puts "Que pasa #{index_for_nombre} #{processing[index_for_nombre]}"
                         
 
 
@@ -155,7 +160,7 @@ class StudentController < ApplicationController
                         if index_for_nombre == 1
                             nombre_materia.capitalize!
                         end
-                        puts "Que pasa #{index_for_nombre} #{procesando_nombre_terminado}"
+                        #puts " #{index_for_nombre} #{procesando_nombre_terminado}"
                         index_for_nombre += 1
                 
                         if index_for_nombre > 20
