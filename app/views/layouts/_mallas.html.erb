@@ -34,7 +34,6 @@
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
                     <%= render partial: "layouts/subject", locals: {vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
-                    
                     <% else %>
                     <%= render partial: "layouts/subject.html.erb", locals: {vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% end %>
@@ -57,7 +56,7 @@
                     <% end %>
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                  <% else if vista == "student_malla"  && current_semester >= user.current_semester%>
+                  <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester%>
                   
                   
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
@@ -85,8 +84,9 @@
   <!-- El Modal mostrar materia partial
 <div class="modal"></div>-->
 <!--Brayan, fix this plox, before i get a heart attack-->
-<% if pdf!="yes" %>
+<% if not pdf  %>
 
+  <% if vista != "guess_malla" %>
  <div id="editingSubjectsii" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
     <!-- Modal content -->
@@ -119,7 +119,7 @@
     <tbody id="tbodyidPrerrequisitosSubjectModal">
     </tbody>
   </table>
-  
+  <%end%>
   <% if vista =="admin_malla" %>
     <div id="existente">
           

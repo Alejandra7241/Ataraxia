@@ -7,6 +7,6 @@
     </head>
     
     <body>
-        <%= render 'layouts/mallas.html.erb', :vista =>"guess_malla", :pdf => "yes" , :user => current_user, :malla => @malla%>
+        <%= render 'layouts/mallas.html.erb', :vista =>"guess_malla", :pdf => true, :user => current_user, :malla => @malla,  add_subjects_enabled: false%>
     </body>
 </html>
