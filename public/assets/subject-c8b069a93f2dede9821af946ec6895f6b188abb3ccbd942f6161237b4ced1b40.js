@@ -98,11 +98,12 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
 
 
 
-function modal_for_subject(code,name,credits,typology, array_prerequisites, role){
+function modal_for_subject(code,name,credits,typology, array_prerequisites){
     
+    alert("????")
     console.log(name);
     console.log(array_prerequisites);
-    console.log(array_prerequisites.length);
+    console.log(array_prerequisites.length)
     //$('#editingSubjectsi').modal('toggle');
     document.getElementById("nameSubjectModal").innerHTML = name;
     document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
@@ -139,7 +140,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
             break;
     }
     
-    if (role == "admin_malla"){ document.getElementById('subject_code_subject_to_add').value = code;}
+    document.getElementById('subject_code_subject_to_add').value = code;
     var firsttr;
     $('#tablePrerrequisitosSubjectModal').each(function() {
         $(this).hide();
@@ -148,8 +149,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
     var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink;
     var array_of_subjects  = array_prerequisites.split(";")
     if(array_prerequisites.length == 0){
-       if (role == "admin_malla") document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';
-       else document.getElementById("jschangeiii").innerHTML = 'Esta materia no tiene prerequisitos.';
+        document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';   
     }else{
         document.getElementById("jschangeiii").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
@@ -159,7 +159,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
                 current_name = current_subject[1];
                 current_credits = current_subject[2];
                 current_typology = current_subject[3];
-                    postLink =  `  <form action="/admin/remove_pre" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                postLink =  `  <form action="/admin/remove_pre" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                     <button type="submit">
                     <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
                     <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
@@ -167,14 +167,13 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
                      <span class="glyphicon glyphicon-remove"></span>
                     </button>
                     </form> `;
-
                     $('#tablePrerrequisitosSubjectModal').each(function() {
                     $(this).show();
                      });
                 firsttr = action_for_typology(current_typology, 1);
-                if(role == "admin_malla")$('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
-                else $('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td></tr>');
+                $('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
         }
     }
    
 }
+;

@@ -50,4 +50,6 @@ class Career < ApplicationRecord
     def self.find_carrer_code_by_malla(malla)
         self.find(malla.career_id).code
     end
+    
+    
 end

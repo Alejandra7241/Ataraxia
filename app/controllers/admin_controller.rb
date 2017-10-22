@@ -68,7 +68,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       #if @subject.save
       flash[:notice] = "Fue añadida la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " como prerrequisito de la materia " + @subject_added.name
-      format.html { redirect_to admin_malla_path }
+      format.html { redirect_back fallback_location: root_path }
         #format.json { render :show, status: :created, location: @subject }
       #else
         #format.html { render :new }
@@ -88,7 +88,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       #if @subject.save
       flash[:error] = "Fue eliminada la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " como prerrequisito de la materia " + @subject_removed.name
-      format.html { redirect_to admin_malla_path }
+      format.html { redirect_back fallback_location: root_path }
         #format.json { render :show, status: :created, location: @subject }
       #else
         #format.html { render :new }
@@ -103,7 +103,7 @@ class AdminController < ApplicationController
     respond_to do |format|
       #if @subject.save
       flash[:notice] = "Fue añadida la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " a la malla actual. " 
-      format.html { redirect_to admin_malla_path }
+      format.html { redirect_back fallback_location: root_path }
         #format.json { render :show, status: :created, location: @subject }
       #else
         #format.html { render :new }
@@ -113,31 +113,7 @@ class AdminController < ApplicationController
   end
   
   
-  def open_modal
-    puts "Mmmodal action"
-    @subject = Subject.find(params[:s])
-    name = @subject.name
-    code = @subject.code
-    preList = ""
-    puts code
-    if CareerHasSubject.has_prerequisites(2879,code) == true
-      CareerHasSubject.get_prerequisites(2879, code).each do |pre|
-        cur_subj = Subject.find(pre.subject_id)
-        typology = cur_subj.career_has_subjects.find_by(career_id: 1).typology unless cur_subj.nil?
-        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
-      end
-    end
-    preList.chop!
-    puts "#####//////////"
-    print preList
-    puts "#########/////"
-    typology = params[:typ]
-    credits = @subject.credits
-    respond_to do |format|
-      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}')" }
-    end
-    
-  end
+
   
   
   def change_semester

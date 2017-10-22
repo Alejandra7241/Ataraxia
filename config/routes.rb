@@ -33,7 +33,7 @@ Rails.application.routes.draw do
   #Otros
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'
-  get 'admin/open_modal', to: 'admin#open_modal', as: 'admin_open_modal'
+  get 'subjects/open_modal/:s/:typ/:code_career/:role', to: 'subjects#open_modal', as: 'open_modal_for_subject'
 # INVITADO
   #Menú
   get 'guess/index' => 'guess#index', as: "guess_index"

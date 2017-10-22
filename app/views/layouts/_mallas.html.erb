@@ -33,10 +33,10 @@
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "admin/subject", locals: {vista2: "admin_malla", chs: chs, typ: chs.typology, sem: sem } %>
+                    <%= render partial: "layouts/subject", locals: {vista: "admin_malla", chs: chs, typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
                     
                     <% else %>
-                    <%= render partial: "admin/subject.html.erb", locals: {vista2: "", chs: chs, typ: chs.typology, sem: sem} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {vista: "student_malla", chs: chs, typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% end %>
                   <% end %>
                   
@@ -111,14 +111,16 @@
         <th>Código</th>
         <th>Nombre</th>
         <th>Créditos</th>
+        <% if vista == "admin_malla" %>
         <th>Acción</th>
+        <% end %>
       </tr>
     </thead>
     <tbody id="tbodyidPrerrequisitosSubjectModal">
     </tbody>
   </table>
   
-  <% unless vista == "student_malla" %>
+  <% if vista =="admin_malla" %>
     <div id="existente">
           
             <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
@@ -150,7 +152,7 @@
             <% end %>
           
           </div>
-          <% end %>
+         <% end %>
       </div>
     </div>
   </div>
@@ -178,7 +180,7 @@
           <% if vista == "admin_malla" %>
           <div id="existente2" style="display: none;">
           
-            <%= form_for @subject, :url => submit_materia_existente_path(1, -1), :remote => true do |f|  %>
+            <%= form_for @subject, :url => submit_materia_existente_path(1, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
             <h3>Materia ya existente:</h3>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
@@ -294,7 +296,7 @@
 
 
 
-
+ <%if vista == "student_malla" %>
 
   <div id="addSubjectFromStudent" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -306,7 +308,7 @@
         </div>
         <div class="modal-body">
           <strong>¿Cómo deseas buscar la materia a agregar?</strong>
-          
+         
           <div id="searching">
             <div class="form-group" align="center">    
             
@@ -319,7 +321,7 @@
 
           <div id="codigo" style="display: none;">
 
-            <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find(@malla.career_id).code), :remote => true do |f|  %>
+            <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
             <h3>Agregar materia por código:</h3>
             <div class="form-group">
               <%= f.label :code, 'Código:' %><br>
@@ -378,7 +380,7 @@
   </div>
 
 </div>
-
+<% end %>
 
 <% end %>
 

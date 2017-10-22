@@ -56,3 +56,51 @@ function reset_and_assign(current_semesterr) {
     a.style.display='none';
 
 }
+
+
+
+
+function action_for_typology(typology, number_action){
+    switch (typology) {
+        case 'B':
+            switch(number_action){
+                case 1:
+                    return `<tr class="info">`
+                default:
+                
+            }
+            break;
+        case 'L':
+             switch(number_action){
+                case 1:
+                    return `<tr class="warning">`
+                default:
+                
+            }
+            break;
+        case 'C':
+             switch(number_action){
+                case 1:
+                    return `<tr class="success">`
+                default:
+                
+            }
+            break;
+        case 'O':
+             switch(number_action){
+                case 1:
+                    return `<tr class="active">`
+                default:
+                
+            }
+            break;
+        case 'P':
+             switch(number_action){
+                case 1:
+                    return `<tr class="danger">`
+                default:
+                
+            }
+            break;
+    }
+}

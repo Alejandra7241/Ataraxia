@@ -109,6 +109,39 @@ class SubjectsController < ApplicationController
     
    
   end
+  
+  
+  
+  
+  def open_modal
+    puts "Mmmodal action"
+    @code_career = params[:code_career]
+    role = params[:role]
+    puts "Role: #{@role}"
+    @subject = Subject.find(params[:s])
+    name = @subject.name
+    code = @subject.code
+    preList = ""
+    puts code
+    if CareerHasSubject.has_prerequisites(@code_career,code) == true
+      CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
+        cur_subj = Subject.find(pre.subject_id)
+        typology = cur_subj.career_has_subjects.find_by(career_id: Career.find_by_code(@code_career).id).typology unless cur_subj.nil?
+        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+      end
+    end
+    preList.chop!
+    puts "#####//////////"
+    print preList
+    puts "#########/////"
+    typology = params[:typ]
+    credits = @subject.credits
+    
+    respond_to do |format|
+      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{role}')" }
+    end
+    
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
