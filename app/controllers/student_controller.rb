@@ -74,6 +74,7 @@ class StudentController < ApplicationController
         new_subjects = Array.new
         new_subjects_hash = {}
         arr = {}
+        roman_numbers = ["i","ii","iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii"]
         creditos_totales = 0
         creditos_totales_pa = 0
         current_semester = 1
@@ -156,16 +157,14 @@ class StudentController < ApplicationController
                         if procesando_nombre_terminado
                             break
                         end
-                        nombre_materia += processing[index_for_nombre] + " "
+                        processing[index_for_nombre].upcase! if roman_numbers.include? processing[index_for_nombre]
+                        #puts "Roman? #{processing[index_for_nombre]} ---> #{roman_numbers.include? processing[index_for_nombre]}"
+                        nombre_materia += processing[index_for_nombre] + " " 
                         if index_for_nombre == 1
                             nombre_materia.capitalize!
                         end
                         #puts " #{index_for_nombre} #{procesando_nombre_terminado}"
                         index_for_nombre += 1
-                
-                        if index_for_nombre > 20
-                            break
-                        end
                     end
                     nota = Float(processing[-1]) rescue processing[-1].upcase
                     creditos = Integer(processing[-4]) rescue creditos = 3
