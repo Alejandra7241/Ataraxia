@@ -1,3 +1,13 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando">
+  <div class="loader"></div>
+</div>
+
+
+<h1 align="center">Malla Personal</h1> 
 
 <%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => false, search_by: ['todas', 'codigo', 'tipologia'] %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>

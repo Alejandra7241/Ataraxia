@@ -20,6 +20,8 @@ class UsersController < ApplicationController
   
   def show
    @user = User.find(params[:id])
+   carrera=@user.carrer;
+   @career =  Career.where(code: 2879)
   end
   
   def index

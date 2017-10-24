@@ -1,10 +1,10 @@
 <footer>
   <nav class="navbar navbar-inverse navbar-fixed-bottom" style="margin: 0px 0px 0px 0px;">
     <div class="container-fluid">
-      <div class="navbar-footer">
-        <%= link_to 'Contáctenos', contact_direct_path, :class => "navbar-brand" %>
-        <%= link_to 'GitHub', 'https://github.com/sedUNdnes', :class => "navbar-brand", :target => "_blank"%>
-        <%= link_to 'Facebook', 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand", :target => "_blank" %>
+      <div class="navbar-footer">                       
+        <%= link_to "<p class='glyphicon glyphicon-envelope' style='font-size:28px; margin-right: 0px;'></p>".html_safe, contact_direct_path, :class => "navbar-brand"%>
+        <%= link_to "<p class='fa fa-github' style='font-size:30px'></p>".html_safe, 'https://github.com/sedUNdnes', :class => "navbar-brand", :target => "_blank"%>
+        <%= link_to "<p class='fa fa-facebook-official' style='font-size:30px'></p>".html_safe, 'https://www.facebook.com/Sedundnes-Ataraxia-511855252496936/', :class => "navbar-brand", :target => "_blank"%>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
@@ -13,7 +13,7 @@
           <% end %>
           <% if vista=="guess_malla" %>
             <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-            <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, guess_malla_path(format: :pdf), :class => "MainNavText navbar-brand" %></li>
+            <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, guess_malla_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
           <% end %>
           <% if vista=="student_malla" %>
              <%if s_vista=="estandar" %>
@@ -24,10 +24,9 @@
              <%elsif s_vista=="personal"%>
                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
                <li><%= link_to "<p class='glyphicon glyphicon-search'></p>".html_safe,'#', "data-target" => "#myModal7", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-               <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(format: :pdf), :class => "MainNavText navbar-brand" %></li>
+               <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
              <%end%>
-            <li><%= link_to "<p class='glyphicon glyphicon-pencil'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
-    
+              <li><%= link_to "<p class='glyphicon glyphicon-pencil'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
           <% end %>
         </ul>
       </div>

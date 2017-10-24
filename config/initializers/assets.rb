@@ -17,6 +17,8 @@ Rails.application.config.assets.precompile += %w( admin.js )
 Rails.application.config.assets.precompile += %w( welcome.scss )
 Rails.application.config.assets.precompile += %w( _subject.scss )
 Rails.application.config.assets.precompile += %w( _messages.css )
+Rails.application.config.assets.precompile += %w( pdf.scss )
+Rails.application.config.assets.precompile += %w( pdf.js )
 Rails.application.config.assets.precompile += %w( subject.js )
 Rails.application.config.assets.precompile += %w( student.js )
 

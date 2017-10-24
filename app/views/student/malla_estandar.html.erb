@@ -1,3 +1,5 @@
+<h1 align="center"><%= @career.name %></h1>  
+
 <%= render 'layouts/mallas', :vista =>"guess_malla", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "estandar"%>
 <!-- The Modal Ayuda -->
