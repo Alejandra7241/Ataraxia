@@ -24,6 +24,7 @@ Clase 12 - Octubre - 2017
 * Agregar y hacer funcional el botón de eliminar una materia de la malla: Laura Morales
 * Corregir estética de la vista de los prerequisitos del modal: Brayan García
 
+<<<<<<< HEAD
 
 Clase 24 - Octubre - 2017
 
@@ -32,3 +33,10 @@ Clase 24 - Octubre - 2017
 * Nota promedio procesada de la historia academica: Nicolás - Lizzy.
 * Añadir relaciones de estudiante y nota a las tablas "Semester_has_subject" y "Semester_has_student_subject" : Lizzy.
 
+=======
+Clase 24 - Octubre - 2017
+
+* Cambiar estilos de la malla y los porcentajes de perfil  : Brayan - Laura.
+* Mitad de la malla de avance: Brayan - Laura.
+* 
+>>>>>>> development

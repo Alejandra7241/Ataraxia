@@ -34,6 +34,8 @@
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
                     <%= render partial: "layouts/subject", locals: {vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
+                    <% elsif vista == "malla_avance" %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
                     <% else %>
                     <%= render partial: "layouts/subject.html.erb", locals: {vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% end %>

@@ -16,7 +16,7 @@ class Career < ApplicationRecord
             end
         end
     end
-    
+
     
     def self.add_array_of_subjects(code_career, id_user, subjects, new_subjects)
     code_career = code_career.to_i
@@ -42,15 +42,17 @@ class Career < ApplicationRecord
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
                 subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
                 SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                
             else
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
                     sem.career_has_subjects << chs 
-
+                    
                 rescue
                     SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
                 end
             end
+            Subject.update_average(code_subject, grade_subject)
             
         end
         

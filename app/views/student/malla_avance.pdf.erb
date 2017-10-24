@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Malla</title>
+        <meta charset="UTF-8">
+        <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    </head>
+    
+    <body>
+        <%= render 'layouts/mallas.html.erb', :vista =>"malla_avance", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false %>
+    </body>
+</html>

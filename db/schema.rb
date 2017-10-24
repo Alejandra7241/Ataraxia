@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021173700) do
+ActiveRecord::Schema.define(version: 20171024204246) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -72,21 +72,27 @@ ActiveRecord::Schema.define(version: 20171021173700) do
 
   create_table "semester_has_student_subjects", force: :cascade do |t|
     t.string "typology", default: "L"
+    t.decimal "grade", precision: 2, scale: 1, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "subject_id"
     t.integer "semester_id"
+    t.integer "student_id"
     t.index ["semester_id"], name: "index_semester_has_student_subjects_on_semester_id"
+    t.index ["student_id"], name: "index_semester_has_student_subjects_on_student_id"
     t.index ["subject_id"], name: "index_semester_has_student_subjects_on_subject_id"
   end
 
   create_table "semester_has_subjects", force: :cascade do |t|
+    t.decimal "grade", precision: 2, scale: 1, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "semester_id"
     t.integer "career_has_subject_id"
+    t.integer "student_id"
     t.index ["career_has_subject_id"], name: "index_semester_has_subjects_on_career_has_subject_id"
     t.index ["semester_id"], name: "index_semester_has_subjects_on_semester_id"
+    t.index ["student_id"], name: "index_semester_has_subjects_on_student_id"
   end
 
   create_table "semesters", force: :cascade do |t|
@@ -102,9 +108,10 @@ ActiveRecord::Schema.define(version: 20171021173700) do
     t.string "name", limit: 100
     t.string "alias_name", limit: 40
     t.integer "credits"
-    t.decimal "average_grade", precision: 2, scale: 1
+    t.decimal "cumulative_sum", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "num_registers", default: 0
   end
 
   create_table "users", force: :cascade do |t|
