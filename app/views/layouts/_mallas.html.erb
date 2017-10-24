@@ -86,7 +86,7 @@
 <!--Brayan, fix this plox, before i get a heart attack-->
 <% if not pdf  %>
 
-  <% if vista != "guess_malla" %>
+  
  <div id="editingSubjectsii" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
     <!-- Modal content -->
@@ -95,11 +95,12 @@
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 id= "nameSubjectModal" align="center"></h2>
         </div>
+        <% unless vista == "guess_malla" %>
         <% form_for @user, :url => change_semester_path, :remote => true do |f|  %>
         <%= f.select :name, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %>
         <%= f.submit 'Cambiar semestre', :class => 'btn btn-primary' %>
         <% end %>
-        
+        <% end %>
         <div class="modal-body">
           <div id="subjectData"></div>
             <br>
@@ -119,7 +120,7 @@
     <tbody id="tbodyidPrerrequisitosSubjectModal">
     </tbody>
   </table>
-  <%end%>
+  
   <% if vista =="admin_malla" %>
     <div id="existente">
           
