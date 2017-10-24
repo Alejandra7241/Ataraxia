@@ -1,25 +1,31 @@
 <%= javascript_include_tag 'admin', "data-turbolinks-track" => true %>
 
-<div id="subj">
-    <% if typ=='B' %>
-        <div class="rcorners1" align="center" style="background:#FEC34C;"><%= subj.credits %> </div>
-    <% elsif typ=='C' %>
-        <div class="rcorners1" align="center" style="background:#00FF00;"><%= subj.credits %> </div>
-    <% elsif typ=='L' %>
-        <div class="rcorners1" align="center" style="background:#00FEFF;"><%= subj.credits %> </div>
-    <% elsif typ=='O' %>
-        <div class="rcorners1" align="center" style="background:#91A3B0;"><%= subj.credits %> </div>
-    <% elsif typ=='P' %>
-        <div class="rcorners1" align="center" style="background:#88B04B;"><%= subj.credits %> </div>
-    <% else %>
-        <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
-    <% end %>
+
+<div id="subj" >
+    <%if vista == "malla_avance" %>
+            <div class="rcorners1" align="center" style="background:black; color: white;"><%= subj.credits %> </div>
+    <%else%>
+        <% if typ=='B' %>
+                <div class="rcorners1" align="center" style="background:#FEC34C;"><%= subj.credits %> </div>
+            <% elsif typ=='C' %>
+                <div class="rcorners1" align="center" style="background:#32CD32;"><%= subj.credits %> </div>
+            <% elsif typ=='L' %>
+                <div class="rcorners1" align="center" style="background:#45d0ff;"><%= subj.credits %> </div>
+            <% elsif typ=='O' %>
+                <div class="rcorners1" align="center" style="background:#91A3B0;"><%= subj.credits %> </div>
+            <% elsif typ=='P' %>
+                <div class="rcorners1" align="center" style="background:#88B04B;"><%= subj.credits %> </div>
+            <% else %>
+                <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
+            <% end %>
+    <%end%>
     
-    <div class="rcorners2" align="center">
-        <div>
-            <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
-        </div>
-         <div>
+    
+   <%if vista == "malla_avance" %> 
+      <div class="rcorners2" style="background:#ececec;" align="center">
+        <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
+        
+           <div>
             <br> 
             <% @average = Subject.get_average_grade(subj.code)  %>
             <% unless @average == -1 %>
@@ -28,8 +34,23 @@
             <%= "----"%>
             <% end %>
         </div>
-    </div>
-   
-    
- 
+        
+        </div>
+    <%else%>
+        <div class="rcorners2" align="center">
+            <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
+        
+           <div>
+            <br> 
+            <% @average = Subject.get_average_grade(subj.code)  %>
+            <% unless @average == -1 %>
+            <%= @average.round(2) %>
+            <% else %>
+            <%= "----"%>
+            <% end %>
+        </div>
+        
+        </div>
+     <%end%> 
+
 </div>

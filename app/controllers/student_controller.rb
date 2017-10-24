@@ -27,7 +27,21 @@ class StudentController < ApplicationController
             format.pdf {render template:'student/malla_personal', pdf:'malla_ataraxia'}
         end
     end    
-  
+    
+    
+    def malla_avance
+        @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_avance', pdf:'malla_ataraxia'}
+        end
+    end   
+    
+    
     private
     
     def require_login

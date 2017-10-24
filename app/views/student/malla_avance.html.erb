@@ -1,7 +1,16 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando">
+  <div class="loader"></div>
+</div>
+
+<h1 align="center">Malla de Avance</h1>  
+
+
+<%= render 'layouts/mallas', :vista =>"malla_avance", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "avance"%>
-<!-- The Modal Ayuda -->
-
-
 
 
 

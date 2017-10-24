@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def show
    @user = User.find(params[:id])
    carrera=@user.carrer;
-   @career =  Career.where(code: 2879)
+   @career =  Career.find_by(code: carrera)
   end
   
   def index
