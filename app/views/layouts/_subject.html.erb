@@ -29,25 +29,30 @@
             <br> 
             <% @average = Subject.get_average_grade(subj.code)  %>
             <% unless @average == -1 %>
-            <%= @average.round(2) %>
+            <p>Nota promedio: <%= @average.round(2) %></p>
             <% else %>
-            <%= "----"%>
+            <p><%= "----"%></p>
             <% end %>
+            
+            <p>Nota estudiante<%= Subject.get_grade_for_student(current_user.id, subj.id)%></p>
         </div>
         
         </div>
     <%else%>
         <div class="rcorners2" align="center">
             <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
-        
-           <div>
+            
+            
+            <div>
             <br> 
             <% @average = Subject.get_average_grade(subj.code)  %>
             <% unless @average == -1 %>
-            <%= @average.round(2) %>
+            <p>Nota promedio: <%= @average.round(2) %></p>
             <% else %>
-            <%= "----"%>
+            <p><%= "----"%></p>
             <% end %>
+            
+            <p>Nota estudiante<%= Subject.get_grade_for_student(current_user.id, subj.id)%></p>
         </div>
         
         </div>

@@ -74,4 +74,10 @@ class Subject < ApplicationRecord
         return -1 if @num_registers == 0
         return @subject.cumulative_sum.to_f/@subject.num_registers.to_f
     end
+    
+    def self.get_grade_for_student(user_id, subject_code)
+        @user = User.find(user_id)
+        puts "// #{subject_code}"
+        Float(@user.semester_has_subjects.find_by(career_has_subject_id: subject_code).grade) rescue return 5.1
+    end
 end
