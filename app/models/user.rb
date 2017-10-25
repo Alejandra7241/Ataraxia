@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :admin_mallas, :class_name => "Malla"
   has_many :student_mallas, :class_name => "Malla"
+  has_many :semester_has_subjects, foreign_key: "student_id", class_name: "SemesterHasSubject"
+  has_many :semester_has_student_subjects, foreign_key: "student_id", class_name: "SemesterHasStudentSubject"
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

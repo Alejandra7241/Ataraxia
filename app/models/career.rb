@@ -36,20 +36,23 @@ class Career < ApplicationRecord
             puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
             subj = Subject.find_by(code: code_subject)
             puts "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"
-            
+            puts grade_subject.to_f
+            puts "////"
             if subj.nil?
                 current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
+               
                 subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
-                SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f)
                 
             else
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
-                    sem.career_has_subjects << chs 
+                    SemesterHasSubject.update(subj.id, grade: grade_subject.to_f) rescue updated = false
+                    SemesterHasSubject.create(career_has_subject_id: chs.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f) #<- ¿Ahí?
                     
                 rescue
-                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f)
                 end
             end
             Subject.update_average(code_subject, grade_subject)
