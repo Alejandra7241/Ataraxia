@@ -35,7 +35,8 @@ class AdminController < ApplicationController
   end
   
 
-  
+  def statistics
+  end
   
   def search_prerequisite
     puts "#######################"

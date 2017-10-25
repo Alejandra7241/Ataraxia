@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 # ADMIN
   #Menú
   get 'admin/index' => 'admin#index'
+  get 'admin/statistics', to: 'admin#statistics', as: 'admin_statistics'
   #Malla
   get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
   #Career

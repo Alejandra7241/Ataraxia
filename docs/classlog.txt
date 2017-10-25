@@ -32,5 +32,3 @@ Clase 24 - Octubre - 2017
 * Nota promedio procesada de la historia academica: Nicolás - Lizzy.
 * Añadir relaciones de estudiante y nota a las tablas "Semester_has_subject" y "Semester_has_student_subject" : Lizzy.
 
-x
-

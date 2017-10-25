@@ -64,6 +64,29 @@ class User < ApplicationRecord
   def self.is_admin(admin)
     @admin = User.where(admin: true)
   end
+  
+  
+  
+  def self.number_all_users
+    User.all.length
+  end
+  
+  def self.number_admins
+    counter = 0
+    User.all.each do |user|
+      counter +=1 if user.admin == true
+    end
+    counter
+  end
+  
+  
+  def self.number_students
+    counter = 0
+    User.all.each do |user|
+      counter +=1 unless user.admin == true
+    end
+    counter
+  end
     
 end
 
