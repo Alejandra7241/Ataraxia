@@ -27,7 +27,12 @@ var current_semester = -1;
 function reset_and_assign(current_semesterr) {
     console.log(current_semester);
     console.log(current_semesterr);
+    
+    
     current_semester = current_semesterr
+    
+    
+    document.getElementById('setSemesterForStudent').value = current_semester;
     console.log(current_semester);
     var x = document.getElementById('principal');
     x.style.display='block';

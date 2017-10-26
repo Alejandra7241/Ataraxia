@@ -283,7 +283,7 @@ class StudentController < ApplicationController
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
     #print @new_subjects
-    puts "Array of subjects !!!! #{@hap} y #{@carrera} con #{current_user.id}"
+    puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
     Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects)
 
     redirect_to student_index_path

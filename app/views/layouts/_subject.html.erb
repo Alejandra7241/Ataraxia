@@ -53,13 +53,13 @@
                     <% unless @average == -1 %>
                     <p>Promedio: <%= @average.round(2) %></p>
                     <% else %>
-                    <p><%= "----"%></p>
+                    <p>Promedio: ------</p>
                     <% end %>
-                    <% unless Subject.get_grade_for_student(current_user.id, subj.id) == 5.1 %>
-                        <% if @average<=Subject.get_grade_for_student(current_user.id, subj.id) %>
-                            <p style="color: green;">Tu nota: <%= Subject.get_grade_for_student(current_user.id, subj.id)%></p>
+                    <% if grade != 5.1 %>
+                        <% if @average<=grade %>
+                            <strong><p style="color: #006400;">Tu nota: <%= grade %></p></strong>
                         <% else %>
-                            <p style="color: red;">Tu nota: <%= Subject.get_grade_for_student(current_user.id, subj.id)%></p>
+                            <strong><p style="color: red;">Tu nota: <%= grade %></p></strong>
                         <% end %>
                     <%else%>
                         <p>Aún no la has visto</p>

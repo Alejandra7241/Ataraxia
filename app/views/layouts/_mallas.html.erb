@@ -35,14 +35,14 @@
                     <% if vista=="admin_malla" %> 
                     <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
                     <% elsif vista == "malla_avance" %>
-                      <% if SemesterHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id) %>
-                        <% @aprobada=true %>
+                      <% if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id) %>
+                        <% @aprobada= StudentHasSubject.find_by(student_id: @user.id, career_has_subject_id: chs.id).approved  %>
                       <% else %>
                         <% @aprobada=false %>
                       <% end %>
                     <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
                     <% elsif estadisticas %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id)} %>
                     <% else %>
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% end %>
@@ -246,7 +246,7 @@
                           <label class="col-sm-2 control-label" for="input-price">Créditos</label>
                           <input type="text" name="credits" value="" required pattern = "^\d+$" title = "Los creditos deben contener sólo números" placeholder="Creditos" id="price" class="form-control" />
                           <input type="hidden" name="typology" id="setTypology" value="" />
-                          <input type="hidden" name="semester" id="setSemester" value="" />
+                          <input type="hidden" name="semester" id="setSemester" value="7" />
                           <input type="hidden" name="malla_id" id="setMalla" value="<%= @malla.id %>" />
                           <input type="hidden" name="code_career" id="setCodeCareer" value="<%= Career.find_carrer_code_by_malla(@malla) %>" />
                           <input type="hidden" name="exists" id="exists" value="" />
@@ -367,39 +367,50 @@
           </div>
           
           <div id="todas" style="display: none;">
-            <div class="form-group" align="center">    
-              <h3>Todas las materias</h3>
-              <table class="table" style="font-size: 8px;">
-                <thead>
-                  <tr>
-                    <th>Materia</th>
-                    <th>Código</th>
-                    <th class="text-center">Créditos</th>
-                    <th>Acción</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
-                  <% current_subject = Subject.find(chs.subject_id) %>
-                  <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
-                  <tr>
-                    <td><%= current_subject.name %></td>
-                    <td><%= current_subject.code %></td>
-                    <td><%= current_subject.credits %></td>
-                    <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
-                    <td>
-                      <form action= <%= button_string %>  method="post" enctype="multipart/form-data" class="form-horizontal">
+           <div class="form-group" align="center">    
+            <h3>Todas las materias</h3>
+
+            
+            
+            
+     <table class="table" style="font-size:8px;">
+    <thead>
+      <tr>
+          <th>Materia</th>
+          <th>Código</th>
+          <th class="text-center">Créditos</th>
+          <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
+      <% current_subject = Subject.find(chs.subject_id) %>
+      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
+      <% next if chs.typology == 'L'%>
+      
+      <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
+        <td><%= current_subject.name %></td>
+        <td><%= current_subject.code %></td>
+        <td><%= current_subject.credits %></td>
+         <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
+        <td> 
+         <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                         <button type="submit">
-                          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-                          <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
-                          <span class="glyphicon glyphicon-ok"></span>
+                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
+                        <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
+                        <input type="hidden" name="exists" id="exists" value="true" />
+                        <input type="hidden" name="semester" id="setSemesterForStudent" value="" />
+                        <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
+                        <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
+                           <span class="glyphicon glyphicon-ok"></span>
                         </button>
-                      </form>
-                    </td>
-                  </tr>
-                <% end %>
-              </tbody>
-            </table>
+                        </form>
+                  </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+            </div>
           </div>
         </div>
           

@@ -20,8 +20,7 @@ class Subject < ApplicationRecord
     
     #validates :code, nume
     #Testing
-    #METODO de rails
-    # Código pero SQL 
+
     
     def self.find_by_code(code)
         Subject.find_by(code: code)
@@ -31,15 +30,18 @@ class Subject < ApplicationRecord
     
     def self.search_subject_by_code_not_added(code, malla_id)
         current_subject = self.find_by(code: code)
+        puts current_subject
+        puts current_subject.id
+        puts current_subject.name
         puts "What? #{current_subject}"
         if current_subject
-            puts "rrr #{malla_id}"
-            puts "Found? #{Malla.find(malla_id)} -> #{malla_id}"
+            puts current_subject.name
             Malla.find(malla_id).semesters.each do |semester|
                 puts "Esto: #{semester}"
+                puts current_subject.name
                 semester.career_has_subjects.each do |subject|
-                    puts "#{subject.id}////#{current_subject.id}"
-                    return 0 if subject.id == current_subject.id
+                    puts "#{subject.career_id}->#{subject.subject_id}////#{current_subject.name}->#{current_subject.id}"
+                    return 0 if subject.subject_id == current_subject.id
                 end
             end
         else
@@ -71,14 +73,8 @@ class Subject < ApplicationRecord
     
     def self.get_average_grade(code)
         @subject = Subject.find_by(code: code)
-        return -1 if @num_registers == 0
+        return -1 if @subject.num_registers <= 0
         return @subject.cumulative_sum.to_f/@subject.num_registers.to_f
-    end
-    
-    def self.get_grade_for_student(user_id, subject_code)
-        @user = User.find(user_id)
-        puts "// #{subject_code}"
-        Float(@user.semester_has_subjects.find_by(career_has_subject_id: subject_code).grade) rescue return 5.1
     end
     
     # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
@@ -92,7 +88,7 @@ class Subject < ApplicationRecord
         mallaEst.semesters.each do |sem|
             sem.career_has_subjects.each do |chs|
                 #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
-                if SemesterHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
+                if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
                     puts "ñañañña ya la vio"
                 else
                     subjects_ids << chs
@@ -104,5 +100,18 @@ class Subject < ApplicationRecord
         print subjects_ids
         puts "h"
         subjects_ids
+    end
+    
+    def self.get_class_by_typology(typology)
+        case typology
+        when 'B'
+          "info"
+        when 'C'
+          "success"
+        when 'L'
+          "Warning"
+        else
+          "active"
+        end
     end
 end

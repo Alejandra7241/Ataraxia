@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171024204246) do
+ActiveRecord::Schema.define(version: 20171026045906) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -101,6 +101,18 @@ ActiveRecord::Schema.define(version: 20171024204246) do
     t.datetime "updated_at", null: false
     t.integer "malla_id"
     t.index ["malla_id"], name: "index_semesters_on_malla_id"
+  end
+
+  create_table "student_has_subjects", force: :cascade do |t|
+    t.decimal "grade", precision: 2, scale: 1, default: "0.0"
+    t.string "typology"
+    t.boolean "approved", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "student_id"
+    t.integer "career_has_subject_id"
+    t.index ["career_has_subject_id"], name: "index_student_has_subjects_on_career_has_subject_id"
+    t.index ["student_id"], name: "index_student_has_subjects_on_student_id"
   end
 
   create_table "subjects", force: :cascade do |t|
