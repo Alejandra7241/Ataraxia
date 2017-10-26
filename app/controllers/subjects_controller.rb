@@ -92,7 +92,9 @@ class SubjectsController < ApplicationController
     @code =  params[:subject][:code] rescue @code = params[:code]
     #@subject = Subject.find_by_code(@code)
     @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
-
+    puts "////// Was ist denn passiert?"
+    puts "#{params[:code_career]}"
+    
     name = @subject.name unless @subject.is_a? Integer
     code = @subject.code unless @subject.is_a? Integer
     credits = @subject.credits unless @subject.is_a? Integer
