@@ -13,7 +13,7 @@ class StudentController < ApplicationController
         respond_to do |format| 
             format.html
             format.json
-            format.pdf {render template:'student/malla_estandar', pdf:'malla_ataraxia'}
+            format.pdf {render template:'student/malla_estandar', pdf:'ataraxia_malla_estandar'}
         end 
     end
     
@@ -25,7 +25,7 @@ class StudentController < ApplicationController
          respond_to do |format| 
             format.html
             format.json
-            format.pdf {render template:'student/malla_estadisticas', pdf:'malla_ataraxia'}
+            format.pdf {render template:'student/malla_estadisticas', pdf:'ataraxia_malla_estadisticas'}
         end 
     end
     
@@ -36,7 +36,7 @@ class StudentController < ApplicationController
         respond_to do |format| 
             format.html
             format.json
-            format.pdf {render template:'student/malla_personal', pdf:'malla_ataraxia'}
+            format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
         end
     end    
     
@@ -49,7 +49,7 @@ class StudentController < ApplicationController
         respond_to do |format| 
             format.html
             format.json
-            format.pdf {render template:'student/malla_avance', pdf:'malla_ataraxia'}
+            format.pdf {render template:'student/malla_avance', pdf:'ataraxia_malla_avance'}
         end
     end   
     

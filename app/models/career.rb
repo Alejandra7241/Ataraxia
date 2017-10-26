@@ -43,16 +43,15 @@ class Career < ApplicationRecord
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
                
                 subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
-                SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f)
-                
+                SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
             else
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
-                    SemesterHasSubject.update(subj.id, grade: grade_subject.to_f) rescue updated = false
-                    SemesterHasSubject.create(career_has_subject_id: chs.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f) #<- ¿Ahí?
-                    
+                    sem.career_has_subjects << chs
+                    StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
+
                 rescue
-                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, student_id: id_user, grade: grade_subject.to_f)
+                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
                 end
             end
             Subject.update_average(code_subject, grade_subject)

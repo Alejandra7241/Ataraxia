@@ -5,6 +5,9 @@ class CareerHasSubject < ApplicationRecord
     has_many :semester_has_subjects
     has_many :semesters, through: :semester_has_subjects
     
+    has_many :student_has_subjects
+    has_many :students, class_name: "User", through: :student_has_subjects
+    
     # follower_requisites "names" the Requisite join table for accessing through the follower association
     has_many :follower_requisites, foreign_key: :followee_id, class_name: "Requisite" 
     # source: :follower matches with the belong_to :follower identification in the Requisite model 

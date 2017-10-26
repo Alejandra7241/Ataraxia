@@ -77,12 +77,6 @@ class Subject < ApplicationRecord
         return @subject.cumulative_sum.to_f/@subject.num_registers.to_f
     end
     
-    def self.get_grade_for_student(user_id, subject_code)
-        @user = User.find(user_id)
-        puts "// #{subject_code}"
-        Float(@user.semester_has_subjects.find_by(career_has_subject_id: subject_code).grade) rescue return 5.1
-    end
-    
     # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
     def self.get_subjects_not_approved_by_a_student(student_id, career_id)  
         @user = User.find(student_id)
@@ -94,7 +88,7 @@ class Subject < ApplicationRecord
         mallaEst.semesters.each do |sem|
             sem.career_has_subjects.each do |chs|
                 #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
-                if SemesterHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
+                if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
                     puts "ñañañña ya la vio"
                 else
                     subjects_ids << chs

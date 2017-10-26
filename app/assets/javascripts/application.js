@@ -37,18 +37,23 @@ function reset_and_assign(current_semesterr) {
     var x = document.getElementById('principal');
     x.style.display='block';
     var z = document.getElementById('existente2');
-    //z.style.display='none';
+    z.style.display='none';
     var z = document.getElementById('nueva');
-    //z.style.display='none';
+    z.style.display='none';
     var a = document.getElementById('newMateria');
-    //a.style.display='none';
-
+    a.style.display='none';
 }
 
-
-
-
-
+function reset_AM(current_semesterr) {
+    console.log(current_semester);
+    console.log(current_semesterr);
+    current_semester = current_semesterr
+    console.log(current_semester);
+   document.getElementById("searching").style.display = 'block';
+    document.getElementById("codigo").style.display = 'none';
+    document.getElementById("todas").style.display = 'none';
+    document.getElementById("respuesta").style.display = 'none';
+}
 
 function action_for_typology(typology, number_action){
     switch (typology) {
