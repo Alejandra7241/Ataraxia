@@ -57,9 +57,9 @@
                     <% end %>
                     <% if grade != 5.1 %>
                         <% if @average<=grade %>
-                            <p style="color: green;">Tu nota: <%= grade %></p>
+                            <strong><p style="color: #006400;">Tu nota: <%= grade %></p></strong>
                         <% else %>
-                            <p style="color: red;">Tu nota: <%= grade %></p>
+                            <strong><p style="color: red;">Tu nota: <%= grade %></p></strong>
                         <% end %>
                     <%else%>
                         <p>Aún no la has visto</p>
