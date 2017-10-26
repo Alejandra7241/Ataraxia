@@ -17,6 +17,18 @@ class StudentController < ApplicationController
         end 
     end
     
+    def malla_estadisticas
+        @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
+         respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_estadisticas', pdf:'malla_ataraxia'}
+        end 
+    end
+    
     def malla_personal
       @user = current_user
       @subject = Subject.new

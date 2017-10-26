@@ -2,15 +2,14 @@
 <%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
 
 <!-- Animación Cargando cuando se genera pdf -->
-
 <div id="cargando">
   <div class="loader"></div>
 </div>
 
+<h1 align="center">Notas promedio en <%= @career.name %></h1>  
 
-<h1 align="center"><%= @career.name %></h1>  
-<%= render 'layouts/mallas', :vista =>"guess_malla", :user => "guess", :malla => @malla, :pdf => false, add_subjects_enabled: false, :estadisticas => false%>
-<%= render 'layouts/footer', :vista =>"guess_malla"%>
+<%= render 'layouts/mallas', :vista =>"guess_malla", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false, :estadisticas => true %>
+<%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "estadisticas"%>
 <!-- The Modal Ayuda -->
 
   <div id="myModal4" class="modal fade" role="dialog">
@@ -27,3 +26,6 @@
       </div>
     </div>
   </div>
+
+
+
