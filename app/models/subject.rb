@@ -68,7 +68,7 @@ class Subject < ApplicationRecord
     def self.update_average(code_subject, grade)
         @subject = Subject.find_by(code: code_subject)
         Subject.update(@subject.id, num_registers: @subject.num_registers+1)
-        Subject.update(@subject.id, cumulative_sum: @subject.cumulative_sum.to_i + grade.to_f)
+        Subject.update(@subject.id, cumulative_sum: @subject.cumulative_sum.to_f + grade.to_f)
     end
     
     def self.get_average_grade(code)
