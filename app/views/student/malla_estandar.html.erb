@@ -2,8 +2,9 @@
 <%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
 
 <!-- Animación Cargando cuando se genera pdf -->
-<div id="cargando">
+<div id="cargando" class="well">
   <div class="loader"></div>
+  <div>Generando pdf...</div>
 </div>
 
 <h1 align="center"><%= @career.name %></h1>  
