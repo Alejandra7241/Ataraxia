@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando" class="well">
+  <div class="loader"></div>
+  <div>Generando pdf...</div>
+</div>
+
+
+<h1 align="center">Malla Personal</h1> 
+
+<!--search_by: ['todas', 'codigo', 'tipologia']-->
+<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: false, :pdf => false, search_by: ['todas', 'codigo'], :estadisticas => false %>
+<%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
+<!-- The Modal Ayuda -->
+
+  <div id="myModal6" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-ayuda">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Ventana de ayuda</h2>
+        </div>
+        <div class="modal-body" >
+          <div align="center"><img width="80%" class="img-responsive" src="/ayuda_personal.png" class="img-fluid" alt="help" /></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="myModal7" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width: 100%;">
+        <div class="modal-header modal-faltantes">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Materias Faltantes</h2>
+        </div>
+        <div class="modal-body" >
+          
+        </div>
+      </div>
+    </div>
+  </div>

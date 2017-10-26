@@ -399,7 +399,7 @@
                         <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
                         <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
                         <input type="hidden" name="exists" id="exists" value="true" />
-                        <input type="hidden" name="semester" id="setSemesterForStudent" value="" />
+                        <input type="hidden" name="semester" id="setSemesterForStudent" value="7" />
                         <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
                         <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
                            <span class="glyphicon glyphicon-ok"></span>

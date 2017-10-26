@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Malla Personal</title>
+        <meta charset="UTF-8">
+        <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    </head>
+    
+    <body>
+       <%= render 'layouts/mallas.html.erb', :vista =>"student_malla", :pdf => true, malla: @malla_personal, user: @user, add_subjects_enabled: true,  add_subjects_enabled: false, :estadisticas => false %>
+    </body>
+</html>

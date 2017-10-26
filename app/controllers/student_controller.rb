@@ -55,10 +55,15 @@ class StudentController < ApplicationController
     
     
     def malla_optima
-        @user = current_user
-        @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
-        #@malla = Malla.mallas.find_by(tipo: "Estándar")
+      @user = current_user
+      @subject = Subject.new
+      @malla_optima = Malla.find_by(student_id: current_user.id, tipo: 'Optima')
+      Malla.create_malla_optima(current_user.id, Career.find_carrer_code_by_malla(@malla_optima), @malla_optima.id)
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
+        end
     end
     
     
@@ -284,7 +289,9 @@ class StudentController < ApplicationController
     flash[:notice] = "Tu historia académica se ha guardado correctamente."
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects)
+    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
+    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
+    
 
     redirect_to student_index_path
     end

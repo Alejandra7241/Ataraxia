@@ -35,6 +35,20 @@ class Malla < ApplicationRecord
     end
     
     
+    def self.create_malla_optima(student_id, career_id, malla_id)
+        counter = 0
+        semester = Malla.find(malla_id).semesters.last.number + 1
+        Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find(career_id)).each do |chs|
+            
+            current_subject = Subject.find(chs.subject_id)
+            counter +=1
+            
+            
+        end
+    end
+    
+    
+    
     
 
 end
