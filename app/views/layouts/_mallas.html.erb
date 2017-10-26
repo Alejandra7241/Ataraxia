@@ -68,7 +68,7 @@
                   <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester%>
                   
                   
-                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
                    
                   <% end %>
                      
@@ -330,7 +330,7 @@
               <% end%>
             </div>
           </div>
-
+          
           <div id="codigo" style="display: none;">
 
             <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
@@ -339,12 +339,12 @@
               <%= f.label :code, 'Código:' %><br>
               <%= f.text_field :code, :required => true, :pattern =>  '^\d+$', title: "El código debe contener sólo números" , placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
               <h3 id = "jschange"></h3>
-                      <table class="table table-striped" id="tableQuery" style="display: none;" >
+                      <table class="table table-striped"  id="tableQuery" style="display: none; font-size: 8px;" >
                     <thead id="tblHead">
                       <tr>
                         <th>Materia</th>
                         <th>Código</th>
-                        <th class="text-center">Créditos</th>
+                        <th>Créditos</th>
                         <th>Acción</th>
                       </tr>
                     </thead>
@@ -366,47 +366,42 @@
           
           </div>
           
-          
-          
           <div id="todas" style="display: none;">
-           <div class="form-group" align="center">    
-            <h3>Todas las materias</h3>
-
-            
-            
-            
-     <table class="table">
-    <thead>
-      <tr>
-          <th>Materia</th>
-          <th>Código</th>
-          <th class="text-center">Créditos</th>
-          <th>Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
-      <% current_subject = Subject.find(chs.subject_id) %>
-      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
-      <tr>
-        <td><%= current_subject.name %></td>
-        <td><%= current_subject.code %></td>
-        <td><%= current_subject.credits %></td>
-         <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
-        <td>  <form action= <%= button_string %>  method="post" enctype="multipart/form-data" class="form-horizontal">
+            <div class="form-group" align="center">    
+              <h3>Todas las materias</h3>
+              <table class="table" style="font-size: 8px;">
+                <thead>
+                  <tr>
+                    <th>Materia</th>
+                    <th>Código</th>
+                    <th class="text-center">Créditos</th>
+                    <th>Acción</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
+                  <% current_subject = Subject.find(chs.subject_id) %>
+                  <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
+                  <tr>
+                    <td><%= current_subject.name %></td>
+                    <td><%= current_subject.code %></td>
+                    <td><%= current_subject.credits %></td>
+                    <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
+                    <td>
+                      <form action= <%= button_string %>  method="post" enctype="multipart/form-data" class="form-horizontal">
                         <button type="submit">
-                        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
-                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
-                           <span class="glyphicon glyphicon-ok"></span>
+                          <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                          <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
+                          <span class="glyphicon glyphicon-ok"></span>
                         </button>
-                        </form>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-            </div>
+                      </form>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
           </div>
+        </div>
           
           <% end %>
           <div id="tipologia" style="display: none;">
