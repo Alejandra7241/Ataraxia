@@ -18,7 +18,7 @@
           <% if vista=="student_malla" %>
              <%if s_vista=="estandar" %>
                 <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estandar_path(format: :pdf), :class => "MainNavText navbar-brand" %></li>
+                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estandar_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()'  %></li>
              <%elsif s_vista=="avance"%>
                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_avance_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
@@ -26,8 +26,10 @@
                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
                <li><%= link_to "<p class='glyphicon glyphicon-search'></p>".html_safe,'#', "data-target" => "#myModal7", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
+             <%elsif s_vista=="estadisticas"%>
+               <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
+               <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estadisticas_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
              <%end%>
-              <li><%= link_to "<p class='glyphicon glyphicon-pencil'></p>".html_safe,'#', :class => "MainNavText navbar-brand", :onclick => 'alert("Lo sentimos, aún no implementamos esta funcionalidad :s")' %></li>
           <% end %>
         </ul>
       </div>

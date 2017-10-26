@@ -1,12 +1,11 @@
-<%= devise_error_messages! %>
+ <%= devise_error_messages! %>
 <img src="/universidad3.jpg" class="bottomImage">
 <div class="row">
   <div class = "col-sm-4"></div>
 		<div class = "col-sm-4 well">
       <h1 align="center">¡Registrate en Ataraxia!</h1>
         <div align="center"><img src="/logo_final.png" class="imageWell"></div>
-        <%= form_for @user, url: users_create_path, html: { multipart: true } do |f| %>
-          <%= devise_error_messages! %>
+        <%= form_for @user do |f| %>
           <br>
           <div class="field">
             <%= f.label :avatar %><br />

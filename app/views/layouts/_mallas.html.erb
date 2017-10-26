@@ -33,20 +33,27 @@
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "layouts/subject", locals: {vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
+                    <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
                     <% elsif vista == "malla_avance" %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
+                      <% if SemesterHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id) %>
+                        <% @aprobada=true %>
+                      <% else %>
+                        <% @aprobada=false %>
+                      <% end %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
+                    <% elsif estadisticas %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% else %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
                     <% end %>
                   <% end %>
                   
                   <% sem.subjects.each do |student_subj| %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "layouts/subject", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista} %>
+                    <%= render partial: "layouts/subject", locals: {estadisticas: false, subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista} %>
                     
                     <% else %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista } %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista } %>
                     <% end %>
                   <% end %>
                   <br>  

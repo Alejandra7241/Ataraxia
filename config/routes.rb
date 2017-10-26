@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   resources :users
   
+  get 'users/show/:id' => 'users#show'
+  
 #  devise_for :users, :skip => [:registrations] # https://github.com/plataformatec/devise/wiki/How-To:-Allow-users-to-edit-their-password                                         
 #  as :user do
 #    get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'    
@@ -52,8 +54,10 @@ Rails.application.routes.draw do
   get 'student/malla_estandar/:id', to: 'student#malla_estandar', as: 'student_malla_estandar'
   get 'student/malla_personal', to: 'student#malla_personal', as: 'student_malla_personal'
   get 'student/malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
-  
-  
+  #Estadisticas
+  get 'student/estadisticas', to: 'student#estadisticas', as: 'student_estadisticas'
+  get 'student/malla_estadisticas', to: 'student#malla_estadisticas', as: 'student_malla_estadisticas'
+    
   #get 'student/malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
 # MATERIAS
   get 'subjects/show', to:'subjects#show', as: 'show'

@@ -1,1 +1,20 @@
-<p>Error en registro, por favor intente más tarde</p>
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-md-6" style="margin-top: 4%;" width="100%">
+            <div align="center" style="vertical-align: middle;">
+                <img  width="60%" class="img-responsive" src="/logo_final.png" class="img-fluid" alt="logo" />
+                <h1>¡Error de Registro en Ataraxia!</h1>
+            </div>
+        </div>
+    <div class="col-md-6" style="margin-top: 4%;">
+        <div style="background-color: lightblue;  padding: 8% 0px 8% 5%;>">
+            <h2 style="font-size:60px">Registrarse de Nuevo</h2> 
+            <p style="font-size:15px">Por favor intenta registrarte de nuevo en Ataraxia</p>
+            <div align="center" ><%= link_to '¡Registrarse!', new_user_registration_path, :class => "btn btn-success btn-lg" %></div>
+        </div>
+    </div>
+  </div>
+</div>
+
+<%= render 'layouts/footer', :vista=> "normal"%>

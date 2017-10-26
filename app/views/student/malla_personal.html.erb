@@ -9,7 +9,7 @@
 
 <h1 align="center">Malla Personal</h1> 
 
-<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => false, search_by: ['todas', 'codigo', 'tipologia'] %>
+<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => false, search_by: ['todas', 'codigo', 'tipologia'], :estadisticas => false %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
 <!-- The Modal Ayuda -->
 
