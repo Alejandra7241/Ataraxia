@@ -1,0 +1,49 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main-text {
+    color: #fff;
+    top: 15%;
+    width: 96.6667%;
+    position: absolute;
+}
+
+.main-email {
+    top: 2%;
+    left: 2%;
+}
+ 
+#main{
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size:11vw;
+    margin: 0 0 -25px;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.botons{
+    margin: 0px 9px 0px 6px;
+}
+
+.carousel-inner > .item {
+    position: relative;
+    display: none;
+    -webkit-transition: 0.2s ease-in-out left;
+    -moz-transition: 0.2s ease-in-out left;
+    -o-transition: 0.2s ease-in-out left;
+    transition: 0.2s ease-in-out left;
+}
+
+html,body{height:100%;width:100%;}
+.carousel,.item,.active{height:100%;width:100%;}
+.carousel-inner{height:100%;width:100%;}
+
+
+.glyphicon-envelope {
+    margin: 0px 15px;
+    text-align: center;
+}

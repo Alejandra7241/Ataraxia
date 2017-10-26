@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
     render :layout => false
   end
   def ataraxia
-    render :layout => false
+    
   end
   def login
     
