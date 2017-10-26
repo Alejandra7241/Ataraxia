@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 #GENERAL
   #Landing Page
   get 'welcome/empty' => 'welcome#empty'
+  get 'welcome/ataraxia' => 'welcome#ataraxia', as: 'welcome_ataraxia'
   #Login
   post 'users/create' => 'users#create'
   get 'users/confirm_email', to: 'contact#confirm_email', as: 'confirm_email'

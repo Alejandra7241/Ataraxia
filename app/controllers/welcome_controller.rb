@@ -3,7 +3,9 @@ class WelcomeController < ApplicationController
   def index
     render :layout => false
   end
-  
+  def ataraxia
+    render :layout => false
+  end
   def login
     
   end
