@@ -68,5 +68,11 @@ class Career < ApplicationRecord
         self.find(malla.career_id).code
     end
     
+    def self.find_carrer_id_by_malla(malla)
+        self.find(malla.career_id).id
+    end
+    
+    
+    
     
 end

@@ -342,6 +342,7 @@
                       </tr>
                     </thead>
                     <tbody id="tbodyid">
+                    
                     </tbody>
                   </table>
                   
@@ -361,23 +362,49 @@
           
           
           <div id="todas" style="display: none;">
-            <h3>Agregar una nueva materia:</h3>
-            <h4>Por favor seleccione la tipologia.</h4>
-            <div class="form-group" align="center"> 
-            <% search_by.each do |x|   %>
-              <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
-            <% end %>
+           <div class="form-group" align="center">    
+            <h3>Todas las materias</h3>
+
+            
+            
+            
+     <table class="table">
+    <thead>
+      <tr>
+          <th>Materia</th>
+          <th>Código</th>
+          <th class="text-center">Créditos</th>
+          <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
+      <% current_subject = Subject.find(chs.subject_id) %>
+      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
+      <tr>
+        <td><%= current_subject.name %></td>
+        <td><%= current_subject.code %></td>
+        <td><%= current_subject.credits %></td>
+         <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
+        <td>  <form action= <%= button_string %>  method="post" enctype="multipart/form-data" class="form-horizontal">
+                        <button type="submit">
+                        <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
+                           <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        </form>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
             </div>
           </div>
           
           <% end %>
           <div id="tipologia" style="display: none;">
            <div class="form-group" align="center">    
-            
-            <% search_by.each do |criteria| %>
-            <% onclick = "search_by( '" + criteria + "' ) " %>
-             <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
-              <% end%>
+
             </div>
         </div>
       </div>

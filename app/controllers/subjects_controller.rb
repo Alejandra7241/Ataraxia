@@ -28,7 +28,7 @@ class SubjectsController < ApplicationController
     code = @subject.code unless @subject.nil?
     id = @subject.id unless @subject.nil?
     credits = @subject.credits unless @subject.nil?
-    typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.nil?
+    typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.nil?
     respond_to do |format|
       unless @subject.nil?
         format.js { render :js => "editASubject('#{id}','#{name}','#{code}','#{typology}','#{credits}')" }
@@ -38,7 +38,7 @@ class SubjectsController < ApplicationController
     end
    
   end
-  # GET /subjects/1/edit
+  
   def edit
   end
 
@@ -89,14 +89,14 @@ class SubjectsController < ApplicationController
   def add_existing_subject
     @constraint = params[:constraint]
     puts params[:data]
-    @code =  params[:subject][:code]
+    @code =  params[:subject][:code] rescue @code = params[:code]
     #@subject = Subject.find_by_code(@code)
     @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
-    puts "Baia baia #{@subject}"
+
     name = @subject.name unless @subject.is_a? Integer
     code = @subject.code unless @subject.is_a? Integer
     credits = @subject.credits unless @subject.is_a? Integer
-    typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.is_a? Integer
+    typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.is_a? Integer
     respond_to do |format|
       unless @subject.is_a? Integer
         

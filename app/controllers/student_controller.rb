@@ -42,6 +42,14 @@ class StudentController < ApplicationController
     end   
     
     
+    def malla_optima
+        @user = current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        #@malla = Malla.mallas.find_by(tipo: "Estándar")
+    end
+    
+    
     private
     
     def require_login
