@@ -57,13 +57,13 @@ class StudentController < ApplicationController
     def malla_optima
       @user = current_user
       @subject = Subject.new
-      @malla_optima = Malla.find_by(student_id: current_user.id, tipo: 'Optima')
-      Malla.create_malla_optima(current_user.id, Career.find_carrer_code_by_malla(@malla_optima), @malla_optima.id)
-        respond_to do |format| 
-            format.html
-            format.json
-            format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
-        end
+      @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
+      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id) # (student_id, career_id, malla_id)
+        # respond_to do |format| 
+        #     format.html
+        #     format.json
+        #     format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
+        # end
     end
     
     

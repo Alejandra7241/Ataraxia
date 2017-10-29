@@ -23,9 +23,12 @@ class Career < ApplicationRecord
     id_user = id_user.to_i
     puts "String: #{code_career} // #{id_user}"
     career = Career.find_by_code(code_career)
-    begin
-        Malla.find_by(student_id: id_user, tipo: tipo_malla).destroy
-    rescue
+    while true
+        begin
+            Malla.find_by(student_id: id_user, tipo: tipo_malla).destroy
+        rescue
+            break
+        end
     end
     current_malla = Malla.create(tipo: tipo_malla, student_id: id_user, career_id: Career.find_by_code(code_career).id ) 
     current_semester = 1
@@ -70,6 +73,8 @@ class Career < ApplicationRecord
     def self.find_carrer_id_by_malla(malla)
         self.find(malla.career_id).id
     end
+    
+    
     
     
     

@@ -79,6 +79,7 @@ class Subject < ApplicationRecord
     
     # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
     def self.get_subjects_not_approved_by_a_student(student_id, career_id)  
+        puts "Afterglow"
         @user = User.find(student_id)
         
         # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
@@ -114,4 +115,7 @@ class Subject < ApplicationRecord
           "active"
         end
     end
+    
+    
+    
 end

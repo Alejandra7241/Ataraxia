@@ -65,7 +65,7 @@
                     <% end %>
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                  <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester%>
+                  <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester && add_subjects_enabled%>
                   
                   
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
@@ -394,18 +394,32 @@
         <td><%= current_subject.credits %></td>
          <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
         <td> 
-         <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
-                        <button type="submit">
-                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
-                        <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
-                        <input type="hidden" name="exists" id="exists" value="true" />
-                        <input type="hidden" name="semester" id="setSemesterForStudent" value="7" />
-                        <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
-                        <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
-                           <span class="glyphicon glyphicon-ok"></span>
-                        </button>
-                        </form>
-                  </td>
+        
+        
+        
+                 <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
+
+
+              <%= f.hidden_field :code, :value => current_subject.code%>
+                  
+        
+              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
+
+           
+            <% end %>
+            
+         <!--<form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">-->
+         <!--               <button type="submit">-->
+         <!--               <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />-->
+         <!--               <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />-->
+         <!--               <input type="hidden" name="exists" id="exists" value="true" />-->
+         <!--               <input type="hidden" name="semester" id="setSemesterForStudent" value="" />-->
+         <!--               <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />-->
+         <!--               <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />-->
+         <!--                  <span class="glyphicon glyphicon-ok"></span>-->
+         <!--               </button>-->
+         <!--               </form>-->
+         <!--         </td>-->
       </tr>
       <% end %>
     </tbody>
