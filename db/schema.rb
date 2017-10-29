@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026045906) do
+ActiveRecord::Schema.define(version: 20171026210440) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"

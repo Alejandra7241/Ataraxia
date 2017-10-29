@@ -7,7 +7,7 @@ class CreateStudentHasSubjects < ActiveRecord::Migration[5.1]
       
       t.timestamps
     end
-    add_reference :student_has_subjects, :student, references: :users, index: true, foreign_key: true
+    add_reference(:student_has_subjects, :student, foreign_key: {to_table: :users}, index: true)
     add_reference :student_has_subjects, :career_has_subject, index: true, foreign_key: true
   end
 end
