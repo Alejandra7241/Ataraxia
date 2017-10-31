@@ -1,6 +1,18 @@
 # ***************************** Lista de Materias***********************************
 
 Subject.create([
+        # Nivelación
+        {code: 1000002, name: 'Lecto-escritura', credits: 4},
+        {code: 1000001, name: 'Matemáticas básicas', credits: 4},
+        {code: 1000044, name: 'Inglés I - semestral', credits: 3},
+        {code: 1000045, name: 'Inglés II - semestral', credits: 3},
+        {code: 1000046, name: 'Inglés III - semestral', credits: 3},
+        {code: 1000047, name: 'Inglés IV - semestral', credits: 3},
+        {code: 1000052, name: 'Inglés intensivo I y II', credits: 6},
+        {code: 1000053, name: 'Inglés intensivo III y IV ', credits: 6},        
+        {code: 1000074, name: 'Suficiencia en lengua extranjera', credits: 12},
+        
+        # Ingeniería de Sistemas
         {code: 1000004, name: 'Cálculo diferencial', credits: 4},
         {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3},
         {code: 2015734, name: 'Programación de computadores', credits: 3},
@@ -90,6 +102,43 @@ career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computació
 mallaSis = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+
+# Nivelación
+subj = Subject.find_by(code: 1000002)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000001)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000044)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000045)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000046)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000047)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000052)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000053)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000074)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
 
 # Semestre 1
 sem = mallaSis.semesters.find_by number: 1
@@ -386,6 +435,43 @@ mallaInd = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaInd.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
 
+# Nivelación
+subj = Subject.find_by(code: 1000002)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000001)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000044)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000045)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000046)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000047)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000052)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000053)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000074)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
 # Semestre 1
 sem = mallaInd.semesters.find_by number: 1
 
@@ -666,7 +752,7 @@ sem.career_has_subjects << chs
 # *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
 
 #Prerrequisitos Ingenieria de Sistemas: 
-#Se busca la materia y en el arreglo followees se ponen los prerrequisitos de esa materia
+#Se busca la materia y en el arreglo followers se ponen los prerrequisitos de esa materia
 
 #Semestre 2
 
@@ -774,11 +860,132 @@ chs_materia.followers << [
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016698).id)
         ]
 
+#Semestre 5
 
+#Modelos y simulación
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025970).id) 
+chs_materia.followers << [
+        #Calculo en varias variables
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id),
+        #Probabilidad y estadística
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000013).id),
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id),
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id)
+        ]
 
+#Gerencia y gestión de proyectos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015702).id) 
+chs_materia.followers << [
+        #Ingeniería económica
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015703).id)
+        ]
 
+#Redes de computadores
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id) 
+chs_materia.followers << [
+        #Fundamentos de electricidad y magnetismo
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000017).id),
+        #Arquitectura de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016697).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
 
+#Ingeniería de software I
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016701).id) 
+chs_materia.followers << [
+        #Bases de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016353).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
 
+#Introducción a la teória de la computación
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015174).id) 
+chs_materia.followers << [
+        #Matemáticas discretas I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025963).id)
+        ]
+ 
+#Semestre 6
+        
+#Optimización
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025971).id) 
+chs_materia.followers << [
+        #Modelos y simulación
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025970).id)
+        ]        
+        
+#Métodos Númericos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015970).id) 
+chs_materia.followers << [
+        #Calculo en varias variables
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id),
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id)
+        ]        
+
+#Sistemas de información
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025982).id) 
+chs_materia.followers << [
+        #Gerencia y gestión de proyectos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015702).id),
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id)
+        ]   
+
+#Ingeniería de software II
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016702).id) 
+chs_materia.followers << [
+        #Ingeniería de software I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016701).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id)
+        ]   
+
+#Algoritmos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id) 
+chs_materia.followers << [
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
+
+#Sistemas operativos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016707).id) 
+chs_materia.followers << [
+        #Arquitectura de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016697).id)
+        ]
+        
+#Semestre 7
+
+#Modelos estocastícos y simulación en computación y comunicaciones
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025969).id) 
+chs_materia.followers << [
+        #Optimización
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025971).id)
+        ]        
+        
+#Teoría de la información y sistemas de comunicaciones
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025994).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id)
+        ]
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 
