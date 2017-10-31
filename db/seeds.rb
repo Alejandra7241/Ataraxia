@@ -666,7 +666,7 @@ sem.career_has_subjects << chs
 # *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
 
 #Prerrequisitos Ingenieria de Sistemas: 
-#Se busca la materia y en el arreglo followees se ponen los prerrequisitos de esa materia
+#Se busca la materia y en el arreglo followers se ponen los prerrequisitos de esa materia
 
 #Semestre 2
 
@@ -774,11 +774,132 @@ chs_materia.followers << [
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016698).id)
         ]
 
+#Semestre 5
 
+#Modelos y simulación
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025970).id) 
+chs_materia.followers << [
+        #Calculo en varias variables
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id),
+        #Probabilidad y estadística
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000013).id),
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id),
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id)
+        ]
 
+#Gerencia y gestión de proyectos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015702).id) 
+chs_materia.followers << [
+        #Ingeniería económica
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015703).id)
+        ]
 
+#Redes de computadores
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id) 
+chs_materia.followers << [
+        #Fundamentos de electricidad y magnetismo
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000017).id),
+        #Arquitectura de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016697).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
 
+#Ingeniería de software I
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016701).id) 
+chs_materia.followers << [
+        #Bases de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016353).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
 
+#Introducción a la teória de la computación
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015174).id) 
+chs_materia.followers << [
+        #Matemáticas discretas I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025963).id)
+        ]
+ 
+#Semestre 6
+        
+#Optimización
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025971).id) 
+chs_materia.followers << [
+        #Modelos y simulación
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025970).id)
+        ]        
+        
+#Métodos Númericos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015970).id) 
+chs_materia.followers << [
+        #Calculo en varias variables
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id),
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id)
+        ]        
+
+#Sistemas de información
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025982).id) 
+chs_materia.followers << [
+        #Gerencia y gestión de proyectos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015702).id),
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id)
+        ]   
+
+#Ingeniería de software II
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016702).id) 
+chs_materia.followers << [
+        #Ingeniería de software I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016701).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id)
+        ]   
+
+#Algoritmos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id) 
+chs_materia.followers << [
+        #Matemáticas discretas II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]
+
+#Sistemas operativos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016707).id) 
+chs_materia.followers << [
+        #Arquitectura de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016697).id)
+        ]
+        
+#Semestre 7
+
+#Modelos estocastícos y simulación en computación y comunicaciones
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025969).id) 
+chs_materia.followers << [
+        #Optimización
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025971).id)
+        ]        
+        
+#Teoría de la información y sistemas de comunicaciones
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025994).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id)
+        ]
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 
