@@ -8,7 +8,9 @@
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% @malla = malla %>
+
 <% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
+<% show_approved ||= true %>
 <div class="row">
         <div class="col-md-12" class="back">
         <table id="tableSemesters" class="table table-bordered .table-responsive ">

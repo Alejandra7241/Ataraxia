@@ -25,7 +25,7 @@
                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_avance_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
              <%elsif s_vista=="personal"%>
                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
-               <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
+               <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(0, format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
              <%elsif s_vista=="estadisticas"%>
                <li><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></li>
                <li><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estadisticas_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></li>
