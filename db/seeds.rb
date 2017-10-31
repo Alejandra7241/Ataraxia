@@ -664,7 +664,154 @@ sem.career_has_subjects << chs
 
 
 # *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
+
+#Prerrequisitos Ingenieria de Sistemas: 
+#Se busca la materia y en el arreglo followees se ponen los prerrequisitos de esa materia
+
+#Semestre 2
+
+#Fundamentos de mecanica
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000019).id) 
+chs_materia.followers << [
+        # Cálculo diferencial
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000004).id)
+        ]
+        
+#Calculo Integral
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id) 
+chs_materia.followers << [
+        # Cálculo diferencial
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000004).id)
+        ]
+
+#Algebra lineal
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000003).id) 
+chs_materia.followers << [
+        # Cálculo diferencial
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000004).id)
+        ]
+
+#Programación orientada a objetos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id) 
+chs_materia.followers << [
+        # Programacion de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015734).id)
+        ]
+        
+#Semestre 3
+
+#Probabilidad y estadística
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000013).id) 
+chs_materia.followers << [
+        # Calculo integral
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id)
+        ]
+
+#Calculo en varias variables
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id) 
+chs_materia.followers << [
+        # Calculo integral
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id)
+        ]
+
+#Matemáticas discretas I 
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025963).id) 
+chs_materia.followers << [
+        #Algebra lineal
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000003).id)
+        ]
+
+#Bases de datos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016353).id) 
+chs_materia.followers << [
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id)
+        ]
+
+#Elementos de computadores
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016698).id) 
+chs_materia.followers << [
+        #Introducción a la ingeniería de sistemas y computación
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025975).id)
+        ]
+
+#Semestre 4
+
+#Fundamentos de electricidad y magnetismo
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000017).id) 
+chs_materia.followers << [
+        #Cálculo integral
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id),
+        #Fundamentos de mecanica
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000019).id)
+        ]
+
+#Ingeniería económica
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015703).id) 
+chs_materia.followers << [
+        #Calculo en varias variables
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000006).id)
+        ]
+        
+#Matemáticas discretas II
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025964).id) 
+chs_materia.followers << [
+        #Matemáticas discretas I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025963).id)
+        ]
+
+#Estructuras de datos
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id) 
+chs_materia.followers << [
+        #Programación orientada a objetos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016375).id)
+        ]
+        
+#Arquitectura de computadores
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016697).id) 
+chs_materia.followers << [
+        #Elementos de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016698).id)
+        ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 =begin
+# Cálculo diferencial
+chs_prerrequisito = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000004).id)
+
+# Agregar Diferencial a los followers (prerrequisitos) de Integral
+#chs_materia.followees << chs_prerrequisito
+
+chs_prerrequisito.followees << [
+        
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000019).id),
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id)
+
+        
+        ]
+
+
+
+
+
+
+
+
+# *** Asociacion bidireccional de muchos a muchos con modelos CareerHasSubject y Requisite ***
+
 # Cálculo integral
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000005).id) 
 # Cálculo diferencial
@@ -672,4 +819,5 @@ chs_prerrequisito = CareerHasSubject.find_by(career_id: Career.find_by(code: 287
 
 # Agregar Diferencial a los followers (prerrequisitos) de Integral
 chs_materia.followers << chs_prerrequisito
+
 =end
