@@ -1,6 +1,18 @@
 # ***************************** Lista de Materias***********************************
 
 Subject.create([
+        # Nivelación
+        {code: 1000002, name: 'Lecto-escritura', credits: 4},
+        {code: 1000001, name: 'Matemáticas básicas', credits: 4},
+        {code: 1000044, name: 'Inglés I - semestral', credits: 3},
+        {code: 1000045, name: 'Inglés II - semestral', credits: 3},
+        {code: 1000046, name: 'Inglés III - semestral', credits: 3},
+        {code: 1000047, name: 'Inglés IV - semestral', credits: 3},
+        {code: 1000052, name: 'Inglés intensivo I y II', credits: 6},
+        {code: 1000053, name: 'Inglés intensivo III y IV ', credits: 6},        
+        {code: 1000074, name: 'Suficiencia en lengua extranjera', credits: 12},
+        
+        # Ingeniería de Sistemas
         {code: 1000004, name: 'Cálculo diferencial', credits: 4},
         {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3},
         {code: 2015734, name: 'Programación de computadores', credits: 3},
@@ -90,6 +102,43 @@ career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computació
 mallaSis = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+
+# Nivelación
+subj = Subject.find_by(code: 1000002)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000001)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000044)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000045)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000046)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000047)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000052)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000053)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000074)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
 
 # Semestre 1
 sem = mallaSis.semesters.find_by number: 1
@@ -385,6 +434,43 @@ career = Career.create({code: 2546, name: 'Ingeniería Industrial', department: 
 mallaInd = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaInd.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+
+# Nivelación
+subj = Subject.find_by(code: 1000002)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000001)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000044)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000045)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000046)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000047)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000052)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000053)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 1000074)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
+career.career_has_subjects << chs
 
 # Semestre 1
 sem = mallaInd.semesters.find_by number: 1
