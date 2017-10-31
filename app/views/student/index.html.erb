@@ -36,7 +36,8 @@
         <div style="background-color: PaleGoldenRod ;  padding: 8% 0px 8% 5%;">
             <h2 style="font-size:60px">Malla Personal</h2> 
             <p style="font-size:15px">Edita tu propia malla, a tu gusto, guardala y compartela con tus amigos.</p>
-            <div align="center" ><%= link_to '¡Edita!', student_malla_personal_path, :class => "btn btn-success btn-lg" %></div>
+            <div align="center" ><%= link_to '¡Editar sin materias perdidas!', student_malla_personal_path(0), :class => "btn btn-success btn-lg" %></div>
+            <div align="center" ><%= link_to '¡Editar con materias perdidas!', student_malla_personal_path(1), :class => "btn btn-danger btn-lg" %></div>
         </div>
     </div>
          <div class="col-md-3" style="margin: 2% 0% 0% 0%;">

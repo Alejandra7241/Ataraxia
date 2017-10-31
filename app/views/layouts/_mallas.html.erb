@@ -4,9 +4,11 @@
 <%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
 <% end %>
 
+
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% @malla = malla %>
+<% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
 <div class="row">
         <div class="col-md-12" class="back">
         <table id="tableSemesters" class="table table-bordered .table-responsive ">
@@ -44,7 +46,7 @@
                     <% elsif estadisticas %>
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id)} %>
                     <% else %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla)} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), array_of_not_approved: array_of_not_approved, show_approved: show_approved} %>
                     <% end %>
                   <% end %>
                   
@@ -325,7 +327,7 @@
             <div class="form-group" align="center">    
             
             <% search_by.each do |criteria| %>
-            <% onclick = "search_by( '" + criteria + "' ) " %>
+            <% onclick = "search_by( '" + criteria + "', '" + Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
             </div>
@@ -383,11 +385,12 @@
       </tr>
     </thead>
     <tbody>
+      <% counter_of_subjects = 1 %>
       <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
       <% current_subject = Subject.find(chs.subject_id) %>
       <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
       <% next if chs.typology == 'L'%>
-      
+      <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %> 
       <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
         <td><%= current_subject.name %></td>
         <td><%= current_subject.code %></td>
@@ -397,30 +400,22 @@
         
         
         
-                 <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
 
 
-              <%= f.hidden_field :code, :value => current_subject.code%>
-                  
-        
-              <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
-
-           
-            <% end %>
-            
-         <!--<form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">-->
-         <!--               <button type="submit">-->
-         <!--               <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />-->
-         <!--               <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />-->
-         <!--               <input type="hidden" name="exists" id="exists" value="true" />-->
-         <!--               <input type="hidden" name="semester" id="setSemesterForStudent" value="" />-->
-         <!--               <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />-->
-         <!--               <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />-->
-         <!--                  <span class="glyphicon glyphicon-ok"></span>-->
-         <!--               </button>-->
-         <!--               </form>-->
-         <!--         </td>-->
+         <form action="/mallas/add_subject_to_malla" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
+                        <button type="submit">
+                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
+                        <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
+                        <input type="hidden" name="exists" id="exists" value="true" />
+                        <input type="hidden" name="semester" id=<%= @unique_id %> value="" />
+                        <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
+                        <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
+                           <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        </form>
+                  </td>
       </tr>
+      <% counter_of_subjects += 1 %>
       <% end %>
     </tbody>
   </table>

@@ -53,7 +53,7 @@ Rails.application.routes.draw do
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
   #Mallas
   get 'student/malla_estandar/:id', to: 'student#malla_estandar', as: 'student_malla_estandar'
-  get 'student/malla_personal', to: 'student#malla_personal', as: 'student_malla_personal'
+  get 'student/malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'
   get 'student/malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
   get 'student/malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
   

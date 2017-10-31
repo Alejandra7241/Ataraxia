@@ -89,6 +89,7 @@ class Subject < ApplicationRecord
         mallaEst.semesters.each do |sem|
             sem.career_has_subjects.each do |chs|
                 #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
+                next if chs.typology == "L"
                 if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
                     puts "ñañañña ya la vio"
                 else
@@ -97,8 +98,28 @@ class Subject < ApplicationRecord
                     
             end
         end
-        puts "hehehe"
-        print subjects_ids
+        
+        array_of_chs_approved = []
+        @malla = Malla.find_by(student_id: student_id, tipo: "Personal")
+        puts "Es ist fast fertig!"
+        puts @malla.semesters.length
+        @malla.semesters.each do |semester|
+            semester.career_has_subjects.each do |chs|
+                comparing = Subject.find(chs.subject_id).id
+                array_of_chs_approved << chs
+                subjects_ids.each do |direct_chs|
+                    puts "Ich vergeleiche gerade diese #{Subject.find(chs.subject_id).name} ? #{Subject.find(direct_chs.subject_id).name}"
+                    subjects_ids.delete(chs) if chs.subject_id == direct_chs.subject_id
+                    
+                end
+
+            end
+        end
+        puts "============="
+        puts subjects_ids.length
+        puts array_of_chs_approved.length
+        puts (subjects_ids - array_of_chs_approved).length
+        puts "================="
         puts "h"
         subjects_ids
     end

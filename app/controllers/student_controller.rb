@@ -30,6 +30,10 @@ class StudentController < ApplicationController
     end
     
     def malla_personal
+      puts params[:show_approved]
+      @show_approved = true if params[:show_approved] == "0"
+      @show_approved = false if params[:show_approved] == "1"
+      puts "*/*/*/*/*/*/*//*/*/*"
       @user = current_user
       @subject = Subject.new
       @malla_personal = Malla.find_by(student_id: current_user.id)
@@ -92,6 +96,10 @@ class StudentController < ApplicationController
     end
     public
     def index
+                @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
     end
 
     def historia_academica

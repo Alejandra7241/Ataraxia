@@ -62,8 +62,23 @@ class Malla < ApplicationRecord
         end
     end
     
+    def self.get_not_approved(malla_id)
+        @malla = Malla.find(malla_id)
+        @cur_arr = []
+        @ret_arr = []
+        @malla.semesters.each do |semester|
+            semester.career_has_subjects.each do |chs|
+                code = Subject.find(chs.subject_id).code
+                
+                @ret_arr << code if @cur_arr.include? code
+                @cur_arr << code unless @cur_arr.include? code
+            end
+        end
+        print @cur_arr
+        @ret_arr
+    end
+   
     
-    
-    
+
 
 end
