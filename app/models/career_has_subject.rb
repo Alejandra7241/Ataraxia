@@ -29,7 +29,7 @@ class CareerHasSubject < ApplicationRecord
     end
     
     def self.get_opened_subjects(code_carrer, code_subject)
-        self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees.subject
+        self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees
     end
     
     
