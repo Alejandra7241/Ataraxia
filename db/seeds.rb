@@ -980,13 +980,98 @@ chs_materia.followers << [
         ]
         
         
-        
-        
-        
-        
-        
-        
+#Pensamiento sistemico
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016703).id) 
+chs_materia.followers << [
+        #Modelos y simulación
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025970).id),
+        #Sistemas de información
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025982).id)
+        ]
 
+#Arquitectura de software
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016716).id) 
+chs_materia.followers << [
+        #Ingeniería de software II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016702).id)
+        ]
+
+#Lenguajes de programación
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025966).id) 
+chs_materia.followers << [
+        #Introducción a la teória de la computación
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015174).id),
+        #Estructuras de datos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016699).id)
+        ]      
+        
+#Introducción a los sistemas inteligentes
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025995).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id)
+        ]  
+        
+#Semestre 8        
+        
+#Computación paralela y distribuida
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016722).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id),
+        #Sistemas operativos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016707).id)
+        ]        
+
+#Computación visual
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025960).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id),
+        #Teoría de la información y sistemas de comunicaciones
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025994).id)
+        ]      
+        
+#Taller de proyectos interdisciplinarios
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2024045).id) 
+chs_materia.followers << [
+        #Gerencia y gestión de proyectos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2015702).id)
+        ]        
+        
+#Arquitectura de infraestructura y gobierno de TICs
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025983).id) 
+chs_materia.followers << [
+        #Sistemas operativos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016707).id),
+        #Arquitectura de software
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016716).id),
+        #Sistemas de información
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025982).id)
+        ] 
+        
+#Criptografía y seguridad de la información
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025972).id) 
+chs_materia.followers << [
+        #Algoritmos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2016696).id),
+        #Redes de computadores
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 2025967).id),
+        #Probabilidad y estadística
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2879).id, subject_id: Subject.find_by(code: 1000013).id)
+        ]        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 
 
 
