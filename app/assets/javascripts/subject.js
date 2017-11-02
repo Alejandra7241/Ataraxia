@@ -26,8 +26,7 @@ function editASubject(id,name, code, typology, credits){
 
 
 function searchSubject(name,code,typology, credits, message, malla_id, code_career){
-    alert("searched");
-    alert(message)
+
     console.log(current_semester)
     
     var postLink =  `   <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">

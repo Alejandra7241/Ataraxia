@@ -93,16 +93,27 @@ class SubjectsController < ApplicationController
     #@subject = Subject.find_by_code(@code)
     @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
     puts "////// Was ist denn passiert?"
+    @typology = 'L'
     puts "#{params[:code_career]}"
+    unless @subject.is_a? Integer
+      name = @subject.name
+      code = @subject.code
+      credits = @subject.credits
+      @malla = Malla.find(params[:data])
+      @malla.semesters.each do |semester|
+        semester.career_has_subjects.each do |chs|
+          @typology = chs.typology if chs.subject_id == @subject.id
+        end
+      end
+    end
     
-    name = @subject.name unless @subject.is_a? Integer
-    code = @subject.code unless @subject.is_a? Integer
-    credits = @subject.credits unless @subject.is_a? Integer
-    typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.is_a? Integer
+              
+              
+    #typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.is_a? Integer
     respond_to do |format|
       unless @subject.is_a? Integer
         
-        format.js { render :js => "searchSubject('#{name}','#{code}','#{typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}')" }
+        format.js { render :js => "searchSubject('#{name}','#{code}','#{@typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}')" }
       else
         format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1')" } if @subject == -1
         format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1')" } if @subject == 0
@@ -112,7 +123,26 @@ class SubjectsController < ApplicationController
    
   end
   
-  
+  def remove_subject(code = -1)
+    
+    #@subject = Subject.new(subject_params)
+    #puts @subject.typology
+    @chs_id = params[:chs_id].to_i
+    @sem_id = params[:sem_id].to_i
+    @subject = Subject.find(CareerHasSubject.find(@chs_id).subject_id)
+    puts "#{@chs_id} und #{@sem_id}"
+    Malla.remove_subject_from_malla(@chs_id, @sem_id)
+    respond_to do |format|
+      #if @subject.save
+      flash[:notice] = "Fue eliminada la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " de la malla actual."
+      format.html { redirect_back fallback_location: root_path }
+        #format.json { render :show, status: :created, location: @subject }
+      #else
+        #format.html { render :new }
+        #format.json { render json: @subject.errors, status: :unprocessable_entity }
+      #end
+    end
+  end
   
   
   def open_modal

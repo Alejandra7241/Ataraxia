@@ -3,11 +3,7 @@
 <% if vista == "student_malla" %>
 <%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
 <% end %>
-<h1><% CareerHasSubject.get_prerequisites(2879, 2025994).each do |x| %>
-<%= Subject.find(x.subject_id).name %>
-<% end %>
 
-</h1>
 
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
@@ -41,7 +37,7 @@
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
-                    <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla) } %>
+                    <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), chs: chs } %>
                     <% elsif vista == "malla_avance" %>
                       <% if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id) %>
                         <% @aprobada= StudentHasSubject.find_by(student_id: @user.id, career_has_subject_id: chs.id).approved  %>
