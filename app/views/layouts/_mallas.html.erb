@@ -3,7 +3,11 @@
 <% if vista == "student_malla" %>
 <%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
 <% end %>
+<h1><% CareerHasSubject.get_prerequisites(2879, 2025994).each do |x| %>
+<%= Subject.find(x.subject_id).name %>
+<% end %>
 
+</h1>
 
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
