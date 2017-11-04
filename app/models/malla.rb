@@ -6,7 +6,8 @@ class Malla < ApplicationRecord
     
     def self.remove_subject_from_malla(chs_id, sem_id)
 
-        #Esto estaba antes Lizzy: SemesterHasSubject.find_by(semester_id: sem_id, career_has_subject_id: chs_id).destroy
+        #Esto estaba antes Lizzy :pouting_cat: :angry_cat:
+        SemesterHasSubject.find_by(semester_id: sem_id, career_has_subject_id: chs_id).destroy
         
     end
     def self.add_semester(id_malla)

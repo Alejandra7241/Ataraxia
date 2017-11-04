@@ -1,7 +1,7 @@
 class Career < ApplicationRecord
     has_many :mallas
     
-    has_many :career_has_subjects
+    has_many :career_has_subjects, dependent: :destroy
     has_many :subjects, through: :career_has_subjects
     
     

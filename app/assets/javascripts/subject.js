@@ -59,39 +59,7 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
         else if(message == 'found'){document.getElementById("jschange").innerHTML = 'Esa materia ya existe en la malla actual.';}
     }
     
-        
-    //Duplicated, remove later with black magic
-    //     $('#tableQueryPrerrequisitos').each(function() {
-    //     $(this).hide();
-    // });
-    // $("#tbodyidPrerrequisitos").empty();
-    // if(code != -1){
-    //     document.getElementById("jschangeii").innerHTML = '';
-    //     $('#tableQueryPrerrequisitos').each(function() {
-    //     $(this).show();
-    // });
-    // $('#tableQueryPrerrequisitos > tbody:last-child').append(' <tr><td>' + code + '</td><td>' + code + '</td>');
-    // switch (typology) {
-    //     case 'B':
-    //         $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Fundamentación</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'L':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Electiva</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'C':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Disciplinar</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'O':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Optativa</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    //     case 'P':
-    //          $('#tableQueryPrerrequisitos > tbody:last-child').append('<td>Nivelación</td><td> ' + postLink + '</td></tr>');
-    //         break;
-    // }
-    
-    // }else{
-    //     document.getElementById("jschangeii").innerHTML = 'No se han encontrado materias con ese código';
-    // }
+
     
 }
 

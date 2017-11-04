@@ -90,6 +90,10 @@ class User < ApplicationRecord
     end
     counter
   end
+
+  def self.get_current_semester(user_id)
+    User.find(user_id).current_semester
+  end
     
 end
 

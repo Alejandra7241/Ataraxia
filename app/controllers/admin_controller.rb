@@ -118,7 +118,7 @@ class AdminController < ApplicationController
   
   
   def change_semester
-    puts "Changed!"
+    puts "Geändert! aber mit kein Grund"
   end
   
   
