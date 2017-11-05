@@ -11,7 +11,7 @@
 <h1 align="center">Malla Personal</h1> 
 
 <!--search_by: ['todas', 'codigo', 'tipologia']-->
-<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => false, search_by: ['todas', 'codigo'], :estadisticas => false, show_approved: @show_approved%>
+<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_personal, user: @user, add_subjects_enabled: true, :pdf => false, search_by: ['todas', 'codigo', 'electiva'], :estadisticas => false, show_approved: @show_approved%>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
 <!-- The Modal Ayuda -->
 

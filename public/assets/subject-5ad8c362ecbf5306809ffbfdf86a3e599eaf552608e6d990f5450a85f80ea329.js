@@ -161,3 +161,4 @@ function create_electiva(credits, malla_id){
     //console.log("reached");
 
 }
+;

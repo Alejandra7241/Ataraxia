@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171026210440) do
+ActiveRecord::Schema.define(version: 20171105000626) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20171026210440) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "malla_id"
+    t.integer "electivas_not_assigned", default: 0
     t.index ["malla_id"], name: "index_semesters_on_malla_id"
   end
 
@@ -154,6 +155,11 @@ ActiveRecord::Schema.define(version: 20171026210440) do
     t.string "provider"
     t.string "uid"
     t.integer "current_semester", default: 1
+    t.integer "credits_b", default: 0
+    t.integer "credits_c", default: 0
+    t.integer "credits_l", default: 0
+    t.integer "credits_p", default: 0
+    t.integer "credits_o", default: 0
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

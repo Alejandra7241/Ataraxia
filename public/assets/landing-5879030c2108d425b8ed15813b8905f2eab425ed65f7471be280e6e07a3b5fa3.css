@@ -1,0 +1,61 @@
+/* line 5, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.main-text {
+  color: #fff;
+  top: 15%;
+  width: 96.6667%;
+  position: absolute;
+}
+
+/* line 12, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.main-email {
+  top: 2%;
+  left: 2%;
+}
+
+/* line 17, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+#main {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 11vw;
+  margin: 0 0 -25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 28, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.botons {
+  margin: 0px 9px 0px 6px;
+}
+
+/* line 32, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.carousel-inner > .item {
+  position: relative;
+  display: none;
+  -webkit-transition: 0.2s ease-in-out left;
+  transition: 0.2s ease-in-out left;
+}
+
+/* line 41, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 42, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.carousel, .item, .active {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 43, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.carousel-inner {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 46, /home/nicolas/Ataraxia/app/assets/stylesheets/landing.scss */
+.glyphicon-envelope {
+  margin: 0px 15px;
+  text-align: center;
+}

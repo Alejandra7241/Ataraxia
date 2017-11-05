@@ -8,7 +8,10 @@
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% @malla = malla %>
+<h1>Hier das Ergebnis: <%= Career.find_carrer_by_malla(@malla).b_credits %>
+  <%= Career.find_carrer_by_malla(@malla).l_credits %>
 
+</h1>
 <% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
 <% show_approved ||= true %>
 <div class="row">
@@ -70,10 +73,13 @@
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
                   <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester && add_subjects_enabled%>
-                  
-                  
-                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
-                   
+
+                          <h1><%= sem.number%>//<%= sem.id%></h1>
+                          <% sem.electivas_not_assigned.times do %>
+                          <%= render partial: "layouts/electivas.html.erb", locals: {sem: sem} %>
+                          <% end %>
+                          <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
+
                   <% end %>
                      
                   <%end%>
@@ -424,12 +430,28 @@
             </div>
           </div>
         </div>
-          
-          <% end %>
-          <div id="tipologia" style="display: none;">
-           <div class="form-group" align="center">    
 
-            </div>
+          <% end %>
+          <div id="electiva" style="display: none;">
+            <h1>¿Cuantos créditos tendrá la electiva a asignar?</h1>
+           <div class="form-group" align="center">
+
+             <h1><%= @malla.id %> </h1>
+             <% @max_credits = [Career.find_carrer_by_malla(@malla).l_credits.to_i - current_user.credits_l.to_i,  20].min %>
+             <h1> <%= @max_credits %> </h1>
+             <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
+
+                 <%= hidden_field_tag :malla_id, @malla.id %>
+                 <%= number_field(:subject, :credits, in: 1..@max_credits, step: 1) %>
+
+
+
+                 <%= f.submit 'Agregar electiva', :class => 'btn btn-primary' %>
+
+
+
+             <% end %>
+           </div>
         </div>
       </div>
     </div>

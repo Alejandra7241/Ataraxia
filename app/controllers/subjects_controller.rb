@@ -175,6 +175,61 @@ class SubjectsController < ApplicationController
     
   end
 
+
+
+  def open_modal_for_electiva
+
+    @code_career = params[:code_career]
+
+
+    name = @subject.name
+    code = @subject.code
+    preList = ""
+    puts code
+    if CareerHasSubject.has_prerequisites(@code_career,code) == true
+      CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
+        cur_subj = Subject.find(pre.subject_id)
+        typology = cur_subj.career_has_subjects.find_by(career_id: Career.find_by_code(@code_career).id).typology unless cur_subj.nil?
+        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+      end
+    end
+    preList.chop!
+    typology = params[:typ]
+    credits = @subject.credits
+
+    respond_to do |format|
+      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{role}')" }
+    end
+  end
+
+
+
+
+  def add_electiva
+    @credits = params[:subject][:credits].to_i
+    @malla_id = params[:malla_id].to_i
+    @root = request.original_url
+    puts @root
+    puts "Pero no se puede con los helpers?"
+    respond_to do |format|
+      format.js { render :js => "create_electiva('#{@credits}', '#{@malla_id}')" }
+    end
+  end
+
+  def create_fake_partial
+    puts "Frude aaaaah"
+    @semester = params[:semester].to_i
+    @credits = params[:credits].to_i
+    puts "S: #{params[:malla_id]}"
+    @malla_id = params[:malla_id].to_i
+    Semester.add_electiva_temp(@semester, @malla_id)
+    puts "#{@semester}, #{@credits}"
+    puts "Es ist möglich?"
+    redirect_back fallback_location: root_path
+    #redirect_to root_path
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subject

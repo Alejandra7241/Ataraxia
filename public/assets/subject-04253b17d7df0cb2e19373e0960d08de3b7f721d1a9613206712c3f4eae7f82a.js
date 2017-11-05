@@ -150,14 +150,14 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
 
 
 
-function create_electiva(credits, malla_id){
+function create_electiva(credits){
 
 
-    //console.log("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits)
-    //window.open("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits, "_self");
-    window.open("/subjects/create_fake_partial/" + current_semester + "/"+ credits +"/" + malla_id, "_self");
+    console.log("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits)
+    //window.open("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits);
 
 
     //console.log("reached");
 
 }
+;
