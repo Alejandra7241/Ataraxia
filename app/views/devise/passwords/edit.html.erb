@@ -10,18 +10,18 @@
           <%= f.hidden_field :reset_password_token %>
         
           <div class="field">
-            <%= f.label :password, "New password" %><br />
+            <%= f.label :password, "Nueva Contraseña" %><br />
             <% if @minimum_password_length %>
-              <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+              <em>Mínimo <%= @minimum_password_length %> caracteres</em><br />
             <% end %>
-            <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+            <%= f.password_field :password, autofocus: true, autocomplete: "off", type: "password", class: "form-control", placeholder: "Ingrese su nueva contraseña"  %>
           </div>
         
           <div class="field">
-            <%= f.label :password_confirmation, "Confirm new password" %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            <%= f.label :password_confirmation, "Confirmar nueva contraseña" %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "off", type: "password", class: "form-control", placeholder: "Confirme la nueva contraseña" %>
           </div>
-        
+          </br>
           <div class="actions">
             <%= f.submit "Cambiar contraseña", class: 'btn btn-success myButton' %>
           </div>
@@ -29,7 +29,7 @@
         
         <div style="text-align:center"><%= render "devise/shared/links" %></div>
   </div>
-  <div class = "col-sm-4"></div>
+  <div class="col-sm-4"></div>
 </div>
 
 <%= render 'layouts/footer', :vista=> "normal"%>

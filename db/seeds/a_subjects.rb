@@ -122,7 +122,6 @@ Subject.create([
         {code: 2015701, name: 'Gerencia de recursos humanos', credits: 3},
         {code: 2016612, name: 'Taller de diseño de plantas', credits: 4},
         
-        
         #Nuevas Ingenieria Quimica
         {code: 1000024, name: 'Principios de quimica', credits: 3},
         {code: 1000025, name: 'Laboratorio tecnicas básicas en química', credits: 3},
@@ -184,6 +183,24 @@ Subject.create([
         {code: 2026135, name: 'Ingeniería civil sostenible', credits: 3},
         {code: 2015972, name: 'Preparación y evaluación de proyectos de infraestructura', credits: 3},
         
+        #Nuevas de ingenieria agricola
+        {code: 2016635, name: 'Introducción a la ingeniería agrícola', credits: 3},
+        {code: 1000009, name: 'Biología general', credits: 3},
+        {code: 2017538, name: 'Fisiología vegetal', credits: 4},
+        {code: 2016632, name: 'Suelos agrícolas', credits: 3},
+        {code: 2016631, name: 'Elementos de máquinas agrícolas', credits: 3},
+        {code: 2016643, name: 'Transferencia de calor y masa', credits: 3},
+        {code: 2016634, name: 'Ingeniería de riegos', credits: 3},
+        {code: 2016627, name: 'Diseño de estructuras de concreto', credits: 3},
+        {code: 2016633, name: 'Fuentes de potencia en la agricultura', credits: 3},
+        {code: 2016638, name: 'Poscosecha de frutas y hortalizas', credits: 3},
+        {code: 2016628, name: 'Diseño de sistemas de riego', credits: 3},
+        {code: 2016629, name: 'Drenaje de tierras agricolas', credits: 3},
+        {code: 2016636, name: 'Máquinas agrícolas', credits: 3},
+        {code: 2016639, name: 'Poscosecha de granos y semillas', credits: 3},
+        {code: 2016630, name: 'Electrotecnia', credits: 3},
+        {code: 2016626, name: 'Control en biosistemas', credits: 3},
+
         #Nuevas de Economia
         {code: 2015270, name: 'Fundamentos de economía', credits: 3},
         {code: 2016007, name: 'Fundamentos de administración', credits: 4},

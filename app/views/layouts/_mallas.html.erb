@@ -64,7 +64,7 @@
                   
                   
                    <% if empty_semester && current_semester == @malla.semesters.length  %>
-                      <%= link_to "<p class='glyphicon glyphicon-remove'></p>".html_safe, '#', "data-target" => "#removeSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                      <%= link_to "<p class='glyphicon glyphicon-remove' style='font-size: 70px;'></p>".html_safe, '#', "data-target" => "#removeSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
                      <br>
                     <% end %>
                   <% if vista=="admin_malla" %>

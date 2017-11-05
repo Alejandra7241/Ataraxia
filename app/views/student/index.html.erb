@@ -27,8 +27,8 @@
      <div class="col-md-3">
                 <div style="background-color: lightblue; margin: 0% 0% 0% 0%; padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Malla Óptima</h2> 
-            <p style="font-size:15px">Descubre cuál es la malla creada por Ataraxia, para graduarte en el menor tiempo posible. <br><i>Pa' cuándo el grado mijo.</i></p>
-            <div align="center" ><%= link_to '¡Crear!', student_malla_optima_path, :class => "btn btn-success btn-lg" %></div>
+            <p style="font-size:15px">Descubre cuál es la malla creada por Ataraxia, para graduarte en el menor tiempo posible.</p>
+            <div align="center"><%= link_to '¡Crear!', student_malla_optima_path, :class => "btn btn-success btn-lg" %></div>
         </div>
         
     </div>
@@ -36,10 +36,21 @@
         <div style="background-color: PaleGoldenRod ;  padding: 8% 0px 8% 5%;">
             <h2 style="font-size:60px">Malla Personal</h2> 
             <p style="font-size:15px">Edita tu propia malla, a tu gusto, guardala y compartela con tus amigos.</p>
-            <div align="center" ><%= link_to '¡Ver sin materias perdidas!', student_malla_personal_path(0), :class => "btn btn-success btn-lg" %><%= link_to '¡Ver con materias perdidas!', student_malla_personal_path(1), :class => "btn btn-danger btn-lg" %></div>
+            <div align="center">
+                <div class="dropdown" style="display: inline-block">
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Ver Malla
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><%= link_to "<p class='glyphicon glyphicon-ok'></p>&nbsp;Sin materias perdidas".html_safe, student_malla_personal_path(0) %></li>
+                        <li><%= link_to "<p class='glyphicon glyphicon-remove'></p>&nbsp;Con materias perdidas".html_safe, student_malla_personal_path(1) %></li>
+                        <li><br></li>
+                    </ul>
+                </div>
+            </div>
         </div>
     </div>
-         <div class="col-md-3" style="margin: 2% 0% 0% 0%;">
+    <div class="col-md-3" style="margin: 2% 0% 0% 0%;">
         <div style="background-color: LightSalmon ;   padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Malla Avance</h2> 
             <p style="font-size:15px">Consulta tu avance en la carrera de una forma grafica e interactiva.</p>

@@ -55,6 +55,15 @@ function reset_AM(current_semesterr) {
     document.getElementById("respuesta").style.display = 'none';
 }
 
+function recharge2(){
+    location.reload();
+}
+
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+
+
 function action_for_typology(typology, number_action){
     switch (typology) {
         case 'B':
