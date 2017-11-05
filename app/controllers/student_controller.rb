@@ -3,7 +3,7 @@ class StudentController < ApplicationController
 
     before_action :require_login
     #DESCOMENTAAAAAAAAAAAAAAAAAAAAAAAAAR DESPUÉS DE PROBAR
-    #before_action :check_academic_history, only: [:historia_academica, :index]
+    before_action :check_academic_history, only: [:historia_academica, :index]
     #self.check_complete_data_for_academic_history(id)
     
     def malla_estandar
@@ -86,7 +86,7 @@ class StudentController < ApplicationController
       if User.check_complete_data_for_academic_history(current_user.id)
           # puts "AH setted"
           #flash[:notice] = "Para volver a introducir la historia academica, busca la opción en editar perfil."
-          redirect_to student_index_path  unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_index_path )
+          redirect_to get_mis_cursos_path  unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_index_path)
           #redirect_to get_historia_academica_path
       else
           # puts " AH unsetted"
@@ -96,7 +96,7 @@ class StudentController < ApplicationController
     end
     public
     def index
-                @user=current_user
+        @user=current_user
         @subject = Subject.new
         @career = Career.find_by(code: @user.carrer)
         @malla = @career.mallas.find_by(tipo: "Estándar")
@@ -301,7 +301,7 @@ class StudentController < ApplicationController
     Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
     
 
-    redirect_to student_index_path
+    redirect_to get_mis_cursos_path
     end
     
 end

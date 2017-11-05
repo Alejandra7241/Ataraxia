@@ -48,9 +48,15 @@ Rails.application.routes.draw do
   get 'student/index' => 'student#index'
   #Historia academica
   get 'student/historia_academica', to: 'student#historia_academica', as: 'get_historia_academica'
+  get 'student/actualizar_historia_academica', to: 'student#actualizar_historia_academica', as: 'actualizar_historia_academica'
   post 'student/procesar_historia_academica', to: 'student#procesar_historia_academica', as: 'submit_historia_academica'
   get 'student/procesar_historia_academica', to: 'student#procesar_historia_academica'
   get 'student/historia_academica', to: 'student#historia_academica', as: :user_root
+  #Mis cursos:
+  get 'student/mis_cursos', to: 'student#mis_cursos', as: 'get_mis_cursos'
+  get 'student/actualizar_mis_cursos', to: 'student#actualizar_mis_cursos', as: 'actualizar_mis_cursos'
+  post 'student/procesar_mis_cursos', to: 'student#procesar_mis_cursos', as: 'submit_mis_cursos'
+  get 'student/procesar_mis_cursos', to: 'student#procesar_mis_cursos'
   #Mallas
   get 'student/malla_estandar/:id', to: 'student#malla_estandar', as: 'student_malla_estandar'
   get 'student/malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'

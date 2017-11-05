@@ -1,5 +1,4 @@
 <div class="container-fluid" style="padding-right:20px; margin-bottom: -24px">
-
     <div class="row" style="margin-top:25px ">
         <div class="col-md-6" style="margin-top: 4%;" width="100%">
             <div align="center">
@@ -8,12 +7,12 @@
             </div>
         </div>
 
-    <div class="col-md-6" style="background-color: #f1faff;">
+    <div class="col-md-6" style="background-color: #f7edf6;">
         <div align="center">
-            <h1 style="font-size:300%; color: darkcyan;"><b>Historia Académica</b></h1>
-            <h2 style="font-size:200%"><b>¡Necesitamos saber más sobre ti!</b></h2>
-            <p style="font-size:150%">Abre tu historia academica 
-                <a href="http://sia.bogota.unal.edu.co/academia/inicio/do-login" target="_blank">(SIA)</a> y presiona <br> 
+            <h1 style="font-size:300%; color: #8b005f"><b>Mis Cursos</b></h1>
+            <h2 style="font-size:200%"><b>¡Necesitamos saber aún más sobre ti!</b></h2>
+            <p style="font-size:150%">Abre tus cursos en el 
+                <a href="http://sia.bogota.unal.edu.co/academia/inicio/do-login" target="_blank">SIA</a> y presiona <br> 
                 CTRL+A y CTRL+C. <br>  
                 Luego debes pegar todo<br> 
                 en el siguiente cuadro:</p>
@@ -33,7 +32,7 @@
         <div align="center" style="margin-bottom:20px">
             <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
             <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-danger btn-ms' %>
-            
+            <%= link_to 'Saltar', student_index_path, :class => "btn btn-warning" %>
         </div>
         <% end %>
         
@@ -42,3 +41,15 @@
 </div>
 
 <%= render 'layouts/footer', :vista=> "normal"%>
+
+
+
+
+
+
+
+
+
+
+
+

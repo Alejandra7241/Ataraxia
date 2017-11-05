@@ -1,17 +1,28 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando" class="well">
+  <div class="loader"></div>
+  <div>Cargando historia academica...</div>
+</div>
+
+
 <div class="container-fluid" style="padding-right:20px; margin-bottom: -24px">
 
     <div class="row" style="margin-top:25px ">
         <div class="col-md-6" style="margin-top: 4%;" width="100%">
             <div align="center">
                 <img  width="60%" class="img-responsive" src="/logo_final.png" class="img-fluid" alt="logo" />
-                <h2>¡Parece que es tu primera vez en Ataraxia!</h2>
+                <h2>¡Parece que lograste terminar otro semestre!</h2>
+                <p></p>
             </div>
         </div>
 
     <div class="col-md-6" style="background-color: #f1faff;">
         <div align="center">
             <h1 style="font-size:300%; color: darkcyan;"><b>Historia Académica</b></h1>
-            <h2 style="font-size:200%"><b>¡Necesitamos saber más sobre ti!</b></h2>
+            <h2 style="font-size:200%"><b>¡Cuentanos cómo te fue!</b></h2>
             <p style="font-size:150%">Abre tu historia academica 
                 <a href="http://sia.bogota.unal.edu.co/academia/inicio/do-login" target="_blank">(SIA)</a> y presiona <br> 
                 CTRL+A y CTRL+C. <br>  
@@ -31,9 +42,8 @@
         
         
         <div align="center" style="margin-bottom:20px">
-            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center', :onclick => 'myFunction()' %>
             <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-danger btn-ms' %>
-            
         </div>
         <% end %>
         
