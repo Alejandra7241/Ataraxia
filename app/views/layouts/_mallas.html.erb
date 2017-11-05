@@ -326,7 +326,7 @@
           <h2 align="center">Agregar Materia</h2>
         </div>
         <div class="modal-body">
-          <strong>¿Cómo deseas buscar la materia a agregar?</strong>
+          <strong>¿Cómo deseas añadir la materia?</strong>
          
           <div id="searching">
             <div class="form-group" align="center">    
@@ -335,6 +335,16 @@
             <% onclick = "search_by( '" + criteria + "', '" + Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
+
+
+              <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
+                  <%= hidden_field_tag :malla_id, @malla.id %>
+                  <%= f.submit 'Agregar electiva', :class => 'btn btn-default' %>
+
+
+
+
+              <% end %>
             </div>
           </div>
           
@@ -433,17 +443,10 @@
             <h1>¿Cuantos créditos tendrá la electiva a asignar?</h1>
            <div class="form-group" align="center">
 
-             <h1><%= @malla.id %> </h1>
-             <% @max_credits = [Career.find_carrer_by_malla(@malla).l_credits.to_i - current_user.credits_l.to_i,  20].min %>
-             <h1> <%= @max_credits %> </h1>
              <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
-
                  <%= hidden_field_tag :malla_id, @malla.id %>
-                 <%= number_field(:subject, :credits, in: 1..@max_credits, step: 1) %>
-
-
-
                  <%= f.submit 'Agregar electiva', :class => 'btn btn-primary' %>
+
 
 
 

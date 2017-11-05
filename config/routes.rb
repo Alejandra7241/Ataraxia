@@ -95,7 +95,7 @@ Rails.application.routes.draw do
   get 'mallas/add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
   get 'mallas/remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   post 'subjects/add_electiva', to: 'subjects#add_electiva', as: "submit_electiva"
-  get 'subjects/create_fake_partial/:semester/:credits/:malla_id', to: 'subjects#create_fake_partial'
+  get 'subjects/create_fake_partial/:semester/:malla_id', to: 'subjects#create_fake_partial'
   resources :subjects
   
   

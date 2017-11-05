@@ -201,13 +201,13 @@ class SubjectsController < ApplicationController
 
 
   def add_electiva
-    @credits = params[:subject][:credits].to_i
+
     @malla_id = params[:malla_id].to_i
     @root = request.original_url
     puts @root
 
     respond_to do |format|
-      format.js { render :js => "create_electiva('#{@credits}', '#{@malla_id}')" }
+      format.js { render :js => "create_electiva('#{@malla_id}')" }
     end
   end
 
