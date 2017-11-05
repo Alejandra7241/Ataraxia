@@ -4,11 +4,16 @@ class Malla < ApplicationRecord
     belongs_to :admin, class_name: "User", optional: true
     belongs_to :student, class_name: "User", optional: true
     
-    def self.remove_subject_from_malla(chs_id, sem_id)
+    def self.remove_subject_from_malla(chs_id, sem_id, user_id)
 
-        #Esto estaba antes Lizzy :pouting_cat: :angry_cat:
+        #Esto estaba antes Lizzy :pouting_cat: :angry_cat: :super_stressed_cat: :cat_crying: :cat_working: :cat_crying_in_rails:
+
         SemesterHasSubject.find_by(semester_id: sem_id, career_has_subject_id: chs_id).destroy
-        
+        @user = User.find(user_id)
+        if @user.admin == false
+            StudentHasSubject.find_by(student_id: @user.id, career_has_subject_id: chs_id).destroy
+        end
+
     end
     def self.add_semester(id_malla)
         Semester.create(number: Malla.find(id_malla).semesters.length + 1, malla_id: id_malla.to_i) rescue return -1
@@ -24,10 +29,7 @@ class Malla < ApplicationRecord
     def self.find_malla_by_tipo(tipo)
         Malla.find_by(tipo: tipo)
     end
-    
-    def self.find_malla_by_tipo(nombre)
-        Malla.find_by(nombre: nombre)
-    end
+
     
     def self.find_unique()
     end

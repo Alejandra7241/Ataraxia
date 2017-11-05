@@ -5,7 +5,7 @@ class CareerHasSubject < ApplicationRecord
     has_many :semester_has_subjects, dependent: :destroy
     has_many :semesters, through: :semester_has_subjects
     
-    has_many :student_has_subjects
+    has_many :student_has_subjects, dependent: :destroy
     has_many :students, class_name: "User", through: :student_has_subjects
     
     # follower_requisites "names" the Requisite join table for accessing through the follower association

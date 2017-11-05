@@ -20,4 +20,14 @@ class Semester < ApplicationRecord
         Semester.update(@semester.id, electivas_not_assigned: @semester.electivas_not_assigned - 1)
         @semester.electivas_not_assigned
     end
+
+    def self.assign_electiva(semester_id, chs_id, student_id)
+        @semester = Semester.find(semester_id)
+        @chs = CareerHasSubject.find(chs_id)
+        @semester.career_has_subjects << @chs
+        StudentHasSubject.create(student_id: student_id, career_has_subject_id: chs_id)
+        Semester.update( @semester.id, electivas_not_assigned: @semester.electivas_not_assigned - 1)
+
+
+    end
 end

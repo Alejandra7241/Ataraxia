@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :admin_mallas, foreign_key: "admin_id", :class_name => "Malla"
   has_many :student_mallas, foreign_key: "student_id", :class_name => "Malla"
   
-  has_many :student_has_subjects, foreign_key: "student_id", class_name: "StudentHasSubject"
+  has_many :student_has_subjects, foreign_key: "student_id", class_name: "StudentHasSubject", dependent: :destroy
   has_many :career_has_subjects, through: :student_has_subjects
   
   # Include default devise modules. Others available are:

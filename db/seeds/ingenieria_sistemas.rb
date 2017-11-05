@@ -7,6 +7,81 @@ mallaSis = Malla.create({tipo:'Estándar', career_id: career.id})
 
 mallaSis.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
 
+# Electivas de Sistemas
+subj = Subject.find_by(code: 2025478)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022166)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2026274)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+
+subj = Subject.find_by(code: 2024279)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022615)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022616)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022617)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022160)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2021514)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2023541)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2027248)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2016041)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2026433)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2025478)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022166)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2023216)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2021143)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+subj = Subject.find_by(code: 2022626)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+
+
 # Nivelación
 subj = Subject.find_by(code: 1000002)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
