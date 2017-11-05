@@ -1,7 +1,7 @@
 class Career < ApplicationRecord
     has_many :mallas
     
-    has_many :career_has_subjects
+    has_many :career_has_subjects, dependent: :destroy
     has_many :subjects, through: :career_has_subjects
     
     
@@ -38,9 +38,7 @@ class Career < ApplicationRecord
         semester.each do |code_subject, grade_subject|
             puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
             subj = Subject.find_by(code: code_subject)
-            puts "////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////"
-            puts grade_subject.to_f
-            puts "////"
+
             if subj.nil?
                 current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
@@ -64,8 +62,11 @@ class Career < ApplicationRecord
         current_semester += 1
       end
     end
-    
-    
+
+    def self.find_carrer_by_malla(malla)
+        self.find(malla.career_id)
+    end
+
     def self.find_carrer_code_by_malla(malla)
         self.find(malla.career_id).code
     end

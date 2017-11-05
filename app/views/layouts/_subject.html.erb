@@ -12,8 +12,20 @@
  <% unless @show_approved and @not_approved%>
         <div id="subj" >
             <%begin%>
+              <% if vista == "student_malla" %>
+
+                  <% if sem.number >= User.get_current_semester(current_user.id) %>
             <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %>
-            <%rescue%>
+            <% end %>
+
+              <% elsif vista == "admin_malla"  %>
+
+                  <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %>
+
+              <% end %>
+
+
+          <%rescue%>
             <% end %>
             <%if vista == "malla_avance" and aprobada%>
                     <div class="rcorners1" align="center" style="background:black; color: white;"><%= subj.credits %> </div>

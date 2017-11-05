@@ -1,8 +1,8 @@
 class CareerHasSubject < ApplicationRecord
-    belongs_to :career, dependent: :destroy
-    belongs_to :subject, dependent: :destroy
+    belongs_to :career
+    belongs_to :subject
     
-    has_many :semester_has_subjects
+    has_many :semester_has_subjects, dependent: :destroy
     has_many :semesters, through: :semester_has_subjects
     
     has_many :student_has_subjects

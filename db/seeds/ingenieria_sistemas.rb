@@ -1,7 +1,7 @@
 
 #---------- Malla estándar Ingeniería de Sistemas y Computación ----------#
 
-career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería'})
+career = Career.create({code: 2879, name: 'Ingeniería de Sistemas y Computación', department: 'Departamento de Ingeniería de Sistemas e Industrial', faculty: 'Ingeniería', l_credits: 33})
 
 mallaSis = Malla.create({tipo:'Estándar', career_id: career.id})
 

@@ -3,10 +3,10 @@ class Subject < ApplicationRecord
     
     attr_accessor :code_subject_to_add
     
-    has_many :career_has_subjects
+    has_many :career_has_subjects, dependent: :destroy
     has_many :careers, through: :career_has_subjects
     
-    has_many :semester_has_student_subjects
+    has_many :semester_has_student_subjects, dependent: :destroy
     has_many :semesters, through: :semester_has_student_subjects
     
     validates :code, :presence => true
@@ -173,7 +173,7 @@ class Subject < ApplicationRecord
           "active"
         end
     end
-    
+
     
     
 end

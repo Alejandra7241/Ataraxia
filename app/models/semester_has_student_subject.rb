@@ -1,5 +1,4 @@
 class SemesterHasStudentSubject < ApplicationRecord
-    belongs_to :semester, dependent: :destroy
-    belongs_to :subject, dependent: :destroy
-
+    belongs_to :semester
+    belongs_to :subject
 end
