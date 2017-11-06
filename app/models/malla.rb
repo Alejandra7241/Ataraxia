@@ -40,7 +40,7 @@ class Malla < ApplicationRecord
         @malla = Malla.find(malla_id)
         @current_semester = @malla.semesters.length + 1   
         
-        Subject.get_subjects_not_approved_by_a_student(student_id,  career_id).each do |chs|
+        CareerHasSubject.get_subjects_not_approved_by_a_student(student_id,  career_id).each do |chs|
             if @counter % 5 == 0
                 @semester = Semester.create(number: @current_semester, malla_id: malla_id)
                 puts "#{@counter}-> #{@malla.semesters.length} "

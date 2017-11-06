@@ -332,7 +332,7 @@
             <div class="form-group" align="center">    
             
             <% search_by.each do |criteria| %>
-            <% onclick = "search_by( '" + criteria + "', '" + Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
+            <% onclick = "search_by( '" + criteria + "', '" + CareerHasSubject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
 
@@ -401,7 +401,7 @@
     </thead>
     <tbody>
       <% counter_of_subjects = 1 %>
-      <% Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
+      <% CareerHasSubject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
       <% current_subject = Subject.find(chs.subject_id) %>
       <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
       <% next if chs.typology == 'L'%>

@@ -2,6 +2,7 @@ class CreateSemesterHasStudentSubjects < ActiveRecord::Migration[5.1]
   def change
     create_table :semester_has_student_subjects do |t|
       t.string :typology, default: 'L'
+      t.boolean :approved, default: false
       t.timestamps
     end
     
