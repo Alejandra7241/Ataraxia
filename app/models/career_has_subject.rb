@@ -21,11 +21,16 @@ class CareerHasSubject < ApplicationRecord
     
     
     def self.get_prerequisites(code_carrer, code_subject)
+
         begin
             return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followers
         rescue
             return []
         end
+
+
+
+
     end
     
     def self.get_opened_subjects(code_carrer, code_subject)
