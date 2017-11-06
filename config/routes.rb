@@ -38,7 +38,8 @@ Rails.application.routes.draw do
   get 'testadmin/malla', to: 'testadmin#malla'
   get 'admin/t', to: 'admin#t', as: 'admin_remote_modal'
   get 'subjects/open_modal/:s/:typ/:code_career/:role', to: 'subjects#open_modal', as: 'open_modal_for_subject'
-  get 'subjects/open_modal_for_electiva/:semester_id/:code_career', to: 'subjects#open_modal_for_electiva', as: 'open_modal_for_choose_electiva'
+  get 'subjects/open_modal_for_electiva/:semester_id/:career_id', to: 'subjects#open_modal_for_electiva', as: 'open_modal_for_choose_electiva'
+  post 'subjects/assign_electiva' , to: 'subjects#assign_electiva'
 # INVITADO
   #Menú
   get 'guess/index' => 'guess#index', as: "guess_index"
@@ -94,7 +95,7 @@ Rails.application.routes.draw do
   get 'mallas/add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
   get 'mallas/remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   post 'subjects/add_electiva', to: 'subjects#add_electiva', as: "submit_electiva"
-  get 'subjects/create_fake_partial/:semester/:credits/:malla_id', to: 'subjects#create_fake_partial'
+  get 'subjects/create_fake_partial/:semester/:malla_id', to: 'subjects#create_fake_partial'
   resources :subjects
   
   

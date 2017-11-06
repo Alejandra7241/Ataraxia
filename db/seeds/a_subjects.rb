@@ -73,6 +73,26 @@ Subject.create([
         {code: 9999916, name: 'Libre elección', credits: 3},
         {code: 9999917, name: 'Libre elección', credits: 3},
         {code: 9999918, name: 'Libre elección', credits: 3},
+
+        #Electivas
+        {code: 2025478, name: 'Argumentación', credits: 3},
+        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
+        {code: 2026274, name: 'Bogotá Musical Internacional', credits: 3},
+        {code: 2024279, name: 'Agujeros negros y máquinas del tiempo', credits: 3},
+        {code: 2022615, name: 'Alemán I', credits: 3},
+        {code: 2022616, name: 'Alemán II', credits: 3},
+        {code: 2022617, name: 'Alemán III', credits: 3},
+        {code: 2022160, name: 'Amazonía y otras selvas ecuatoriales', credits: 3},
+        {code: 2021514, name: 'Amenaza, riesgo y desarrollo', credits: 2},
+        {code: 2023541, name: 'Análisis y procesamiento de alimentos I', credits: 3},
+        {code: 2027248, name: 'Antonio Gramsci: subalternidad, hegemonía y autonomía', credits: 3},
+        {code: 2016041, name: 'Antropología forense', credits: 3},
+        {code: 2026433, name: 'Apreciación e historia del arte', credits: 3},
+        {code: 2025478, name: 'Argumentación', credits: 3},
+        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
+        {code: 2023216, name: 'Introducción a la astronomía', credits: 3},
+        {code: 2021143, name: 'Cátedra de comercio, crisis y negocios internacionales', credits: 3},
+        {code: 2022626, name: 'Francés II', credits: 3},
         
         # Nuevas de industrial
         {code: 2015811, name: 'Sociología especial: industrial y del trabajo', credits: 3},

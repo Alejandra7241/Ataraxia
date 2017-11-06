@@ -8,10 +8,7 @@
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% @malla = malla %>
-<h1>Hier das Ergebnis: <%= Career.find_carrer_by_malla(@malla).b_credits %>
-  <%= Career.find_carrer_by_malla(@malla).l_credits %>
 
-</h1>
 <% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
 <% show_approved ||= true %>
 <div class="row">
@@ -88,7 +85,7 @@
 
                           <h1><%= sem.number%>//<%= sem.id%></h1>
                           <% sem.electivas_not_assigned.times do %>
-                          <%= render partial: "layouts/electivas.html.erb", locals: {sem: sem} %>
+                          <%= render partial: "layouts/electivas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
                           <% end %>
                           <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
 
@@ -341,7 +338,7 @@
           <h2 align="center">Agregar Materia</h2>
         </div>
         <div class="modal-body">
-          <strong>¿Cómo deseas buscar la materia a agregar?</strong>
+          <strong>¿Cómo deseas añadir la materia?</strong>
          
           <div id="searching">
             <div class="form-group" align="center">    
@@ -350,6 +347,16 @@
             <% onclick = "search_by( '" + criteria + "', '" + Subject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
+
+
+              <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
+                  <%= hidden_field_tag :malla_id, @malla.id %>
+                  <%= f.submit 'Agregar electiva', :class => 'btn btn-default' %>
+
+
+
+
+              <% end %>
             </div>
           </div>
           
@@ -448,17 +455,10 @@
             <h1>¿Cuantos créditos tendrá la electiva a asignar?</h1>
            <div class="form-group" align="center">
 
-             <h1><%= @malla.id %> </h1>
-             <% @max_credits = [Career.find_carrer_by_malla(@malla).l_credits.to_i - current_user.credits_l.to_i,  20].min %>
-             <h1> <%= @max_credits %> </h1>
              <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
-
                  <%= hidden_field_tag :malla_id, @malla.id %>
-                 <%= number_field(:subject, :credits, in: 1..@max_credits, step: 1) %>
-
-
-
                  <%= f.submit 'Agregar electiva', :class => 'btn btn-primary' %>
+
 
 
 
@@ -469,7 +469,87 @@
     </div>
   </div>
 
+
+
+
+
+
+
+        <div id="modalForElectiva" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <!-- Modal content -->
+            <div class="modal-content" style="width: 100%;">
+              <div id="divElectivaModal" class="modal-header modal-disciplinar">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 align="center">Asignar una electiva a este semestre</h2>
+              </div>
+              <% unless vista == "guess_malla" %>
+                  <% form_for @user, :url => change_semester_path, :remote => true do |f|  %>
+                      <%= f.select :name, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %>
+                      <%= f.submit 'Cambiar semestre', :class => 'btn btn-primary' %>
+                  <% end %>
+              <% end %>
+              <div class="modal-body">
+
+
+                <h4 class = "text-left"><b>Electivas disponibles para: </b></h4>
+
+                <table class="table table-striped" id = "tableElectivasSubjectModal"  style="font-size: 7px;"  >
+                  <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Créditos</th>
+
+                        <th>Acción</th>
+
+                  </tr>
+                  </thead>
+                  <tbody id="tbodyidElectivasSubjectModal">
+                  </tbody>
+                </table>
+
+                <% if vista =="admin_malla" %>
+                    <div id="existente">
+
+                      <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
+                          <br>
+                          <h4><b>Agregar un prerrequisito por código:</b></h4>
+                          <div class="form-group">
+                            <%= f.label :code, 'Código:' %><br>
+                            <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+                            <%= f.hidden_field :code_subject_to_add %>
+                            <h3 id = "jschangeii"></h3>
+                            <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none; font-size: 7px;">
+                              <thead id="tblHead">
+                              <tr>
+                                <th>Materia</th>
+                                <th>Código</th>
+                                <th>Tipología</th>
+                                <th>Acción</th>
+                              </tr>
+                              </thead>
+                              <tbody id="tbodyidPrerrequisitos">
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="form-group" align="center">
+                            <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
+                            <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+                          </div>
+                          <div id="respuesta" style="display: none;"></div>
+                      <% end %>
+
+                    </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
 </div>
+
+
 <% end %>
 
 <% end %>

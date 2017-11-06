@@ -1,6 +1,6 @@
 class StudentHasSubject < ApplicationRecord
-    belongs_to :career_has_subject, dependent: :destroy
-    belongs_to :student, class_name: "User", dependent: :destroy
+    belongs_to :career_has_subject
+    belongs_to :student, class_name: "User"
     
     def self.get_grade_for_student(user_id, chs_id)
         @user = User.find(user_id)

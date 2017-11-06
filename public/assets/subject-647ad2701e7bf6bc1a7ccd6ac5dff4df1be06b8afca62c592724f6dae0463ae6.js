@@ -151,7 +151,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
 
 
 
-function modal_for_electiva(array_electivas, semester_id){
+function modal_for_electiva(array_electivas){
     //Lizzy comment:
     //Please, understand this chaotic function and comment it when you get, nobody has done until now
     //So, don't waste your time or life making something that nobody will read or care about
@@ -167,7 +167,7 @@ function modal_for_electiva(array_electivas, semester_id){
     var firsttr;
 
     $("#tbodyidElectivasSubjectModal").empty();
-    var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink; var current_chs_id;
+    var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink;
     var array_of_subjects  = array_electivas.split(";")
 
         for (index = 0; index < array_of_subjects.length; ++index) {
@@ -177,11 +177,8 @@ function modal_for_electiva(array_electivas, semester_id){
             current_name = current_subject[1];
             current_credits = current_subject[2];
             current_typology = current_subject[3];
-            current_chs_id = current_subject[4];
             postLink =  `  <form action="/subjects/assign_electiva" method="post" class="form-horizontal">
                     <button type="submit">
-                    <input type="hidden" name="semester_id" id="setSemesterId" value="` + semester_id +`" />
-                    <input type="hidden" name="chs_id" id="setChsId" value="` + current_chs_id +`" />
                     <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
                     <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
                      <span class="glyphicon glyphicon-ok"></span>
@@ -199,14 +196,15 @@ function modal_for_electiva(array_electivas, semester_id){
 
 }
 
-function create_electiva(malla_id){
+function create_electiva(credits, malla_id){
 
 
     //console.log("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits)
     //window.open("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits, "_self");
-    window.open("/subjects/create_fake_partial/" + current_semester +"/" + malla_id, "_self");
+    window.open("/subjects/create_fake_partial/" + current_semester + "/"+ credits +"/" + malla_id, "_self");
 
 
     //console.log("reached");
 
 }
+;

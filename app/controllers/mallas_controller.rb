@@ -81,6 +81,7 @@ class MallasController < ApplicationController
     career = Career.find_by(code: params[:code_career])
     chs = CareerHasSubject.new( :subject => new_subj, :typology => @typology)
     career.career_has_subjects << chs
+    current_user.career_has_subjects << chs
     sem = @malla.semesters.find_by(number: @semester)
     added = true
     sem.career_has_subjects << chs rescue added = false

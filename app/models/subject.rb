@@ -160,6 +160,29 @@ class Subject < ApplicationRecord
 
         end
     end
+
+
+    def self.get_electivas_not_seen_by_student(career_id, student_id)
+        puts "Das Leben hat keine Hoffnung"
+        avaliable_chs = []
+        @electivas = CareerHasSubject.where(typology: 'L', career_id: career_id).to_a
+        puts @electivas
+        puts "Bevor"
+        puts @electivas.length
+        puts "Gemacht: #{@electivas_array.to_a.length}"
+        StudentHasSubject.where(student_id: student_id).each do |shs|
+
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+            puts "->#{chs}"
+            @electivas.delete(chs)
+            #if @electivas.include? chs
+        end
+      # @electivas.each do |x|
+      #     puts Subject.find(x.subject_id).name
+      # end
+      return @electivas
+
+    end
     
     def self.get_class_by_typology(typology)
         case typology

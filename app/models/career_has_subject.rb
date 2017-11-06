@@ -5,7 +5,7 @@ class CareerHasSubject < ApplicationRecord
     has_many :semester_has_subjects, dependent: :destroy
     has_many :semesters, through: :semester_has_subjects
     
-    has_many :student_has_subjects
+    has_many :student_has_subjects, dependent: :destroy
     has_many :students, class_name: "User", through: :student_has_subjects
     
     # follower_requisites "names" the Requisite join table for accessing through the follower association
@@ -21,11 +21,16 @@ class CareerHasSubject < ApplicationRecord
     
     
     def self.get_prerequisites(code_carrer, code_subject)
+
         begin
             return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followers
         rescue
             return []
         end
+
+
+
+
     end
     
     def self.get_opened_subjects(code_carrer, code_subject)

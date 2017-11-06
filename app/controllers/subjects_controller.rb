@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token, only: [:assign_electiva]
   # GET /subjects
   # GET /subjects.json
   def index
@@ -131,7 +131,7 @@ class SubjectsController < ApplicationController
     @sem_id = params[:sem_id].to_i
     @subject = Subject.find(CareerHasSubject.find(@chs_id).subject_id)
     puts "#{@chs_id} und #{@sem_id}"
-    Malla.remove_subject_from_malla(@chs_id, @sem_id)
+    Malla.remove_subject_from_malla(@chs_id, @sem_id, current_user.id)
     respond_to do |format|
       #if @subject.save
       flash[:notice] = "Fue eliminada la materia " + @subject.name.to_s + " con código " + @subject.code.to_s + " de la malla actual."
@@ -179,26 +179,21 @@ class SubjectsController < ApplicationController
 
   def open_modal_for_electiva
 
-    @code_career = params[:code_career]
+    @career_id = params[:career_id]
+    @student_id = current_user.id
+    @semester_id = params[:semester_id]
 
-
-    name = @subject.name
-    code = @subject.code
     preList = ""
-    puts code
-    if CareerHasSubject.has_prerequisites(@code_career,code) == true
-      CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
-        cur_subj = Subject.find(pre.subject_id)
-        typology = cur_subj.career_has_subjects.find_by(career_id: Career.find_by_code(@code_career).id).typology unless cur_subj.nil?
-        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+
+    Subject.get_electivas_not_seen_by_student(@career_id,@student_id).each do |chs|
+        cur_subj = Subject.find(chs.subject_id)
+        typology = chs.typology
+        preList +=  cur_subj.code.to_s + "|" +  cur_subj.name.to_s + "|"  +  cur_subj.credits.to_s + "|" +  typology.to_s + "|" + chs.id.to_s +  ";"
       end
-    end
     preList.chop!
-    typology = params[:typ]
-    credits = @subject.credits
 
     respond_to do |format|
-      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{role}')" }
+      format.js { render :js => "modal_for_electiva('#{preList}', '#{@semester_id}')" }
     end
   end
 
@@ -206,13 +201,13 @@ class SubjectsController < ApplicationController
 
 
   def add_electiva
-    @credits = params[:subject][:credits].to_i
+
     @malla_id = params[:malla_id].to_i
     @root = request.original_url
     puts @root
-    puts "Pero no se puede con los helpers?"
+
     respond_to do |format|
-      format.js { render :js => "create_electiva('#{@credits}', '#{@malla_id}')" }
+      format.js { render :js => "create_electiva('#{@malla_id}')" }
     end
   end
 
@@ -227,6 +222,16 @@ class SubjectsController < ApplicationController
     puts "Es ist möglich?"
     redirect_back fallback_location: root_path
     #redirect_to root_path
+
+  end
+
+
+  def assign_electiva
+    @semester_id = params[:semester_id].to_i
+    @chs_id = params[:chs_id].to_i
+    @code = params[:code].to_i
+    Semester.assign_electiva(@semester_id, @chs_id, current_user.id)
+    redirect_back fallback_location: root_path
 
   end
 

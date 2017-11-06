@@ -199,14 +199,15 @@ function modal_for_electiva(array_electivas, semester_id){
 
 }
 
-function create_electiva(malla_id){
+function create_electiva(credits, malla_id){
 
 
     //console.log("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits)
     //window.open("/subjects/create_fake_partial?semester=" + current_semester + "&credits="+ credits, "_self");
-    window.open("/subjects/create_fake_partial/" + current_semester +"/" + malla_id, "_self");
+    window.open("/subjects/create_fake_partial/" + current_semester + "/"+ credits +"/" + malla_id, "_self");
 
 
     //console.log("reached");
 
 }
+;
