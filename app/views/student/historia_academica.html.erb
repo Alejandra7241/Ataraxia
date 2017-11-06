@@ -1,3 +1,12 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando" class="well">
+  <div class="loader"></div>
+  <div>Cargando historia academica...</div>
+</div>
+
 <div class="container-fluid" style="padding-right:20px; margin-bottom: -24px">
 
     <div class="row" style="margin-top:25px ">
@@ -18,8 +27,6 @@
                 Luego debes pegar todo<br> 
                 en el siguiente cuadro:</p>
         </div>
-        
-        
         <div style="padding: 0% 10% 0% 10%;">
             <div class="form-group">
                 <% @history = Historiaacademica.new %>
@@ -28,12 +35,9 @@
                 <%= f.text_area :informacion, required: true,  :class => 'form-control', rows: 7 %>      
             </div>
         </div>
-        
-        
         <div align="center" style="margin-bottom:20px">
-            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center', :onclick => 'myFunction()' %>
             <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-danger btn-ms' %>
-            
         </div>
         <% end %>
         

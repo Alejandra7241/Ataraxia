@@ -20,9 +20,21 @@
           <thead class="thead"> 
             <tr>
               <% @malla.semesters.each do |sem| %>
-                <th >
-                  <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
-                </th>
+                <% if vista=="malla_avance" or vista=="student_malla" %>
+                  <% if sem.number > user.current_semester %>
+                    <th  style="background-color: #F0FFFF">
+                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                    </th>
+                  <%else%>
+                    <th>
+                        <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                      </th>
+                  <%end%>
+                <% else %>
+                  <th style="background-color: #E6E6FA">
+                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                    </th>
+                <%end%>
               <% end %>
               <% if add_subjects_enabled %>
                  <th >
