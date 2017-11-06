@@ -2,9 +2,12 @@
 <% @user.p_d = 0 if @user.p_d.nil? %>
 <% @user.p_e = 0 if @user.p_e.nil? %>
 <%= stylesheet_link_tag "profile.css" %>
+<img src="/universidad3.jpg" class="bottomImage">
 <div class="container">
     <div class="row">
-        <div class="col-sm-3">
+       
+        <div class="col-sm-4">
+             <div class="well">
             <br>
             <br>
             <div align="center"><%= image_tag @user.avatar.url(:medium)%></div>
@@ -16,29 +19,35 @@
             <p>&emsp;<%= @user.email %></p>
             <p><b>Carrera:</b></p>
             <p>&emsp;<%= @career.name %></p>
+        
+              <% unless current_user.admin? %>
+              <div class="form-group" >
+                <%= link_to 'Actualizar historia academica', actualizar_historia_academica_path, :class => "btn btn-info", :onclick => 'recharge2()', :style => 'margin-bottom:15px' %>
+
+                <%= link_to 'Actualizar mis cursos', actualizar_mis_cursos_path, :class => "btn btn-warning" %>
+              </div>
+            <% end %>
+            </div>
         </div>
-        <div class="col-sm-9">
-            <ul class="nav nav-tabs">
-                <li class="active"><a data-toggle="tab" href="#info">Mi información</a></li>
-                <li><a data-toggle="tab" href="#mallas">Mis mallas</a></li>
-            </ul>
+        
+        <div class="col-sm-8">
             <div class="tab-content">
                 <div id="info" class="tab-pane fade in active">
-                    <div class="signpost">
-                        <div style="height:65px;"></div>
+                    <div class="well">
+
                         <table style="width:100%" align="center">
                           <tr>
                             <th><%=h @user.pa.round(2) %></th>
                             <th><%=h @user.papa.round(2) %></th>
                           </tr>
                           <tr>
-                            <td>P.A.</td>
-                            <td>P.A.P.A.</td>
+                            <td align="center">P.A.</td>
+                            <td align="center">P.A.P.A.</td>
                           </tr>
                         </table>
                     </div>
                     <br>
-                    <div class="boardpost">
+                    <div class="well">
                         <div style="height:30px;"></div>
                         <div class="bpostContent" align="center">
                             <div class="container" style="width:100%">
@@ -77,35 +86,6 @@
                         <div style="height:20px;"></div>
                     </div>
                 </div>                
-                <div id="mallas" class="tab-pane fade">
-                    <br>
-                    <div class="container" style="width:90%">
-                        <div class="row">
-                            <div class="col-sm-4"><b>TIPO</b></div>
-                            <div class="col-sm-4"><b>NOMBRE</b></div>
-                            <div class="col-sm-4"><b>Opciones</b></div>
-                        </div>
-                        <br>
-                        <!-- for each malla-->
-                        <div class="row">
-                            <div class="col-sm-4">Estándar</div>
-                            <div class="col-sm-4">Sistemas</div>
-                            <div class="col-sm-4">
-                                <span>
-                                    <a href="#" class="btn btn-info">
-                                        <span class="glyphicon glyphicon-download-alt"></span> 
-                                    </a>
-                                </span>
-                                <span>
-                                  <a href="#" class="btn btn-danger">
-                                    <span class="glyphicon glyphicon-remove"></span>
-                                  </a>
-                                </span>
-                            </div>                            
-                        </div>
-                        <!-- end -->
-                    </div>
-                </div>
             </div>
         </div>
     </div>
