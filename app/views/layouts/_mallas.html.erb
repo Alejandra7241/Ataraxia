@@ -22,6 +22,11 @@
                     <th  style="background-color: #F0FFFF">
                       <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
                     </th>
+                  <% elsif sem.number==user.current_semester%>
+                  <th  style="background-color: #cceeff">
+                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                    </th>
+                     
                   <%else%>
                     <th>
                         <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
