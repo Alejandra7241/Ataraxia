@@ -6,6 +6,8 @@ git_source(:github) do |repo_name|
 end
 
 
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 
@@ -68,6 +70,8 @@ group :development, :test do
   gem 'sqlite3'
   #Own gems
   gem 'letter_opener_web'
+  gem 'rspec-rails', '~> 3.6'
+
   
 
 end
@@ -85,5 +89,12 @@ group :production do
   gem 'pg'
 end
 
+group :test do
+  gem 'shoulda-matchers', '~> 3.0', require: false
+  gem 'database_cleaner', '~> 1.5'
+end
+
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+
