@@ -408,7 +408,7 @@ chs_materia.followers << [
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015714).id) 
 chs_materia.followers << [
          # Mecanica
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000019).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000019).id),
         # Termodinamica
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015741).id)
         ]
@@ -416,7 +416,7 @@ chs_materia.followers << [
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015735).id) 
 chs_materia.followers << [
          # Varias variables
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000006).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000006).id),
         # Termodinamica
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015741).id)
         ]
@@ -424,7 +424,7 @@ chs_materia.followers << [
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015740).id) 
 chs_materia.followers << [
          # Varias variables
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000006).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 1000006).id),
         # Termodinamica
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2549).id, subject_id: Subject.find_by(code: 2015741).id)
         ]

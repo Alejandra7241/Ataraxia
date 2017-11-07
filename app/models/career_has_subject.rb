@@ -53,5 +53,45 @@ class CareerHasSubject < ApplicationRecord
         chs_prerrequisito = CareerHasSubject.find_by(career_id: id_career, subject_id: id_pre) 
         Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
     end
+    
+    # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
+    def self.get_subjects_not_approved_by_a_student(student_id, career_id)  
+        puts "Afterglow"
+        @user = User.find(student_id)
+        
+        # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
+        @career = Career.find(career_id)
+        mallaEst = @career.mallas.find_by(tipo: 'Estándar')
+        chs_not_approved_ids = []
+        
+        # Materias aprobadas de la carrera
+        array_of_chs_approved = []
+        StudentHasSubject.where(student_id: @user.id, approved: true).each do |shs|
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+            if chs.career_id == @career.id
+                array_of_chs_approved << chs
+            end
+        end
+        
+        # Arreglo de chs que faltan por aprobar respecto a la malla estándar
+        mallaEst.semesters.each do |sem|
+            sem.career_has_subjects.each do |chs|
+                #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
+                next if chs.typology == "L"
+                next if array_of_chs_approved.include? chs
+
+                chs_not_approved_ids << chs
+            end
+        end
+        
+
+        puts "============="
+        puts chs_not_approved_ids.length
+        puts array_of_chs_approved.length
+        puts (chs_not_approved_ids - array_of_chs_approved).length
+        puts "================="
+        puts "h"
+        chs_not_approved_ids
+    end
 
 end

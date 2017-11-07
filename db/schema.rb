@@ -77,6 +77,7 @@ ActiveRecord::Schema.define(version: 20171106162450) do
 
   create_table "semester_has_student_subjects", force: :cascade do |t|
     t.string "typology", default: "L"
+    t.boolean "approved", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "subject_id"

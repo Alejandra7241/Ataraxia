@@ -2,7 +2,7 @@
 
         #---------- Malla estándar Ingeniería AgrIAola ----------#
 
-career = Career.create({code: 2541, name: 'Ingeniería AgrIAola', department: 'Departamento de Ingeniería Civil y AgrIAola', faculty: 'Ingeniería'})
+career = Career.create({code: 2541, name: 'Ingeniería Agricola', department: 'Departamento de Ingeniería Civil y Agricola', faculty: 'Ingeniería'})
 
 mallaIA = Malla.create({tipo:'Estándar', career_id: career.id})
 

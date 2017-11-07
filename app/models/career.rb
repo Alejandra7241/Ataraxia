@@ -22,15 +22,18 @@ class Career < ApplicationRecord
     code_career = code_career.to_i
     id_user = id_user.to_i
     puts "String: #{code_career} // #{id_user}"
-    career = Career.find_by_code(code_career)
-    while true
-        begin
-            Malla.find_by(student_id: id_user, tipo: tipo_malla).destroy
-        rescue
-            break
-        end
+    
+    # Definir en el rescue lo que pasa cuando un usuario pone una HA de una carrera que no existe en Ataraxia
+    begin 
+        career = Career.find_by_code(code_career) 
+    rescue
+        return -1
     end
-    current_malla = Malla.create(tipo: tipo_malla, student_id: id_user, career_id: Career.find_by_code(code_career).id ) 
+    
+    # Destruir todas las mallas personales del usuario
+    Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
+
+    current_malla = Malla.create(tipo: tipo_malla, student_id: id_user, career_id: Career.find_by_code(code_career).id) 
     current_semester = 1
     subjects.each do |semester|
         puts "semester: #{semester}, and current_semester #{current_semester}"
@@ -40,6 +43,7 @@ class Career < ApplicationRecord
             subj = Subject.find_by(code: code_subject)
 
             if subj.nil?
+                
                 current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
                
@@ -49,10 +53,18 @@ class Career < ApplicationRecord
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
                     sem.career_has_subjects << chs
-                    StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
-
+                    if grade_subject.to_f >=  3.0
+                        StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
+                    else
+                        StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f)
+                    end
+                
                 rescue
-                    SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                    if grade_subject.to_f >= 3.0
+                        SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, approved: true)
+                    else
+                        SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                    end
                 end
             end
             Subject.update_average(code_subject, grade_subject)

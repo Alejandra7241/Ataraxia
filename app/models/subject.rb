@@ -77,56 +77,6 @@ class Subject < ApplicationRecord
         return @subject.cumulative_sum.to_f/@subject.num_registers.to_f
     end
     
-    # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
-    def self.get_subjects_not_approved_by_a_student(student_id, career_id)  
-        puts "Afterglow"
-        @user = User.find(student_id)
-        
-        # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
-        @career = Career.find(career_id)
-        mallaEst = @career.mallas.find_by(tipo: 'Estándar')
-        subjects_ids = []
-        
-        array_of_chs_approved = []
-        @malla = Malla.find_by(student_id: student_id, tipo: "Personal")
-        puts "Es ist fast fertig!"
-        puts @malla.semesters.length
-        @malla.semesters.each do |semester|
-            semester.career_has_subjects.each do |chs|
-                #comparing = Subject.find(chs.subject_id).id
-                array_of_chs_approved << Subject.find(chs.subject_id).code
-                # subjects_ids.each do |direct_chs|
-                #     puts "Ich vergeleiche gerade diese #{Subject.find(chs.subject_id).name} ? #{Subject.find(direct_chs.subject_id).name}"
-                #     subjects_ids.delete(chs) if chs.subject_id == direct_chs.subject_id
-                    
-                # end
-
-            end
-        end
-        mallaEst.semesters.each do |sem|
-            sem.career_has_subjects.each do |chs|
-                #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
-                next if chs.typology == "L"
-                next if array_of_chs_approved.include? Subject.find(chs.subject_id).code
-                if StudentHasSubject.exists?(student_id: @user.id, career_has_subject_id: chs.id)
-                    puts "ñañañña ya la vio"
-                else
-                    subjects_ids << chs
-                end
-                    
-            end
-        end
-        
-
-        puts "============="
-        puts subjects_ids.length
-        puts array_of_chs_approved.length
-        puts (subjects_ids - array_of_chs_approved).length
-        puts "================="
-        puts "h"
-        subjects_ids
-    end
-    
     #Don't use this yet.
     def self.filter_prerrequisites(student_id, career_id, array_of_chs, semester)
         new_array_of_chs = []
