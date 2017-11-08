@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 #  end
   
 #GENERAL
+
+  namespace :admin do
+
+    get '/falsemalla/:id', to: '#malla', as: "malla"
+
+  end
   #Landing Page
   get 'welcome/empty' => 'welcome#empty'
   get 'welcome/ataraxia' => 'welcome#ataraxia', as: 'welcome_ataraxia'
@@ -31,7 +37,7 @@ Rails.application.routes.draw do
   get 'admin/index' => 'admin#index'
   get 'admin/statistics', to: 'admin#statistics', as: 'admin_statistics'
   #Malla
-  get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
+  #get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
   #Career
   post 'admin/career', to: 'admin#career', as: "admin_career"
   #Otros

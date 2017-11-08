@@ -154,8 +154,8 @@ class Optimization < ApplicationRecord
     end
     maximo = arr[1]
     arr[1] = arr[@heapsize]
-    @heapsize += 1
-    arr.pop(0)
+    @heapsize -= 1
+    arr.pop
     maxheapify(arr, 1)
     return maximo
   end
@@ -174,8 +174,10 @@ class Optimization < ApplicationRecord
       largest = r
     end
     if largest != i
-      arr[i] = arr[largest]
-      arr[largest] = arr[i]
+      tmp1 = arr[largest]
+      tmp2 = arr[i]
+      arr[i] = tmp1
+      arr[largest] = tmp2
       maxheapify(arr, largest)
     end
   end
