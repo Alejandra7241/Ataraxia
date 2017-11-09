@@ -12,6 +12,11 @@ class Optimization < ApplicationRecord
     armar_malla(creditos_maximos)
     puts "@resultado #{@resultado}"
     @cola_prioridad = [nil]
+
+  end
+
+  def get_optimization
+    @resultado
   end
 
   def armar_malla(maximos_por_semestre)
@@ -208,6 +213,56 @@ class Optimization < ApplicationRecord
   end
 
 
+
+  def self.get_dictionary_of_prereq_by_career(id_career)
+    mallaEst = Malla.find_by(career_id: id_career, tipo: 'Estándar')
+    grafo = Hash.new
+    mallaEst.semesters.each do |sem|
+      sem.career_has_subjects.each do |chs|
+        grafo[chs.id] = chs.followers
+      end
+    end
+    grafo
+  end
+
+  def self.get_avaliable_subjects_for_student(id_student, id_career)
+    array_of_chs_not_approved = CareerHasSubject.get_subjects_not_approved_by_a_student(id_student, id_career)
+    array_of_chs_approved = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
+
+    array_of_avaliable_chs = []
+
+    array_of_chs_not_approved.each do |chs_na|
+      isAvaliable = true
+      chs_na.followers.each do |prereq|
+        next if array_of_chs_approved.include? prereq
+        isAvaliable = false
+        break
+      end
+      array_of_avaliable_chs << chs_na if isAvaliable
+    end
+
+    array_of_avaliable_chs
+  end
+
+  def self.dictionary_of_prerequisites_for_student(id_student, id_career)
+    dictionary_of_pre = Hash.new
+    array_of_avaliable_chs = Optimization.get_avaliable_subjects_for_student(id_student, id_career)
+    array_of_chs_approved = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
+    array_of_chs_not_approved = CareerHasSubject.get_subjects_not_approved_by_a_student(id_student, id_career)
+
+    array_of_chs_not_approved.each do |chs|
+      if array_of_avaliable_chs.include? chs
+        dictionary_of_pre[chs.id] = Float::INFINITY
+      else
+        dictionary_of_pre[chs.id] = 0
+        chs.followers.each do |pre|
+          next if array_of_chs_approved.include? pre
+          dictionary_of_pre[chs.id] += 1
+        end
+      end
+    end
+    dictionary_of_pre
+  end
 
 
 

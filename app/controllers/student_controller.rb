@@ -122,10 +122,12 @@ class StudentController < ApplicationController
       prerrequisitos["test"] = 2
 
 
-      current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 4)
-      redirect_back fallback_location: root_path
-      # Main
-      #le entran los creditos máximos por semestre
+      current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 20)
+      puts " #{current_optimization.get_optimization}"
+      @optimization = current_optimization.get_optimization
+
+
+
 
 
       #Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id) # (student_id, career_id, malla_id)
