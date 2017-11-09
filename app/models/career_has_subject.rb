@@ -114,7 +114,7 @@ class CareerHasSubject < ApplicationRecord
 
 
   def self.find_by_subject_id_and_career_id(student_id, career_id)
-      CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+      CareerHasSubject.find_by(subject_id: student_id, career_id: career_id)
   end
 
 end
