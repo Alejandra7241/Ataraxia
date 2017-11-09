@@ -59,9 +59,6 @@ class StudentController < ApplicationController
     
     
     def malla_optima
-<<<<<<< HEAD
-
-=======
       @user = current_user
       @subject = Subject.new
       @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
@@ -125,21 +122,45 @@ class StudentController < ApplicationController
       prerrequisitos["test"] = 2
 
 
-      current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 20)
-      puts " #{current_optimization.get_optimization}"
-      @optimization = current_optimization.get_optimization
+      puts "grafo -> #{grafo}"
 
 
+      # graph.each do |key, value|
+      #     puts "==============================================="
+      #     puts Subject.find(CareerHasSubject.find(key).subject_id).name
+      #     puts "*******************PRE**************************"
+      #     value.each do |pre|
+      #         puts Subject.find(pre.subject_id).name
+      #     end
+      #     puts "********************FIN************************"
+      # end
 
 
+      #current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 20)
+      graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
+      credits = Optimization.dictionary_of_credits(graph)
+      prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
+      puts "graph -> #{graph}"
+      puts "Credits: "
+      puts credits
+      puts "Prerequisites: "
+      puts prerequisites
+      the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, 18)
+      #puts " #{current_optimization.get_optimization}"
+      @optimization = the_grandeur_optimization.get_optimization
+      puts "//////////////////////////////////////////##################//////////////// #{the_grandeur_optimization.get_optimization}"
+      #redirect_back fallback_location: root_path
+      Optimization.filter_out_trabajo_de_grado(@optimization)
 
-      #Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id) # (student_id, career_id, malla_id)
+
+      puts "current_semester = #{current_user.current_semester}"
+      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization) # (student_id, career_id, malla_id)
         # respond_to do |format| 
         #     format.html
         #     format.json
         #     format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
         # end
->>>>>>> 638e8af535d62ebae9eda1a26ec17092a0f9f360
+
     end
     
     
@@ -384,10 +405,40 @@ class StudentController < ApplicationController
         puts "Data to process"
         @mis_cursos_data =  params[:post][:informacion]
         @mis_cursos_data.downcase!
+        @ready_to_read = false
+        @current_semester = current_user.current_semester
+        @malla_personal = Malla.find_by(student_id: current_user.id)
+        @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
+        #User.update(current_user.id, current_semester: @current_semester + 1 )
+
+
+
         @mis_cursos_data.each_line do |line|
+
 
             if line =~ /\d/
                 puts line
+                line = line.split.join(" ")
+                processing = line.split(' ')
+                print processing
+              if processing[0] == "estudiantes"
+                @ready_to_read = true
+              end
+
+              if @ready_to_read
+                codigo_actual = processing[0].split('-')
+                begin
+                  @subject = Subject.find_by_code(codigo_actual)
+                  puts @subject.name
+                  chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                  @semester.career_has_subjects << chs
+
+                rescue
+                  puts "Fake line!"
+                end
+
+
+              end
             end
 
         end

@@ -216,8 +216,11 @@ class Optimization < ApplicationRecord
     grafo = Hash.new
     mallaEst.semesters.each do |sem|
       sem.career_has_subjects.each do |chs|
-        grafo[chs.id] = chs.followers
-      end
+        grafo[chs.id] ||= []
+        chs.followees.each do |a_followee|
+            grafo[chs.id] << a_followee.id
+          end
+        end
     end
     grafo
   end
@@ -248,17 +251,46 @@ class Optimization < ApplicationRecord
     array_of_chs_not_approved = CareerHasSubject.get_subjects_not_approved_by_a_student(id_student, id_career)
 
     array_of_chs_not_approved.each do |chs|
-      if array_of_avaliable_chs.include? chs
-        dictionary_of_pre[chs.id] = Float::INFINITY
-      else
-        dictionary_of_pre[chs.id] = 0
+      dictionary_of_pre[chs.id] = 0
         chs.followers.each do |pre|
           next if array_of_chs_approved.include? pre
           dictionary_of_pre[chs.id] += 1
         end
-      end
+
     end
     dictionary_of_pre
   end
-  
+
+
+  def self.dictionary_of_credits(hash_of_chs)
+    credits_graph = Hash.new
+    hash_of_chs.each do |chs, array_of_followees|
+      current_chs = CareerHasSubject.find(chs)
+      credits_graph[chs] = Subject.find(current_chs.subject_id).credits
+    end
+
+    credits_graph
+
+  end
+
+
+  def self.filter_out_trabajo_de_grado(optimization_hash)
+    #The optimization hash :   {1=>[308, 312, 321, 319, 317, 316], 2=>[314, 330, 318, 315, 311], 3=>[313, 320]}
+    copy = optimization_hash
+    chs_ids_deleted = []
+    optimization_hash.each do |k, v|
+      v.each do |chs_id|
+        this_chs = CareerHasSubject.find(chs_id)
+        if Subject.find(this_chs.subject_id).name == "Trabajo de grado"
+          chs_ids_deleted << v.delete(chs_id)
+        end
+
+      end
+    end
+    chs_ids_deleted.each do |chs_id|
+      optimization_hash[optimization_hash.keys.last] << chs_id
+
+    end
+
+  end
 end

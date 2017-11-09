@@ -34,32 +34,66 @@ class Malla < ApplicationRecord
     def self.find_unique()
     end
     
-    def self.complete_for_malla_optima(student_id, career_id, malla_id)
+    def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization)
+        # array_of_chs = []
+        # optimization.each do |k,v|
+        #     v.each do |current_chs|
+        #         array_of_chs << CareerHasSubject.find(current_chs)
+        #     end
+        #end
         puts "Puuut your money en me #{career_id} -> #{malla_id}"
+
+        @clean_from_semester = User.find(student_id).current_semester
+
+
         @counter = 0
         @malla = Malla.find(malla_id)
-        @current_semester = @malla.semesters.length + 1   
-        
-        CareerHasSubject.get_subjects_not_approved_by_a_student(student_id,  career_id).each do |chs|
-            if @counter % 5 == 0
-                @semester = Semester.create(number: @current_semester, malla_id: malla_id)
-                puts "#{@counter}-> #{@malla.semesters.length} "
-                @current_semester += 1
+
+        @malla.semesters.where("number >= ?", @clean_from_semester ).destroy_all
+        @current_semester = @malla.semesters.length + 1
+
+
+
+
+
+        optimization.each do |k,v|
+            @semester = Semester.create(number: @current_semester, malla_id: malla_id)
+            puts "#{@counter}-> #{@malla.semesters.length} "
+
+            v.each do |current_chs_id|
+
+
+
                 #puts "Semester -> #{semester.career_has_subjects}"
+
+                #current_subject = Subject.find(chs.subject_id)
+                @semester.career_has_subjects << CareerHasSubject.find(current_chs_id)
             end
-            #current_subject = Subject.find(chs.subject_id)
-            @semester.career_has_subjects << chs
-            @counter +=1
-
-                # begin
-                #     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
-                #     sem.career_has_subjects << chs
-                #     StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
-
-                # rescue
-                #     SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
-                # end
+            @current_semester += 1
         end
+
+
+
+        # array_of_chs.each do |chs|
+        #
+        #         @semester = Semester.create(number: @current_semester, malla_id: malla_id)
+        #         puts "#{@counter}-> #{@malla.semesters.length} "
+        #         @current_semester += 1
+        #         #puts "Semester -> #{semester.career_has_subjects}"
+        #
+        #     #current_subject = Subject.find(chs.subject_id)
+        #     @semester.career_has_subjects << chs
+        #
+        #
+        #         # begin
+        #         #     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
+        #         #     sem.career_has_subjects << chs
+        #         #     StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
+        #
+        #         # rescue
+        #         #     SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+        #         # end
+        # end
     end
     
     def self.get_not_approved(malla_id)
