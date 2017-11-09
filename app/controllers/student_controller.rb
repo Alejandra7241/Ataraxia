@@ -29,6 +29,13 @@ class StudentController < ApplicationController
         end 
     end
     
+    def malla_dificiles
+        @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
+    end
+    
     def malla_personal
       puts params[:show_approved]
       @show_approved = true if params[:show_approved] == "0"
@@ -352,7 +359,8 @@ class StudentController < ApplicationController
                 begin
                   @subject = Subject.find_by_code(codigo_actual)
                   puts @subject.name
-                  chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_i)
+                  chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
+                  puts "Lauraaaaaa"
                   #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
                   @semester.career_has_subjects << chs
 
@@ -365,7 +373,7 @@ class StudentController < ApplicationController
             end
 
         end
-        redirect_to root_path
+        redirect_to student_index_path
     end
 
     
