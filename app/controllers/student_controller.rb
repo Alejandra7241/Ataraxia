@@ -8,8 +8,8 @@ class StudentController < ApplicationController
     
     def malla_estandar
         @subject = Subject.new
-        @career = Career.find(params[:id].to_i)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_id(params[:id].to_i)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
             format.json
@@ -21,12 +21,19 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @malla = Career.find_malla_estandar_by_career(@career.id)
          respond_to do |format| 
             format.html
             format.json
             format.pdf {render template:'student/malla_estadisticas', pdf:'ataraxia_malla_estadisticas'}
         end 
+    end
+    
+    def malla_dificiles
+        @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
     end
     
     def malla_personal
@@ -36,7 +43,7 @@ class StudentController < ApplicationController
       puts "*/*/*/*/*/*/*//*/*/*"
       @user = current_user
       @subject = Subject.new
-      @malla_personal = Malla.find_by(student_id: current_user.id)
+      @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
         respond_to do |format| 
             format.html
             format.json
@@ -49,7 +56,7 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
             format.json
@@ -113,7 +120,7 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by_code(@user.carrer)
-        @malla = Career.find_malla_estandar_by_career(@career)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         #@malla = @career.mallas.find_by(tipo: "Estándar")
     end
 

@@ -114,9 +114,11 @@ class Malla < ApplicationRecord
         @ret_arr
     end
    
-    def self.find_by_student_id(student_id)
-        Malla.find_by(student_id: student_id)
+    def self.find_malla_personal_by_student_id(student_id)
+        Malla.find_by(student_id: student_id, tipo: 'Personal')
     end
 
-
+    def self.find_by_id(id_malla)
+        self.find(id_malla)
+    end
 end

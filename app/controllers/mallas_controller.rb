@@ -63,7 +63,7 @@ class MallasController < ApplicationController
   
   
   def add_subject_to_malla
-    @malla = Malla.find(params[:malla_id])
+    @malla = Malla.find_by_id(params[:malla_id])
     @code = params[:code].to_i
     @typology = params[:typology]
     @semester = params[:semester].to_i
@@ -78,11 +78,11 @@ class MallasController < ApplicationController
       new_subj = Subject.find_by_code(@code)
     end
     puts "Aqui está el nombre #{new_subj.name} y el semestre #{@semester}"
-    career = Career.find_by(code: params[:code_career])
+    career = Career.find_by_id(@malla.career_id)
     chs = CareerHasSubject.new( :subject => new_subj, :typology => @typology)
     career.career_has_subjects << chs
     current_user.career_has_subjects << chs
-    sem = @malla.semesters.find_by(number: @semester)
+    sem = Semester.find_by_number(@malla.id, @semester)
     added = true
     sem.career_has_subjects << chs rescue added = false
     if @subject_exists
@@ -113,7 +113,7 @@ class MallasController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_malla
-      @malla = Malla.find(params[:id])
+      @malla = Malla.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

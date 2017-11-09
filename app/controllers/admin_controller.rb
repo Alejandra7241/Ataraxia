@@ -30,15 +30,15 @@ class AdminController < ApplicationController
   
   def malla
     @subject = Subject.new
-    @career = Career.find(params[:id].to_i)
-    @malla = @career.mallas.find_by(tipo: "Estándar")
+    @career = Career.find_by_id(params[:id].to_i)
+    @malla = Career.find_malla_estandar_by_career(@career.id)
   end
   
 
   def statistics
   end
   
-  def search_prerequisite
+  def search_prerequisite(id_career)
     puts "#######################"
     @subject_to_add_code = params[:subject][:code_subject_to_add]
     puts "########################"
@@ -46,7 +46,7 @@ class AdminController < ApplicationController
     @subject = Subject.find_by_code(@code)
     name = @subject.name unless @subject.nil?
     code = @subject.code unless @subject.nil?
-    typology = @subject.career_has_subjects.find_by(career_id: 1).typology unless @subject.nil?
+    typology = CareerHasSubject.get_typology(@subject.id, id_career) unless @subject.nil?
     # Alternativa: 
     # typology = CareerHasSubject.find_by(career_id: @career.id, subject_id: @subject.id).typology
     respond_to do |format|

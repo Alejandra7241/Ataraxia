@@ -6,8 +6,8 @@ class GuessController < ApplicationController
     def malla
         
         @subject = Subject.new
-        @career = Career.find(params[:id].to_i)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_id(params[:id].to_i)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         
         respond_to do |format| 
                 format.html

@@ -114,6 +114,7 @@ Rails.application.routes.draw do
     #Estadisticas
     get 'estadisticas', to: 'student#estadisticas', as: 'student_estadisticas'
     get 'malla_estadisticas', to: 'student#malla_estadisticas', as: 'student_malla_estadisticas'
+    get 'malla_dificiles', to: 'student#malla_dificiles', as: 'student_malla_dificiles'
   end
   
   # MALLAS
