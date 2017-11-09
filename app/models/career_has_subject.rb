@@ -54,24 +54,18 @@ class CareerHasSubject < ApplicationRecord
         Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
     end
     
-    # Ver las materias de la malla estándar semestre por semestre y consultar una por una si el estudiante ya las tiene o no
-    def self.get_subjects_not_approved_by_a_student(student_id, career_id)  
+    # Materias no aprobadas de la carrera
+    def self.get_subjects_not_approved_by_a_student(id_student, id_career)  
         puts "Afterglow"
-        @user = User.find(student_id)
+        @user = User.find(id_student)
         
         # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
-        @career = Career.find(career_id)
+        @career = Career.find(id_career)
         mallaEst = @career.mallas.find_by(tipo: 'Estándar')
-        chs_not_approved_ids = []
+        array_of_chs_not_approved = []
         
         # Materias aprobadas de la carrera
-        array_of_chs_approved = []
-        StudentHasSubject.where(student_id: @user.id, approved: true).each do |shs|
-            chs = CareerHasSubject.find(shs.career_has_subject_id)
-            if chs.career_id == @career.id
-                array_of_chs_approved << chs
-            end
-        end
+        array_of_chs_approved = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
         
         # Arreglo de chs que faltan por aprobar respecto a la malla estándar
         mallaEst.semesters.each do |sem|
@@ -80,18 +74,42 @@ class CareerHasSubject < ApplicationRecord
                 next if chs.typology == "L"
                 next if array_of_chs_approved.include? chs
 
-                chs_not_approved_ids << chs
+                array_of_chs_not_approved << chs
             end
         end
         
 
+        # puts "============="
+        # puts "array_of_chs_not_approved"
+        # array_of_chs_not_approved.each do |cna|
+        #     puts Subject.find(cna.subject_id).name
+        # end
         puts "============="
-        puts chs_not_approved_ids.length
-        puts array_of_chs_approved.length
-        puts (chs_not_approved_ids - array_of_chs_approved).length
+        # puts "array_of_chs_approved"
+        # array_of_chs_approved.each do |ca|
+        #     puts Subject.find(ca.subject_id).name
+        # end
+        puts (array_of_chs_not_approved - array_of_chs_approved).length
         puts "================="
         puts "h"
-        chs_not_approved_ids
+        array_of_chs_not_approved
+    end
+    
+    # Materias aprobadas de la carrera
+    def self.get_subjects_approved_by_a_student(id_student, id_career)  
+
+        # Ver las materias de la malla estándar semestre por semestre y
+        # consultar una por una si el estudiante ya las tiene
+        array_of_chs_approved = []
+        
+        StudentHasSubject.where(student_id: id_student, approved: true).each do |shs|
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+            if chs.career_id == id_career
+                array_of_chs_approved << chs
+            end
+        end
+
+        array_of_chs_approved
     end
 
 end
