@@ -325,12 +325,15 @@ class StudentController < ApplicationController
 
     def procesar_mis_cursos
         puts "Data to process"
+        User.update(current_user.id, mis_cursos_added: true)
         @mis_cursos_data =  params[:post][:informacion]
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
         @malla_personal = Malla.find_by_student_id(current_user.id)
-        @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
+        @malla_optima = current_user.student_mallas.find_by(tipo: 'Optima')
+        @semester_personal = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
+        @semester_optima = Semester.create(number: @current_semester, malla_id: @malla_optima.id)
         #User.update(current_user.id, current_semester: @current_semester + 1 )
 
 
@@ -353,10 +356,12 @@ class StudentController < ApplicationController
                   @subject = Subject.find_by_code(codigo_actual)
                   puts @subject.name
                   chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
-                  puts "Lauraaaaaa"
-                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
-                  @semester.career_has_subjects << chs
 
+                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                  @semester_personal.career_has_subjects << chs
+                  @semester_optima.career_has_subjects << chs
+                    #THey are not added to StudentHasSubjects
+                    #current_user.career_has_subjects << chs
                 rescue
                   puts "Fake line!"
                 end
