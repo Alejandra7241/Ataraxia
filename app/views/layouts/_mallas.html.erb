@@ -86,7 +86,7 @@
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
                   <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester && add_subjects_enabled%>
 
-                          <h1><%= sem.number%>//<%= sem.id%></h1>
+
                           <% sem.electivas_not_assigned.times do %>
                           <%= render partial: "layouts/electivas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
                           <% end %>

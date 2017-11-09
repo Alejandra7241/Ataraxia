@@ -7,14 +7,6 @@
   <div>Generando pdf...</div>
 </div>
 
-<% @optimization.each do |k,v| %>
-
-    <h1>En el semestre <%= k %> <br></h1>
-    <% v.each do |current_chs|%>
-    <% chs_current = CareerHasSubject.find(current_chs) %>
- <%= Subject.find(chs_current.subject_id).name %>
-        <% end %>
-<% end %>
 <h1 align="center">Malla Óptima</h1> 
 
 <!--search_by: ['todas', 'codigo', 'tipologia']-->
