@@ -62,89 +62,14 @@ class StudentController < ApplicationController
       @user = current_user
       @subject = Subject.new
       @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
-
-
-      # Diccionarios Necesarios
-
-      grafo = {} #Nos guarda las materias y A va conectado con B si A abre a B
-      creditos = {} #Creditos de cada materia
-      prerrequisitos = {} #Prerrequisitos de cada materia
-
-      # Inicialización de las materias
-      grafo["Diferencial"] = []
-      grafo["Introduccion"] = []
-      grafo["Basica"] = []
-      grafo["Objetos"] = []
-      grafo["Elementos"] = []
-      grafo["Arquitectura"] = []
-      grafo["Lineal"] = []
-      grafo["Integral"] = []
-      grafo["Mecanica"] = []
-      grafo["Discretas"] = []
-      grafo["Discretas2"] = []
-      grafo["test"] = []
-      # Creditos
-      creditos["Diferencial"] = 4
-      creditos["Introduccion"] = 3
-      creditos["Basica"] = 3
-      creditos["Objetos"] = 3
-      creditos["Elementos"] = 3
-      creditos["Arquitectura"] = 3
-      creditos["Lineal"] = 4
-      creditos["Integral"] = 4
-      creditos["Mecanica"] = 4
-      creditos["Discretas"] = 4
-      creditos["Discretas2"] = 4
-      creditos["test"] = 1
-      # Materias que abre
-      grafo["Diferencial"] << "Integral"
-      grafo["Diferencial"] << "Mecanica"
-      grafo["Diferencial"] << "Lineal"
-      grafo["Introduccion"] << "Elementos"
-      grafo["Basica"] << "Objetos"
-      grafo["Lineal"] << "Discretas"
-      grafo["Elementos"] << "Arquitectura"
-      grafo["Discretas"] << "Discretas2"
-      grafo["Mecanica"] << "test"
-      grafo["Discretas2"] << "test"
-      # Numero de prerrequisitos
-      prerrequisitos["Diferencial"] = 0
-      prerrequisitos["Introduccion"] = 0
-      prerrequisitos["Basica"] = 0
-      prerrequisitos["Objetos"] = 1
-      prerrequisitos["Elementos"] = 1
-      prerrequisitos["Arquitectura"] = 1
-      prerrequisitos["Lineal"] = 1
-      prerrequisitos["Integral"] = 1
-      prerrequisitos["Mecanica"] = 1
-      prerrequisitos["Discretas"] = 1
-      prerrequisitos["Discretas2"] = 1
-      prerrequisitos["test"] = 2
-
-
-      puts "grafo -> #{grafo}"
-
-
-      # graph.each do |key, value|
-      #     puts "==============================================="
-      #     puts Subject.find(CareerHasSubject.find(key).subject_id).name
-      #     puts "*******************PRE**************************"
-      #     value.each do |pre|
-      #         puts Subject.find(pre.subject_id).name
-      #     end
-      #     puts "********************FIN************************"
-      # end
-
-
-      #current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 20)
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
       prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
-      puts "graph -> #{graph}"
-      puts "Credits: "
-      puts credits
-      puts "Prerequisites: "
-      puts prerequisites
+      # puts "graph -> #{graph}"
+      # puts "Credits: "
+      # puts credits
+      # puts "Prerequisites: "
+      # puts prerequisites
       the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, 18)
       #puts " #{current_optimization.get_optimization}"
       @optimization = the_grandeur_optimization.get_optimization
@@ -153,13 +78,9 @@ class StudentController < ApplicationController
       Optimization.filter_out_trabajo_de_grado(@optimization)
 
 
-      puts "current_semester = #{current_user.current_semester}"
+      #puts "current_semester = #{current_user.current_semester}"
       Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization) # (student_id, career_id, malla_id)
-        # respond_to do |format| 
-        #     format.html
-        #     format.json
-        #     format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
-        # end
+
 
     end
     
@@ -191,8 +112,9 @@ class StudentController < ApplicationController
     def index
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_code(@user.carrer)
+        @malla = Career.find_malla_estandar_by_career(@career)
+        #@malla = @career.mallas.find_by(tipo: "Estándar")
     end
 
     def historia_academica
@@ -407,7 +329,7 @@ class StudentController < ApplicationController
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
-        @malla_personal = Malla.find_by(student_id: current_user.id)
+        @malla_personal = Malla.find_by_student_id(current_user.id)
         @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         #User.update(current_user.id, current_semester: @current_semester + 1 )
 
@@ -430,7 +352,8 @@ class StudentController < ApplicationController
                 begin
                   @subject = Subject.find_by_code(codigo_actual)
                   puts @subject.name
-                  chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                  chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_i)
+                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
                   @semester.career_has_subjects << chs
 
                 rescue

@@ -112,7 +112,9 @@ class Malla < ApplicationRecord
         @ret_arr
     end
    
-    
+    def self.find_by_student_id(student_id)
+        Malla.find_by(student_id: student_id)
+    end
 
 
 end

@@ -112,4 +112,9 @@ class CareerHasSubject < ApplicationRecord
         array_of_chs_approved
     end
 
+
+  def self.find_by_subject_id_and_career_id(student_id, career_id)
+      CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+  end
+
 end
