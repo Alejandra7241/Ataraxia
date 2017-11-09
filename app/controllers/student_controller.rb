@@ -103,9 +103,9 @@ class StudentController < ApplicationController
       grafo["Introduccion"] << "Elementos"
       grafo["Basica"] << "Objetos"
       grafo["Lineal"] << "Discretas"
-      grafo["Elementos"] <<"Arquitectura"
-      grafo["Discretas"] <<"Discretas2"
-      grafo["Mecanica"] <<"test"
+      grafo["Elementos"] << "Arquitectura"
+      grafo["Discretas"] << "Discretas2"
+      grafo["Mecanica"] << "test"
       grafo["Discretas2"] << "test"
       # Numero de prerrequisitos
       prerrequisitos["Diferencial"] = 0
@@ -122,7 +122,7 @@ class StudentController < ApplicationController
       prerrequisitos["test"] = 2
 
 
-      current_optimization = Optimization.new(prerrequisitos, grafo, creditos)
+      current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 4)
       redirect_back fallback_location: root_path
       # Main
       #le entran los creditos máximos por semestre

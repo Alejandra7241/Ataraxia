@@ -2,29 +2,26 @@ class Optimization < ApplicationRecord
 
 
 
-  def initialize(prerrequisitos, grafo, creditos)
+  def initialize(prerrequisitos, grafo, creditos, creditos_maximos)
     @prerrequisitos = prerrequisitos
     @heapsize = 0
     @grafo = grafo
     @creditos = creditos
     @prioridades = {}
-    armar_malla(20)
+    @resultado = {}
+    armar_malla(creditos_maximos)
+    puts "@resultado #{@resultado}"
     @cola_prioridad = [nil]
   end
 
   def armar_malla(maximos_por_semestre)
-    puts "Ich hasse Brayan"
-    puts @prerrequisitos
-    puts @heapsize
-    puts @grafo
-    puts @creditos
 
     con_semestre=1
     while true
       @cola_prioridad = [nil]
       @heapsize = 0
       posibles = orden_topologico(@prerrequisitos)
-      puts "posibles: #{posibles}"
+      #puts "posibles: #{posibles}"
       if posibles.length == 0
         puts "Malla generada exitosamente"
         break
@@ -39,34 +36,42 @@ class Optimization < ApplicationRecord
       end
       if min > maximos_por_semestre
         puts "No se puede generar una malla con sus especificaciones"
+        @resultado = {}
         break
       end
+
+
       @prioridades = asignar_prioridades(posibles, @grafo)
+      #puts "prioridades: #{@prioridades}"
+      
       @prioridades.each do |materia, x|
         heapinsert(@cola_prioridad, materia)
       end
+      #puts "prioridades: #{@prioridades}"
+     
       puestas = armar_semestre(maximos_por_semestre, con_semestre)
-      restar(puestas)
+     restar(puestas)
       con_semestre +=1
     end
   end
 
   def orden_topologico(prerrequisitos)
-    puts "prerequisitos #{prerrequisitos}"
     salida = []
     prerrequisitos.each do |materia, x|
       if prerrequisitos[materia] == 0
         salida << materia
-        puts "salida -> #{salida} // materia -> #{materia}"
+
       end
     end
     return salida
   end
 
   def asignar_prioridades(posibles, grafo)
+    @prioridades = {}
     i = 0
     posibles.length.times do
       distancia = DFS(grafo, posibles[i])
+
       con = prioridad_total(distancia)
       @prioridades[posibles[i]] = con
 
@@ -77,7 +82,6 @@ class Optimization < ApplicationRecord
 
   def DFS(graph, s)
     distancia = {}
-    puts "Graph? #{graph}"
     graph.each do |nodo, x|
       if nodo == s
         next
@@ -91,14 +95,19 @@ class Optimization < ApplicationRecord
     while pila.length > 0
       u = pila.pop
       i = 0
+
       graph[u].length.times do
-        if distancia[graph[u][i]] == distancia[u] + 1
+
+        if distancia[graph[u][i]] == Float::INFINITY
+
           distancia[graph[u][i]] = distancia[u] + 1
           pila << graph[u][i]
+ 
         else
           distancia[graph[u][i]] = distancia[graph[u][i]] + distancia[u] + 1
           #Suma la distancia del camino ya existente, con la del camino nuevo
         end
+        i+=1
       end
     end
     distancia
@@ -121,7 +130,6 @@ class Optimization < ApplicationRecord
   end
 
   def increasekey(arr, i, key)
-    puts "Kinski #{@prioridades} Assasin #{arr}"
     arr[i] = key
     while i > 1 && @prioridades[arr[i / 2]] < @prioridades[arr[i]]
       arr[i / 2], arr[i] = arr[i], arr[i  / 2]
@@ -131,17 +139,19 @@ class Optimization < ApplicationRecord
   end
 
   def armar_semestre(creditos_maximos, numero)
-    puts "Semestre -> #{numero}"
+    puts "---- Semestre -> #{numero}"
+    @resultado[numero] ||= []
     creditos_actuales = 0
     puestas = []
-    while @heapsize > 0 && creditos_actuales < creditos_maximos
+    while @heapsize > 0 && (creditos_actuales < creditos_maximos)
       materia = heapextractmax(@cola_prioridad)
-      if (creditos[materia] + creditos_actuales) > creditos_maximos
-        next
-      else
-        creditos_actuales = creditos_actuales + creditos[materia]
-        puts materia
+     
+  
+      unless (@creditos[materia] + creditos_actuales) > creditos_maximos
+        creditos_actuales = creditos_actuales + @creditos[materia]
         puestas << materia
+        @resultado[numero] << materia
+        puts "-#{materia}"
       end
     end
     return puestas
@@ -164,13 +174,13 @@ class Optimization < ApplicationRecord
     l = 2 * i
     r = 2 * i + 1
 
-    if l <= @heapsize && @prioridades[arr[l]] > @prioridades[arr[i]]
+    if l <= @heapsize && (@prioridades[arr[l]] > @prioridades[arr[i]])
       largest = l
     else
-      largest = r
+      largest = i
     end
-    puts "Wenn du bist, was du isst #{@prioridades} spanglish -> #{largest}"
-    if r<= @heapsize && @prioridades[arr[r]] > @prioridades[arr[largest]]
+    
+    if r<= @heapsize && (@prioridades[arr[r]] > @prioridades[arr[largest]])
       largest = r
     end
     if largest != i
@@ -190,7 +200,7 @@ class Optimization < ApplicationRecord
       abiertas = @grafo[puestas[i]]
       j = 0
       abiertas.length.times do
-        prerrequisitos[abiertas[j]]=prerrequisitos[abiertas[j]]-1
+        @prerrequisitos[abiertas[j]]=@prerrequisitos[abiertas[j]]-1
         j+=1
       end
       i+=1
