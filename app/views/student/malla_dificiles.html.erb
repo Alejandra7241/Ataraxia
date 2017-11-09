@@ -7,9 +7,9 @@
   <div>Generando pdf...</div>
 </div>
 
-<h1 align="center">Notas promedio en <%= @career.name %></h1>  
+<h1 align="center">Materias dificiles en <%= @career.name %></h1>  
 
-<%= render 'layouts/mallas', :vista =>"guess_malla", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false, :estadisticas => true, :notas => true %>
+<%= render 'layouts/mallas', :vista =>"guess_malla", :user => current_user, :malla => @malla, :pdf => false, add_subjects_enabled: false, :estadisticas => true, :notas => false %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "estadisticas"%>
 <!-- The Modal Ayuda -->
 

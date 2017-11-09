@@ -61,7 +61,7 @@
                       <% @aprobada = true if @chss_approved.include? chs %>
                     <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla),   chs: chs} %>
                     <% elsif estadisticas %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id),  chs: chs} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, notas: notas, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id),  chs: chs} %>
                     <% else %>
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), array_of_not_approved: array_of_not_approved, show_approved: show_approved,  chs: chs} %>
                     <% end %>

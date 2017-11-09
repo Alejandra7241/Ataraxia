@@ -29,6 +29,13 @@ class StudentController < ApplicationController
         end 
     end
     
+    def malla_dificiles
+        @user=current_user
+        @subject = Subject.new
+        @career = Career.find_by(code: @user.carrer)
+        @malla = @career.mallas.find_by(tipo: "Estándar")
+    end
+    
     def malla_personal
       puts params[:show_approved]
       @show_approved = true if params[:show_approved] == "0"
