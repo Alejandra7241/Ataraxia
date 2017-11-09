@@ -59,7 +59,87 @@ class StudentController < ApplicationController
     
     
     def malla_optima
+<<<<<<< HEAD
 
+=======
+      @user = current_user
+      @subject = Subject.new
+      @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
+
+
+      # Diccionarios Necesarios
+
+      grafo = {} #Nos guarda las materias y A va conectado con B si A abre a B
+      creditos = {} #Creditos de cada materia
+      prerrequisitos = {} #Prerrequisitos de cada materia
+
+      # Inicialización de las materias
+      grafo["Diferencial"] = []
+      grafo["Introduccion"] = []
+      grafo["Basica"] = []
+      grafo["Objetos"] = []
+      grafo["Elementos"] = []
+      grafo["Arquitectura"] = []
+      grafo["Lineal"] = []
+      grafo["Integral"] = []
+      grafo["Mecanica"] = []
+      grafo["Discretas"] = []
+      grafo["Discretas2"] = []
+      grafo["test"] = []
+      # Creditos
+      creditos["Diferencial"] = 4
+      creditos["Introduccion"] = 3
+      creditos["Basica"] = 3
+      creditos["Objetos"] = 3
+      creditos["Elementos"] = 3
+      creditos["Arquitectura"] = 3
+      creditos["Lineal"] = 4
+      creditos["Integral"] = 4
+      creditos["Mecanica"] = 4
+      creditos["Discretas"] = 4
+      creditos["Discretas2"] = 4
+      creditos["test"] = 1
+      # Materias que abre
+      grafo["Diferencial"] << "Integral"
+      grafo["Diferencial"] << "Mecanica"
+      grafo["Diferencial"] << "Lineal"
+      grafo["Introduccion"] << "Elementos"
+      grafo["Basica"] << "Objetos"
+      grafo["Lineal"] << "Discretas"
+      grafo["Elementos"] << "Arquitectura"
+      grafo["Discretas"] << "Discretas2"
+      grafo["Mecanica"] << "test"
+      grafo["Discretas2"] << "test"
+      # Numero de prerrequisitos
+      prerrequisitos["Diferencial"] = 0
+      prerrequisitos["Introduccion"] = 0
+      prerrequisitos["Basica"] = 0
+      prerrequisitos["Objetos"] = 1
+      prerrequisitos["Elementos"] = 1
+      prerrequisitos["Arquitectura"] = 1
+      prerrequisitos["Lineal"] = 1
+      prerrequisitos["Integral"] = 1
+      prerrequisitos["Mecanica"] = 1
+      prerrequisitos["Discretas"] = 1
+      prerrequisitos["Discretas2"] = 1
+      prerrequisitos["test"] = 2
+
+
+      current_optimization = Optimization.new(prerrequisitos, grafo, creditos, 20)
+      puts " #{current_optimization.get_optimization}"
+      @optimization = current_optimization.get_optimization
+
+
+
+
+
+      #Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id) # (student_id, career_id, malla_id)
+        # respond_to do |format| 
+        #     format.html
+        #     format.json
+        #     format.pdf {render template:'student/malla_personal', pdf:'ataraxia_malla_personal'}
+        # end
+>>>>>>> 638e8af535d62ebae9eda1a26ec17092a0f9f360
     end
     
     
@@ -295,5 +375,24 @@ class StudentController < ApplicationController
 
     redirect_to get_mis_cursos_path
     end
+
+    def mis_cursos
+
+    end
+
+    def procesar_mis_cursos
+        puts "Data to process"
+        @mis_cursos_data =  params[:post][:informacion]
+        @mis_cursos_data.downcase!
+        @mis_cursos_data.each_line do |line|
+
+            if line =~ /\d/
+                puts line
+            end
+
+        end
+        redirect_to root_path
+    end
+
     
 end

@@ -17,6 +17,12 @@ Rails.application.routes.draw do
 #  end
   
 #GENERAL
+
+  namespace :admin do
+
+    get '/falsemalla/:id', to: '#malla', as: "malla"
+
+  end
   #Landing Page
   get 'welcome/empty' => 'welcome#empty'
   get 'welcome/ataraxia' => 'welcome#ataraxia', as: 'welcome_ataraxia'
@@ -31,7 +37,7 @@ Rails.application.routes.draw do
   get 'admin/index' => 'admin#index'
   get 'admin/statistics', to: 'admin#statistics', as: 'admin_statistics'
   #Malla
-  get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
+  #get 'admin/malla/:id', to: 'admin#malla', as: "admin_malla"
   #Career
   post 'admin/career', to: 'admin#career', as: "admin_career"
   #Otros
@@ -58,7 +64,6 @@ Rails.application.routes.draw do
   get 'student/mis_cursos', to: 'student#mis_cursos', as: 'get_mis_cursos'
   get 'student/actualizar_mis_cursos', to: 'student#actualizar_mis_cursos', as: 'actualizar_mis_cursos'
   post 'student/procesar_mis_cursos', to: 'student#procesar_mis_cursos', as: 'submit_mis_cursos'
-  get 'student/procesar_mis_cursos', to: 'student#procesar_mis_cursos'
   #Mallas
   get 'student/malla_estandar/:id', to: 'student#malla_estandar', as: 'student_malla_estandar'
   get 'student/malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'
