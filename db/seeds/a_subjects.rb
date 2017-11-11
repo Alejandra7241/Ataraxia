@@ -284,7 +284,51 @@ Subject.create([
         {code: 2016360, name: 'Análisis de Regresión', credits: 4},
         {code: 2016345, name: 'Seminario de Estadística', credits: 2},
         {code: 2016344, name: 'Consultoría estadística', credits: 2},
-        {code: 2015314, name: 'Trabajo de Grado', credits: 8}
-      
+        {code: 2015314, name: 'Trabajo de Grado', credits: 8},
+        
+        
+        # -------------------------------------- MEDICINA ------------------------------------
+        
+        #Medicina
+        
+        {code: 2017995, name: 'Histología I', credits: 2},
+        {code: 2017988, name: 'Embriología', credits: 3},
+        {code: 2021521, name: 'Introducción a la fisiología', credits: 3},
+        {code: 2026320, name: 'Química básica para ciencias de la salud', credits: 3},
+        {code: 2018012, name: 'Salud y sociedad', credits: 2},
+        {code: 2021519, name: 'Histología II', credits: 4},
+        {code: 2017979, name: 'Anatomía I', credits: 2},
+        {code: 2023104, name: 'Fisiología I', credits: 3},
+        {code: 2017983, name: 'Bioquímica I', credits: 4},
+        {code: 2021522, name: 'Medicina y sociedad', credits: 2},
+        {code: 2023103, name: 'Anatomía II', credits: 5},
+        {code: 2026282, name: 'Histología III', credits: 5},
+        {code: 2017994, name: 'Genética', credits: 2},
+        {code: 2017986, name: 'Demografía y bioestadística', credits: 2},
+        {code: 2017981, name: 'Biología molecular', credits: 2},
+        {code: 2017993, name: 'Fisiología II', credits: 8},
+        {code: 2023105, name: 'Inmunología', credits: 2},
+        {code: 2018005, name: 'Metodología de la Investigación', credits: 3},
+        {code: 2023108, name: 'Patología general', credits: 2},
+        {code: 2018006, name: 'Microbiología', credits: 5},
+        {code: 2018007, name: 'Parasitología', credits: 3},
+        {code: 2023109, name: 'Patología especial', credits: 7},
+        {code: 2015584, name: 'Introducción a la medicina interna', credits: 3},
+        {code: 2017989, name: 'Epidemiología', credits: 3},
+        {code: 2018009, name: 'Psiquiatría I', credits: 2},
+        {code: 2018016, name: 'Medicina interna I', credits: 9},
+        {code: 2017990, name: 'Farmacología', credits: 7},
+        {code: 2015680, name: 'Introducción a las imágenes diagnósticas', credits: 3},
+        {code: 2018017, name: 'Medicina interna II', credits: 9},
+        {code: 2018011, name: 'Rehabilitación', credits: 3},
+        {code: 2017996, name: 'Imágenes diagnósticas', credits: 2},
+        {code: 2018018, name: 'Pediatría', credits: 13},
+        {code: 2021518, name: 'Habilitación pediátrica', credits: 2},
+        {code: 2017984, name: 'Cirugía I', credits: 12},
+        {code: 2018015, name: 'Ginecología y obstetricia', credits: 12},
+        {code: 2025524, name: 'Medicina legal I', credits: 2},
+        {code: 2018010, name: 'Psiquiatría II', credits: 3},
+        {code: 2025508, name: 'Administracion en salud I', credits: 2},
+        {code: 2025532, name: 'Trabajo de Grado de Medicina', credits: 6}
 ])
 # *************************************************************************
