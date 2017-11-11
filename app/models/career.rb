@@ -88,11 +88,14 @@ class Career < ApplicationRecord
     end
 
 
-    def self.find_malla_estandar_by_career(career)
+    def self.find_malla_estandar_by_career(id_career)
+        career = self.find(id_career)
         career.mallas.find_by(tipo: "Estándar")
-
     end
     
+    def self.find_by_id(id_career)
+        self.find(id_career)
+    end
     
     
     

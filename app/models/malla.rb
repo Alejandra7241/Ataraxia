@@ -42,8 +42,10 @@ class Malla < ApplicationRecord
         #     end
         #end
         puts "Puuut your money en me #{career_id} -> #{malla_id}"
-
         @clean_from_semester = User.find(student_id).current_semester
+        @clean_from_semester += 1 if User.find(student_id).mis_cursos_added
+
+
 
 
         @counter = 0
@@ -112,9 +114,11 @@ class Malla < ApplicationRecord
         @ret_arr
     end
    
-    def self.find_by_student_id(student_id)
-        Malla.find_by(student_id: student_id)
+    def self.find_malla_personal_by_student_id(student_id)
+        Malla.find_by(student_id: student_id, tipo: 'Personal')
     end
 
-
+    def self.find_by_id(id_malla)
+        self.find(id_malla)
+    end
 end

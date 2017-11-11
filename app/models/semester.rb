@@ -30,4 +30,8 @@ class Semester < ApplicationRecord
 
 
     end
+    
+    def self.find_by_number(id_malla, num)
+        self.find_by(malla_id: id_malla, number: num)
+    end
 end

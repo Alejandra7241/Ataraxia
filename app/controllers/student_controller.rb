@@ -8,8 +8,8 @@ class StudentController < ApplicationController
     
     def malla_estandar
         @subject = Subject.new
-        @career = Career.find(params[:id].to_i)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_id(params[:id].to_i)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
             format.json
@@ -21,7 +21,7 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @malla = Career.find_malla_estandar_by_career(@career.id)
          respond_to do |format| 
             format.html
             format.json
@@ -43,7 +43,7 @@ class StudentController < ApplicationController
       puts "*/*/*/*/*/*/*//*/*/*"
       @user = current_user
       @subject = Subject.new
-      @malla_personal = Malla.find_by(student_id: current_user.id)
+      @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
         respond_to do |format| 
             format.html
             format.json
@@ -56,7 +56,7 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
             format.json
@@ -120,7 +120,7 @@ class StudentController < ApplicationController
         @user=current_user
         @subject = Subject.new
         @career = Career.find_by_code(@user.carrer)
-        @malla = Career.find_malla_estandar_by_career(@career)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
         #@malla = @career.mallas.find_by(tipo: "Estándar")
     end
 
@@ -332,12 +332,15 @@ class StudentController < ApplicationController
 
     def procesar_mis_cursos
         puts "Data to process"
+        User.update(current_user.id, mis_cursos_added: true)
         @mis_cursos_data =  params[:post][:informacion]
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
         @malla_personal = Malla.find_by_student_id(current_user.id)
-        @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
+        @malla_optima = current_user.student_mallas.find_by(tipo: 'Optima')
+        @semester_personal = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
+        @semester_optima = Semester.create(number: @current_semester, malla_id: @malla_optima.id)
         #User.update(current_user.id, current_semester: @current_semester + 1 )
 
 
@@ -360,10 +363,12 @@ class StudentController < ApplicationController
                   @subject = Subject.find_by_code(codigo_actual)
                   puts @subject.name
                   chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
-                  puts "Lauraaaaaa"
-                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
-                  @semester.career_has_subjects << chs
 
+                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                  @semester_personal.career_has_subjects << chs
+                  @semester_optima.career_has_subjects << chs
+                    #THey are not added to StudentHasSubjects
+                    #current_user.career_has_subjects << chs
                 rescue
                   puts "Fake line!"
                 end

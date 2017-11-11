@@ -116,5 +116,8 @@ class CareerHasSubject < ApplicationRecord
   def self.find_by_subject_id_and_career_id(student_id, career_id)
       CareerHasSubject.find_by(subject_id: student_id, career_id: career_id)
   end
-
+  
+  def self.get_typology(id_subject, id_career)
+      self.get_typology(id_subject, id_career).typology
+  end
 end
