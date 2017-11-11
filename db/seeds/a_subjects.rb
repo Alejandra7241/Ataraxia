@@ -273,6 +273,18 @@ Subject.create([
         {code: 2016688, name: 'Mecánica Cuántica II', credits: 3},
         {code: 2016663, name: 'Introducción al Estado Sólido', credits: 3},
         {code: 2016689, name: 'Introducción a la física subátomica', credits: 3},
-        {code: 2016694, name: 'Trabajo de Grado', credits: 8}
+        {code: 2016694, name: 'Trabajo de Grado', credits: 8},
+        
+        #Estadistica
+        {code: 2015168, name: 'Fundamentos de matemáticas', credits: 4},
+        {code: 2016366, name: 'Estadística Descriptiva y Exploratoria', credits: 4},
+        {code: 2015181, name: 'Sistemas numéricos', credits: 4},
+        {code: 2015178, name: 'Probabilidad', credits: 4},
+        {code: 2016378, name: 'Álgebra matricial', credits: 4},
+        {code: 2016360, name: 'Análisis de Regresión', credits: 4},
+        {code: 2016345, name: 'Seminario de Estadística', credits: 2},
+        {code: 2016344, name: 'Consultoría estadística', credits: 2},
+        {code: 2015314, name: 'Trabajo de Grado', credits: 8}
+      
 ])
 # *************************************************************************
