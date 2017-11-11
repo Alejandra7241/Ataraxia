@@ -1,6 +1,9 @@
 # ***************************** Lista de Materias***********************************
 
 Subject.create([
+        
+        # -------------------------------------- GENERAL ------------------------------------
+        
         # Nivelación
         {code: 1000002, name: 'Lecto-escritura', credits: 4},
         {code: 1000001, name: 'Matemáticas básicas', credits: 4},
@@ -12,6 +15,7 @@ Subject.create([
         {code: 1000053, name: 'Inglés intensivo III y IV ', credits: 6},        
         {code: 1000074, name: 'Suficiencia en lengua extranjera', credits: 12},
         
+        # -------------------------------------- INGENIERIA ------------------------------------
         # Ingeniería de Sistemas
         {code: 1000004, name: 'Cálculo diferencial', credits: 4},
         {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3},
@@ -96,7 +100,7 @@ Subject.create([
         
         # Nuevas de industrial
         {code: 2015811, name: 'Sociología especial: industrial y del trabajo', credits: 3},
-        {code: 2016601, name: 'Introducción a la ingeniería industrial', credits: 3},
+        {code: 2026805, name: 'Introducción a la ingeniería industrial', credits: 3},
         {code: 2016615, name: 'Taller de invención y creatividad', credits: 3},
         {code: 2016592, name: 'Economía general', credits: 3},
         {code: 2026488, name: 'Taller de herramientas y problemas en ingeniería industrial', credits: 3},
@@ -200,7 +204,9 @@ Subject.create([
         {code: 2016639, name: 'Poscosecha de granos y semillas', credits: 3},
         {code: 2016630, name: 'Electrotecnia', credits: 3},
         {code: 2016626, name: 'Control en biosistemas', credits: 3},
-
+        
+        # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
+        
         #Nuevas de Economia
         {code: 2015270, name: 'Fundamentos de economía', credits: 3},
         {code: 2016007, name: 'Fundamentos de administración', credits: 4},
@@ -232,8 +238,41 @@ Subject.create([
         {code: 8888882, name: 'Optativa', credits: 3},
         {code: 8888883, name: 'Optativa', credits: 3},
         {code: 8888884, name: 'Optativa', credits: 3},
-        {code: 2015300, name: 'Trabajo de Grado', credits: 6}
+        {code: 2015300, name: 'Trabajo de Grado', credits: 6},
         
+        # -------------------------------------- CIENCIAS ------------------------------------
         
+        #Fisica
+        {code: 2016650, name: 'Fundamentos de Física Experimental', credits: 3},
+        {code: 2016651, name: 'Fundamentos de Física Teórica', credits: 3},
+        {code: 2016377, name: 'Cálculo diferencial en una variable', credits: 4},
+        {code: 2016653, name: 'Taller de Matemáticas y Ciencias', credits: 3},
+        {code: 2015555, name: 'Álgebra lineal básica', credits: 4},
+        {code: 2016678, name: 'Mediciones Mecánicas', credits: 3},
+        {code: 2015176, name: 'Mecanica newtoniana', credits: 4},
+        {code: 2015556, name: 'Cálculo integral en una variable', credits: 4},
+        {code: 2015162, name: 'Calculo vectorial', credits: 4},
+        {code: 2016680, name: 'Mediciones Electromagnéticas', credits: 3},
+        {code: 2016657, name: 'Electricidad y Magnetismo', credits: 3},
+        {code: 2016342, name: 'Cálculo de ecuaciones diferenciales ordinarias', credits: 4},
+        {code: 2016679, name: 'Mecánica Analítica I', credits: 3},
+        {code: 2016682, name: 'Oscilaciones y Ondas', credits: 3},
+        {code: 2016675, name: 'Matemáticas especiales I para física', credits: 3},
+        {code: 2016686, name: 'Relatividad', credits: 3},
+        {code: 2016687, name: 'Experimentos en Física Moderna', credits: 3},
+        {code: 2016677, name: 'Mecánica Analítica II', credits: 3},
+        {code: 2016658, name: 'Electrodinámica I', credits: 3},
+        {code: 2016676, name: 'Matemáticas especiales II para física', credits: 3},
+        {code: 2016693, name: 'Termodinámica - Modulo Experimental', credits: 2},
+        {code: 2016691, name: 'Termodinámica-módulo de teoría', credits: 2},
+        {code: 2016659, name: 'Electrodinámica II', credits: 3},
+        {code: 2015554, name: 'Mecánica Cuántica I', credits: 4},
+        {code: 2016681, name: 'Mediciones de óptica y acústica', credits: 3},
+        {code: 2016690, name: 'Mecánica Estadística', credits: 3},
+        {code: 2016665, name: 'Temas de Física Contemporánea', credits: 1},
+        {code: 2016688, name: 'Mecánica Cuántica II', credits: 3},
+        {code: 2016663, name: 'Introducción al Estado Sólido', credits: 3},
+        {code: 2016689, name: 'Introducción a la física subátomica', credits: 3},
+        {code: 2016694, name: 'Trabajo de Grado', credits: 8}
 ])
 # *************************************************************************

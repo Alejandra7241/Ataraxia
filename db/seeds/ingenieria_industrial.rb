@@ -57,7 +57,7 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-subj = Subject.find_by(code: 2016601)
+subj = Subject.find_by(code: 2026805)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
@@ -341,7 +341,7 @@ chs_materia.followers << [
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016615).id) 
 chs_materia.followers << [
         #Introduccion a la ingenieria industrial
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016601).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026805).id)
         ]   
 #Programación orientada a objetos
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016615).id) 
@@ -371,7 +371,7 @@ chs_materia.followers << [
         #Calculo diferencial
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 1000004).id),
         #Introduccion a la ingenieria industrial
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016601).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026805).id)
         ] 
 #Taller de herramientas y problemas en ingeniería industrial
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026488).id) 
@@ -379,7 +379,7 @@ chs_materia.followers << [
         #Calculo diferencial
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 1000004).id),
         #Introduccion a la ingenieria industrial
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016601).id),
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026805).id),
         #Programacion orientada a objetos
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016375).id)
         ] 
