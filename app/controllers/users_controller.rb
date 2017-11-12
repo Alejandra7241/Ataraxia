@@ -19,9 +19,9 @@ class UsersController < ApplicationController
   public
   
   def show
-   @user = User.find(params[:id])
+   @user = User.find_by_id(params[:id])
    carrera=@user.carrer;
-   @career =  Career.find_by(code: carrera)
+   @career =  Career.find_by_code(carrera)
   end
   
   def index

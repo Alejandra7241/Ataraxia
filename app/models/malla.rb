@@ -27,7 +27,7 @@ class Malla < ApplicationRecord
     end
     
     def self.find_malla_by_tipo(tipo)
-        Malla.find_by(tipo: tipo)
+        self.find_by(tipo: tipo)
     end
 
     
@@ -41,9 +41,13 @@ class Malla < ApplicationRecord
         #         array_of_chs << CareerHasSubject.find(current_chs)
         #     end
         #end
-        puts "Puuut your money en me #{career_id} -> #{malla_id}"
+
+
 
         @malla = Malla.find(malla_id)
+
+        puts "Puuut your money on me #{career_id} -> #{malla_id}"
+
         @clean_from_semester = User.find(student_id).current_semester
         @current_semester = @malla.semesters.length + 1
         if User.find(student_id).mis_cursos_added
@@ -122,6 +126,10 @@ class Malla < ApplicationRecord
    
     def self.find_malla_personal_by_student_id(student_id)
         Malla.find_by(student_id: student_id, tipo: 'Personal')
+    end
+    
+    def self.find_malla_by_student(student_id, tipo_malla)
+        self.find_by(student_id: student_id, tipo: tipo_malla)
     end
 
     def self.find_by_id(id_malla)

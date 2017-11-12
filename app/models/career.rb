@@ -5,10 +5,6 @@ class Career < ApplicationRecord
     has_many :subjects, through: :career_has_subjects
     
     
-    def self.find_by_code(code)
-        self.find_by(code: code)
-    end
-    
     def self.search_in_new_subjects(subjects_array, code)
         subjects_array.each do |elem|
             elem.each do |key, value| 
@@ -97,6 +93,10 @@ class Career < ApplicationRecord
     
     def self.find_by_id(id_career)
         self.find(id_career)
+    end
+    
+    def self.find_by_code(code)
+        self.find_by(code: code)
     end
     
     
