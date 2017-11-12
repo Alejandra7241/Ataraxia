@@ -72,9 +72,6 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     console.log(name);
     console.log(array_prerequisites);
     console.log(array_prerequisites.length);
-
-    console.log(array_postrequisites);
-    console.log(array_postrequisites.length);
     //$('#editingSubjectsi').modal('toggle');
     document.getElementById("nameSubjectModal").innerHTML = name;
     document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
@@ -125,7 +122,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     }else{
         document.getElementById("jschangeiii").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
-            var current_subject = array_of_subjects[index].split("&");
+            var current_subject = array_of_subjects[index].split(",");
             
                 current_code = current_subject[0];
                 current_name = current_subject[1];
@@ -166,7 +163,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     }else{
         document.getElementById("jschangeiv").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
-            var current_subject = array_of_subjects[index].split("&");
+            var current_subject = array_of_subjects[index].split(",");
 
             current_code = current_subject[0];
             current_name = current_subject[1];
@@ -257,3 +254,4 @@ function create_electiva(malla_id){
     //console.log("reached");
 
 }
+;

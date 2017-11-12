@@ -7,4 +7,9 @@ class StudentHasSubject < ApplicationRecord
         puts "// #{chs_id}"
         Float(@user.student_has_subjects.find_by(career_has_subject_id: chs_id).grade) rescue return 5.1
     end
+
+
+  def self.is_approved_by_student(student_id)
+      #self StudentHasSubject.find_by()
+  end
 end

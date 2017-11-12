@@ -125,7 +125,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     }else{
         document.getElementById("jschangeiii").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
-            var current_subject = array_of_subjects[index].split("&");
+            var current_subject = array_of_subjects[index].split(",");
             
                 current_code = current_subject[0];
                 current_name = current_subject[1];
@@ -166,7 +166,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     }else{
         document.getElementById("jschangeiv").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
-            var current_subject = array_of_subjects[index].split("&");
+            var current_subject = array_of_subjects[index].split(",");
 
             current_code = current_subject[0];
             current_name = current_subject[1];
@@ -257,3 +257,4 @@ function create_electiva(malla_id){
     //console.log("reached");
 
 }
+;

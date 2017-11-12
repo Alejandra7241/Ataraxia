@@ -35,6 +35,7 @@ Rails.application.routes.draw do
     post 'search_prerequisite', to:'admin#search_prerequisite', as: 'search_prerequisite'
     post 'change_semester', to: 'admin#change_semester', as: 'change_semester'
     post 'remove_pre', to: 'admin#remove_pre'
+    post 'remove_post', to: 'admin#remove_post'
     post 'add_pre', to: 'admin#add_pre'
     post 'add_existing_subject', to: 'admin#add_existing_subject'
   end
@@ -110,7 +111,7 @@ Rails.application.routes.draw do
     get 'malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'
     get 'malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
     get 'malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
-    
+    post 'malla_optima', to: 'student#malla_optima', as: 'generate_student_malla_optima'
     #Estadisticas
     get 'estadisticas', to: 'student#estadisticas', as: 'student_estadisticas'
     get 'malla_estadisticas', to: 'student#malla_estadisticas', as: 'student_malla_estadisticas'

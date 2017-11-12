@@ -195,7 +195,7 @@ class Historiaacademica < ApplicationRecord
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
     Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
+    #Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
     ActiveRecord::Base.logger = old_logger
   end
 end

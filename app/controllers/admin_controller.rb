@@ -80,9 +80,10 @@ class AdminController < ApplicationController
   def remove_pre
     #@subject = Subject.new(subject_params)
     #puts @subject.typology
+    @career = Career.find_by_code(params[:code_career].to_i)
     @subject = Subject.find_by_code(params[:code])
     @subject_removed = Subject.find_by_code(params[:code_to_remove])
-    CareerHasSubject.remove_pre(1, @subject_removed.id, @subject.id)
+    CareerHasSubject.remove_pre(@career.id, @subject_removed.id, @subject.id)
     puts params[:code]
     respond_to do |format|
       #if @subject.save
@@ -94,6 +95,22 @@ class AdminController < ApplicationController
         #format.json { render json: @subject.errors, status: :unprocessable_entity }
       #end
     end
+  end
+
+
+  def remove_post
+    #@subject = Subject.new(subject_params)
+    #puts @subject.typology
+
+    @career = Career.find_by_code(params[:code_career].to_i)
+    @subject = Subject.find_by_code(params[:code])
+    @subject_removed = Subject.find_by_code(params[:code_to_remove])
+    CareerHasSubject.remove_post(@career.id, @subject_removed.id, @subject.id)
+    puts params[:code]
+    flash[:error] = "Se ha eliminado la materia " + @subject_removed.name + " como prerrequisito de " + @subject.name.to_s
+    redirect_back fallback_location: root_path
+
+
   end
   
   def add_existing_subject

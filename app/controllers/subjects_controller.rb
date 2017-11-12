@@ -144,31 +144,45 @@ class SubjectsController < ApplicationController
   
   
   def open_modal
-    puts "Mmmodal action"
-    @code_career = params[:code_career]
+
+    code_career = params[:code_career]
+    @code_career = code_career
     role = params[:role]
     puts "Role: #{@role}"
     @subject = Subject.find_by_id(params[:s])
     name = @subject.name
     code = @subject.code
     preList = ""
+    postList = ""
     puts code
     if CareerHasSubject.has_prerequisites(@code_career,code) == true
       CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
         cur_subj = Subject.find_by_id(pre.subject_id)
         typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
-        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+        preList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
+      end
+    end
+
+    if CareerHasSubject.is_prerequisite_of_something(@code_career,code) == true
+      CareerHasSubject.get_opened_subjects(@code_career, code).each do |post|
+        cur_subj = Subject.find_by_id(post.subject_id)
+        typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
+        postList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
       end
     end
     preList.chop!
     puts "#####//////////"
     print preList
     puts "#########/////"
+    postList.chop!
+    puts "#####//////////"
+    print postList
+    puts "#########/////"
     typology = params[:typ]
     credits = @subject.credits
     
     respond_to do |format|
-      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{role}')" }
+      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{postList}', '#{role}', '#{code_career}')" }
     end
     
   end

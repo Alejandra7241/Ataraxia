@@ -41,6 +41,10 @@ class CareerHasSubject < ApplicationRecord
     def self.has_prerequisites(code_carrer, code_subject)
         return CareerHasSubject.get_prerequisites(code_carrer, code_subject).any?
     end
+
+    def self.is_prerequisite_of_something(code_carrer, code_subject)
+        return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees.any?
+    end
     
     def self.add_pre(id_career, id_subj, id_pre)
         chs_materia = CareerHasSubject.find_by(career_id: id_career, subject_id: id_subj) 
@@ -53,10 +57,17 @@ class CareerHasSubject < ApplicationRecord
         chs_prerrequisito = CareerHasSubject.find_by(career_id: id_career, subject_id: id_pre) 
         Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
     end
+
+
+    def self.remove_post(id_career, id_pre, id_subj)
+        chs_materia = CareerHasSubject.find_by(career_id: id_career, subject_id: id_subj)
+        chs_prerrequisito = CareerHasSubject.find_by(career_id: id_career, subject_id: id_pre)
+        Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
+
+    end
     
     # Materias no aprobadas de la carrera
-    def self.get_subjects_not_approved_by_a_student(id_student, id_career)  
-        puts "Afterglow"
+    def self.get_subjects_not_approved_by_a_student(id_student, id_career)
         @user = User.find(id_student)
         
         # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
@@ -91,8 +102,53 @@ class CareerHasSubject < ApplicationRecord
         # end
         puts (array_of_chs_not_approved - array_of_chs_approved).length
         puts "================="
-        puts "h"
+
         array_of_chs_not_approved
+    end
+
+
+
+
+
+    # Materias no aprobadas exluyendo las que están siendo vistas de la carrera
+    def self.subjects_not_approved_not_current_by_a_student(id_student, id_career)
+        @user = User.find(id_student)
+
+        # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
+        @career = Career.find(id_career)
+        mallaEst = @career.mallas.find_by(tipo: 'Estándar')
+        array_of_chs_not_approved_not_current = []
+
+        # Materias aprobadas o que están siendo vistas de la carrera
+        array_of_chs_approved_or_current = CareerHasSubject.current_and_approved_subjects_by_student(id_student, id_career)
+
+        # Arreglo de chs que faltan por aprobar respecto a la malla estándar
+        mallaEst.semesters.each do |sem|
+            sem.career_has_subjects.each do |chs|
+                next if chs.typology == "L"
+                next if array_of_chs_approved_or_current.include? chs
+
+                array_of_chs_not_approved_not_current << chs
+            end
+        end
+        array_of_chs_not_approved_not_current
+    end
+
+    # Materias aprobadas o que están siendo vistas de la carrera
+    def self.current_and_approved_subjects_by_student(id_student, id_career)
+
+        # Ver las materias de la malla estándar semestre por semestre y
+        # consultar una por una si el estudiante ya las tiene o si las está viendo
+        array_of_chs_approved_or_current = []
+        StudentHasSubject.where(student_id: id_student).where('approved=? OR currently_attending=?', true, true).each do |shs|
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+            if chs.career_id == id_career
+                array_of_chs_approved_or_current << chs
+            end
+        end
+
+        array_of_chs_approved_or_current
+
     end
     
     # Materias aprobadas de la carrera

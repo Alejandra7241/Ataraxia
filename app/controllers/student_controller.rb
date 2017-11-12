@@ -66,9 +66,14 @@ class StudentController < ApplicationController
     
     
     def malla_optima
+
+      @credits =  params[:credits]
+
       @user = current_user
       @subject = Subject.new
-      @malla_optima = Malla.find_malla_by_student(@user.id, 'Optima')
+      Malla.destroy_all_mallas_by_tipo(@user.id, 'Optima')
+      @malla_personal_id = Malla.find_malla_by_student(@user.id,'Personal').id
+      @malla_optima = Malla.duplicate_malla(@malla_personal_id, 'Optima')
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
       prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
@@ -77,16 +82,34 @@ class StudentController < ApplicationController
       # puts credits
       # puts "Prerequisites: "
       # puts prerequisites
-      the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, 18)
+
+
+      prerequisites.each do |k,v |
+        puts "#{Subject.find(CareerHasSubject.find(k).subject_id).name} -> #{v}"
+      end
+      the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, @credits.to_i)
       #puts " #{current_optimization.get_optimization}"
       @optimization = the_grandeur_optimization.get_optimization
+      if the_grandeur_optimization.get_optimization.empty?
+        flash[:error] = "Has intentado optimizar con muy pocos créditos por semestre ¡Intenta con más!"
+        redirect_to student_index_path
+      end
+
+
       puts "//////////////////////////////////////////##################//////////////// #{the_grandeur_optimization.get_optimization}"
       #redirect_back fallback_location: root_path
       Optimization.filter_out_trabajo_de_grado(@optimization)
 
-
-      #puts "current_semester = #{current_user.current_semester}"
       Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization) # (student_id, career_id, malla_id)
+
+      # puts "Wirklich?"
+      # @malla_optima.semesters.each do |sem|
+      #   sem.career_has_subjects.each do |chs|
+      #     puts "#{Subject.find(chs.subject_id).name}"
+      #   end
+      # end
+      #redirect_back fallback_location: root_path
+      #puts "current_semester = #{current_user.current_semester}"
 
 
     end
@@ -158,15 +181,8 @@ class StudentController < ApplicationController
         @ready_to_read = false
         @current_semester = current_user.current_semester
         @malla_personal = Malla.find_malla_by_student(current_user.id, 'Personal')
-        @malla_optima = Malla.find_malla_by_student(current_user.id, 'Optima')
-        @semester_personal = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
-        @semester_optima = Semester.create(number: @current_semester, malla_id: @malla_optima.id)
-
-
-
+        @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @mis_cursos_data.each_line do |line|
-
-
             if line =~ /\d/
                 puts line
                 line = line.split.join(" ")
@@ -179,7 +195,7 @@ class StudentController < ApplicationController
               if @ready_to_read
                 codigo_actual = processing[0].split('-')
                 begin
-                  # @subject = Subject.find_by_code(codigo_actual)
+                  #
                   # chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
                   # #chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_optima.career_id)
                   # @semester_personal.career_has_subjects << chs
@@ -192,45 +208,24 @@ class StudentController < ApplicationController
                   #     @updated = true
                   # end
 
+                  @subject = Subject.find_by_code(codigo_actual)
 
 
-
-
-                    sem = Semester.create(number: current_semester, malla_id: current_malla.id)
-                    semester.each do |code_subject, grade_subject|
-                      puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
-                      subj = Subject.find_by(code: code_subject)
-
-                      if subj.nil?
-
-                        current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
-                        puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
-
-                        subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
-                        SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
-                      else
+                      unless @subject.nil?
+                        #
+                        # current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
+                        # puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
+                        #
+                        # subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
+                        # SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
                         begin
-                          chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
-                          sem.career_has_subjects << chs
-                          if grade_subject.to_f >=  3.0
-                            StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
-                          else
-                            StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f)
-                          end
-
+                          chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                          @semester.career_has_subjects << chs
+                          StudentHasSubject.create(student_id: current_user.id, career_has_subject_id: chs.id, grade: -1, currently_attending: true)
                         rescue
-                          if grade_subject.to_f >= 3.0
-                            SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id, approved: true)
-                          else
-                            SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
-                          end
+                          SemesterHasStudentSubject.create(subject_id: @subject.id, semester_id: @semester.id)
                         end
                       end
-                      Subject.update_average(code_subject, grade_subject)
-
-                    end
-
-                    current_semester += 1
 
                 rescue
                   puts "Fake line!"
