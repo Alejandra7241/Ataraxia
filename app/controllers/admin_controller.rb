@@ -47,8 +47,6 @@ class AdminController < ApplicationController
     name = @subject.name unless @subject.nil?
     code = @subject.code unless @subject.nil?
     typology = CareerHasSubject.get_typology(@subject.id, id_career) unless @subject.nil?
-    # Alternativa: 
-    # typology = CareerHasSubject.find_by(career_id: @career.id, subject_id: @subject.id).typology
     respond_to do |format|
       format.js { render :js => "addPrerequisite('#{name}','#{code}','#{typology}', '#{@subject_to_add_code}')" }
     end

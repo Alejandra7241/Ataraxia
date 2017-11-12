@@ -20,7 +20,7 @@ class StudentController < ApplicationController
     def malla_estadisticas
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
+        @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
          respond_to do |format| 
             format.html
@@ -32,8 +32,8 @@ class StudentController < ApplicationController
     def malla_dificiles
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_code(@user.carrer)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
     end
     
     def malla_personal
@@ -55,7 +55,7 @@ class StudentController < ApplicationController
     def malla_avance
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
+        @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
@@ -68,7 +68,7 @@ class StudentController < ApplicationController
     def malla_optima
       @user = current_user
       @subject = Subject.new
-      @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
+      @malla_optima = Malla.find_malla_by_student(@user.id, 'Optima')
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
       prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
@@ -121,7 +121,6 @@ class StudentController < ApplicationController
         @subject = Subject.new
         @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
-        #@malla = @career.mallas.find_by(tipo: "Estándar")
     end
 
     def historia_academica
@@ -337,8 +336,8 @@ class StudentController < ApplicationController
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
-        @malla_personal = Malla.find_by_student_id(current_user.id)
-        @malla_optima = current_user.student_mallas.find_by(tipo: 'Optima')
+        @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
+        @malla_optima = Malla.find_malla_by_student(current_user.id, 'Optima')
         @semester_personal = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @semester_optima = Semester.create(number: @current_semester, malla_id: @malla_optima.id)
         #User.update(current_user.id, current_semester: @current_semester + 1 )
@@ -363,8 +362,6 @@ class StudentController < ApplicationController
                   @subject = Subject.find_by_code(codigo_actual)
                   puts @subject.name
                   chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
-
-                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
                   @semester_personal.career_has_subjects << chs
                   @semester_optima.career_has_subjects << chs
                     #THey are not added to StudentHasSubjects
