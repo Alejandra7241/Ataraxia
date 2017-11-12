@@ -42,17 +42,23 @@ class Malla < ApplicationRecord
         #     end
         #end
         puts "Puuut your money en me #{career_id} -> #{malla_id}"
+
+        @malla = Malla.find(malla_id)
         @clean_from_semester = User.find(student_id).current_semester
-        @clean_from_semester += 1 if User.find(student_id).mis_cursos_added
+        @current_semester = @malla.semesters.length + 1
+        if User.find(student_id).mis_cursos_added
+            @clean_from_semester += 1
+            @current_semester += 1
+        end
 
 
 
 
         @counter = 0
-        @malla = Malla.find(malla_id)
+
 
         @malla.semesters.where("number >= ?", @clean_from_semester ).destroy_all
-        @current_semester = @malla.semesters.length + 1
+
 
 
 

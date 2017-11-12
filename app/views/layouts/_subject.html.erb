@@ -7,18 +7,18 @@
 <% rescue%>
 
 <% end %>
-
+<% s_vista ||= "not_assigned" %>
 <% unless estadisticas %>
  <% unless @show_approved and @not_approved%>
         <div id="subj" >
             <%begin%>
-              <% if vista == "student_malla" %>
+              <% if vista == "student_malla"  && s_vista == "personal" %>
 
                   <% if sem.number >= User.get_current_semester(current_user.id) %>
             <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %>
             <% end %>
 
-              <% elsif vista == "admin_malla"  %>
+              <% elsif vista == "admin_malla"   %>
 
                   <%= link_to "&times;".html_safe, remove_subject_path(chs.id, sem.id), :class => 'close', :style => 'padding-right: 5px;' %>
 

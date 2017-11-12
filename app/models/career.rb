@@ -31,8 +31,10 @@ class Career < ApplicationRecord
     end
     
     # Destruir todas las mallas personales del usuario
-    Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
 
+
+    Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
+    puts "Code career #{code_career}"
     current_malla = Malla.create(tipo: tipo_malla, student_id: id_user, career_id: Career.find_by_code(code_career).id) 
     current_semester = 1
     subjects.each do |semester|
