@@ -118,6 +118,6 @@ class CareerHasSubject < ApplicationRecord
   end
   
   def self.get_typology(id_subject, id_career)
-      self.get_typology(id_subject, id_career).typology
+      self.find_by(subject_id: id_subject, career_id: id_career).typology
   end
 end
