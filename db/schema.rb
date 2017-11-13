@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112171914) do
+ActiveRecord::Schema.define(version: 20171112225843) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -113,6 +113,7 @@ ActiveRecord::Schema.define(version: 20171112171914) do
     t.integer "student_id"
     t.integer "career_has_subject_id"
     t.boolean "currently_attending", default: false
+    t.boolean "fake_approved"
     t.index ["career_has_subject_id"], name: "index_student_has_subjects_on_career_has_subject_id"
     t.index ["student_id"], name: "index_student_has_subjects_on_student_id"
   end

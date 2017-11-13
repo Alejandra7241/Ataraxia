@@ -34,7 +34,32 @@ class Malla < ApplicationRecord
     def self.find_unique()
     end
     
-    def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization)
+    def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization, finals, max_credits)
+
+        @credits_for_last_semester = 0
+        optimization[optimization.keys.last].each do |chs_id|
+            @credits_for_last_semester += Subject.find(CareerHasSubject.find(chs_id).subject_id).credits
+        end
+
+        finals.each do |chs_id|
+            @credits_for_last_semester += Subject.find(CareerHasSubject.find(chs_id).subject_id).credits
+        end
+
+        @create_other = false
+        @create_other = true if @credits_for_last_semester > max_credits
+        @last_key = optimization.keys.last + 1
+        if @create_other
+            optimization[@last_key] = []
+            finals.each do |chs_id|
+                optimization[@last_key] << chs_id
+            end
+        else
+            finals.each do |chs_id|
+            optimization[optimization.keys.last] << chs_id
+            end
+
+        end
+
         @malla_optima = Malla.find(malla_id)
         @current_semester = @malla_optima.semesters.length + 1
         puts "Puuut your money on me #{career_id} -> #{malla_id}"

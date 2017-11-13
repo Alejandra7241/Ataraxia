@@ -140,7 +140,8 @@ class CareerHasSubject < ApplicationRecord
         # Ver las materias de la malla estándar semestre por semestre y
         # consultar una por una si el estudiante ya las tiene o si las está viendo
         array_of_chs_approved_or_current = []
-        StudentHasSubject.where(student_id: id_student).where('approved=? OR currently_attending=?', true, true).each do |shs|
+        StudentHasSubject.where(student_id: id_student).where('approved=? OR currently_attending=? OR fake_approved=?', true, true, true).each do |shs|
+
             chs = CareerHasSubject.find(shs.career_has_subject_id)
             if chs.career_id == id_career
                 array_of_chs_approved_or_current << chs
@@ -169,11 +170,21 @@ class CareerHasSubject < ApplicationRecord
     end
 
 
-  def self.find_by_subject_id_and_career_id(student_id, career_id)
-      CareerHasSubject.find_by(subject_id: student_id, career_id: career_id)
+  def self.find_by_subject_id_and_career_id(subject_id, career_id)
+      CareerHasSubject.find_by(subject_id: subject_id, career_id: career_id)
   end
   
   def self.get_typology(id_subject, id_career)
       self.find_by(subject_id: id_subject, career_id: id_career).typology
   end
+
+
+    # Materias que están siendo vistas actualmente
+    def self.current_subjects_by_student(id_student, id_career)
+        current_subjects = []
+        StudentHasSubject.where(student_id: id_student, currently_attending: true).each do |shs|
+            current_subjects << CareerHasSubject.find(shs.career_has_subject_id)
+        end
+      current_subjects
+    end
 end

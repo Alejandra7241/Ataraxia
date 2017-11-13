@@ -30,6 +30,11 @@ class Subject < ApplicationRecord
     
     def self.search_subject_by_code_not_added(code, malla_id)
         current_subject = self.find_by(code: code)
+        begin
+        @id_current_subject = current_subject.id
+        rescue
+            return -1
+        end
         puts current_subject
         puts current_subject.id
         puts current_subject.name

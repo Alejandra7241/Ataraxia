@@ -32,7 +32,7 @@ Rails.application.routes.draw do
     get 't', to: 'admin#t', as: 'admin_remote_modal'
     
     #Adding subjects via post
-    post 'search_prerequisite', to:'admin#search_prerequisite', as: 'search_prerequisite'
+    post 'search_prerequisite/:id_career', to:'admin#search_prerequisite', as: 'search_prerequisite'
     post 'change_semester', to: 'admin#change_semester', as: 'change_semester'
     post 'remove_pre', to: 'admin#remove_pre'
     post 'remove_post', to: 'admin#remove_post'
@@ -122,6 +122,7 @@ Rails.application.routes.draw do
   scope 'mallas' do
     #Adding subjects via post
     post 'add_subject_to_malla', to: 'mallas#add_subject_to_malla'
+    post 'add_subject_to_malla_by_student', to: 'mallas#add_subject_to_malla_by_student'
     get 'add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
     get 'remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   end

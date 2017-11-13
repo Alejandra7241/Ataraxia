@@ -310,6 +310,37 @@ class Optimization < ApplicationRecord
 
 
 
+  def self.filter_out_trabajo_de_grado_before(graph, credits, prerequisites)
+    #The optimization hash :   {1=>[308, 312, 321, 319, 317, 316], 2=>[314, 330, 318, 315, 311], 3=>[313, 320]}
+
+    chs_ids_deleted = []
+
+    graph.each do |k, v|
+        chs_id = k
+        this_chs = CareerHasSubject.find(chs_id)
+        if Subject.find(this_chs.subject_id).name == "Trabajo de grado"
+          chs_ids_deleted << chs_id
+        end
+
+
+    end
+
+
+
+    chs_ids_deleted.each do |chs_id|
+      graph.delete(chs_id)
+      credits.delete(chs_id)
+      prerequisites.delete(chs_id)
+      #optimization_hash[optimization_hash.keys.last] << chs_id
+
+    end
+
+
+    return graph, credits, prerequisites, chs_ids_deleted
+
+  end
+
+
 
 
 

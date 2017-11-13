@@ -90,7 +90,8 @@ class SubjectsController < ApplicationController
     puts params[:data]
     @code =  params[:subject][:code] rescue @code = params[:code]
     @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
-    puts "////// Was ist denn passiert?"
+
+    puts "////// Was ist denn passiert mit diese #{@subject}?"
     @typology = 'L'
     puts "#{params[:code_career]}"
     unless @subject.is_a? Integer
@@ -104,16 +105,20 @@ class SubjectsController < ApplicationController
         end
       end
     end
-    
-              
+
+    if current_user.admin?
+      @role = "admin"
+    else
+      @role = "student"
+    end
 
     respond_to do |format|
       unless @subject.is_a? Integer
         
-        format.js { render :js => "searchSubject('#{name}','#{code}','#{@typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}')" }
+        format.js { render :js => "searchSubject('#{name}','#{code}','#{@typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}', '#{@role}')" }
       else
-        format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1')" } if @subject == -1
-        format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1')" } if @subject == 0
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1', '-1')" } if @subject == -1
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1', '-1')" } if @subject == 0
       end
     end
     

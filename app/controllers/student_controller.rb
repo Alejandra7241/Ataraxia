@@ -77,13 +77,25 @@ class StudentController < ApplicationController
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
       prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
-      # puts "graph -> #{graph}"
-      # puts "Credits: "
-      # puts credits
-      # puts "Prerequisites: "
-      # puts prerequisites
 
 
+      puts "graph -> #{graph}"
+      puts "Credits: "
+      puts credits
+      puts "Prerequisites: "
+      puts prerequisites
+
+
+      finals = []
+      graph, credits, prerequisites, finals  = Optimization.filter_out_trabajo_de_grado_before(graph, credits, prerequisites)
+
+
+
+      puts "graph -> #{graph}"
+      puts "Credits: "
+      puts credits
+      puts "Prerequisites: "
+      puts prerequisites
       prerequisites.each do |k,v |
         puts "#{Subject.find(CareerHasSubject.find(k).subject_id).name} -> #{v}"
       end
@@ -98,10 +110,10 @@ class StudentController < ApplicationController
 
       puts "//////////////////////////////////////////##################//////////////// #{the_grandeur_optimization.get_optimization}"
       #redirect_back fallback_location: root_path
-      Optimization.filter_out_trabajo_de_grado(@optimization)
+      #Optimization.filter_out_trabajo_de_grado(@optimization)
 
-      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization) # (student_id, career_id, malla_id)
-
+      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization, finals, @credits.to_i) # (student_id, career_id, malla_id)
+      #redirect_to student_index_path
       # puts "Wirklich?"
       # @malla_optima.semesters.each do |sem|
       #   sem.career_has_subjects.each do |chs|
