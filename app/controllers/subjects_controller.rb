@@ -13,7 +13,6 @@ class SubjectsController < ApplicationController
   # GET /subjects/1
   # GET /subjects/1.json
   def show
-    @malla = Malla.find_by nombre: 'Ingeniería de Sistemas y Computación'
   end
 
   # GET /subjects/new
@@ -28,7 +27,7 @@ class SubjectsController < ApplicationController
     code = @subject.code unless @subject.nil?
     id = @subject.id unless @subject.nil?
     credits = @subject.credits unless @subject.nil?
-    typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.nil?
+    typology = CareerHasSubject.get_typology(@subject.id, Career.find_by_code(params[:code_career])) unless @subject.nil?
     respond_to do |format|
       unless @subject.nil?
         format.js { render :js => "editASubject('#{id}','#{name}','#{code}','#{typology}','#{credits}')" }
@@ -90,33 +89,36 @@ class SubjectsController < ApplicationController
     @constraint = params[:constraint]
     puts params[:data]
     @code =  params[:subject][:code] rescue @code = params[:code]
-    #@subject = Subject.find_by_code(@code)
     @subject = Subject.search_subject_by_code_not_added(@code, params[:data])
-    puts "////// Was ist denn passiert?"
+
+    puts "////// Was ist denn passiert mit diese #{@subject}?"
     @typology = 'L'
     puts "#{params[:code_career]}"
     unless @subject.is_a? Integer
       name = @subject.name
       code = @subject.code
       credits = @subject.credits
-      @malla = Malla.find(params[:data])
+      @malla = Malla.find_by_id(params[:data])
       @malla.semesters.each do |semester|
         semester.career_has_subjects.each do |chs|
           @typology = chs.typology if chs.subject_id == @subject.id
         end
       end
     end
-    
-              
-              
-    #typology = @subject.career_has_subjects.find_by(career_id: Career.find_by_code(params[:code_career])).typology unless @subject.is_a? Integer
+
+    if current_user.admin?
+      @role = "admin"
+    else
+      @role = "student"
+    end
+
     respond_to do |format|
       unless @subject.is_a? Integer
         
-        format.js { render :js => "searchSubject('#{name}','#{code}','#{@typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}')" }
+        format.js { render :js => "searchSubject('#{name}','#{code}','#{@typology}','#{credits}', 'found', '#{params[:data]}', '#{params[:code_career]}', '#{@role}')" }
       else
-        format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1')" } if @subject == -1
-        format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1')" } if @subject == 0
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'not_found', '-1', '-1', '-1')" } if @subject == -1
+        format.js { render :js => "searchSubject('x','-1','x','-1', 'found', '-1', '-1', '-1')" } if @subject == 0
       end
     end
     
@@ -129,7 +131,8 @@ class SubjectsController < ApplicationController
     #puts @subject.typology
     @chs_id = params[:chs_id].to_i
     @sem_id = params[:sem_id].to_i
-    @subject = Subject.find(CareerHasSubject.find(@chs_id).subject_id)
+    @chs = CareerHasSubject.find_by_id(@chs_id)
+    @subject = Subject.find_by_id(@chs.subject_id)
     puts "#{@chs_id} und #{@sem_id}"
     Malla.remove_subject_from_malla(@chs_id, @sem_id, current_user.id)
     respond_to do |format|
@@ -146,31 +149,45 @@ class SubjectsController < ApplicationController
   
   
   def open_modal
-    puts "Mmmodal action"
-    @code_career = params[:code_career]
+
+    code_career = params[:code_career]
+    @code_career = code_career
     role = params[:role]
     puts "Role: #{@role}"
-    @subject = Subject.find(params[:s])
+    @subject = Subject.find_by_id(params[:s])
     name = @subject.name
     code = @subject.code
     preList = ""
+    postList = ""
     puts code
     if CareerHasSubject.has_prerequisites(@code_career,code) == true
       CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
-        cur_subj = Subject.find(pre.subject_id)
-        typology = cur_subj.career_has_subjects.find_by(career_id: Career.find_by_code(@code_career).id).typology unless cur_subj.nil?
-        preList +=  cur_subj.code.to_s + "," +  cur_subj.name.to_s + ","  +  cur_subj.credits.to_s + "," +  typology.to_s + ";"
+        cur_subj = Subject.find_by_id(pre.subject_id)
+        typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
+        preList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
+      end
+    end
+
+    if CareerHasSubject.is_prerequisite_of_something(@code_career,code) == true
+      CareerHasSubject.get_opened_subjects(@code_career, code).each do |post|
+        cur_subj = Subject.find_by_id(post.subject_id)
+        typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
+        postList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
       end
     end
     preList.chop!
     puts "#####//////////"
     print preList
     puts "#########/////"
+    postList.chop!
+    puts "#####//////////"
+    print postList
+    puts "#########/////"
     typology = params[:typ]
     credits = @subject.credits
     
     respond_to do |format|
-      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{role}')" }
+      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{postList}', '#{role}', '#{code_career}')" }
     end
     
   end
@@ -186,7 +203,7 @@ class SubjectsController < ApplicationController
     preList = ""
 
     Subject.get_electivas_not_seen_by_student(@career_id,@student_id).each do |chs|
-        cur_subj = Subject.find(chs.subject_id)
+        cur_subj = Subject.find_by_id(chs.subject_id)
         typology = chs.typology
         preList +=  cur_subj.code.to_s + "|" +  cur_subj.name.to_s + "|"  +  cur_subj.credits.to_s + "|" +  typology.to_s + "|" + chs.id.to_s +  ";"
       end
@@ -238,7 +255,7 @@ class SubjectsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subject
-      @subject = Subject.find(params[:id])
+      @subject = Subject.find_by_id(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

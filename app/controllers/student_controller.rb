@@ -3,7 +3,7 @@ class StudentController < ApplicationController
 
     before_action :require_login
     #DESCOMENTAAAAAAAAAAAAAAAAAAAAAAAAAR DESPUÉS DE PROBAR
-    before_action :check_academic_history, only: [:historia_academica, :index]
+    #before_action :check_academic_history, only: [:historia_academica, :index]
     #self.check_complete_data_for_academic_history(id)
     
     def malla_estandar
@@ -20,7 +20,7 @@ class StudentController < ApplicationController
     def malla_estadisticas
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
+        @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
          respond_to do |format| 
             format.html
@@ -32,8 +32,8 @@ class StudentController < ApplicationController
     def malla_dificiles
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
-        @malla = @career.mallas.find_by(tipo: "Estándar")
+        @career = Career.find_by_code(@user.carrer)
+        @malla = Career.find_malla_estandar_by_career(@career.id)
     end
     
     def malla_personal
@@ -55,7 +55,7 @@ class StudentController < ApplicationController
     def malla_avance
         @user=current_user
         @subject = Subject.new
-        @career = Career.find_by(code: @user.carrer)
+        @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
         respond_to do |format| 
             format.html
@@ -66,27 +66,62 @@ class StudentController < ApplicationController
     
     
     def malla_optima
+
+      @credits =  params[:credits]
+
       @user = current_user
       @subject = Subject.new
-      @malla_optima = @user.student_mallas.find_by(tipo: 'Optima')
+      Malla.destroy_all_mallas_by_tipo(@user.id, 'Optima')
+      @malla_personal_id = Malla.find_malla_by_student(@user.id,'Personal').id
+      @malla_optima = Malla.duplicate_malla(@malla_personal_id, 'Optima')
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
       prerequisites = Optimization.dictionary_of_prerequisites_for_student(current_user.id,@malla_optima.career_id)
-      # puts "graph -> #{graph}"
-      # puts "Credits: "
-      # puts credits
-      # puts "Prerequisites: "
-      # puts prerequisites
-      the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, 18)
+
+
+      puts "graph -> #{graph}"
+      puts "Credits: "
+      puts credits
+      puts "Prerequisites: "
+      puts prerequisites
+
+
+      finals = []
+      graph, credits, prerequisites, finals  = Optimization.filter_out_trabajo_de_grado_before(graph, credits, prerequisites)
+
+
+
+      puts "graph -> #{graph}"
+      puts "Credits: "
+      puts credits
+      puts "Prerequisites: "
+      puts prerequisites
+      prerequisites.each do |k,v |
+        puts "#{Subject.find(CareerHasSubject.find(k).subject_id).name} -> #{v}"
+      end
+      the_grandeur_optimization = Optimization.new(prerequisites, graph ,credits, @credits.to_i)
       #puts " #{current_optimization.get_optimization}"
       @optimization = the_grandeur_optimization.get_optimization
+      if the_grandeur_optimization.get_optimization.empty?
+        flash[:error] = "Has intentado optimizar con muy pocos créditos por semestre ¡Intenta con más!"
+        redirect_to student_index_path
+      end
+
+
       puts "//////////////////////////////////////////##################//////////////// #{the_grandeur_optimization.get_optimization}"
       #redirect_back fallback_location: root_path
-      Optimization.filter_out_trabajo_de_grado(@optimization)
+      #Optimization.filter_out_trabajo_de_grado(@optimization)
 
-
+      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization, finals, @credits.to_i) # (student_id, career_id, malla_id)
+      #redirect_to student_index_path
+      # puts "Wirklich?"
+      # @malla_optima.semesters.each do |sem|
+      #   sem.career_has_subjects.each do |chs|
+      #     puts "#{Subject.find(chs.subject_id).name}"
+      #   end
+      # end
+      #redirect_back fallback_location: root_path
       #puts "current_semester = #{current_user.current_semester}"
-      Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization) # (student_id, career_id, malla_id)
 
 
     end
@@ -121,210 +156,30 @@ class StudentController < ApplicationController
         @subject = Subject.new
         @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
-        #@malla = @career.mallas.find_by(tipo: "Estándar")
     end
 
     def historia_academica
       #When HA setted, redirect with filter
       @history = Historiaacademica.new
     end
-    def is_number? string
-      true if Float(string) rescue false
-    end
+
     def procesar_historia_academica
-        puts "Procesando esta historia academica:"
-        puts "///////////////////////////////////////////////////////////////////////////////////////////"
-        informacion =  params[:historiaacademica][:informacion]
-        informacion.downcase!
-        codigo_carrera = informacion[/\d+/].to_i
-        #puts informacion
-        checking_notes = false
-        hap = Array.new
-        new_subjects = Array.new
-        new_subjects_hash = {}
-        arr = {}
-        roman_numbers = ["i","ii","iii", "iv", "v", "vi", "vii", "viii", "ix", "x", "xi", "xii"]
-        creditos_totales = 0
-        creditos_totales_pa = 0
-        current_semester = 1
-        ponderacion = 0.0
-        ponderacion_pa = 0.0
-        nombre = ""
-        porcentaje = 0.0
-        creditos_aprobados = 0.0
-        creditos_requeridos = 0.0
-        creditos_sobrantes = 0
-        porcentaje_fundamentacion = 0.0
-        porcentaje_disciplinar = 0.0
-        porcentaje_electivas = 0.0
-        creditos_exigidos_fundamentacion = 0
-        creditos_exigidos_disciplinar = 0
-        creditos_exigidos_electivas = 0
-        checking_name = false
-        informacion.each_line do |line|
-            
-            if line =~ /\d/
-                line = line.split.join(" ")
-                processing = line.split(' ')
-                if processing[0].to_i == 1
-                    checking_notes = true
-                    next
-                end
-                #puts processing[0]
-                if processing[0] == "exigidos"
-                    creditos_requeridos = processing[-3].to_f
-                    puts processing
-                    creditos_exigidos_fundamentacion = processing[1].to_f
-                    creditos_exigidos_disciplinar = processing[2].to_f
-                    creditos_exigidos_electivas = processing[3].to_f
-                    
-                end
-                if processing[0] == "aprobados" && processing[1] == "plan"
-                    creditos_aprobados = processing[-1].to_f
-                    puts processing
-                    porcentaje_fundamentacion = (((processing[2].to_f)*100)/creditos_exigidos_fundamentacion)
-                    porcentaje_disciplinar = (((processing[3].to_f)*100)/creditos_exigidos_disciplinar)
-                    porcentaje_electivas = (((processing[4].to_f)*100)/creditos_exigidos_electivas)
-                end
-                if processing[0] == "cupo" && processing[2] == "créditos" && processing[-2] == "pendientes"
-                    creditos_sobrantes = processing[-1].to_i
-                end
-                puts "///"
-                
-                if checking_notes
-                    checking = 666 if is_number?( processing[0] )
-                    checking = nil unless is_number?( processing[0] )
-                    puts "#{processing} -> #{processing[0]} -> #{checking}"
-                    if processing[0] == "promedio"
-                        checking_notes = false
-                        hap << arr
-                        new_subjects << new_subjects_hash
-                        arr = {}
-                        next
-                    end
-                    unless checking.nil?
-                        print arr
-                        hap << arr
-                        new_subjects << new_subjects_hash
-                        current_semester += 1
-                        arr = {}
-                        next
-                    end
-                    #hap[:first] ||= processing[0]
-                    #puts "What's going on? #{processing}"
-                    codigo_actual = processing[0].split('-')
-                    codigo_actual = codigo_actual[0]
-                    index_for_nombre = 1
-                    nombre_materia = ""
-                    procesando_nombre_terminado = false
-                    while true
-                        #puts "Que pasa #{index_for_nombre} #{processing[index_for_nombre]}"
-                        
+
+      informacion =  params[:historiaacademica][:informacion]
+      successfully_created = true
+      Historiaacademica.process_academic_history(informacion, current_user) rescue successfully_created = false
+      if successfully_created
+        flash[:notice] = "Tu historia académica se ha guardado correctamente."
+        redirect_to get_mis_cursos_path
+      else
+        #{view_context.link_to('Ufff', get_historia_academica_path)}
+        flash[:error] = "El formato de la historia academica que metiste es incorrecto o aún no soportamos esa carrera, contáctate con nosotros."
+        redirect_back fallback_location: get_historia_academica_path
+      end
 
 
-                        procesando_nombre_terminado = true if is_number?( processing[index_for_nombre] )
-                        if procesando_nombre_terminado
-                            break
-                        end
-                        processing[index_for_nombre].upcase! if roman_numbers.include? processing[index_for_nombre]
-                        #puts "Roman? #{processing[index_for_nombre]} ---> #{roman_numbers.include? processing[index_for_nombre]}"
-                        nombre_materia += processing[index_for_nombre] + " " 
-                        if index_for_nombre == 1
-                            nombre_materia.capitalize!
-                        end
-                        #puts " #{index_for_nombre} #{procesando_nombre_terminado}"
-                        index_for_nombre += 1
-                    end
-                    nota = Float(processing[-1]) rescue processing[-1].upcase
-                    creditos = Integer(processing[-4]) rescue creditos = 3
-                    flag = Float(nota) rescue false
-                    if flag
-                        creditos = processing[-3].to_f
-                        creditos_totales += creditos
-                        ponderacion += creditos*nota
-                        creditos_totales_pa += creditos unless nota.to_i < 3
-                        ponderacion_pa += creditos*nota unless nota.to_i < 3
-                    end
-                    arr[codigo_actual.to_i] = nota
-                    new_subjects_hash[codigo_actual.to_i] = [nota, nombre_materia, creditos.to_i]
-
-                    puts "El codigo de la materia es #{codigo_actual.to_i} y la nota es #{nota} y el semestre es #{current_semester}"
-                    puts "El nombre de esa materia es #{nombre_materia}, los creditos son #{creditos}"
-                end
-                puts line
-            else
-                line = line.split.join(" ")
-                line = line.split(' ')
-                i = 0
-                #puts "#{line[0]} ::: #{line[0] == "estudiante"} -> #{checking_name}"
-                if line[0] == "estudiante"
-                    checking_name = true 
-                    next
-                end
-                if checking_name
-                    while line[i] != "terminar" do
-                        #puts "line #{line}"
-                        nombre += line[i].to_s.capitalize + " "
-                        i +=1
-                    end
-                    checking_name = false
-                
-                end
-            end
-            
-        end
-        current_semester = 1
-        hap.each do |semester|
-            puts "Las materias del semestre #{current_semester} son"
-            print semester
-            puts ""
-            current_semester += 1
-        end
-        print hap
-        papa = ponderacion/creditos_totales.to_f
-        pa = ponderacion_pa/creditos_totales_pa.to_f
-        puts ""
-        porcentaje = (creditos_aprobados*100)/creditos_requeridos
-        puts "El PAPA es #{papa} y el Promedio Academico es #{pa} y el nombre es #{nombre}, el porcentaje es #{porcentaje}"
-        #puts informacion[\d*\s*[|]\s*[a-z]*\s*[a-z]*\s*[a-z]*\s*[a-z]\s*[a-z]*$]
-        puts "///////////////////////////////////////////////////////////////////////////////////////////"
-        #redirect_to root_path
-        @pa = pa
-        @papa = papa
-        @hap = hap
-        @carrera = codigo_carrera
-        @porcentaje = porcentaje
-        @nombre = nombre
-        @new_subjects = new_subjects
-        semestre_actual = @hap.length+1
-        puts "PORCENTAJEEES #{@hap.length}"
-        puts porcentaje_disciplinar
-        puts porcentaje_electivas
-        puts porcentaje_fundamentacion
-        @current_semester = 1
-        @bolsa = creditos_sobrantes
-        puts "Informacion importante"
-        puts current_user.name
-        splitting = nombre.split(' ')
-        apellidos = splitting[-2] + " " +  splitting[-1]
-        nombre_sin_apellido = ""
-        i = 0
-        while i < (splitting.length)-2 do
-          nombre_sin_apellido += splitting[i]
-          nombre_sin_apellido += " " if i < (splitting.length)-3
-          i +=1
-        end
-    
-    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
-    flash[:notice] = "Tu historia académica se ha guardado correctamente."
-    #print @new_subjects
-    puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
-    
-
-    redirect_to get_mis_cursos_path
     end
+
 
     def mis_cursos
 
@@ -332,22 +187,14 @@ class StudentController < ApplicationController
 
     def procesar_mis_cursos
         puts "Data to process"
-        User.update(current_user.id, mis_cursos_added: true)
+        @updated = false
         @mis_cursos_data =  params[:post][:informacion]
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
-        @malla_personal = Malla.find_by_student_id(current_user.id)
-        @malla_optima = current_user.student_mallas.find_by(tipo: 'Optima')
-        @semester_personal = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
-        @semester_optima = Semester.create(number: @current_semester, malla_id: @malla_optima.id)
-        #User.update(current_user.id, current_semester: @current_semester + 1 )
-
-
-
+        @malla_personal = Malla.find_malla_by_student(current_user.id, 'Personal')
+        @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @mis_cursos_data.each_line do |line|
-
-
             if line =~ /\d/
                 puts line
                 line = line.split.join(" ")
@@ -360,15 +207,38 @@ class StudentController < ApplicationController
               if @ready_to_read
                 codigo_actual = processing[0].split('-')
                 begin
-                  @subject = Subject.find_by_code(codigo_actual)
-                  puts @subject.name
-                  chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
+                  #
+                  # chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_personal.career_id)
+                  # #chs = CareerHasSubject.find_by_subject_id_and_career_id(@subject.id, @malla_optima.career_id)
+                  # @semester_personal.career_has_subjects << chs
+                  # @semester_optima.career_has_subjects << chs
+                  #
+                  #   #THey are not added to StudentHasSubjects
+                  #   #current_user.career_has_subjects << chs
+                  # if @updated
+                  #     User.update(current_user.id, mis_cursos_added: true)
+                  #     @updated = true
+                  # end
 
-                  #chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
-                  @semester_personal.career_has_subjects << chs
-                  @semester_optima.career_has_subjects << chs
-                    #THey are not added to StudentHasSubjects
-                    #current_user.career_has_subjects << chs
+                  @subject = Subject.find_by_code(codigo_actual)
+
+
+                      unless @subject.nil?
+                        #
+                        # current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
+                        # puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
+                        #
+                        # subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
+                        # SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                        begin
+                          chs = CareerHasSubject.find_by(subject_id: @subject.id, career_id: @malla_personal.career_id)
+                          @semester.career_has_subjects << chs
+                          StudentHasSubject.create(student_id: current_user.id, career_has_subject_id: chs.id, grade: -1, currently_attending: true)
+                        rescue
+                          SemesterHasStudentSubject.create(subject_id: @subject.id, semester_id: @semester.id)
+                        end
+                      end
+
                 rescue
                   puts "Fake line!"
                 end

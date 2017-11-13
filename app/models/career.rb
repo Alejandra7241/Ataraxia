@@ -5,10 +5,6 @@ class Career < ApplicationRecord
     has_many :subjects, through: :career_has_subjects
     
     
-    def self.find_by_code(code)
-        self.find_by(code: code)
-    end
-    
     def self.search_in_new_subjects(subjects_array, code)
         subjects_array.each do |elem|
             elem.each do |key, value| 
@@ -31,8 +27,10 @@ class Career < ApplicationRecord
     end
     
     # Destruir todas las mallas personales del usuario
-    Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
 
+
+    Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
+    puts "Code career #{code_career}"
     current_malla = Malla.create(tipo: tipo_malla, student_id: id_user, career_id: Career.find_by_code(code_career).id) 
     current_semester = 1
     subjects.each do |semester|
@@ -95,6 +93,10 @@ class Career < ApplicationRecord
     
     def self.find_by_id(id_career)
         self.find(id_career)
+    end
+    
+    def self.find_by_code(code)
+        self.find_by(code: code)
     end
     
     

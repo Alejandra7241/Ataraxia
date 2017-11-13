@@ -10,12 +10,13 @@ var current_semester = -1;
 
 
 
-function addPrerequisite(name,code,typology, code_to_add){
+function addPrerequisite(name,code,typology, code_to_add, id_career){
     var postLink =  `   <form action="/admin/add_pre" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                         <button type="submit">
                         <input type="hidden" name="code" id="setCode" value="` + code +`" />
                         <input type="hidden" name="typology" id="setTypology" value="` + typology +`" />
-                        <input type="hidden" name="code_to_add" id="setTypology" value="` + code_to_add +`" />
+                        <input type="hidden" name="code_to_add" id="setCodeToAdd" value="` + code_to_add +`" />
+                        <input type="hidden" name="id_career" id="setIdCareer" value="` + id_career +`" />
                            <span class="glyphicon glyphicon-ok"></span>
                         </button>
                         </form> `;

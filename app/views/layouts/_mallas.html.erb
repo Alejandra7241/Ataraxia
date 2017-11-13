@@ -8,7 +8,7 @@
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% @malla = malla %>
-
+<h1><% s_vista ||= "not_assigned" %> </h1>
 <% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
 <% show_approved ||= true %>
 <div class="row">
@@ -51,7 +51,7 @@
               <% @malla.semesters.each do |sem| %>
               <% empty_semester = true %>
                 <td align="center">
-                  <% @chss_approved = CareerHasSubject.get_subjects_approved_by_a_student(@user.id, @malla.career_id)%>
+                  <% @chss_approved = CareerHasSubject.get_subjects_approved_by_a_student(@user.id, @malla.career_id) rescue thisvariabledoenstworkforanything = true%>
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>
                     <% if vista=="admin_malla" %> 
@@ -59,11 +59,11 @@
                     <% elsif vista == "malla_avance" %>
                       <% @aprobada = false %>
                       <% @aprobada = true if @chss_approved.include? chs %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla),   chs: chs} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla),   chs: chs, s_vista: s_vista, subjects_currently_attending: CareerHasSubject.current_subjects_by_student(current_user.id, @malla.career_id)} %>
                     <% elsif estadisticas %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, notas: notas, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id),  chs: chs} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, notas: notas, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id),  chs: chs, s_vista: s_vista} %>
                     <% else %>
-                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), array_of_not_approved: array_of_not_approved, show_approved: show_approved,  chs: chs} %>
+                    <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), array_of_not_approved: array_of_not_approved, show_approved: show_approved,  chs: chs, s_vista: s_vista} %>
                     <% end %>
                   <% end %>
                   
@@ -137,6 +137,7 @@
             <br>
             <h4 class = "text-left"><b>Prerrequisitos: </b></h4>
             <h5 id = "jschangeiii"></h5>
+
     <table class="table table-striped" id = "tablePrerrequisitosSubjectModal"  style="font-size: 7px;"  >
     <thead>
       <tr>
@@ -151,11 +152,29 @@
     <tbody id="tbodyidPrerrequisitosSubjectModal">
     </tbody>
   </table>
+
+          <h4 class = "text-left"><b>Materias que se pueden ver con esta materia: </b></h4>
+
+          <h5 id = "jschangeiv"></h5>
+          <table class="table table-striped" id = "tablePostrrequisitosSubjectModal"  style="font-size: 7px;"  >
+            <thead>
+            <tr>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Créditos</th>
+              <% if vista == "admin_malla" %>
+                  <th>Acción</th>
+              <% end %>
+            </tr>
+            </thead>
+            <tbody id="tbodyidPostrrequisitosSubjectModal">
+            </tbody>
+          </table>
   
   <% if vista =="admin_malla" %>
     <div id="existente">
           
-            <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
+            <%= form_for @subject, :url => search_prerequisite_path(@malla.career_id), :remote => true do |f|  %>
                         <br>
             <h4><b>Agregar un prerrequisito por código:</b></h4>
             <div class="form-group">
@@ -347,7 +366,7 @@
             <div class="form-group" align="center">    
             
             <% search_by.each do |criteria| %>
-            <% onclick = "search_by( '" + criteria + "', '" + CareerHasSubject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).length.to_s + "' ) " %>
+            <% onclick = "search_by( '" + criteria + "', '" + CareerHasSubject.subjects_not_approved_not_current_by_a_student(current_user.id,  @malla.career_id).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
 
@@ -394,7 +413,7 @@
             
             
             <div id="respuesta" style="display: none;"></div>
-            
+            <% end %>
           
           </div>
           
@@ -416,9 +435,9 @@
     </thead>
     <tbody>
       <% counter_of_subjects = 1 %>
-      <% CareerHasSubject.get_subjects_not_approved_by_a_student(current_user.id,  Career.find_carrer_id_by_malla(@malla)).each do |chs| %>
+      <% CareerHasSubject.subjects_not_approved_not_current_by_a_student(current_user.id,  @malla.career_id).each do |chs| %>
       <% current_subject = Subject.find(chs.subject_id) %>
-      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + Career.find_carrer_code_by_malla(@malla).to_s%>
+      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + @malla.career_id.to_s%>
       <% next if chs.typology == 'L'%>
       <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %> 
       <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
@@ -432,7 +451,7 @@
         
 
 
-         <form action="/mallas/add_subject_to_malla" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
+         <form action="/mallas/add_subject_to_malla_by_student" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
                         <button type="submit">
                         <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
                         <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
@@ -453,7 +472,7 @@
           </div>
         </div>
 
-          <% end %>
+
           <div id="electiva" style="display: none;">
             <h1>¿Cuantos créditos tendrá la electiva a asignar?</h1>
            <div class="form-group" align="center">
@@ -515,13 +534,14 @@
                 <% if vista =="admin_malla" %>
                     <div id="existente">
 
-                      <%= form_for @subject, :url => search_prerequisite_path, :remote => true do |f|  %>
+                      <%= form_for @subject, :url => search_prerequisite_path(@malla.career_id), :remote => true do |f|  %>
                           <br>
                           <h4><b>Agregar un prerrequisito por código:</b></h4>
                           <div class="form-group">
                             <%= f.label :code, 'Código:' %><br>
                             <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
                             <%= f.hidden_field :code_subject_to_add %>
+
                             <h3 id = "jschangeii"></h3>
                             <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none; font-size: 7px;">
                               <thead id="tblHead">

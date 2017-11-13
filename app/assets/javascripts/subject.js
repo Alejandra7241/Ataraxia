@@ -25,11 +25,21 @@ function editASubject(id,name, code, typology, credits){
 
 
 
-function searchSubject(name,code,typology, credits, message, malla_id, code_career){
+function searchSubject(name,code,typology, credits, message, malla_id, code_career, role){
 
     console.log(current_semester)
-    
-    var postLink =  `   <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+    if(role == 'admin') var postLink =  `   <form action="/mallas/add_subject_to_malla" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                        <button type="submit">
+                        <input type="hidden" name="code" id="setCode" value="` + code +`" />
+                        <input type="hidden" name="typology" id="setTypology" value="` + typology +`" />
+                        <input type="hidden" name="exists" id="exists" value="` + true +`" />
+                        <input type="hidden" name="semester" id="setSemester" value="` + current_semester +`" />
+                        <input type="hidden" name="malla_id" id="setMallaId" value="` + malla_id +`" />
+                        <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+                           <span class="glyphicon glyphicon-ok"></span>
+                        </button>
+                        </form> `;
+    else var postLink =  `   <form action="/mallas/add_subject_to_malla_by_student" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
                         <button type="submit">
                         <input type="hidden" name="code" id="setCode" value="` + code +`" />
                         <input type="hidden" name="typology" id="setTypology" value="` + typology +`" />
@@ -67,11 +77,14 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
 
 
 
-function modal_for_subject(code,name,credits,typology, array_prerequisites, role){
+function modal_for_subject(code,name,credits,typology, array_prerequisites, array_postrequisites, role, code_career){
     
     console.log(name);
     console.log(array_prerequisites);
     console.log(array_prerequisites.length);
+
+    console.log(array_postrequisites);
+    console.log(array_postrequisites.length);
     //$('#editingSubjectsi').modal('toggle');
     document.getElementById("nameSubjectModal").innerHTML = name;
     document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
@@ -115,14 +128,14 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
     });
     $("#tbodyidPrerrequisitosSubjectModal").empty();
     var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink;
-    var array_of_subjects  = array_prerequisites.split(";")
+    var array_of_subjects  = array_prerequisites.split("|")
     if(array_prerequisites.length == 0){
        if (role == "admin_malla") document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';
        else document.getElementById("jschangeiii").innerHTML = 'Esta materia no tiene prerequisitos.';
     }else{
         document.getElementById("jschangeiii").innerHTML = '';
         for (index = 0; index < array_of_subjects.length; ++index) {
-            var current_subject = array_of_subjects[index].split(",");
+            var current_subject = array_of_subjects[index].split("&");
             
                 current_code = current_subject[0];
                 current_name = current_subject[1];
@@ -133,6 +146,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
                     <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
                     <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
                     <input type="hidden" name="code_to_remove" id="setTypology" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
                      <span class="glyphicon glyphicon-remove"></span>
                     </button>
                     </form> `;
@@ -145,6 +159,49 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, role
                 else $('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td></tr>');
         }
     }
+
+    //Materias que se abren
+
+    if (role == "admin_malla"){ document.getElementById('subject_code_subject_to_add').value = code;}
+    var firsttr;
+    $('#tablePostrrequisitosSubjectModal').each(function() {
+        $(this).hide();
+    });
+    $("#tbodyidPostrrequisitosSubjectModal").empty();
+
+    array_of_subjects  = array_postrequisites.split("|")
+    if(array_postrequisites.length == 0){
+        if (role == "admin_malla") document.getElementById("jschangeiv").innerHTML = 'Esta materia aún no abre ninguna otra, intenta agregarla como prerrequisito de otra.';
+        else document.getElementById("jschangeiv").innerHTML = 'Parece que esta materia es fin de linea.';
+    }else{
+        document.getElementById("jschangeiv").innerHTML = '';
+        for (index = 0; index < array_of_subjects.length; ++index) {
+            var current_subject = array_of_subjects[index].split("&");
+
+            current_code = current_subject[0];
+            current_name = current_subject[1];
+            current_credits = current_subject[2];
+            current_typology = current_subject[3];
+            postLink =  `  <form action="/admin/remove_post" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                    <button type="submit">
+                    <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
+                    <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
+                    <input type="hidden" name="code_to_remove" id="setTypology" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+
+                     <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    </form> `;
+
+            $('#tablePostrrequisitosSubjectModal').each(function() {
+                $(this).show();
+            });
+            firsttr = action_for_typology(current_typology, 1);
+            if(role == "admin_malla")$('#tablePostrrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
+            else $('#tablePostrrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td></tr>');
+        }
+    }
+
    
 }
 

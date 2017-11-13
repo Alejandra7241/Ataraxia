@@ -1,6 +1,6 @@
 class Malla < ApplicationRecord
     belongs_to :career
-    has_many :semesters
+    has_many :semesters, dependent: :destroy
     belongs_to :admin, class_name: "User", optional: true
     belongs_to :student, class_name: "User", optional: true
     
@@ -27,40 +27,48 @@ class Malla < ApplicationRecord
     end
     
     def self.find_malla_by_tipo(tipo)
-        Malla.find_by(tipo: tipo)
+        self.find_by(tipo: tipo)
     end
 
     
     def self.find_unique()
     end
     
-    def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization)
-        # array_of_chs = []
-        # optimization.each do |k,v|
-        #     v.each do |current_chs|
-        #         array_of_chs << CareerHasSubject.find(current_chs)
-        #     end
-        #end
-        puts "Puuut your money en me #{career_id} -> #{malla_id}"
-        @clean_from_semester = User.find(student_id).current_semester
-        @clean_from_semester += 1 if User.find(student_id).mis_cursos_added
+    def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization, finals, max_credits)
 
+        @credits_for_last_semester = 0
+        optimization[optimization.keys.last].each do |chs_id|
+            @credits_for_last_semester += Subject.find(CareerHasSubject.find(chs_id).subject_id).credits
+        end
 
+        finals.each do |chs_id|
+            @credits_for_last_semester += Subject.find(CareerHasSubject.find(chs_id).subject_id).credits
+        end
 
+        @create_other = false
+        @create_other = true if @credits_for_last_semester > max_credits
+        @last_key = optimization.keys.last + 1
+        if @create_other
+            optimization[@last_key] = []
+            finals.each do |chs_id|
+                optimization[@last_key] << chs_id
+            end
+        else
+            finals.each do |chs_id|
+            optimization[optimization.keys.last] << chs_id
+            end
 
+        end
+
+        @malla_optima = Malla.find(malla_id)
+        @current_semester = @malla_optima.semesters.length + 1
+        puts "Puuut your money on me #{career_id} -> #{malla_id}"
+        #@clean_from_semester = User.find(student_id).current_semester
         @counter = 0
-        @malla = Malla.find(malla_id)
-
-        @malla.semesters.where("number >= ?", @clean_from_semester ).destroy_all
-        @current_semester = @malla.semesters.length + 1
-
-
-
-
-
+        #@malla_optima.semesters.where("number >= ?", @clean_from_semester ).destroy_all
         optimization.each do |k,v|
             @semester = Semester.create(number: @current_semester, malla_id: malla_id)
-            puts "#{@counter}-> #{@malla.semesters.length} "
+
 
             v.each do |current_chs_id|
 
@@ -70,6 +78,7 @@ class Malla < ApplicationRecord
 
                 #current_subject = Subject.find(chs.subject_id)
                 @semester.career_has_subjects << CareerHasSubject.find(current_chs_id)
+
             end
             @current_semester += 1
         end
@@ -117,8 +126,39 @@ class Malla < ApplicationRecord
     def self.find_malla_personal_by_student_id(student_id)
         Malla.find_by(student_id: student_id, tipo: 'Personal')
     end
+    
+    def self.find_malla_by_student(student_id, tipo_malla)
+        self.find_by(student_id: student_id, tipo: tipo_malla)
+    end
 
     def self.find_by_id(id_malla)
         self.find(id_malla)
+    end
+
+
+
+    def self.duplicate_malla(id_malla_original, nuevo_tipo)
+
+        @malla_original = Malla.find(id_malla_original)
+        @nueva_malla = Malla.create(tipo: nuevo_tipo, career_id: @malla_original.career_id, admin_id: @malla_original.admin_id, student_id: @malla_original.student_id)
+
+        @malla_original.semesters.each do |sem|
+            @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
+
+            sem.career_has_subjects.each do |chs|
+                @new_sem.career_has_subjects << chs
+            end
+        end
+
+
+
+
+
+        @nueva_malla
+    end
+
+
+    def self.destroy_all_mallas_by_tipo(id_user, tipo_malla)
+        Malla.where(student_id: id_user, tipo: tipo_malla).destroy_all
     end
 end

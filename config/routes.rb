@@ -32,9 +32,10 @@ Rails.application.routes.draw do
     get 't', to: 'admin#t', as: 'admin_remote_modal'
     
     #Adding subjects via post
-    post 'search_prerequisite', to:'admin#search_prerequisite', as: 'search_prerequisite'
+    post 'search_prerequisite/:id_career', to:'admin#search_prerequisite', as: 'search_prerequisite'
     post 'change_semester', to: 'admin#change_semester', as: 'change_semester'
     post 'remove_pre', to: 'admin#remove_pre'
+    post 'remove_post', to: 'admin#remove_post'
     post 'add_pre', to: 'admin#add_pre'
     post 'add_existing_subject', to: 'admin#add_existing_subject'
   end
@@ -102,7 +103,7 @@ Rails.application.routes.draw do
     
     #Mis cursos:
     get 'mis_cursos', to: 'student#mis_cursos', as: 'get_mis_cursos'
-    get 'actualizar_mis_cursos', to: 'student#actualizar_mis_cursos', as: 'actualizar_mis_cursos'
+    get 'actualizar_mis_cursos', to: 'student#mis_cursos', as: 'actualizar_mis_cursos'
     post 'procesar_mis_cursos', to: 'student#procesar_mis_cursos', as: 'submit_mis_cursos'
     
     #Mallas
@@ -110,7 +111,7 @@ Rails.application.routes.draw do
     get 'malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'
     get 'malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
     get 'malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
-    
+    post 'malla_optima', to: 'student#malla_optima', as: 'generate_student_malla_optima'
     #Estadisticas
     get 'estadisticas', to: 'student#estadisticas', as: 'student_estadisticas'
     get 'malla_estadisticas', to: 'student#malla_estadisticas', as: 'student_malla_estadisticas'
@@ -121,6 +122,7 @@ Rails.application.routes.draw do
   scope 'mallas' do
     #Adding subjects via post
     post 'add_subject_to_malla', to: 'mallas#add_subject_to_malla'
+    post 'add_subject_to_malla_by_student', to: 'mallas#add_subject_to_malla_by_student'
     get 'add_new_semester/:id', to: 'mallas#add_new_semester', as: "new_semester"
     get 'remove_semester/:id/:semester', to: 'mallas#remove_semester', as: "remove_semester"
   end

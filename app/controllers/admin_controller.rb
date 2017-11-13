@@ -38,7 +38,10 @@ class AdminController < ApplicationController
   def statistics
   end
   
-  def search_prerequisite(id_career)
+  def search_prerequisite()
+
+    puts "id_carrrrrrrrrrrrrrrer #{params[:id_career]}"
+    id_career = params[:id_career]
     puts "#######################"
     @subject_to_add_code = params[:subject][:code_subject_to_add]
     puts "########################"
@@ -47,10 +50,8 @@ class AdminController < ApplicationController
     name = @subject.name unless @subject.nil?
     code = @subject.code unless @subject.nil?
     typology = CareerHasSubject.get_typology(@subject.id, id_career) unless @subject.nil?
-    # Alternativa: 
-    # typology = CareerHasSubject.find_by(career_id: @career.id, subject_id: @subject.id).typology
     respond_to do |format|
-      format.js { render :js => "addPrerequisite('#{name}','#{code}','#{typology}', '#{@subject_to_add_code}')" }
+      format.js { render :js => "addPrerequisite('#{name}','#{code}','#{typology}', '#{@subject_to_add_code}', '#{id_career}')" }
     end
    
   end
@@ -61,10 +62,11 @@ class AdminController < ApplicationController
     puts "()())()()()()()()()()"
     puts params[:code]
     puts params[:code_to_add]
+    @id_career = params[:id_career].to_i
     puts "()())()()()()()()()()"
     @subject = Subject.find_by_code(params[:code])
     @subject_added = Subject.find_by_code(params[:code_to_add])
-    CareerHasSubject.add_pre(1, @subject_added.id, @subject.id)
+    CareerHasSubject.add_pre(@id_career, @subject_added.id, @subject.id)
     puts params[:code]
     respond_to do |format|
       #if @subject.save
@@ -82,9 +84,10 @@ class AdminController < ApplicationController
   def remove_pre
     #@subject = Subject.new(subject_params)
     #puts @subject.typology
+    @career = Career.find_by_code(params[:code_career].to_i)
     @subject = Subject.find_by_code(params[:code])
     @subject_removed = Subject.find_by_code(params[:code_to_remove])
-    CareerHasSubject.remove_pre(1, @subject_removed.id, @subject.id)
+    CareerHasSubject.remove_pre(@career.id, @subject_removed.id, @subject.id)
     puts params[:code]
     respond_to do |format|
       #if @subject.save
@@ -96,6 +99,22 @@ class AdminController < ApplicationController
         #format.json { render json: @subject.errors, status: :unprocessable_entity }
       #end
     end
+  end
+
+
+  def remove_post
+    #@subject = Subject.new(subject_params)
+    #puts @subject.typology
+
+    @career = Career.find_by_code(params[:code_career].to_i)
+    @subject = Subject.find_by_code(params[:code])
+    @subject_removed = Subject.find_by_code(params[:code_to_remove])
+    CareerHasSubject.remove_post(@career.id, @subject_removed.id, @subject.id)
+    puts params[:code]
+    flash[:error] = "Se ha eliminado la materia " + @subject_removed.name + " como prerrequisito de " + @subject.name.to_s
+    redirect_back fallback_location: root_path
+
+
   end
   
   def add_existing_subject

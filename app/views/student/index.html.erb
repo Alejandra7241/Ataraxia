@@ -28,7 +28,17 @@
                 <div style="background-color: lightblue; margin: 0% 0% 0% 0%; padding: 8% 0px 8% 5%;>">
             <h2 style="font-size:60px">Malla Óptima</h2> 
             <p style="font-size:15px">Descubre cuál es la malla creada por Ataraxia, para graduarte en el menor tiempo posible.</p>
-            <div align="center"><%= link_to '¡Crear!', student_malla_optima_path, :class => "btn btn-success btn-lg" %></div>
+            <div align="center">
+
+              <div class="form-group" align="center">
+
+                    <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
+                    <%= f.label "Créditos" %>
+                    <%= select_tag "credits", options_for_select((1..30).step(1)) %>
+                    </div>
+                    <%= f.submit '¡Crear!',:class => "btn btn-success btn-lg"  %></div>
+                <% end %>
+
         </div>
         
     </div>
