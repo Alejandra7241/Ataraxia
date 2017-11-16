@@ -422,7 +422,7 @@
             <h3>Todas las materias</h3>
               <table class="table" style="font-size:8px;">
                   <thead>
-                    <tr>
+                    <tr style="background-color: coral;">
                         <th>Materia</th>
                         <th>Código</th>
                         <th>Créditos</th>
@@ -472,9 +472,6 @@
                  <%= hidden_field_tag :malla_id, @malla.id %>
                  <%= f.submit 'Agregar electiva', :class => 'btn btn-primary' %>
 
-
-
-
              <% end %>
            </div>
         </div>
@@ -509,14 +506,12 @@
 
                 <table class="table table-striped" id = "tableElectivasSubjectModal"  style="font-size: 7px;"  >
                   <thead>
-                  <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Créditos</th>
-
-                        <th>Acción</th>
-
-                  </tr>
+                    <tr style="background-color: darkorange;">
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Créditos</th>
+                      <th>Acción</th>
+                    </tr>
                   </thead>
                   <tbody id="tbodyidElectivasSubjectModal">
                   </tbody>
