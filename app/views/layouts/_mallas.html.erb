@@ -370,13 +370,9 @@
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
               <% end%>
 
-
               <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
                   <%= hidden_field_tag :malla_id, @malla.id %>
                   <%= f.submit 'Agregar electiva', :class => 'btn btn-default' %>
-
-
-
 
               <% end %>
             </div>
@@ -422,7 +418,7 @@
             <h3>Todas las materias</h3>
               <table class="table" style="font-size:8px;">
                   <thead>
-                    <tr style="background-color: coral;">
+                    <tr class="encabezadoTabla">
                         <th>Materia</th>
                         <th>Código</th>
                         <th>Créditos</th>
@@ -501,7 +497,7 @@
 
                 <table class="table table-striped" id = "tableElectivasSubjectModal"  style="font-size: 7px;"  >
                   <thead>
-                    <tr style="background-color: darkorange;">
+                    <tr class="encabezadoTabla">
                       <th>Código</th>
                       <th>Nombre</th>
                       <th>Créditos</th>
@@ -526,7 +522,7 @@
                             <h3 id = "jschangeii"></h3>
                             <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none; font-size: 7px;">
                               <thead id="tblHead">
-                              <tr>
+                              <tr class="encabezadoTabla">
                                 <th>Materia</th>
                                 <th>Código</th>
                                 <th>Tipología</th>
