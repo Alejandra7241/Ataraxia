@@ -122,9 +122,9 @@ class Subject < ApplicationRecord
         avaliable_chs = []
         @electivas = CareerHasSubject.where(typology: 'L', career_id: career_id).to_a
         puts @electivas
-        puts "Bevor"
+
         puts @electivas.length
-        puts "Gemacht: #{@electivas_array.to_a.length}"
+
         StudentHasSubject.where(student_id: student_id).each do |shs|
 
             chs = CareerHasSubject.find(shs.career_has_subject_id)
@@ -136,6 +136,27 @@ class Subject < ApplicationRecord
       #     puts Subject.find(x.subject_id).name
       # end
       return @electivas
+
+    end
+
+
+
+
+    def self.get_optativas_not_seen_by_student(career_id, student_id)
+
+        avaliable_chs = []
+        @optativas = CareerHasSubject.where(typology: 'O', career_id: career_id).to_a
+        StudentHasSubject.where(student_id: student_id).each do |shs|
+
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+            puts "->#{chs}"
+            @optativas.delete(chs)
+            #if @electivas.include? chs
+        end
+        # @electivas.each do |x|
+        #     puts Subject.find(x.subject_id).name
+        # end
+        return @optativas
 
     end
     
