@@ -58,9 +58,16 @@
                     <% end %>
             <%end%>
            <%if vista == "malla_avance"  and aprobada or @not_approved or @currently_attending%>
-              <div class="rcorners2" style="background:#ececec;" align="center">
+               <% if  @currently_attending%>
+               <div class="rcorners2" style="background:#f9e6ff;" align="center">
                 <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                 </div>
+               <% else %>
+                   <div class="rcorners2" style="background:#ececec;" align="center">
+                <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
+                </div>
+               <% end %>
+              
 
             <%else%>
                 <div class="rcorners2" align="center">
@@ -151,11 +158,16 @@
                     <div class="rcorners2" align="center" style="background:#ffffcc">
                         <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                     </div>
-                <% elsif @average >= 4  %>
+                <% elsif @average >= 4 && @average < 4.5%>
                     <div class="rcorners1" align="center" style="background:#8cff66; "><%= subj.credits %> </div>
-                    <div class="rcorners2" align="center" style="background:#ccffcc">
+                    <div class="rcorners2" align="center" style="background:#ecffe6">
                         <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                     </div>
+                 <% elsif @average >= 4.5  %>
+                    <div class="rcorners1" align="center" style="background:#00CC66; "><%= subj.credits %> </div>
+                    <div class="rcorners2" align="center" style="background:#ccffcc">
+                        <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
+                    </div>   
             <% end %>
             <%end%>
         

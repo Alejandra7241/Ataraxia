@@ -14,8 +14,7 @@
 
   <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
       <%= f.label "Créditos" %>
-      <%= select_tag "credits", options_for_select((1..30).step(1)) %>
-
+      <%= select_tag "credits", options_for_select((3..40).step(1)) %>
       <%= f.submit '¡Reoptimizar!',:class => "btn btn-info"  %></div>
   <% end %>
 
@@ -24,8 +23,8 @@
 <!--search_by: ['todas', 'codigo', 'tipologia']-->
 <%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_optima, user: @user, add_subjects_enabled: false, :pdf => false, search_by: ['todas', 'codigo'], :estadisticas => false %>
 <%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
-<!-- The Modal Ayuda -->
 
+<!-- The Modal Ayuda -->
   <div id="myModal6" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
