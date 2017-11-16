@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Malla Materias Difíciles</title>
+        <meta charset="UTF-8">
+        <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    </head>
+    
+    <body>
+        <%= render 'layouts/mallas.html.erb', :vista =>"guess_malla", :user => current_user, :malla => @malla, :pdf => true, add_subjects_enabled: false, :estadisticas => true, :notas => false %>
+    </body>
+</html>

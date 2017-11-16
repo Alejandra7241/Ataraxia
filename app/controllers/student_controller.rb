@@ -34,13 +34,17 @@ class StudentController < ApplicationController
         @subject = Subject.new
         @career = Career.find_by_code(@user.carrer)
         @malla = Career.find_malla_estandar_by_career(@career.id)
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_dificiles', pdf:'ataraxia_malla_dificiles'}
+        end
     end
     
     def malla_personal
       puts params[:show_approved]
       @show_approved = true if params[:show_approved] == "0"
       @show_approved = false if params[:show_approved] == "1"
-      puts "*/*/*/*/*/*/*//*/*/*"
       @user = current_user
       @subject = Subject.new
       @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
