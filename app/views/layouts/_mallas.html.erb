@@ -121,7 +121,7 @@
  <div id="editingSubjectsii" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
     <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
+      <div class="modal-content">
         <div id="divSubjectModal" class="modal-header modal-disciplinar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 id= "nameSubjectModal" align="center"></h2>
@@ -216,7 +216,7 @@
   <div id="addSubjectFromAdmin" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
+      <div class="modal-content">
         <div class="modal-header modal-agregar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 align="center">Agregar Materia</h2>
@@ -306,7 +306,7 @@
   <div id="addNewSemester" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
+      <div class="modal-content">
         <div class="modal-header modal-agregar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 align="center">Añadir un nuevo semestre</h2>
@@ -329,7 +329,7 @@
   <div id="removeSemester" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
+      <div class="modal-content">
         <div class="modal-header modal-agregar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 align="center">Eliminar un semestre</h2>
@@ -352,9 +352,9 @@
  <%if vista == "student_malla" %>
 
   <div id="addSubjectFromStudent" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
     <!-- Modal content -->
-      <div class="modal-content" style="width: 100%;">
+      <div class="modal-content">
         <div class="modal-header modal-agregar">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 align="center">Agregar Materia</h2>
@@ -420,54 +420,45 @@
           <div id="todas" style="display: none;">
            <div class="form-group" align="center">    
             <h3>Todas las materias</h3>
-
-            
-            
-            
-     <table class="table" style="font-size:8px;">
-    <thead>
-      <tr>
-          <th>Materia</th>
-          <th>Código</th>
-          <th class="text-center">Créditos</th>
-          <th>Acción</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% counter_of_subjects = 1 %>
-      <% CareerHasSubject.subjects_not_approved_not_current_by_a_student(current_user.id,  @malla.career_id).each do |chs| %>
-      <% current_subject = Subject.find(chs.subject_id) %>
-      <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + @malla.career_id.to_s%>
-      <% next if chs.typology == 'L'%>
-      <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %> 
-      <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
-        <td><%= current_subject.name %></td>
-        <td><%= current_subject.code %></td>
-        <td><%= current_subject.credits %></td>
-         <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
-        <td> 
-        
-        
-        
-
-
-         <form action="/mallas/add_subject_to_malla_by_student" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
-                        <button type="submit">
-                        <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
-                        <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
-                        <input type="hidden" name="exists" id="exists" value="true" />
-                        <input type="hidden" name="semester" id=<%= @unique_id %> value="" />
-                        <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
-                        <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
-                           <span class="glyphicon glyphicon-ok"></span>
-                        </button>
-                        </form>
-                  </td>
-      </tr>
-      <% counter_of_subjects += 1 %>
-      <% end %>
-    </tbody>
-  </table>
+              <table class="table" style="font-size:8px;">
+                  <thead>
+                    <tr style="background-color: coral;">
+                        <th>Materia</th>
+                        <th>Código</th>
+                        <th>Créditos</th>
+                        <th>Acción</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <% counter_of_subjects = 1 %>
+                    <% CareerHasSubject.subjects_not_approved_not_current_by_a_student(current_user.id,  @malla.career_id).each do |chs| %>
+                    <% current_subject = Subject.find(chs.subject_id) %>
+                    <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + @malla.career_id.to_s%>
+                    <% next if chs.typology == 'L'%>
+                    <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %> 
+                    <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
+                      <td><%= current_subject.name %></td>
+                      <td><%= current_subject.code %></td>
+                      <td><%= current_subject.credits %></td>
+                       <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
+                      <td> 
+                          <form action="/mallas/add_subject_to_malla_by_student" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
+                            <button type="submit">
+                            <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
+                            <input type="hidden" name="typology" id="setTypology" value= <%= chs.typology %> />
+                            <input type="hidden" name="exists" id="exists" value="true" />
+                            <input type="hidden" name="semester" id=<%= @unique_id %> value="" />
+                            <input type="hidden" name="malla_id" id="setMallaId" value=<%= @malla.id %> />
+                            <input type="hidden" name="code_career" id="setCodeCareer" value= <%= Career.find_carrer_code_by_malla(@malla) %> />
+                            <span class="glyphicon glyphicon-ok"></span>
+                            </button>
+                          </form>
+                      </td>
+                    </tr>
+                    <% counter_of_subjects += 1 %>
+                    <% end %>
+                  </tbody>
+                </table>
             </div>
           </div>
         </div>
@@ -480,9 +471,6 @@
              <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
                  <%= hidden_field_tag :malla_id, @malla.id %>
                  <%= f.submit 'Agregar electiva', :class => 'btn btn-primary' %>
-
-
-
 
              <% end %>
            </div>
@@ -500,7 +488,7 @@
         <div id="modalForElectiva" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
             <!-- Modal content -->
-            <div class="modal-content" style="width: 100%;">
+            <div class="modal-content">
               <div id="divElectivaModal" class="modal-header modal-disciplinar">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h2 align="center">Asignar una electiva a este semestre</h2>
@@ -514,18 +502,16 @@
               <div class="modal-body">
 
 
-                <h4 class = "text-left"><b>Electivas disponibles para: </b></h4>
+                <h4 class = "text-left"><b>Electivas disponibles: </b></h4>
 
                 <table class="table table-striped" id = "tableElectivasSubjectModal"  style="font-size: 7px;"  >
                   <thead>
-                  <tr>
-                    <th>Código</th>
-                    <th>Nombre</th>
-                    <th>Créditos</th>
-
-                        <th>Acción</th>
-
-                  </tr>
+                    <tr style="background-color: darkorange;">
+                      <th>Código</th>
+                      <th>Nombre</th>
+                      <th>Créditos</th>
+                      <th>Acción</th>
+                    </tr>
                   </thead>
                   <tbody id="tbodyidElectivasSubjectModal">
                   </tbody>
