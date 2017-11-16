@@ -101,6 +101,7 @@ ActiveRecord::Schema.define(version: 20171112225843) do
     t.datetime "updated_at", null: false
     t.integer "malla_id"
     t.integer "electivas_not_assigned", default: 0
+    t.integer "optativas_not_assigned", default: 0
     t.index ["malla_id"], name: "index_semesters_on_malla_id"
   end
 

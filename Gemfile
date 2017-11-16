@@ -53,6 +53,7 @@ gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'delayed_job_active_record'
+gem 'hirb'
 
 # NOTE: The sass-rails gem is included with new Rails applications by default.
 #       Please make sure that it is not alreabundy in your Gemfile before uncommenting it.
