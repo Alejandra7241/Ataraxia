@@ -50,7 +50,7 @@
               <% current_semester = 1 %>
               <% @malla.semesters.each do |sem| %>
               <% empty_semester = true %>
-                <td align="center">
+                <td align="center" <%if (vista=="malla_avance" or vista=="student_malla") and current_semester==user.current_semester%> style= "background-color: #cce6ff;" <%end%>>
                   <% @chss_approved = CareerHasSubject.get_subjects_approved_by_a_student(@user.id, @malla.career_id) rescue thisvariabledoenstworkforanything = true%>
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>

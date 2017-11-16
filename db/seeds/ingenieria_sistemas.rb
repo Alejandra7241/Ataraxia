@@ -322,6 +322,12 @@ career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
 
+subj = Subject.find_by(code: 8888884)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'O')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
+
 # Semestre 8
 sem = mallaSis.semesters.find_by number: 8
 
