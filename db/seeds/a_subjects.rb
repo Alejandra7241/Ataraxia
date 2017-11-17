@@ -15,6 +15,26 @@ Subject.create([
         {code: 1000053, name: 'Inglés intensivo III y IV ', credits: 6},        
         {code: 1000074, name: 'Suficiencia en lengua extranjera', credits: 12},
         
+        #Electivas
+        {code: 2025478, name: 'Argumentación', credits: 3},
+        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
+        {code: 2026274, name: 'Bogotá Musical Internacional', credits: 3},
+        {code: 2024279, name: 'Agujeros negros y máquinas del tiempo', credits: 3},
+        {code: 2022615, name: 'Alemán I', credits: 3},
+        {code: 2022616, name: 'Alemán II', credits: 3},
+        {code: 2022617, name: 'Alemán III', credits: 3},
+        {code: 2022160, name: 'Amazonía y otras selvas ecuatoriales', credits: 3},
+        {code: 2021514, name: 'Amenaza, riesgo y desarrollo', credits: 2},
+        {code: 2023541, name: 'Análisis y procesamiento de alimentos I', credits: 3},
+        {code: 2027248, name: 'Antonio Gramsci: subalternidad, hegemonía y autonomía', credits: 3},
+        {code: 2016041, name: 'Antropología forense', credits: 3},
+        {code: 2026433, name: 'Apreciación e historia del arte', credits: 3},
+        {code: 2025478, name: 'Argumentación', credits: 3},
+        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
+        {code: 2023216, name: 'Introducción a la astronomía', credits: 3},
+        {code: 2021143, name: 'Cátedra de comercio, crisis y negocios internacionales', credits: 3},
+        {code: 2022626, name: 'Francés II', credits: 3},
+        
         # -------------------------------------- INGENIERIA ------------------------------------
         # Ingeniería de Sistemas
         {code: 1000004, name: 'Cálculo diferencial', credits: 4},
@@ -78,27 +98,7 @@ Subject.create([
         {code: 9999917, name: 'Libre elección', credits: 3},
         {code: 9999918, name: 'Libre elección', credits: 3},
 
-        #Electivas
-        {code: 2025478, name: 'Argumentación', credits: 3},
-        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
-        {code: 2026274, name: 'Bogotá Musical Internacional', credits: 3},
-        {code: 2024279, name: 'Agujeros negros y máquinas del tiempo', credits: 3},
-        {code: 2022615, name: 'Alemán I', credits: 3},
-        {code: 2022616, name: 'Alemán II', credits: 3},
-        {code: 2022617, name: 'Alemán III', credits: 3},
-        {code: 2022160, name: 'Amazonía y otras selvas ecuatoriales', credits: 3},
-        {code: 2021514, name: 'Amenaza, riesgo y desarrollo', credits: 2},
-        {code: 2023541, name: 'Análisis y procesamiento de alimentos I', credits: 3},
-        {code: 2027248, name: 'Antonio Gramsci: subalternidad, hegemonía y autonomía', credits: 3},
-        {code: 2016041, name: 'Antropología forense', credits: 3},
-        {code: 2026433, name: 'Apreciación e historia del arte', credits: 3},
-        {code: 2025478, name: 'Argumentación', credits: 3},
-        {code: 2022166, name: 'Arte rupestre muisca', credits: 4},
-        {code: 2023216, name: 'Introducción a la astronomía', credits: 3},
-        {code: 2021143, name: 'Cátedra de comercio, crisis y negocios internacionales', credits: 3},
-        {code: 2022626, name: 'Francés II', credits: 3},
-        
-        # Nuevas de industrial
+        #Ingenieria Industrial
         {code: 2015811, name: 'Sociología especial: industrial y del trabajo', credits: 3},
         {code: 2026805, name: 'Introducción a la ingeniería industrial', credits: 3},
         {code: 2016615, name: 'Taller de invención y creatividad', credits: 3},
@@ -126,7 +126,7 @@ Subject.create([
         {code: 2015701, name: 'Gerencia de recursos humanos', credits: 3},
         {code: 2016612, name: 'Taller de diseño de plantas', credits: 4},
         
-        #Nuevas Ingenieria Quimica
+        #Ingenieria Quimica
         {code: 1000024, name: 'Principios de quimica', credits: 3},
         {code: 1000025, name: 'Laboratorio tecnicas básicas en química', credits: 3},
         {code: 2015718, name: 'Introducción a la Ingeniería Química', credits: 3},
@@ -156,7 +156,7 @@ Subject.create([
         {code: 2015712, name: 'Diseño de plantas y equipos', credits: 3},
         {code: 2015715, name: 'Ingeniería de Procesos', credits: 3},
 
-        #Nuevas Ingenieria Civil
+        #Ingenieria Civil
         {code: 1000011, name: 'Fundamentos de ecología', credits: 3},
         {code: 2015711, name: 'Dibujo básico', credits: 3},
         {code: 2026186, name: 'Introducción a la ingeniería civil', credits: 3},
@@ -187,7 +187,7 @@ Subject.create([
         {code: 2026135, name: 'Ingeniería civil sostenible', credits: 3},
         {code: 2015972, name: 'Preparación y evaluación de proyectos de infraestructura', credits: 3},
         
-        #Nuevas de ingenieria agricola
+        #Ingenieria Agricola
         {code: 2016635, name: 'Introducción a la ingeniería agrícola', credits: 3},
         {code: 1000009, name: 'Biología general', credits: 3},
         {code: 2017538, name: 'Fisiología vegetal', credits: 4},
@@ -204,6 +204,31 @@ Subject.create([
         {code: 2016639, name: 'Poscosecha de granos y semillas', credits: 3},
         {code: 2016630, name: 'Electrotecnia', credits: 3},
         {code: 2016626, name: 'Control en biosistemas', credits: 3},
+        
+        #Ingenieria Electronica
+        {code: 2016502, name: 'Introducción a Ingeniería Electrónica', credits: 5},
+        {code: 2016509, name: 'Taller de Ingeniería Electrónica', credits: 2},
+        {code: 1000040, name: 'Introducción a la ciencia de materiales', credits: 3},
+        {code: 2016489, name: 'Circuitos Eléctricos I', credits: 3},
+        {code: 2015159, name: 'Variable compleja', credits: 4},
+        {code: 1000020, name: 'Fundamentos de oscilaciones, ondas y óptica', credits: 4},
+        {code: 2016495, name: 'Electrónica Análoga I', credits: 4},
+        {code: 2016490, name: 'Circuitos Eléctricos II', credits: 4},
+        {code: 2016506, name: 'Señales y Sistemas I', credits: 3},
+        {code: 2016501, name: 'Instrumentación y medidas', credits: 3},
+        {code: 2016496, name: 'Electrónica Análoga II', credits: 4},
+        {code: 2016498, name: 'Electrónica Digital I', credits: 4},
+        {code: 2016500, name: 'Física de Semiconductores', credits: 3},
+        {code: 2016507, name: 'Señales y Sistemas II', credits: 3},
+        {code: 2016487, name: 'Campos Electromagnéticos', credits: 4},
+        {code: 2016499, name: 'Electrónica Digital II', credits: 4},
+        {code: 2016493, name: 'Control', credits: 4},
+        {code: 2016503, name: 'Líneas y Antenas', credits: 3},
+        {code: 2016492, name: 'Comunicaciones', credits: 3},
+        {code: 2016494, name: 'Conversión Electromagnética', credits: 3},
+        {code: 2016497, name: 'Electrónica de potencia', credits: 4},
+        {code: 2015316, name: 'Trabajo de Grado', credits: 6},
+
         
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         
