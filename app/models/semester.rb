@@ -14,6 +14,12 @@ class Semester < ApplicationRecord
         @semester.electivas_not_assigned
     end
 
+    def self.add_optativa_temp(semester, malla_id)
+        @semester = Semester.find_by(malla_id: malla_id, number: semester)
+        Semester.update(@semester.id, optativas_not_assigned: @semester.optativas_not_assigned + 1)
+        @semester.optativas_not_assigned
+    end
+
 
     def self.remove_electiva_temp(semester, malla_id)
         @semester = Semester.find_by(malla_id: malla_id, number: semester)

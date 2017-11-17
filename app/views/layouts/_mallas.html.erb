@@ -90,6 +90,11 @@
                           <% sem.electivas_not_assigned.times do %>
                           <%= render partial: "layouts/electivas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
                           <% end %>
+
+
+                          <% sem.optativas_not_assigned.times do %>
+                              <%= render partial: "layouts/optativas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
+                          <% end %>
                           <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
 
                   <% end %>
@@ -374,10 +379,11 @@
               <%= form_for :post, :url => submit_electiva_path, remote: true do |f|  %>
                   <%= hidden_field_tag :malla_id, @malla.id %>
                   <%= f.submit 'Agregar electiva', :class => 'btn btn-default' %>
+              <% end %>
 
-
-
-
+              <%= form_for :post, :url => submit_optativa_path, remote: true do |f|  %>
+                  <%= hidden_field_tag :malla_id, @malla.id %>
+                  <%= f.submit 'Agregar optativa', :class => 'btn btn-default' %>
               <% end %>
             </div>
           </div>
@@ -488,8 +494,10 @@
         <div id="modalForElectiva" class="modal fade" role="dialog">
           <div class="modal-dialog modal-lg">
             <!-- Modal content -->
-            <div class="modal-content">
-              <div id="divElectivaModal" class="modal-header modal-disciplinar">
+
+            <div class="modal-content" style="width: 100%;">
+              <div id="divElectivaModal" class="modal-header modal-electiva">
+
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 <h2 align="center">Asignar una electiva a este semestre</h2>
               </div>
@@ -557,6 +565,85 @@
         </div>
 
 </div>
+
+
+
+
+
+        <div id="modalForOptativa" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <!-- Modal content -->
+            <div class="modal-content" style="width: 100%;">
+              <div id="divOptativaModal" class="modal-header modal-optativa">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 align="center">Asignar una optativa a este semestre</h2>
+              </div>
+              <% unless vista == "guess_malla" %>
+                  <% form_for @user, :url => change_semester_path, :remote => true do |f|  %>
+                      <%= f.select :name, ((0..500).map {|i| [i,i] } << ["No limit",nil]) %>
+                      <%= f.submit 'Cambiar semestre', :class => 'btn btn-primary' %>
+                  <% end %>
+              <% end %>
+              <div class="modal-body">
+
+
+                <h4 class = "text-left"><b>Optativas disponibles para: </b></h4>
+
+                <table class="table table-striped" id = "tableOptativasSubjectModal"  style="font-size: 7px;"  >
+                  <thead>
+                  <tr>
+                    <th>Código</th>
+                    <th>Nombre</th>
+                    <th>Créditos</th>
+
+                    <th>Acción</th>
+
+                  </tr>
+                  </thead>
+                  <tbody id="tbodyidOptativasSubjectModal">
+                  </tbody>
+                </table>
+
+                <% if vista =="admin_malla" %>
+                    <div id="existente">
+
+                      <%= form_for @subject, :url => search_prerequisite_path(@malla.career_id), :remote => true do |f|  %>
+                          <br>
+                          <h4><b>Agregar un optativa por código:</b></h4>
+                          <div class="form-group">
+                            <%= f.label :code, 'Código:' %><br>
+                            <%= f.text_field :code, placeholder: "Introduzca el código", autofocus: true, :class => 'form-control' %>
+                            <%= f.hidden_field :code_subject_to_add %>
+
+                            <h3 id = "jschangeii"></h3>
+                            <table class="table table-striped" id="tableQueryPrerrequisitos" style="display: none; font-size: 7px;">
+                              <thead id="tblHead">
+                              <tr>
+                                <th>Materia</th>
+                                <th>Código</th>
+                                <th>Tipología</th>
+                                <th>Acción</th>
+                              </tr>
+                              </thead>
+                              <tbody id="tbodyidPrerrequisitos">
+                              </tbody>
+                            </table>
+                          </div>
+                          <div class="form-group" align="center">
+                            <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
+                            <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
+                          </div>
+                          <div id="respuesta" style="display: none;"></div>
+                      <% end %>
+
+                    </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
 
 
 <% end %>

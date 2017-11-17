@@ -74,6 +74,7 @@ Rails.application.routes.draw do
     # Otros
     get 'open_modal/:s/:typ/:code_career/:role', to: 'subjects#open_modal', as: 'open_modal_for_subject'
     get 'open_modal_for_electiva/:semester_id/:career_id', to: 'subjects#open_modal_for_electiva', as: 'open_modal_for_choose_electiva'
+    get 'open_modal_for_optativa/:semester_id/:career_id', to: 'subjects#open_modal_for_optativa', as: 'open_modal_for_choose_optativa'
     post 'assign_electiva' , to: 'subjects#assign_electiva'
     
     # Materias
@@ -84,8 +85,10 @@ Rails.application.routes.draw do
     post 'edit_existing_subject', to: 'subjects#edit_existing_subject', as: 'edit_existing_subject'
     post 'create', to: 'subjects#create'
     get 'remove_subject/:chs_id/:sem_id', to: 'subjects#remove_subject', as: 'remove_subject'
-    post 'add_electiva', to: 'subjects#add_electiva', as: "submit_electiva"
-    get 'create_fake_partial/:semester/:malla_id', to: 'subjects#create_fake_partial'
+    post 'add_electiva', to: 'subjects#add_electiva', as: 'submit_electiva'
+    post 'add_optativa', to: 'subjects#add_optativa', as: 'submit_optativa'
+    get 'create_fake_partial_for_electiva/:semester/:malla_id', to: 'subjects#create_fake_partial_for_electiva'
+    get 'create_fake_partial_for_optativa/:semester/:malla_id', to: 'subjects#create_fake_partial_for_optativa'
     
   end
   

@@ -216,6 +216,28 @@ class SubjectsController < ApplicationController
 
 
 
+  def open_modal_for_optativa
+
+    @career_id = params[:career_id]
+    @student_id = current_user.id
+    @semester_id = params[:semester_id]
+
+    preList = ""
+
+    Subject.get_optativas_not_seen_by_student(@career_id,@student_id).each do |chs|
+      cur_subj = Subject.find_by_id(chs.subject_id)
+      typology = chs.typology
+      preList +=  cur_subj.code.to_s + "|" +  cur_subj.name.to_s + "|"  +  cur_subj.credits.to_s + "|" +  typology.to_s + "|" + chs.id.to_s +  ";"
+    end
+    preList.chop!
+
+    respond_to do |format|
+      format.js { render :js => "modal_for_optativa('#{preList}', '#{@semester_id}')" }
+    end
+  end
+
+
+
 
   def add_electiva
 
@@ -228,8 +250,21 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def create_fake_partial
-    puts "Frude aaaaah"
+
+
+  def add_optativa
+
+    @malla_id = params[:malla_id].to_i
+    @root = request.original_url
+    puts @root
+
+    respond_to do |format|
+      format.js { render :js => "create_optativa('#{@malla_id}')" }
+    end
+  end
+
+  def create_fake_partial_for_electiva
+
     @semester = params[:semester].to_i
     @credits = params[:credits].to_i
     puts "S: #{params[:malla_id]}"
@@ -242,6 +277,20 @@ class SubjectsController < ApplicationController
 
   end
 
+
+  def create_fake_partial_for_optativa
+
+    @semester = params[:semester].to_i
+    @credits = params[:credits].to_i
+    puts "S: #{params[:malla_id]}"
+    @malla_id = params[:malla_id].to_i
+    Semester.add_optativa_temp(@semester, @malla_id)
+    puts "#{@semester}, #{@credits}"
+    puts "Es ist möglich?"
+    redirect_back fallback_location: root_path
+    #redirect_to root_path
+
+  end
 
   def assign_electiva
     @semester_id = params[:semester_id].to_i
