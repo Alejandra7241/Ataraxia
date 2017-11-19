@@ -15,10 +15,21 @@
             <p style="font-size:15px">Consulta los planes curriculares de las carreras que estás interesado. </p>
              <div align="center">
                 <div class="dropdown" style="display: inline-block">
-                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Mallas ya existentes<span class="caret"></span></button>
-                    <ul class="dropdown-menu">Mallas existentes
+                    <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Carreras<span class="caret"></span></button>
+                    <ul class="dropdown-menu">
                      <% Career.all.each do |career| %>
-                        <li><%= link_to career.name, guess_malla_path(career.id) %></li>
+                        <li 
+                            <% if career.faculty=="Ciencias Económicas" %> 
+                                style="background-color: #ffe6e6;" 
+                            <%elsif career.faculty=="Ciencias"%>
+                                style="background-color: #d6f5d6;" 
+                            <%elsif career.faculty=="Ingeniería"%>
+                                style="background-color: #ccebff;"
+                            <%elsif career.faculty=="Medicina"%>
+                                style="background-color: #f9e6ff;"  
+                            <%end%>
+                        >
+                            <%= link_to career.name, guess_malla_path(career.id) %></li>
                     <% end %>
                     </ul>
                 </div>

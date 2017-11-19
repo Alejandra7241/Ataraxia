@@ -2,6 +2,8 @@
 <% @user.p_d = 0 if @user.p_d.nil? %>
 <% @user.p_e = 0 if @user.p_e.nil? %>
 <%= stylesheet_link_tag "profile.css" %>
+<%= javascript_include_tag 'show', "data-turbolinks-track" => true %>
+
 <img src="/universidad3.jpg" class="bottomImage">
 <div class="container">
     <div class="row">
@@ -22,13 +24,17 @@
         
               <% unless current_user.admin? %>
               <div class="form-group" >
+                <%= link_to "Calculadora de PAPPI",'#',"data-target" => "#myModal", "data-toggle"=>"modal", :class => "btn btn-success", :style => 'margin-bottom:15px' %>
+                
                 <%= link_to 'Actualizar historia academica', actualizar_historia_academica_path, :class => "btn btn-info", :onclick => 'recharge2()', :style => 'margin-bottom:15px' %>
 
                 <%= link_to 'Actualizar mis cursos', actualizar_mis_cursos_path, :class => "btn btn-warning" %>
+                
               </div>
             <% end %>
             </div>
         </div>
+
         
         <div class="col-sm-8">
             <div class="tab-content">
@@ -39,56 +45,221 @@
                           <tr>
                             <th><%=h @user.pa.round(2) %></th>
                             <th><%=h @user.papa.round(2) %></th>
+                            <th><%= StudentHasSubject.papi(@malla_personal, current_user).round(2) %></th>
                           </tr>
                           <tr>
                             <td align="center">P.A.</td>
                             <td align="center">P.A.P.A.</td>
+                            <td align="center">P.A.P.P.I.</td>
                           </tr>
                         </table>
                     </div>
                     <br>
                     <div class="well">
-                        <div style="height:30px;"></div>
-                        <div class="bpostContent" align="center">
-                            <div class="container" style="width:100%">
-                                <p align="left"><b>Avance en la carrera:</b></p>
-                                <div class="progress" style="margin-left:10%">                                   
-                                    <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.percentage %>%">
-                                      <%=h @user.percentage.round(2) %>%
+                            <div style="height:20px;"></div>
+                                <% nota_mejor, nombre_mejor= StudentHasSubject.get_best_grade(@malla, current_user)%></p>
+                                <% nota_peor, nombre_peor= StudentHasSubject.get_worst_grade(@malla, current_user)%></p>
+                                <table style="height:100%">
+                                    <tr>
+                                    <th style="font-size:16pt">Tu nota más alta</th>
+                                    <th style="font-size:16pt">Tu nota más baja</th>
+                                  </tr>
+                                  <tr>
+                                    <td style="font-size:20pt" align="center"><%=nota_mejor %> </td>
+                                    <td style="font-size:20pt" align="center"><%= nota_peor %> </td>
+                                  </tr>
+                                  <% i=0 %>
+                                  <% nombre_mejor.each do |c|  %>
+                                    <tr >
+                                        <td style="font-size:10pt" align="center"><%=c%></td>
+                                        <td style="font-size:10pt" align="center"><%=nombre_peor[i]%></td>
+                                    </tr>
+                                    <% i=i+1 %>
+                                  <% end %>
+                                </table>
+                            <br>
+                            <br>
+                            <div class="bpostContent" align="center">
+                                <div style="height:5px;"></div>
+                                <div class="container" style="width:100%">
+                                        <p align="left"><b>Avance en la carrera:</b></p>
+                                        <div class="progress" style="margin-left:10%">                                   
+                                            <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.percentage %>%">
+                                              <%=h @user.percentage.round(2) %>%
+                                            </div>
+                                         </div>
+                                         <p align="left"><b>Avance materias de fundamentación:</b>
+                                        <div class="progress" style="margin-left:10%">                                   
+                                            <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_f %>%">
+                                              <%=h @user.p_f.round(2) %>%
+                                            </div>
+                                        </div>
+                                        <p align="left"><b>Avance materias disciplinares:</b></p>
+                                        <div class="progress" style="margin-left:10%">                                   
+                                            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_d %>%">
+                                              <%=h @user.p_d.round(2) %>%
+                                            </div>
+                                        </div>
+                                        <p align="left"><b>Avance en electivas:</b></p>
+                                        <div class="progress" style="margin-left:10%">
+                                            <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_e %>%">
+                                              <%=h @user.p_e.round(2) %>%
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
                             </div>
-                            <div class="container" style="width:100%">
-                                <p align="left"><b>Avance materias de fundamentación:</b>
-                                <div class="progress" style="margin-left:10%">                                   
-                                    <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_f %>%">
-                                      <%=h @user.p_f.round(2) %>%
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container" style="width:100%">
-                                <p align="left"><b>Avance materias disciplinares:</b></p>
-                                <div class="progress" style="margin-left:10%">                                   
-                                    <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_d %>%">
-                                      <%=h @user.p_d.round(2) %>%
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="container" style="width:100%">
-                                <p align="left"><b>Avance en electivas:</b></p>
-                                <div class="progress" style="margin-left:10%">
-                                    <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:<%=h @user.p_e %>%">
-                                      <%=h @user.p_e.round(2) %>%
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div style="height:20px;"></div>
+                            <div style="height:20px;"></div>
                     </div>
                 </div>                
             </div>
         </div>
     </div>
 </div>
+  
+  <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+    <!-- Modal content -->
+      <div class="modal-content" style="width:80%">
+        <div class="modal-header" style="background-color: #48bf48">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 align="center">Calculadora de P.A.P.P.I</h2>
+        </div>
+        <div class="modal-body" >
+                <% creditos, materias=StudentHasSubject.list_subjects_current_semester(@malla_personal, current_user) %>
+                <table align="center" class="table table-striped" id="tablePrerrequisitosSubjectModal"  style="font-size: 8px;">
+                    <thead> 
+                      <tr>
+                        <th>Materia</th>
+                        <th>Créditos</th>
+                        <th>Nota</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <%i=0%>
+                      <% creditos.each do |c|  %>
+                        <tr>
+                            <td><%=materias[i]%></td>
+                            <td align="center"><%=c%></td>
+                            <td><input type="text" value="" name="nota" size="5" required pattern="^\d+$" title = "La nota debe contener sólo números" placeholder="0" class="form-control" /></td>
+                        </tr>
+                        <%i=i+1%>
+                      <% end %>
+                      <tr>
+                        <td align="right"><b>Creditos</b></td>
+                        <td><b>Cancelados:</b></td>
+                        <td align="center"><input type="text" id="cancelado" value="0" size="5" required pattern="^\d+$" title = "La nota debe contener sólo números" placeholder="0" class="form-control" /></td>
+                      </tr>
+                    </tbody>
+                </table>
+                <div align="center" style="margin-bottom:20px">
+                    <div id="papirico" class="well" style="padding: 5px;margin: 15px 100px;"></div>
+                    <%= button_tag 'Calcular', :onclick => 'getPAPI()', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+                    <%= button_tag 'Limpiar', :onclick => 'limpiar()', :class => 'btn btn-danger btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+                </div>
+        </div>
+      </div>
+    </div>
+  </div>
+                                                                                                                                                                                                                                    <script>
+  function getPAPI(){
+            var creditos= '<%=creditos%>';
+            var notas = document.getElementsByName('nota'); 
+            var papi=0;
+            var total=0;
+            var crd=[];
+            for(var i=0; i<creditos.length; i++){
+              if(creditos[i]!="[" && creditos[i]!="," && creditos[i]!="]" && creditos[i]!=" "){
+                total=total+parseInt(creditos[i]);
+                crd.push(parseInt(creditos[i]));
+              }
+            }
+            for (var i = 0; i < notas.length; i++) { 
+                papi =  papi + (crd[i]*notas.item(i).value);
+            }
+            var cancelados=document.getElementById("cancelado").value;
+            papi=papi+(cancelados*0);
+            total=total+parseInt(cancelados);
+            document.getElementById("papirico").innerHTML='<h4><b>Tu P.A.P.P.I: </b>'+ (papi/total).toFixed(2); + '</h4>';
+          }
+          
+</script>
+  <%= render 'layouts/footer', :vista=> "normal"%>
 
-<%= render 'layouts/footer', :vista=> "normal"%>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
