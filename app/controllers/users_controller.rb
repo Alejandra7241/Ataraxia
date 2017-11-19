@@ -20,8 +20,10 @@ class UsersController < ApplicationController
   
   def show
    @user = User.find_by_id(params[:id])
-   carrera=@user.carrer;
-   @career =  Career.find_by_code(carrera)
+    @subject = Subject.new
+    @career = Career.find_by_code(@user.carrer)
+    @malla = Career.find_malla_estandar_by_career(@career.id)
+    @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
   end
   
   def index

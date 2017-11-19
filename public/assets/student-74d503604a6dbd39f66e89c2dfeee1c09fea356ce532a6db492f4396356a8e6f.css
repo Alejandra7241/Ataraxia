@@ -1,0 +1,16 @@
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/student.scss */
+.menuMallas {
+  margin: 2% 2% 2% 0%;
+  padding: 0% 4% 4% 4%;
+  height: 320px;
+  width: 48%;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+@media (min-width: 728px) {
+  /* line 15, /home/ubuntu/workspace/app/assets/stylesheets/student.scss */
+  .col-md-6 {
+    width: 48%;
+  }
+}
