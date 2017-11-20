@@ -24,17 +24,12 @@
       </thead>
     
       <tbody>
-         
+
         <% @subjects.each do |subject| %>
-          <% if subject.career_has_subjects.find_by(career_id: 1).typology == 'C' %>
-          <tr class="success">
-          <% elsif subject.career_has_subjects.find_by(career_id: 1).typology == 'B' %>
-          <tr class = "info">
-          <% elsif subject.career_has_subjects.find_by(career_id: 1).typology == 'L' %>
-          <tr class = "warning">
-          <% else %>
+
+
           <tr class="active">
-          <% end %>
+
             <td><%= subject.code %></td>
             <td><%= subject.name %></td>
             <td><p style="text-align: center"><%= subject.credits %></p></td>

@@ -2,57 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a650b7de-7dd1-4513-91fa-e86f84fa6086" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-0320b1121bb4f5a377ab67b2e89816a21c91faa5f5ef4777d5cb77e204e94382.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-29e03b898bd70fb53824eb57499580b7b8f4581da85401bd5813dd966406ac52.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-5059de1791f86898de5461cdc8201b5682b23fd900b285e3f53b39a9eaa93d4f.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6214bf671e99d1bd41a9f89790e0bd752ab9b52c3a2deb4c60eeba0d5fe9053e.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-67a7cfcc50d5fecdc1074d7fda29393cdc90086391dc1f2f53692c6b3f0df150.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6b2f071f674c2aadbc7fb4584ad1a42d9d07c8b91324acdfa65e7fe7f5b3ae8e.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6f9ce8bc3fbb5a16470c4089172474864569650f577443495aa1178c56494291.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-76783d74e7ac02d023bd363c576e224379df0d9cfa8c91bd47a8837c9d2506a5.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-dc944fcb5980aee90d6595331ce5f8b7696c04eae3a2173404d560c3c02e2dd9.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-3163877031b929b36b0afca5d2373f25be99cc87736f5d1aed97829b82750300.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-b074bc3faca485efa19fb45496b4be7c0c628cdc9c3b79ad19af910de7db3bea.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-e32e2229e6702d5e659dd13d83a7de4efab8514a734ae8b57e31a38fa2d94ec5.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-fdc2272c59fd4fbebca443c340942b2d458206ffb22c242b27efd88c12638668.js.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-284ee0297e130e86c10593ca6f7e71affa7831701c4901f5db8c31417f08cc2c.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-3113faa813762cdcf95e59838b17666380cd390637affdb8ba851b2ccca67e9a.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-695048174e846e3181979a8fdbcd1f1df0be19aa83fedbbd239a13b116c84f83.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-74d503604a6dbd39f66e89c2dfeee1c09fea356ce532a6db492f4396356a8e6f.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-df0720859368a09d286f4abdc47fcc908e3c9e3c76ed25226c69e546aea28891.css.gz" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/show.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/seeds/ingenieria_electronica.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-0320b1121bb4f5a377ab67b2e89816a21c91faa5f5ef4777d5cb77e204e94382.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-29e03b898bd70fb53824eb57499580b7b8f4581da85401bd5813dd966406ac52.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-5059de1791f86898de5461cdc8201b5682b23fd900b285e3f53b39a9eaa93d4f.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6214bf671e99d1bd41a9f89790e0bd752ab9b52c3a2deb4c60eeba0d5fe9053e.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-67a7cfcc50d5fecdc1074d7fda29393cdc90086391dc1f2f53692c6b3f0df150.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6b2f071f674c2aadbc7fb4584ad1a42d9d07c8b91324acdfa65e7fe7f5b3ae8e.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-6f9ce8bc3fbb5a16470c4089172474864569650f577443495aa1178c56494291.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-76783d74e7ac02d023bd363c576e224379df0d9cfa8c91bd47a8837c9d2506a5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/application-dc944fcb5980aee90d6595331ce5f8b7696c04eae3a2173404d560c3c02e2dd9.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-3163877031b929b36b0afca5d2373f25be99cc87736f5d1aed97829b82750300.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-b074bc3faca485efa19fb45496b4be7c0c628cdc9c3b79ad19af910de7db3bea.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-e32e2229e6702d5e659dd13d83a7de4efab8514a734ae8b57e31a38fa2d94ec5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/show-fdc2272c59fd4fbebca443c340942b2d458206ffb22c242b27efd88c12638668.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-284ee0297e130e86c10593ca6f7e71affa7831701c4901f5db8c31417f08cc2c.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-3113faa813762cdcf95e59838b17666380cd390637affdb8ba851b2ccca67e9a.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-695048174e846e3181979a8fdbcd1f1df0be19aa83fedbbd239a13b116c84f83.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-74d503604a6dbd39f66e89c2dfeee1c09fea356ce532a6db492f4396356a8e6f.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/assets/student-df0720859368a09d286f4abdc47fcc908e3c9e3c76ed25226c69e546aea28891.css" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb" />
+      <change type="NEW" beforePath="" afterPath="$USER_HOME$/unarbitrary-laugh/app/services/act/modify.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/student.scss" afterPath="$PROJECT_DIR$/app/assets/stylesheets/student.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student_has_subject.rb" afterPath="$PROJECT_DIR$/app/models/student_has_subject.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/admin/index.html.erb" afterPath="$PROJECT_DIR$/app/views/admin/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/guess/index.html.erb" afterPath="$PROJECT_DIR$/app/views/guess/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/student/index.html.erb" afterPath="$PROJECT_DIR$/app/views/student/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/initializers/assets.rb" afterPath="$PROJECT_DIR$/config/initializers/assets.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds/a_subjects.rb" afterPath="$PROJECT_DIR$/db/seeds/a_subjects.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-f125da551dadb8e57c5dd6a0de83aff5.json" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-f125da551dadb8e57c5dd6a0de83aff5.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/subjects/index.html.erb" afterPath="$PROJECT_DIR$/app/views/subjects/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/models/act_archive_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/models/act_archive_spec.rb" />
+      <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/models/act_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/models/act_spec.rb" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -96,11 +52,44 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="student_has_subject.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="student_has_subject.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/student_has_subject.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_mallas.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="341">
+              <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/subjects/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="29" column="7" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+              <folding>
+                <element signature="n#style#0;n#p#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="schema.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/schema.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="59" />
               <folding />
             </state>
           </provider>
@@ -110,8 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>abiertas</find>
-      <find>length</find>
       <find>add_subject_to_malla</find>
       <find>search_pr</find>
       <find>ad</find>
@@ -140,6 +127,8 @@
       <find>open_modal_for</find>
       <find>modal_for_electiva</find>
       <find>head</find>
+      <find>onCLick</find>
+      <find>subject</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,6 +184,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/subject.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
         <option value="$PROJECT_DIR$/app/models/student_has_subject.rb" />
+        <option value="$PROJECT_DIR$/app/views/subjects/index.html.erb" />
       </list>
     </option>
   </component>
@@ -208,10 +198,10 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="578" />
-    <option name="y" value="43" />
-    <option name="width" value="922" />
-    <option name="height" value="1024" />
+    <option name="x" value="364" />
+    <option name="y" value="-4" />
+    <option name="width" value="918" />
+    <option name="height" value="1008" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -229,7 +219,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -250,10 +239,36 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="layouts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="subjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,14 +447,15 @@
       <workItem from="1510504221288" duration="27370000" />
       <workItem from="1510713768947" duration="3310000" />
       <workItem from="1510859808027" duration="5480000" />
+      <workItem from="1511203856329" duration="565000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="141707000" />
+    <option name="totallyTimeSpent" value="143527000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="510" y="426" width="1857" height="1092" extended-state="6" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16086236" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -448,25 +464,17 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3678862" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45020324" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.45020324" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15920398" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22459349" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -482,13 +490,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/requisite.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/models/historiaacademica.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="616">
@@ -556,6 +557,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3366">
           <caret line="187" column="22" lean-forward="false" selection-start-line="187" selection-start-column="22" selection-end-line="187" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -613,7 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -656,7 +657,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="15" column="23" lean-forward="false" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,7 +664,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -672,7 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="26" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -680,7 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="7" column="5" lean-forward="false" selection-start-line="7" selection-start-column="5" selection-end-line="7" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -688,7 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
           <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -696,7 +692,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="27" column="29" lean-forward="false" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -704,7 +699,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -712,14 +706,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="18" lean-forward="false" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/schema.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="135" column="35" lean-forward="true" selection-start-line="135" selection-start-column="35" selection-end-line="135" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -766,6 +752,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="76" column="134" lean-forward="false" selection-start-line="76" selection-start-column="134" selection-end-line="76" selection-end-column="134" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -780,6 +767,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="380">
           <caret line="234" column="48" lean-forward="false" selection-start-line="234" selection-start-column="48" selection-end-line="234" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -787,6 +775,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="13" column="164" lean-forward="false" selection-start-line="13" selection-start-column="164" selection-end-line="13" selection-end-column="164" />
+          <folding>
+            <marker date="1510865711529" expanded="true" signature="1451:1739" ph="..." />
+            <marker date="1510865711529" expanded="true" signature="1451:1748" ph="..." />
+            <marker date="1510865711529" expanded="true" signature="1452:1728" ph="..." />
+            <marker date="1510865711529" expanded="true" signature="1503:1655" ph="..." />
+            <marker date="1510865711529" expanded="false" signature="1572:1579" ph="×" />
+            <marker date="1510865711529" expanded="true" signature="1688:1715" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -826,18 +822,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="147" column="26" lean-forward="true" selection-start-line="147" selection-start-column="26" selection-end-line="147" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="20" column="60" lean-forward="false" selection-start-line="20" selection-start-column="60" selection-end-line="20" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -845,15 +833,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/student_has_subject.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="106" column="14" lean-forward="true" selection-start-line="106" selection-start-column="14" selection-end-line="106" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/subjects/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="29" column="7" lean-forward="false" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <folding>
+            <element signature="n#style#0;n#p#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#3;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
