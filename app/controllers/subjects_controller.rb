@@ -27,8 +27,13 @@ class SubjectsController < ApplicationController
     code = @subject.code unless @subject.nil?
     id = @subject.id unless @subject.nil?
     credits = @subject.credits unless @subject.nil?
-    typology = CareerHasSubject.get_typology(@subject.id, Career.find_by_code(params[:code_career])) unless @subject.nil?
-    respond_to do |format|
+    begin
+      typology = CareerHasSubject.get_typology(@subject.id, Career.find_by_code(params[:code_career])) unless @subject.nil?
+    rescue
+      typology = "ND" #Not defined
+    end
+
+      respond_to do |format|
       unless @subject.nil?
         format.js { render :js => "editASubject('#{id}','#{name}','#{code}','#{typology}','#{credits}')" }
       else

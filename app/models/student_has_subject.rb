@@ -17,15 +17,29 @@ class StudentHasSubject < ApplicationRecord
     def self.turn_off_currently_attending(id_student, id_chs)
         self.find_by(student_id: id_student, career_has_subject_id: id_chs).currently_attending = false
     end
+
+    def self.turn_off_currently_attending_all_for_student(id_student)
+        StudentHasSubject.where(student_id: id_student).to_a.each do |shs|
+            self.update(shs.id, currently_attending: false)
+            puts "jjjj"
+            puts shs.id
+            puts "Jjjj"
+        end
+
+    end
     
     def self.delete_old_mis_cursos(id_student, id_career)
+        puts id_career
+        puts "//////%&%&%/&%/&/&/&"
         cur_sem = student = User.find_by_id(id_student).current_semester
         Malla.find_malla_personal_by_student_id(id_student).semesters.where(number: cur_sem).destroy_all
         self.where(student_id: id_student, currently_attending: true).each do |shs|
             chs = CareerHasSubject.find(shs.career_has_subject_id)
+            self.update(shs.id, currently_attending: false)
             if chs.career_id == id_career
                 shs.destroy
             end
+
         end
     end
 
