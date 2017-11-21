@@ -191,12 +191,17 @@ class StudentController < ApplicationController
 
     def procesar_mis_cursos
         puts "Data to process"
+
         @updated = false
         @mis_cursos_data =  params[:post][:informacion]
         @mis_cursos_data.downcase!
         @ready_to_read = false
         @current_semester = current_user.current_semester
         @malla_personal = Malla.find_malla_by_student(current_user.id, 'Personal')
+
+
+        #StudentHasSubject.turn_off_currently_attending_all_for_student(current_user.id)
+        StudentHasSubject.delete_old_mis_cursos(current_user.id, @malla_personal.career.id)
         @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @mis_cursos_data.each_line do |line|
             if line =~ /\d/
