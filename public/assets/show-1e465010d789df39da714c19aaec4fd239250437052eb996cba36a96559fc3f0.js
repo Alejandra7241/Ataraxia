@@ -10,7 +10,7 @@
       
       
         function getPAPI(creditos){
-
+            console.log(creditos)
             var creditos= creditos;
             var notas = document.getElementsByName('nota'); 
             var papi=0;
@@ -30,3 +30,4 @@
             total=total+parseInt(cancelados);
             document.getElementById("papirico").innerHTML='<h4><b>Tu P.A.P.P.I: </b>'+ (papi/total).toFixed(2); + '</h4>';
           }
+;
