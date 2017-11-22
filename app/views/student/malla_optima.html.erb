@@ -7,14 +7,14 @@
   <div>Generando pdf...</div>
 </div>
 
-<h1 align="center">Malla Óptima</h1>
+<h1 align="center">Malla Personal optimizada</h1>
 
 
 <div class="form-group" align="center">
 
   <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
       <%= f.label "Créditos" %>
-      <%= select_tag "credits", options_for_select((3..40).step(1)) %>
+      <%= select_tag "credits", options_for_select((1..30).step(1)) %>
       <%= f.submit '¡Reoptimizar!',:class => "btn btn-info"  %></div>
   <% end %>
 

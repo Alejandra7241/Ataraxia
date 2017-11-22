@@ -9,8 +9,8 @@
                 <h1>¡Bienvenido a Ataraxia <%= current_user.name %>!</h1>
             </div>
              <div align="center" style="margin: 5% 5%;">
-                <%= link_to 'Ver perfil', current_user, :class => "btn btn-info" %>
-                <%= link_to 'Estadísticas', student_estadisticas_path, :class => "btn btn-warning" %>
+                <%= link_to 'Ver perfil', current_user, :class => "btn btn-info  btn-lg" %>
+                <%= link_to 'Estadísticas', student_estadisticas_path, :class => "btn btn-warning  btn-lg" %>
             </div>
         </div>
         
@@ -26,7 +26,7 @@
                             <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
                             <%= f.label "Créditos" %>
                             <%= select_tag "credits", options_for_select((1..30).step(1)) %> &nbsp
-                            <%= f.submit '¡Crear!',:class => "btn btn-success btn-lg"  %>
+                            <%= f.submit '¡Crear!',:class => "btn btn-success btn-lg disabled"  %>
                             <% end %>
                         </div>
                     </div>

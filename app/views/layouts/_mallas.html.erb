@@ -40,7 +40,7 @@
               <% end %>
               <% if add_subjects_enabled %>
                  <th >
-                  <p class="semestre" style="font-size: 50%"> ¡Añadir Semestre!</p>
+                  <p class="semestre" style="font-size: 50%"> Opciones</p>
                 </th>
               <% end %>
             </tr>
@@ -48,6 +48,7 @@
           <tbody>
             <tr id="mytr">
               <% current_semester = 1 %>
+              <% empty_semester = true %>
               <% @malla.semesters.each do |sem| %>
               <% empty_semester = true %>
                 <td align="center" <%if (vista=="malla_avance" or vista=="student_malla") and current_semester==user.current_semester%> style= "background-color: #cce6ff;" <%end%>>
@@ -78,13 +79,10 @@
                   <br>  
                   
                   
-                   <% if empty_semester && current_semester == @malla.semesters.length  %>
-                      <%= link_to "<p class='glyphicon glyphicon-remove' style='font-size: 70px;'></p>".html_safe, '#', "data-target" => "#removeSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                     <br>
-                    <% end %>
+
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                  <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester && add_subjects_enabled%>
+                  <% else if vista == "student_malla" && pdf == false && current_semester > user.current_semester && add_subjects_enabled%>
 
 
                           <% sem.electivas_not_assigned.times do %>
@@ -96,7 +94,7 @@
                               <%= render partial: "layouts/optativas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
                           <% end %>
                           <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
-
+                        
                   <% end %>
                      
                   <%end%>
@@ -108,9 +106,20 @@
               <% current_semester -= 1%>
               <% if add_subjects_enabled %>
                 <td align="center">
-                      <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addNewSemester", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
+                      <%= link_to "¡Añadir semestre #{ @malla.semesters.length+1}!", new_semester_path(@malla.id), class: "btn btn-success", :id => "annadir", :onclick => 'deshabilitar()', :style => 'margin: 5px 5px;' %>
+                    <% if empty_semester && current_semester == @malla.semesters.length  %>
+                       <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), class: "btn btn-danger", :style => 'margin: 5px 5px;' %>
+                    <%else%>
+                                          <div class="well form-group" align="center" style="margin: 5px 5px; padding-top: 2px;">
+                            <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
+                              <%= f.label "Créditos", :style => "font-size: 15px;" %>
+                              <%= select_tag "credits", options_for_select((1..30).step(1)), :style => "font-size: 15px;" %>
+                              <%= f.submit 'Optimizar esta malla',:class => "btn btn-info"  %>
+                            <% end %>
+                        </div>
+                  <% end %>
                 </td>
-                 <% end %>
+            <% end %>
             </tr>
           </tbody>
         </table>
@@ -307,35 +316,18 @@
 </div>
 
 
-
-  <div id="addNewSemester" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header modal-agregar">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Añadir un nuevo semestre</h2>
-        </div>
-        <div class="modal-body">
-          <div id="principal">
-            <div class="form-group" align="center">
-              <%= link_to "¡Añadir semestre #{ @malla.semesters.length+1}!", new_semester_path(@malla.id), class: "btn btn-success" %>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-            </div>
-          </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
+<script>
+  function deshabilitar(){
+    document.getElementById('annadir').setAttribute("disabled", "disabled"); 
+  }
+</script>
 
 
   <div id="removeSemester" class="modal fade" role="dialog">
     <div class="modal-dialog">
     <!-- Modal content -->
       <div class="modal-content">
-        <div class="modal-header modal-agregar">
+        <div class="modal-header" style="background:#e83732">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
           <h2 align="center">Eliminar un semestre</h2>
         </div>
@@ -343,7 +335,7 @@
           <div id="principal">
             <div class="form-group" align="center">
               <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), class: "btn btn-danger" %>
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-info" data-dismiss="modal">Cancelar</button>
             </div>
           </div>
       </div>

@@ -1,41 +1,49 @@
+<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
+
+<!-- Animación Cargando cuando se genera pdf -->
+<div id="cargando" class="well">
+  <div class="loader"></div>
+  <div>Cargando historia academica...</div>
+</div>
+
 <div class="container-fluid" style="padding-right:20px; margin-bottom: -24px">
     <div class="row" style="margin-top:25px ">
         <div class="col-md-6" style="margin-top: 4%;" width="100%">
             <div align="center">
                 <img  width="60%" class="img-responsive" src="/logo_final.png" class="img-fluid" alt="logo" />
-                <h2>¡Parece que lograste empezar otro semestre!</h2>
+                <h2>¡Parece que es tu primera vez en Ataraxia!</h2>
             </div>
         </div>
 
     <div class="col-md-6" style="background-color: #f7edf6;">
         <div align="center">
             <h1 style="font-size:300%; color: #8b005f"><b>Mis Cursos</b></h1>
-            <h2 style="font-size:200%"><b>¡Necesitamos saber qué materias estás viendo!</b></h2>
-            <p style="font-size:150%">Abre tus cursos en el 
-                <a href="http://sia.bogota.unal.edu.co/academia/inicio/do-login" target="_blank">SIA</a> y presiona <br> 
-                CTRL+A y CTRL+C. <br>  
-                Luego debes pegar todo<br> 
+            <h2 style="font-size:200%"><b>¡Necesitamos saber aún más sobre ti!</b></h2>
+            <p style="font-size:150%">Abre tus cursos en el
+                <a href="http://sia.bogota.unal.edu.co/academia/inicio/do-login" target="_blank">SIA</a> y presiona <br>
+                CTRL+A y CTRL+C. <br>
+                Luego debes pegar todo<br>
                 en el siguiente cuadro:</p>
         </div>
-        
-        
+
+
         <div style="padding: 0% 10% 0% 10%;">
             <div class="form-group">
-                <% @history = Historiaacademica.new %>
-                <%= form_for @history, :url => submit_historia_academica_path, method: :post do |f|  %>
-                <div id="respuesta" style="display: none;"></div>
-                <%= f.text_area :informacion, required: true,  :class => 'form-control', rows: 7 %>      
+                <%= form_for :post, :url =>  submit_mis_cursos_path do |f|  %>
+
+                <%= f.text_area :informacion, required: true,  :class => 'form-control', rows: 7 %>
             </div>
         </div>
-        
-        
+
+
         <div align="center" style="margin-bottom:20px">
-            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+            <%= f.submit 'Continuar', :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center'%>
             <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-danger btn-ms' %>
             <%= link_to 'Saltar', student_index_path, :class => "btn btn-warning" %>
         </div>
         <% end %>
-        
+
     </div>
   </div>
 </div>
