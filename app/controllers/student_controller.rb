@@ -231,6 +231,10 @@ class StudentController < ApplicationController
 
                   @subject = Subject.find_by_code(codigo_actual)
 
+                  puts "Schmollende Katze!!"
+                  puts @subject.name
+                  puts "jjj"
+
 
                       unless @subject.nil?
                         #

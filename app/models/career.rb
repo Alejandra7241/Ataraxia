@@ -15,10 +15,15 @@ class Career < ApplicationRecord
 
     
     def self.add_array_of_subjects(code_career, id_user, subjects, new_subjects, tipo_malla)
+
     code_career = code_career.to_i
     id_user = id_user.to_i
     puts "String: #{code_career} // #{id_user}"
-    
+    User.update(id_user, credits_b: 0)
+    User.update(id_user, credits_c: 0)
+    User.update(id_user, credits_l: 0)
+    User.update(id_user, credits_p: 0)
+    User.update(id_user, credits_o: 0)
     # Definir en el rescue lo que pasa cuando un usuario pone una HA de una carrera que no existe en Ataraxia
     begin 
         career = Career.find_by_code(code_career) 
@@ -47,10 +52,44 @@ class Career < ApplicationRecord
                
                 subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
                 SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
+                puts "before"
+                puts User.find(id_user).credits_l
+                User.update(id_user, credits_l: User.find(id_user).credits_l + current_information_for_subject_not_added[-1].to_i )
+                puts User.find(id_user).credits_l
+                puts "after"
             else
                 begin
                     chs = CareerHasSubject.find_by(subject_id: subj.id, career_id: career.id)
                     sem.career_has_subjects << chs
+
+                    puts "#{subj.name} ---> #{subj.credits} ----> #{chs.typology}"
+                    user = User.find(id_user)
+                    puts "B: #{user.credits_b}"
+                    puts "C: #{user.credits_c}"
+                    puts "L: #{user.credits_l}"
+                    puts "P: #{user.credits_p}"
+                    puts "O: #{user.credits_o}"
+
+                    case chs.typology
+                        when "B"
+                            User.update(id_user, credits_b: User.find(id_user).credits_b + subj.credits )
+                        when "C"
+                            User.update(id_user, credits_c: User.find(id_user).credits_c + subj.credits )
+                        when "L"
+                            User.update(id_user, credits_l: User.find(id_user).credits_l + subj.credits )
+                        when "P"
+                            User.update(id_user, credits_p: User.find(id_user).credits_p + subj.credits )
+                        when "O"
+                            User.update(id_user, credits_o: User.find(id_user).credits_o + subj.credits )
+
+                    end
+
+                    puts "B: #{user.credits_b}"
+                    puts "C: #{user.credits_c}"
+                    puts "L: #{user.credits_l}"
+                    puts "P: #{user.credits_p}"
+                    puts "O: #{user.credits_o}"
+                    User.update(id_user, credits_l: User.find(id_user).credits_l + current_information_for_subject_not_added[-1].to_i )
                     if grade_subject.to_f >=  3.0
                         StudentHasSubject.create(student_id: id_user, career_has_subject_id: chs.id, grade: grade_subject.to_f, approved: true)
                     else
