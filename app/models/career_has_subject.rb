@@ -43,7 +43,7 @@ class CareerHasSubject < ApplicationRecord
     end
 
     def self.is_prerequisite_of_something(code_carrer, code_subject)
-        return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees.any?
+        return self.find_by(career_id: Career.find_by(code: code_carrer).id, subject_id: Subject.find_by(code: code_subject).id).followees.any? rescue return false
     end
     
     def self.add_pre(id_career, id_subj, id_pre)

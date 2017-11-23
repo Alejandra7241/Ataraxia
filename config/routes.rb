@@ -114,7 +114,9 @@ Rails.application.routes.draw do
     get 'malla_personal/:show_approved', to: 'student#malla_personal', as: 'student_malla_personal'
     get 'malla_avance', to: 'student#malla_avance', as: 'student_malla_avance'
     get 'malla_optima', to: 'student#malla_optima', as: 'student_malla_optima'
-    post 'malla_optima', to: 'student#malla_optima', as: 'generate_student_malla_optima'
+    post 'malla_optima', to: 'student#malla_optima', as: 'generate_malla_optima'
+    post 'malla_optima_from_personal', to: 'student#malla_optima_from_personal', as: 'generate_malla_optima_from_personal'
+
     #Estadisticas
     get 'estadisticas', to: 'student#estadisticas', as: 'student_estadisticas'
     get 'malla_estadisticas', to: 'student#malla_estadisticas', as: 'student_malla_estadisticas'

@@ -14,27 +14,48 @@
 <div class="row">
         <div class="col-md-12" class="back">
         <table id="tableSemesters" class="table table-bordered .table-responsive ">
-          <thead class="thead"> 
+          <thead class="thead">
             <tr>
               <% @malla.semesters.each do |sem| %>
                 <% if vista=="malla_avance" or vista=="student_malla" %>
                   <% if sem.number > user.current_semester %>
                     <th  style="background-color: #F0FFFF">
-                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                      <p class="semestre" style="font-size: 50%">
+
+                        <% if sem.number == 777 %>
+                            Intersemestral
+                            <% else%>
+                            Semestre <br> <%= sem.number %>
+                            <% end %></p>
                     </th>
                   <% elsif sem.number==user.current_semester%>
                   <th  style="background-color: #cceeff">
-                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                      <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
+                            Intersemestral
+                        <% else%>
+                            Semestre <br> <%= sem.number %>
+                        <% end %>
+                      </p>
                     </th>
-                     
+
                   <%else%>
                     <th>
-                        <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                        <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
+                              Intersemestral
+                          <% else%>
+                              Semestre  <br><%= sem.number %>
+                          <% end %>
+                        </p>
                       </th>
                   <%end%>
                 <% else %>
                   <th style="background-color: #E6E6FA">
-                      <p class="semestre" style="font-size: 50%">Semestre <br> <%= sem.number %></p>
+                      <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
+                            Intersemestral
+                        <% else%>
+                            Semestre <br> <%= sem.number %>
+                        <% end %>
+                      </p>
                     </th>
                 <%end%>
               <% end %>
@@ -55,7 +76,7 @@
                   <% @chss_approved = CareerHasSubject.get_subjects_approved_by_a_student(@user.id, @malla.career_id) rescue thisvariabledoenstworkforanything = true%>
                   <% sem.career_has_subjects.each do |chs| %>
                   <% empty_semester = false %>
-                    <% if vista=="admin_malla" %> 
+                    <% if vista=="admin_malla" %>
                     <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), chs: chs } %>
                     <% elsif vista == "malla_avance" %>
                       <% @aprobada = false %>
@@ -67,18 +88,18 @@
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), array_of_not_approved: array_of_not_approved, show_approved: show_approved,  chs: chs, s_vista: s_vista} %>
                     <% end %>
                   <% end %>
-                  
+
                   <% sem.subjects.each do |student_subj| %>
-                    <% if vista=="admin_malla" %> 
+                    <% if vista=="admin_malla" %>
                     <%= render partial: "layouts/subject", locals: {estadisticas: false, subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista} %>
-                    
+
                     <% else %>
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: false, subj: student_subj, typ: sem.semester_has_student_subjects.find_by(subject_id: student_subj.id).typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), vista: vista} %>
                     <% end %>
                   <% end %>
-                  <br>  
-                  
-                  
+                  <br>
+
+
 
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
@@ -94,24 +115,24 @@
                               <%= render partial: "layouts/optativas.html.erb", locals: {sem: sem, career: Career.find(@malla.career_id)} %>
                           <% end %>
                           <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromStudent", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_AM('#{current_semester.to_s}')" %>
-                        
+
                   <% end %>
-                     
+
                   <%end%>
                   <% current_semester += 1%>
                 </td>
-                 
+
               <% end %>
-              
+
               <% current_semester -= 1%>
               <% if add_subjects_enabled %>
                 <td align="center">
-                      <%= link_to "¡Añadir semestre #{ @malla.semesters.length+1}!", new_semester_path(@malla.id), class: "btn btn-success", :id => "annadir", :onclick => 'deshabilitar()', :style => 'margin: 5px 5px;' %>
+                      <%= link_to "¡Añadir semestre #{ (@malla.semesters.length+1) - current_user.intersemestrales}!", new_semester_path(@malla.id), class: "btn btn-success", :id => "annadir", :onclick => 'deshabilitar()', :style => 'margin: 5px 5px;' %>
                     <% if empty_semester && current_semester == @malla.semesters.length  %>
                        <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), class: "btn btn-danger", :style => 'margin: 5px 5px;' %>
                     <%else%>
                                           <div class="well form-group" align="center" style="margin: 5px 5px; padding-top: 2px;">
-                            <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
+                            <%= form_for :post, :url => generate_malla_optima_from_personal_path do |f|  %>
                               <%= f.label "Créditos", :style => "font-size: 15px;" %>
                               <%= select_tag "credits", options_for_select((1..30).step(1)), :style => "font-size: 15px;" %>
                               <%= f.submit 'Optimizar esta malla',:class => "btn btn-info"  %>
@@ -125,13 +146,13 @@
         </table>
       </div>
   </div>
-  
+
   <!-- El Modal mostrar materia partial
 <div class="modal"></div>-->
 <!--Brayan, fix this plox, before i get a heart attack-->
 <% if not pdf  %>
 
-  
+
  <div id="editingSubjectsii" class="modal fade" role="dialog">
     <div class="modal-dialog modal-lg">
     <!-- Modal content -->
@@ -184,10 +205,10 @@
             <tbody id="tbodyidPostrrequisitosSubjectModal">
             </tbody>
           </table>
-  
+
   <% if vista =="admin_malla" %>
     <div id="existente">
-          
+
             <%= form_for @subject, :url => search_prerequisite_path(@malla.career_id), :remote => true do |f|  %>
                         <br>
             <h4><b>Agregar un prerrequisito por código:</b></h4>
@@ -209,13 +230,13 @@
                     </tbody>
                   </table>
             </div>
-            <div class="form-group" align="center">     
+            <div class="form-group" align="center">
               <%= f.submit 'Buscar prerrequisito', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
             </div>
             <div id="respuesta" style="display: none;"></div>
             <% end %>
-          
+
           </div>
          <% end %>
       </div>
@@ -225,7 +246,7 @@
 
 
 
-  
+
   <!-- El Modal Agregar Materia-->
   <div id="addSubjectFromAdmin" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -237,14 +258,14 @@
         </div>
         <div class="modal-body">
           <div id="principal">
-            <div class="form-group" align="center">     
+            <div class="form-group" align="center">
               <button type="button" class="btn btn-default" onclick="showNueva()">Nueva Materia</button>
               <button type="button" class="btn btn-default" onclick="showExistente()">Materia ya existente</button>
             </div>
           </div>
           <% if vista == "admin_malla" %>
           <div id="existente2" style="display: none;">
-          
+
             <%= form_for @subject, :url => submit_materia_existente_path(1, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
             <h3>Materia ya existente:</h3>
             <div class="form-group">
@@ -263,32 +284,32 @@
                     <tbody id="tbodyid">
                     </tbody>
                   </table>
-                  
-                  
+
+
             </div>
-            <div class="form-group" align="center">     
+            <div class="form-group" align="center">
               <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
             </div>
-            
-            
+
+
             <div id="respuesta" style="display: none;"></div>
-            
-          
+
+
           </div>
-          
+
           <% end %>
-          
+
           <div id="nueva" style="display: none;">
             <h3>Agregar una nueva materia:</h3>
             <h4>Por favor seleccione la tipologia.</h4>
-            <div class="form-group" align="center"> 
+            <div class="form-group" align="center">
             <% tipos_materia.each do |x|   %>
               <button type="button" class="btn btn-default" value='<%= x %>' onclick="showMateria(this.value)"><%= x.capitalize! %> </button>
             <% end %>
             </div>
           </div>
-          
+
           <% end %>
           <div id="newMateria" style="display: none;">
             <h3 id="labelMateria"></h3>
@@ -318,7 +339,7 @@
 
 <script>
   function deshabilitar(){
-    document.getElementById('annadir').setAttribute("disabled", "disabled"); 
+    document.getElementById('annadir').setAttribute("disabled", "disabled");
   }
 </script>
 
@@ -357,10 +378,10 @@
         </div>
         <div class="modal-body">
           <strong>¿Cómo deseas añadir la materia?</strong>
-         
+
           <div id="searching">
-            <div class="form-group" align="center">    
-            
+            <div class="form-group" align="center">
+
             <% search_by.each do |criteria| %>
             <% onclick = "search_by( '" + criteria + "', '" + CareerHasSubject.subjects_not_approved_not_current_by_a_student(current_user.id,  @malla.career_id).length.to_s + "' ) " %>
              <button type="button" class="btn btn-default" onclick="<%= onclick %>"><%= criteria.capitalize %></button>
@@ -379,7 +400,7 @@
               <% end %>
             </div>
           </div>
-          
+
           <div id="codigo" style="display: none;">
 
             <%= form_for @subject, :url => submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla)), :remote => true do |f|  %>
@@ -398,25 +419,25 @@
                       </tr>
                     </thead>
                     <tbody id="tbodyid">
-                    
+
                     </tbody>
                   </table>
-                  
-                  
+
+
             </div>
-            <div class="form-group" align="center">     
+            <div class="form-group" align="center">
               <%= f.submit 'Buscar materia', :class => 'btn btn-primary' %>
               <%= button_tag "Limpiar", type: :reset, :class => 'btn btn-default' %>
             </div>
-            
-            
+
+
             <div id="respuesta" style="display: none;"></div>
             <% end %>
-          
+
           </div>
-          
+
           <div id="todas" style="display: none;">
-           <div class="form-group" align="center">    
+           <div class="form-group" align="center">
             <h3>Todas las materias</h3>
               <table class="table" style="font-size:8px;">
                   <thead>
@@ -433,13 +454,13 @@
                     <% current_subject = Subject.find(chs.subject_id) %>
                     <% button_string = "/subjects/add_existing_subject/2/" + @malla.id.to_s + "/" + @malla.career_id.to_s%>
                     <% next if chs.typology == 'L'%>
-                    <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %> 
+                    <% @unique_id = "setSemesterForStudent" + counter_of_subjects.to_s %>
                     <tr class = <%= Subject.get_class_by_typology(chs.typology)%>>
                       <td><%= current_subject.name %></td>
                       <td><%= current_subject.code %></td>
                       <td><%= current_subject.credits %></td>
                        <!--submit_materia_existente_path(2, @malla.id, Career.find_carrer_code_by_malla(@malla))-->
-                      <td> 
+                      <td>
                           <form action="/mallas/add_subject_to_malla_by_student" method="post" name="searchform"  id="searchform" class="form-horizontal" accept-charset="UTF-8" method="post" >
                             <button type="submit">
                             <input type="hidden" name="code" id="setCode" value= <%= current_subject.code %> />
