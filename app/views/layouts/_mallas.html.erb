@@ -103,7 +103,7 @@
 
                   <% if vista=="admin_malla" %>
                       <%= link_to "<p class='glyphicon glyphicon-plus'></p>".html_safe, '#', "data-target" => "#addSubjectFromAdmin", "data-toggle"=>"modal", :class => "MainNavText", :onclick => "reset_and_assign('#{current_semester.to_s}')" %>
-                  <% else if vista == "student_malla" && pdf == false && current_semester > user.current_semester && add_subjects_enabled%>
+                  <% else if vista == "student_malla" && pdf == false && current_semester >= user.current_semester && add_subjects_enabled%>
 
 
                           <% sem.electivas_not_assigned.times do %>
