@@ -227,7 +227,28 @@ class Optimization < ApplicationRecord
 
 
 
+
+
   def self.get_available_subjects_for_student(id_student, id_career)
+    array_of_chs_not_approved_not_current = CareerHasSubject.get_subjects_not_approved_by_a_student(id_student, id_career)
+    array_of_chs_approved_or_current = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
+
+    array_of_available_chs = []
+
+    array_of_chs_not_approved_not_current.each do |chs_na|
+      isAvailable = true
+      chs_na.followers.each do |prereq|
+        next if array_of_chs_approved_or_current.include? prereq
+        isAvailable = false
+        break
+      end
+      array_of_available_chs << chs_na if isAvailable
+    end
+
+    array_of_available_chs
+  end
+
+  def self.get_available_subjects_for_student_ii(id_student, id_career)
     array_of_chs_not_approved_not_current = CareerHasSubject.subjects_not_approved_not_current_by_a_student(id_student, id_career)
     array_of_chs_approved_or_current = CareerHasSubject.current_and_approved_subjects_by_student(id_student, id_career)
 
@@ -246,9 +267,39 @@ class Optimization < ApplicationRecord
     array_of_available_chs
   end
 
+
   def self.dictionary_of_prerequisites_for_student(id_student, id_career)
     dictionary_of_pre = Hash.new
     array_of_available_chs = Optimization.get_available_subjects_for_student(id_student, id_career)
+    array_of_chs_not_approved_not_current = CareerHasSubject.get_subjects_not_approved_by_a_student(id_student, id_career)
+    array_of_chs_approved_or_current = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
+
+
+    puts "##############"
+    print array_of_available_chs.to_a
+    puts "////////"
+    print array_of_chs_not_approved_not_current.to_a
+    puts "////////"
+    print array_of_chs_approved_or_current.to_a
+    puts "##############"
+
+    array_of_chs_not_approved_not_current.each do |chs|
+      if array_of_available_chs.include? chs
+        dictionary_of_pre[chs.id] = 0
+      else
+        dictionary_of_pre[chs.id] = 0
+        chs.followers.each do |pre|
+          next if array_of_chs_approved_or_current.include? pre
+          dictionary_of_pre[chs.id] += 1
+        end
+      end
+    end
+    dictionary_of_pre
+  end
+
+  def self.dictionary_of_prerequisites_for_student_from_personal(id_student, id_career)
+    dictionary_of_pre = Hash.new
+    array_of_available_chs = Optimization.get_available_subjects_for_student_ii(id_student, id_career)
     array_of_chs_not_approved_not_current = CareerHasSubject.subjects_not_approved_not_current_by_a_student(id_student, id_career)
     array_of_chs_approved_or_current = CareerHasSubject.current_and_approved_subjects_by_student(id_student, id_career)
 

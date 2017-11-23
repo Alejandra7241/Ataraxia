@@ -26,6 +26,7 @@ class Historiaacademica < ApplicationRecord
     ponderacion_pa = 0.0
     nombre = ""
     porcentaje = 0.0
+    @intersemestrales = 0
     creditos_aprobados = 0.0
     creditos_requeridos = 0.0
     creditos_sobrantes = 0
@@ -78,11 +79,22 @@ class Historiaacademica < ApplicationRecord
             next
           end
           unless checking.nil?
+
+            puts "Lizzzzzzzy #{processing} --> #{processing[-1]} ---> #{current_semester}"
+            @string_used = processing[-1].split('-')[-1]
+            puts "Die Mütze #{@string_used} ---> \n\n\n arr: #{arr} ---> \n\n\n new_subujects_hash: #{new_subjects_hash} \n\n\n new_subjects: #{new_subjects} \n\n\n hap #{hap}"
+            puts "99999999999999999999999999999999999"
+
             print arr
             hap << arr
             new_subjects << new_subjects_hash
-            current_semester += 1
+            current_semester += 1 unless @string_used == "inter"
             arr = {}
+            if @string_used == "inter"
+              arr[-777] = -777
+              @intersemestrales +=1
+              #new_subjects_hash[-777] = [-777, "Intersemestral", -1]
+            end
             next
           end
           #hap[:first] ||= processing[0]
@@ -167,11 +179,12 @@ class Historiaacademica < ApplicationRecord
     @pa = pa
     @papa = papa
     @hap = hap
+    puts "HAAAAAAAAAAAAAAAAAP #{@hap}"
     @carrera = codigo_carrera
     @porcentaje = porcentaje
     @nombre = nombre
     @new_subjects = new_subjects
-    semestre_actual = @hap.length+1
+    semestre_actual = @hap.length+1 - @intersemestrales
     puts "PORCENTAJEEES #{@hap.length}"
     puts porcentaje_disciplinar
     puts porcentaje_electivas
@@ -190,7 +203,7 @@ class Historiaacademica < ApplicationRecord
       i +=1
     end
 
-    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual )
+    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, @intersemestrales )
 
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"

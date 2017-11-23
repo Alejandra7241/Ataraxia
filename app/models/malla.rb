@@ -16,8 +16,11 @@ class Malla < ApplicationRecord
 
     end
     def self.add_semester(id_malla)
-        Semester.create(number: Malla.find(id_malla).semesters.length + 1, malla_id: id_malla.to_i) rescue return -1
-        Malla.find(id_malla).semesters.length
+        @current_malla = Malla.find(id_malla)
+        @number = @current_malla.semesters.length  - User.find(@current_malla.student_id).intersemestrales + 1
+        Semester.create(number: @number, malla_id: id_malla.to_i) rescue return -1
+        @current_malla.semesters.length
+        #Malla.find(id_malla).semesters.length
     end
     
     
@@ -143,6 +146,29 @@ class Malla < ApplicationRecord
         @nueva_malla = Malla.create(tipo: nuevo_tipo, career_id: @malla_original.career_id, admin_id: @malla_original.admin_id, student_id: @malla_original.student_id)
 
         @malla_original.semesters.each do |sem|
+            @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
+
+            sem.career_has_subjects.each do |chs|
+                @new_sem.career_has_subjects << chs
+            end
+        end
+
+
+
+
+
+        @nueva_malla
+    end
+
+
+
+    def self.duplicate_malla_without_not_approved(id_malla_original, nuevo_tipo, student_id)
+
+        @malla_original = Malla.find(id_malla_original)
+        @nueva_malla = Malla.create(tipo: nuevo_tipo, career_id: @malla_original.career_id, admin_id: @malla_original.admin_id, student_id: @malla_original.student_id)
+
+        @malla_original.semesters.each do |sem|
+            next if sem.number >= User.find(student_id).current_semester
             @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
 
             sem.career_has_subjects.each do |chs|
