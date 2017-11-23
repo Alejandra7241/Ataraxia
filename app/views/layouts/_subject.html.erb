@@ -35,7 +35,7 @@
 
           <%rescue%>
             <% end %>
-            <%if vista == "malla_avance" and aprobada%>
+            <%if vista == "malla_avance" and aprobada and not @currently_attending%>
                     <div class="rcorners1" align="center" style="background:black; color: white;"><%= subj.credits %> </div>
 
           <% elsif vista == "malla_avance" and @currently_attending %>
