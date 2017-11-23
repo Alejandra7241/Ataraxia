@@ -102,19 +102,26 @@
                 </td>
                  
               <% end %>
-              
+         <script>
+  function deshabilitar(){
+    document.getElementById('optimizzar').setAttribute("disabled", "disabled"); 
+    document.getElementById('annadir').setAttribute("disabled", "disabled"); 
+    document.getElementById('eliminnar').setAttribute("disabled", "disabled"); 
+    
+  }
+</script>
               <% current_semester -= 1%>
               <% if add_subjects_enabled %>
                 <td align="center">
                       <%= link_to "¡Añadir semestre #{ @malla.semesters.length+1}!", new_semester_path(@malla.id), class: "btn btn-success", :id => "annadir", :onclick => 'deshabilitar()', :style => 'margin: 5px 5px;' %>
                     <% if empty_semester && current_semester == @malla.semesters.length  %>
-                       <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), class: "btn btn-danger", :style => 'margin: 5px 5px;' %>
+                       <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), :id => "eliminnar", :onclick => 'deshabilitar()', class: "btn btn-danger", :style => 'margin: 5px 5px;' %>
                     <%else%>
-                                          <div class="well form-group" align="center" style="margin: 5px 5px; padding-top: 2px;">
+                          <div class="well form-group" align="center" style="margin: 5px 5px; padding-top: 2px;">
                             <%= form_for :post, :url => generate_student_malla_optima_path do |f|  %>
                               <%= f.label "Créditos", :style => "font-size: 15px;" %>
-                              <%= select_tag "credits", options_for_select((1..30).step(1)), :style => "font-size: 15px;" %>
-                              <%= f.submit 'Optimizar esta malla',:class => "btn btn-info"  %>
+                              <%= select_tag "credits", options_for_select((StudentHasSubject.min_credits(current_user.id,  @malla.career_id)..30).step(1)), :style => "font-size: 15px;" %>
+                              <%= f.submit 'Optimizar esta malla',:class => "btn btn-info", :id => "optimizzar"  %>
                             <% end %>
                         </div>
                   <% end %>
@@ -316,11 +323,6 @@
 </div>
 
 
-<script>
-  function deshabilitar(){
-    document.getElementById('annadir').setAttribute("disabled", "disabled"); 
-  }
-</script>
 
 
   <div id="removeSemester" class="modal fade" role="dialog">

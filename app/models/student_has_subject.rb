@@ -122,4 +122,29 @@ class StudentHasSubject < ApplicationRecord
         return aux/suma_creditos
     end
 
+    def self.min_credits(id_student, id_career)
+
+       @user = User.find(id_student)
+
+        # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
+        @career = Career.find(id_career)
+        mallaEst = @career.mallas.find_by(tipo: 'Estándar')
+        array_of_chs_not_approved_not_current = []
+
+        # Materias aprobadas o que están siendo vistas de la carrera
+        array_of_chs_approved_or_current = CareerHasSubject.current_and_approved_subjects_by_student(id_student, id_career)
+        max=0
+        # Arreglo de chs que faltan por aprobar respecto a la malla estándar
+        mallaEst.semesters.each do |sem|
+            sem.career_has_subjects.each do |chs|
+                next if chs.typology == "L"
+                next if array_of_chs_approved_or_current.include? chs
+                materia = Subject.find(chs.subject_id)
+                if materia.credits > max
+                    max=materia.credits
+                end
+            end
+        end
+        return max
+    end
 end
