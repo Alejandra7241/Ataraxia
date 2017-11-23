@@ -7,7 +7,7 @@
   <div>Generando pdf...</div>
 </div>
 
-<h1 align="center">Malla Personal optimizada</h1>
+<h1 align="center">Malla Personal Optimizada</h1>
 
 
 <div class="form-group" align="center">
@@ -22,7 +22,7 @@
 
 <!--search_by: ['todas', 'codigo', 'tipologia']-->
 <%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_optima, user: @user, add_subjects_enabled: false, :pdf => false, search_by: ['todas', 'codigo'], :estadisticas => false %>
-<%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
+<%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal_optimizada"%>
 
 <!-- The Modal Ayuda -->
   <div id="myModal6" class="modal fade" role="dialog">

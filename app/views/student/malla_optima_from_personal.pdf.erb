@@ -1,56 +1,12 @@
-<%= stylesheet_link_tag 'pdf', media: 'all', 'data-turbolinks-track' => true %>
-<%= javascript_include_tag 'pdf', "data-turbolinks-track" => true %>
-
-<!-- Animación Cargando cuando se genera pdf -->
-<div id="cargando" class="well">
-  <div class="loader"></div>
-  <div>Generando pdf...</div>
-</div>
-
-<h1 align="center">Malla Personal optimizada</h1>
-
-
-<div class="form-group" align="center">
-
-  <%= form_for :post, :url => generate_malla_optima_from_personal_path do |f|  %>
-      <%= f.label "Créditos" %>
-      <%= select_tag "credits", options_for_select((1..30).step(1)) %>
-      <%= f.submit '¡Reoptimizar!',:class => "btn btn-info"  %></div>
-  <% end %>
-
-
-
-<!--search_by: ['todas', 'codigo', 'tipologia']-->
-<%= render 'layouts/mallas', :vista =>"student_malla",  malla: @malla_optima, user: @user, add_subjects_enabled: false, :pdf => false, search_by: ['todas', 'codigo'], :estadisticas => false %>
-<%= render 'layouts/footer', :vista =>"student_malla", :s_vista => "personal"%>
-
-<!-- The Modal Ayuda -->
-  <div id="myModal6" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header modal-ayuda">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Ventana de ayuda</h2>
-        </div>
-        <div class="modal-body" >
-          <div align="center"><img width="80%" class="img-responsive" src="/ayuda_personal.png" class="img-fluid" alt="help" /></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="myModal7" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-    <!-- Modal content -->
-      <div class="modal-content">
-        <div class="modal-header modal-faltantes">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 align="center">Materias Faltantes</h2>
-        </div>
-        <div class="modal-body" >
-          
-        </div>
-      </div>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Malla</title>
+        <meta charset="UTF-8">
+        <%= wicked_pdf_stylesheet_link_tag 'application' %>
+    </head>
+    
+    <body>
+        <%= render 'layouts/mallas.html.erb', :vista =>"student_malla",  malla: @malla_optima, user: @user, add_subjects_enabled: false, :pdf => true, search_by: ['todas', 'codigo'], :estadisticas => false %>
+    </body>
+</html>
