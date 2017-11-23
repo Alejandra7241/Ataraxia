@@ -239,7 +239,7 @@ class StudentController < ApplicationController
 
       informacion =  params[:historiaacademica][:informacion]
       successfully_created = true
-      Historiaacademica.process_academic_history(informacion, current_user) rescue successfully_created = false
+      Historiaacademica.process_academic_history(informacion, current_user)# rescue successfully_created = false
       if successfully_created
         flash[:notice] = "Tu historia académica se ha guardado correctamente."
         redirect_to get_mis_cursos_path

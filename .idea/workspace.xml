@@ -5,9 +5,9 @@
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb" />
       <change type="NEW" beforePath="" afterPath="$USER_HOME$/unarbitrary-laugh/app/services/act/modify.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student_has_subject.rb" afterPath="$PROJECT_DIR$/app/models/student_has_subject.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/student_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/student_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/career.rb" afterPath="$PROJECT_DIR$/app/models/career.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/historiaacademica.rb" afterPath="$PROJECT_DIR$/app/models/historiaacademica.rb" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/models/act_archive_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/models/act_archive_spec.rb" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/models/act_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/models/act_spec.rb" />
     </list>
@@ -56,8 +56,8 @@
       <file leaf-file-name="historiaacademica.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/historiaacademica.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3690">
-              <caret line="205" column="28" lean-forward="false" selection-start-line="205" selection-start-column="28" selection-end-line="205" selection-end-column="28" />
+            <state relative-caret-position="642">
+              <caret line="209" column="28" lean-forward="true" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -66,20 +66,62 @@
       <file leaf-file-name="user.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/user.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1116">
+            <state relative-caret-position="18">
               <caret line="62" column="242" lean-forward="false" selection-start-line="62" selection-start-column="242" selection-end-line="62" selection-end-column="242" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_mallas.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="career.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/career.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="432">
+              <caret line="36" column="60" lean-forward="false" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_mallas.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="74" column="158" lean-forward="false" selection-start-line="74" selection-start-column="158" selection-end-line="74" selection-end-column="158" />
+            <state relative-caret-position="1062">
+              <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <marker date="1511419778179" expanded="false" signature="8636:8670" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="9842:9849" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="10529:10544" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="11077:11092" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="12155:12185" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="12908:12922" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="13343:13350" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="13878:13892" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="14512:14526" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="15233:15247" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="15330:15344" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="15808:15822" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="16635:16667" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="18189:18207" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="18277:18284" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="19122:19129" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="20346:20360" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="20987:21017" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="21725:21739" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="21822:21836" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="21972:21986" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="24572:24586" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="25229:25241" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="25396:25403" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="26097:26112" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="27312:27342" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="28247:28261" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="28637:28649" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="28803:28810" ph="×" />
+                <marker date="1511419778179" expanded="false" signature="29509:29524" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="30685:30715" ph="..." />
+                <marker date="1511419778179" expanded="false" signature="31596:31610" ph="..." />
               </folding>
             </state>
           </provider>
@@ -88,8 +130,18 @@
       <file leaf-file-name="student_controller.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/student_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+            <state relative-caret-position="287">
+              <caret line="241" column="76" lean-forward="false" selection-start-line="241" selection-start-column="76" selection-end-line="241" selection-end-column="76" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="optimization.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/optimization.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="291">
+              <caret line="274" column="90" lean-forward="false" selection-start-line="274" selection-start-column="56" selection-end-line="274" selection-end-column="90" />
               <folding />
             </state>
           </provider>
@@ -115,16 +167,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="routes.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/routes.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2340">
-              <caret line="130" column="4" lean-forward="false" selection-start-line="130" selection-start-column="4" selection-end-line="130" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="20171109202922_add_field_to_user.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb">
           <provider selected="true" editor-type-id="text-editor">
@@ -135,31 +177,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="malla.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="19" column="110" lean-forward="false" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mallas_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/mallas_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2160">
-              <caret line="120" column="32" lean-forward="false" selection-start-line="120" selection-start-column="32" selection-end-line="120" selection-end-column="32" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
     </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>HEAD</find>
       <find>Head</find>
       <find>open_modal_for_choose</find>
       <find>open_modal_for</find>
@@ -188,6 +209,7 @@
       <find>añadir</find>
       <find>add_new</find>
       <find>remove</find>
+      <find>procesar</find>
       <find>current_semester</find>
     </findStrings>
   </component>
@@ -238,15 +260,15 @@
         <option value="$PROJECT_DIR$/app/views/student/malla_optima.html.erb" />
         <option value="$PROJECT_DIR$/app/models/optimization.rb" />
         <option value="$PROJECT_DIR$/app/models/career_has_subject.rb" />
-        <option value="$PROJECT_DIR$/app/models/career.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb" />
         <option value="$PROJECT_DIR$/app/models/malla.rb" />
-        <option value="$PROJECT_DIR$/app/models/historiaacademica.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/student_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/student_has_subject.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/historiaacademica.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/student_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/career.rb" />
       </list>
     </option>
   </component>
@@ -259,11 +281,11 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-614" />
+    <option name="y" value="-4" />
     <option name="width" value="1851" />
-    <option name="height" value="1040" />
+    <option name="height" value="1068" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -553,20 +575,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="172547000" />
+    <option name="totallyTimeSpent" value="174390000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1851" height="1040" extended-state="0" />
+    <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25152355" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.046434496" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27021277" sideWeight="0.50858724" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25813007" sideWeight="0.5085683" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22446808" sideWeight="0.49806094" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.49806094" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27021277" sideWeight="0.49141273" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25813007" sideWeight="0.49143174" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -792,6 +814,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-342">
           <caret line="32" column="34" lean-forward="false" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -834,13 +857,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/optimization.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5346">
-          <caret line="297" column="5" lean-forward="false" selection-start-line="297" selection-start-column="5" selection-end-line="297" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -868,14 +884,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/career.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="576">
-          <caret line="32" column="4" lean-forward="false" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2340">
@@ -892,50 +900,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="19" column="110" lean-forward="false" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/historiaacademica.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3690">
-          <caret line="205" column="28" lean-forward="false" selection-start-line="205" selection-start-column="28" selection-end-line="205" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="256">
           <caret line="40" column="2" lean-forward="false" selection-start-line="40" selection-start-column="2" selection-end-line="40" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="62" column="242" lean-forward="false" selection-start-line="62" selection-start-column="242" selection-end-line="62" selection-end-column="242" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/student_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -955,13 +923,101 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/optimization.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="274" column="90" lean-forward="false" selection-start-line="274" selection-start-column="56" selection-end-line="274" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="19" column="110" lean-forward="false" selection-start-line="19" selection-start-column="110" selection-end-line="19" selection-end-column="110" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/student_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="241" column="76" lean-forward="false" selection-start-line="241" selection-start-column="76" selection-end-line="241" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="74" column="158" lean-forward="false" selection-start-line="74" selection-start-column="158" selection-end-line="74" selection-end-column="158" />
+        <state relative-caret-position="1062">
+          <caret line="59" column="23" lean-forward="true" selection-start-line="59" selection-start-column="23" selection-end-line="59" selection-end-column="23" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <marker date="1511419778179" expanded="false" signature="8636:8670" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="9842:9849" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="10529:10544" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="11077:11092" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="12155:12185" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="12908:12922" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="13343:13350" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="13878:13892" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="14512:14526" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="15233:15247" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="15330:15344" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="15808:15822" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="16635:16667" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="18189:18207" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="18277:18284" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="19122:19129" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="20346:20360" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="20987:21017" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="21725:21739" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="21822:21836" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="21972:21986" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="24572:24586" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="25229:25241" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="25396:25403" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="26097:26112" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="27312:27342" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="28247:28261" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="28637:28649" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="28803:28810" ph="×" />
+            <marker date="1511419778179" expanded="false" signature="29509:29524" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="30685:30715" ph="..." />
+            <marker date="1511419778179" expanded="false" signature="31596:31610" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="62" column="242" lean-forward="false" selection-start-line="62" selection-start-column="242" selection-end-line="62" selection-end-column="242" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/historiaacademica.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="642">
+          <caret line="209" column="28" lean-forward="true" selection-start-line="209" selection-start-column="28" selection-end-line="209" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/career.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="36" column="60" lean-forward="false" selection-start-line="36" selection-start-column="60" selection-end-line="36" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>
