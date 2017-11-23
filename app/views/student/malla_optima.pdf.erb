@@ -7,6 +7,6 @@
     </head>
     
     <body>
-       <%= render 'layouts/mallas.html.erb', :vista =>"student_malla", :pdf => true, malla: @malla_personal, user: @user, add_subjects_enabled: true,  add_subjects_enabled: false, :estadisticas => false %>
+       <%= render 'layouts/mallas.html.erb', :vista =>"student_malla",  malla: @malla_optima, user: @user, add_subjects_enabled: false, :pdf => true, search_by: ['todas', 'codigo'], :estadisticas => false %>
     </body>
 </html>

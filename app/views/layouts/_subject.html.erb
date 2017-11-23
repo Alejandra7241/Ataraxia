@@ -62,6 +62,10 @@
                <div class="rcorners2" style="background:#f9e6ff;" align="center">
                 <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                 </div>
+                <%elsif @not_approved%>
+                <div class="rcorners2" style="background:#ffcccc;" align="center">
+                <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
+                </div>
                <% else %>
                    <div class="rcorners2" style="background:#ececec;" align="center">
                 <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>

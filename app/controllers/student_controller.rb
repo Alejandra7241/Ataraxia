@@ -120,15 +120,23 @@ class StudentController < ApplicationController
 
       end
 
-
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/malla_optima', pdf:'ataraxia_malla_optima'}
+        end
 
 
 
     end
 
 
-    def malla_optima_from_personal
-
+    def malla_optima_from_personal 
+        respond_to do |format| 
+            format.html
+            format.json
+            format.pdf {render template:'student/ malla_optima_from_personal', pdf:'ataraxia_malla_personal_optimizada'}
+        end
       @credits =  params[:credits]
 
       @user = current_user
