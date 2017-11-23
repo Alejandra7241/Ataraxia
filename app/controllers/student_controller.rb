@@ -143,6 +143,7 @@ class StudentController < ApplicationController
       @subject = Subject.new
       Malla.destroy_all_mallas_by_tipo(@user.id, 'Optima')
       @malla_personal_id = Malla.find_malla_by_student(@user.id,'Personal').id
+      @malla_personal = Malla.find_malla_personal_by_student_id(current_user.id)
       @malla_optima = Malla.duplicate_malla(@malla_personal_id, 'Optima')
       graph = Optimization.get_dictionary_of_prereq_by_career(@malla_optima.career_id)
       credits = Optimization.dictionary_of_credits(graph)
