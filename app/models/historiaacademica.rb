@@ -80,9 +80,9 @@ class Historiaacademica < ApplicationRecord
           end
           unless checking.nil?
 
-            puts "Lizzzzzzzy #{processing} --> #{processing[-1]} ---> #{current_semester}"
+
             @string_used = processing[-1].split('-')[-1]
-            puts "Die Mütze #{@string_used} ---> \n\n\n arr: #{arr} ---> \n\n\n new_subujects_hash: #{new_subjects_hash} \n\n\n new_subjects: #{new_subjects} \n\n\n hap #{hap}"
+            puts "#{@string_used} ---> \n\n\n arr: #{arr} ---> \n\n\n new_subujects_hash: #{new_subjects_hash} \n\n\n new_subjects: #{new_subjects} \n\n\n hap #{hap}"
             puts "99999999999999999999999999999999999"
 
             print arr

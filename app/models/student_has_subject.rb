@@ -86,23 +86,48 @@ class StudentHasSubject < ApplicationRecord
     end
     
       def self.list_subjects_current_semester(malla,user)
-         creditos=[]
-         materias=[]
-        i=1
-        malla.semesters.each do |sem| 
-            if i==(user.current_semester)
-                sem.career_has_subjects.each do |chs| 
-                    materia = Subject.find(chs.subject_id)
-                    materias.push(materia.name)
-                    creditos.push(materia.credits)
-                    
-                end
-            end
-            i=i+1
+          creditos=[]
+          materias=[]
+
+          @sem = Semester.find_by(number: user.current_semester, malla_id: malla.id)
+
+          @sem.career_has_subjects.each do |chs|
+
+              #chs = CareerHasSubject.find(shs.career_has_subject_id)
+
+              materia = Subject.find(chs.subject_id)
+              materias.push(materia.name)
+              creditos.push(materia.credits)
+          end
+
+
+          @sem.subjects.each do |subj|
+
+              #chs = CareerHasSubject.find(shs.career_has_subject_id)
+
+              #materia = Subject.find(chs.subject_id)
+              materias.push(subj.name)
+              creditos.push(subj.credits)
+          end
+        return creditos, materias
+    end
+
+
+
+    def self.list_subjects_current_semester_ii(malla,user)
+        creditos=[]
+        materias=[]
+
+        @arr_mis_cursos = self.where(currently_attending: true, student_id: user.id)
+        @arr_mis_cursos.each do |shs|
+            chs = CareerHasSubject.find(shs.career_has_subject_id)
+
+            materia = Subject.find(chs.subject_id)
+            materias.push(materia.name)
+            creditos.push(materia.credits)
         end
         return creditos, materias
     end
-    
     def self.papi(malla,user)
         suma_creditos=0
         aux=0

@@ -73,19 +73,19 @@ class CareerHasSubject < ApplicationRecord
         # Falta crear una tabla de StudentHasCareer pero mientras tanto, lo siguiente funciona si se pasa la career_id como parámetro
         @career = Career.find(id_career)
         mallaEst = @career.mallas.find_by(tipo: 'Estándar')
-        array_of_chs_not_approved = []
+        array_of_chs_not_approved_not_current = []
         
         # Materias aprobadas de la carrera
-        array_of_chs_approved = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
+        array_of_chs_approved_or_current = CareerHasSubject.get_subjects_approved_by_a_student(id_student, id_career)
         
         # Arreglo de chs que faltan por aprobar respecto a la malla estándar
         mallaEst.semesters.each do |sem|
             sem.career_has_subjects.each do |chs|
                 #if @user.semester_has_subjects.find_by(career_has_subject_id: chs.id)
-                next if chs.typology == "L"
-                next if array_of_chs_approved.include? chs
+                next if chs.typology == "L" || chs.typology == "O"
+                next if array_of_chs_approved_or_current.include? chs
 
-                array_of_chs_not_approved << chs
+                array_of_chs_not_approved_not_current << chs
             end
         end
         
@@ -100,10 +100,9 @@ class CareerHasSubject < ApplicationRecord
         # array_of_chs_approved.each do |ca|
         #     puts Subject.find(ca.subject_id).name
         # end
-        puts (array_of_chs_not_approved - array_of_chs_approved).length
         puts "================="
 
-        array_of_chs_not_approved
+        array_of_chs_not_approved_not_current
     end
 
 
@@ -125,7 +124,7 @@ class CareerHasSubject < ApplicationRecord
         # Arreglo de chs que faltan por aprobar respecto a la malla estándar
         mallaEst.semesters.each do |sem|
             sem.career_has_subjects.each do |chs|
-                next if chs.typology == "L"
+                next if chs.typology == "L" || chs.typology == "O"
                 next if array_of_chs_approved_or_current.include? chs
 
                 array_of_chs_not_approved_not_current << chs
@@ -157,16 +156,16 @@ class CareerHasSubject < ApplicationRecord
 
         # Ver las materias de la malla estándar semestre por semestre y
         # consultar una por una si el estudiante ya las tiene
-        array_of_chs_approved = []
+        array_of_chs_approved_or_current = []
         
-        StudentHasSubject.where(student_id: id_student, approved: true).each do |shs|
+        StudentHasSubject.where(student_id: id_student).where('approved=? OR currently_attending=?', true, true).each do |shs|
             chs = CareerHasSubject.find(shs.career_has_subject_id)
             if chs.career_id == id_career
-                array_of_chs_approved << chs
+                array_of_chs_approved_or_current << chs
             end
         end
 
-        array_of_chs_approved
+        array_of_chs_approved_or_current
     end
 
 
