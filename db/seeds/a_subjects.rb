@@ -354,6 +354,39 @@ Subject.create([
         {code: 2025524, name: 'Medicina legal I', credits: 2},
         {code: 2018010, name: 'Psiquiatría II', credits: 3},
         {code: 2025508, name: 'Administracion en salud I', credits: 2},
-        {code: 2025532, name: 'Trabajo de Grado de Medicina', credits: 6}
+        {code: 2025532, name: 'Trabajo de Grado de Medicina', credits: 6},
+        
+        #Fonoaudiologia
+        
+        {code: 2015466, name: 'Lingüística general', credits: 3},
+        {code: 2016149, name: 'Comunicación oral y escrita I', credits: 3},
+        {code: 2025574, name: 'Anatomía e histología funcional', credits: 3},
+        {code: 2016164, name: 'Introducción a Fonoaudiología', credits: 2},
+        {code: 2016310, name: 'Lingüística Aplicada', credits: 3},
+        {code: 1000023, name: 'Mecánica y ondas para biociencias', credits: 4},
+        {code: 2025577, name: 'Neuroanatomia estructural y funcional', credits: 2},
+        {code: 2025578, name: 'Cabeza cuello y tórax', credits: 2},
+        {code: 2016151, name: 'Desórdenes de Comunicación', credits: 4},
+        {code: 2016311, name: 'Psicología Evolutiva', credits: 3},
+        {code: 2016165, name: 'Juicio Clínico en Fonoaudiología', credits: 3},
+        {code: 2016159, name: 'Fundamentos del Habla', credits: 2},
+        {code: 2016160, name: 'Fundamentos del Lenguaje', credits: 4},
+        {code: 2025826, name: 'Fundamentos de audición', credits: 2},
+        {code: 2015479, name: 'Psicolingüística', credits: 3},
+        {code: 2023852, name: 'Comunicación oral y escrita II', credits: 3},
+        {code: 2016163, name: 'Intervención del Habla', credits: 3},
+        {code: 2016168, name: 'Lenguaje Infantil y del Adolescente', credits: 3},
+        {code: 2016145, name: 'Audiología Básica', credits: 3},
+        {code: 1000012, name: 'Bioestadística fundamental', credits: 3},
+        {code: 2016162, name: 'Intervención de la Función Oral Faríngea', credits: 3},
+        {code: 2016188, name: 'Lenguaje en la Educación y el Aprendizaje', credits: 3},
+        {code: 2016161, name: 'Intervención Audiológica', credits: 3},
+        {code: 2016167, name: 'Lenguaje en el Adulto', credits: 3},
+        {code: 2015695, name: 'Diseño, gestión y evaluación de proyectos', credits: 3},
+        {code: 2016174, name: 'Práctica en Educación', credits: 5},
+        {code: 2016175, name: 'Práctica en Salud', credits: 5},
+        {code: 2016173, name: 'Práctica en Audiología', credits: 5},
+        {code: 2016158, name: 'Fundamentos de Investigación', credits: 4},
+        {code: 2015310, name: 'Trabajo de Grado', credits: 8}
 ])
 # *************************************************************************
