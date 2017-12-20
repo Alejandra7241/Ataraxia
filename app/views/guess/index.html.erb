@@ -26,7 +26,9 @@
                             <%elsif career.faculty=="Ingeniería"%>
                                 style="background-color: #ccebff;"
                             <%elsif career.faculty=="Medicina"%>
-                                style="background-color: #f9e6ff;"  
+                                style="background-color: #f9e6ff;"
+                            <%elsif career.faculty=="Artes"%>
+                                style="background-color: #ffffb3;"    
                             <%end%>
                         >
                             <%= link_to career.name, guess_malla_path(career.id) %></li>

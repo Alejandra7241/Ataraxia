@@ -431,6 +431,48 @@ Subject.create([
         {code: 2025549, name: 'Profundización estudios en discapacidad', credits: 3},
         {code: 2017021, name: 'Taller trabajo de grado', credits: 2},
         {code: 2025547, name: 'Práctica profesional integral en psicosocial', credits: 7},
-        {code: 2017976, name: 'Trabajo de Grado', credits: 6}
+        {code: 2017976, name: 'Trabajo de Grado', credits: 6},
+        
+        # -------------------------------------- ARTES ------------------------------------
+        
+        #Diseño Grafico
+        
+        {code: 2016072, name: 'Gestión cultural y empresarial en las artes', credits: 3},
+        {code: 2016104, name: 'Teoría de la mirada', credits: 3},
+        {code: 2016075, name: 'Historia del diseño gráfico: De la imagen a la palabra', credits: 3},
+        {code: 2016099, name: 'Taller forma y estructura', credits: 5},
+        {code: 2016063, name: 'Esquemática básica', credits: 2},
+        {code: 2016065, name: 'Expresión visual', credits: 2},
+        {code: 2016070, name: 'Fundamentos tecnológicos: Formatos y medidas', credits: 2},
+        #{code: 2016085, name: 'Responsabilidad socio-ambiental de las artes', credits: 3},
+        {code: 2016081, name: 'Palabra e imagen', credits: 3},
+        {code: 2016076, name: 'Historia del diseño gráfico: De las artes al diseño', credits: 3},
+        {code: 2016102, name: 'Taller signo y letra', credits: 5},
+        {code: 2016066, name: 'Figura humana y representación', credits: 3},
+        {code: 2016068, name: 'Fotografía I', credits: 3},
+        {code: 2016071, name: 'Fundamentos tecnológicos: Tipometría', credits: 3},
+        #{code: 2016073, name: 'Herencias - Una mirada a la historia de las artes', credits: 3},
+        {code: 2016064, name: 'Estética y teoría de la imagen', credits: 3},
+        {code: 2016077, name: 'Historia del diseño gráfico: De los ismos a los medios', credits: 3},
+        {code: 2016103, name: 'Taller tipografía, composición y diagramación', credits: 5},
+        {code: 2016061, name: 'Bocetación e ilustración', credits: 3},
+        {code: 2016918, name: 'Fotografía II', credits: 3},
+        {code: 2016069, name: 'Fundamentos tecnológicos: Color y producción', credits: 3},
+        #{code: 2016082, name: 'Problemas contemporáneos de las artes', credits: 3},
+        {code: 2016105, name: 'Teorías de la comunicación visual I', credits: 3},
+        {code: 2016074, name: 'Historia del diseño gráfico: Contextos del diseño en Colombia', credits: 3},
+        {code: 2016080, name: 'Aplicaciones gráficas tridimensionales', credits: 3},
+        {code: 2016079, name: 'Imagen dinámica', credits: 3},
+        {code: 2016062, name: 'Fotografía III', credits: 3},
+        {code: 2016106, name: 'Teorías de la comunicación visual II', credits: 3},
+        {code: 2016078, name: 'Historia del diseño gráfico: Sociedad, cultura y diseño en Latinoamérica', credits: 3},
+        {code: 2016101, name: 'Taller orientación y diseño de información', credits: 5},
+        {code: 2016100, name: 'Taller identidad e imagen coordinada', credits: 5},
+        {code: 2016084, name: 'Producción en medios impresos', credits: 3},
+        {code: 2016083, name: 'Producción en medios digitales', credits: 3},
+        {code: 2016086, name: 'Seminario de investigación y proyecto de diseño', credits: 3},
+        #{code: 2016095, name: 'Taller de énfasis en teoría, historia y estética I', credits: 3},
+        #{code: 2016087, name: 'Taller de énfasis en ilustración I', credits: 3,
+        {code: 2015304, name: 'Trabajo de Grado', credits: 6}
 ])
 # *************************************************************************
