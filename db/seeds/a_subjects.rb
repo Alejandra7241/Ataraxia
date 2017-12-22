@@ -506,6 +506,42 @@ Subject.create([
         {code: 2016086, name: 'Seminario de investigación y proyecto de diseño', credits: 3},
         #{code: 2016095, name: 'Taller de énfasis en teoría, historia y estética I', credits: 3},
         #{code: 2016087, name: 'Taller de énfasis en ilustración I', credits: 3,
-        {code: 2015304, name: 'Trabajo de Grado', credits: 6}
+        {code: 2015304, name: 'Trabajo de Grado', credits: 6},
+        
+        # -------------------------------------- CIENCIAS AGRARIAS  ------------------------------------
+        
+        #Ingeniería Agronomica
+        
+        {code: 2015897, name: 'Introducción a la ingeniería agronómica', credits: 3},
+        {code: 2015877, name: 'Biología de plantas', credits: 4},
+        {code: 2015878, name: 'Botánica taxonómica', credits: 3},
+        {code: 2015885, name: 'Ciencia del suelo', credits: 3},
+        {code: 2015880, name: 'Agroclimatología', credits: 3},
+        {code: 2015889, name: 'Edafología', credits: 3},
+        {code: 2015903, name: 'Microbiología', credits: 3},
+        {code: 2015882, name: 'Biología Celular y Molecular Básica', credits: 3},
+        {code: 2015887, name: 'Diseño de experimentos', credits: 3},
+        {code: 2015909, name: 'Sociología Rural', credits: 3},
+        {code: 2015908, name: 'Riegos y drenajes', credits: 3},
+        {code: 2015902, name: 'Mecanización agrícola', credits: 3},
+        {code: 2015895, name: 'Génetica general', credits: 3},
+        {code: 2015892, name: 'Fisiología vegetal básica', credits: 4},
+        {code: 2015888, name: 'Economía agraria', credits: 3},
+        {code: 2015890, name: 'Entomología', credits: 3},
+        {code: 2015894, name: 'Fitopatología', credits: 3},
+        {code: 2015891, name: 'Fisiología de la producción vegetal', credits: 3},
+        {code: 2015907, name: 'Reproducción y multiplicación', credits: 3},
+        {code: 2015922, name: 'Gestión agroempresarial', credits: 3},
+        {code: 2015898, name: 'Manejo de la fertilidad del suelo', credits: 3},
+        {code: 2015901, name: 'Manejo integrado de plagas', credits: 3},
+        {code: 2015899, name: 'Manejo Integrado de Enfermedades', credits: 3},
+        {code: 2015900, name: 'Manejo integrado de malezas', credits: 3},
+        {code: 2015883, name: 'Ciclo i: formulación y evaluación de proyectos productivos', credits: 4},
+        {code: 2015893, name: 'Fitomejoramiento', credits: 3},
+        {code: 2015881, name: 'Agroecosistemas y sistemas de producción', credits: 3},
+        {code: 2015910, name: 'Tecnología de la Poscosecha', credits: 2},
+        {code: 2015884, name: 'Ciclo II: Ejecución de un proyecto productivo', credits: 4},
+        {code: 2015291, name: 'Trabajo de Grado', credits: 6},
+        {code: 2015934, name: 'Práctica Profesional', credits: 12}
 ])
 # *************************************************************************
