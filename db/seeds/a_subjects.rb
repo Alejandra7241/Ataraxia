@@ -433,6 +433,39 @@ Subject.create([
         {code: 2025547, name: 'Práctica profesional integral en psicosocial', credits: 7},
         {code: 2017976, name: 'Trabajo de Grado', credits: 6},
         
+        #Nutrición y dietética
+        
+        {code: 2015788, name: 'Morfologia', credits: 4},
+        {code: 1000041, name: 'Química básica', credits: 3},
+        {code: 2015782, name: 'Laboratorio de química básica', credits: 2},
+        {code: 2021550, name: 'Introduccion a la nutricion y dietetica', credits: 3},
+        {code: 1000042, name: 'Bioquímica básica', credits: 3},
+        {code: 2015790, name: 'Ciencia de alimentos I', credits: 4},
+        {code: 2015920, name: 'Laboratorio de ciencia de alimentos I', credits: 2},
+        {code: 1000043, name: 'Laboratorio bioquímica básica', credits: 2},
+        {code: 2021977, name: 'Evaluación del estado nutricional', credits: 3},
+        {code: 2015789, name: 'Ciencia de alimentos II', credits: 4},
+        {code: 2015921, name: 'Laboratorio de ciencia de alimentos II', credits: 2},
+        {code: 2025487, name: 'Bases fisiológicas de la nutrición', credits: 4},
+        {code: 2015754, name: 'Antropología alimentaria', credits: 3},
+        {code: 2021978, name: 'Nutrición materno infantil', credits: 4},
+        {code: 2015787, name: 'Microbiología', credits: 2},
+        {code: 2015786, name: 'Laboratorio Microbiología', credits: 2},
+        {code: 2015785, name: 'Fisiopatología', credits: 5},
+        {code: 2015775, name: 'Nutrición del adulto', credits: 3},
+        {code: 2025505, name: 'Sistema agroalimentario', credits: 3},
+        {code: 2015765, name: 'Educación alimentaria y nutricional I', credits: 3},
+        {code: 2025500, name: 'Epidemiología nutricional I', credits: 3},
+        {code: 2025492, name: 'Nutrición clínica materno infantil', credits: 3},
+        {code: 2025489, name: 'Gerencia de servicios de alimentación y nutrición', credits: 6},
+        {code: 2025502, name: 'Nutrición clínica adulto', credits: 3},
+        {code: 2025499, name: 'Nutrición pública', credits: 4},
+        {code: 2025495, name: 'Practica de nutricion clinica materno infantil', credits: 3},
+        {code: 2025504, name: 'Práctica de servicios de alimentación y nutrición', credits: 6},
+        {code: 2025497, name: 'Práctica de nutrición clínica adultos', credits: 3},
+        {code: 2025496, name: 'Practica de nutricion pública', credits: 6},
+        {code: 2015756, name: 'Trabajo de Grado', credits: 8},
+
         # -------------------------------------- ARTES ------------------------------------
         
         #Diseño Grafico
