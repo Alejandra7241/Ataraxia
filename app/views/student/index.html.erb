@@ -72,7 +72,9 @@
                                     <%elsif career.faculty=="Medicina"%>
                                         style="background-color: #f9e6ff;"  
                                     <%elsif career.faculty=="Artes"%>
-                                        style="background-color: #ffffb3;"  
+                                        style="background-color: #ffffb3;"
+                                    <%elsif career.faculty=="Ciencias Agrarias"%>
+                                        style="background-color: #ffd6cc;"
                                     <%end%>
                                 ><%= link_to career.name, student_malla_estandar_path(career.id) %></li>
                             <% end %>
