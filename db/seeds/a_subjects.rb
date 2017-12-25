@@ -350,7 +350,6 @@ Subject.create([
 
         #Quimica
         {code: 2026364, name: 'Química fundamental', credits: 3},
-        {code: 1000025, name: 'Laboratorio tecnicas básicas en química', credits: 3},
         {code: 2015589, name: 'Laboratorio de Química Inorgánica', credits: 4},
         {code: 2015599, name: 'Química estructural', credits: 3},
         {code: 2015576, name: 'Fundamentos de espectroscopía', credits: 2},
