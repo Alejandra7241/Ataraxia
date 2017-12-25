@@ -35,7 +35,9 @@ Subject.create([
         {code: 2021143, name: 'Cátedra de comercio, crisis y negocios internacionales', credits: 3},
         {code: 2022626, name: 'Francés II', credits: 3},
         
+        
         # -------------------------------------- INGENIERIA ------------------------------------
+        
         # Ingeniería de Sistemas
         {code: 1000004, name: 'Cálculo diferencial', credits: 4},
         {code: 2025975, name: 'Introducción a la ingeniería de sistemas y computación', credits: 3},
@@ -265,6 +267,7 @@ Subject.create([
         {code: 8888884, name: 'Optativa', credits: 3},
         {code: 2015300, name: 'Trabajo de Grado', credits: 6},
         
+        
         # -------------------------------------- CIENCIAS ------------------------------------
         
         #Fisica
@@ -311,11 +314,62 @@ Subject.create([
         {code: 2016344, name: 'Consultoría estadística', credits: 2},
         {code: 2015314, name: 'Trabajo de Grado', credits: 8},
         
-        
+        #Farmacia
+        {code: 2015675, name: 'Introducción a la farmacia', credits: 2},
+        {code: 1000034, name: 'Química orgánica I', credits: 3},
+        {code: 1000035, name: 'Laboratorio de química orgánica I', credits: 3},
+        {code: 1000036, name: 'Química orgánica II', credits: 3},
+        {code: 2015570, name: 'Bioquimica', credits: 3},
+        {code: 1000037, name: 'Fisicoquímica I', credits: 3},
+        {code: 2015668, name: 'Química inorgánica farmacéutica', credits: 2},
+        {code: 2015685, name: 'Fisioanatomía', credits: 3},
+        {code: 2015689, name: 'Microbiología general', credits: 3},
+        {code: 2015666, name: 'Operaciones unitarias farmacéuticas', credits: 2},
+        {code: 2015686, name: 'Fisiopatología', credits: 3},
+        {code: 2015791, name: 'Microbiología farmacéutica', credits: 3},
+        {code: 2015659, name: 'Farmacognosia y fitoquímica', credits: 5},
+        {code: 2015660, name: 'Farmacotecnia i', credits: 5},
+        {code: 2015683, name: 'Farmacología general', credits: 3},
+        {code: 2015677, name: 'Salud pública y farmacia', credits: 2},
+        {code: 2015657, name: 'Farmacia química i', credits: 4},
+        {code: 2015661, name: 'Farmacotecnia II', credits: 5},
+        {code: 2015647, name: 'Biofarmacia y farmacocinética', credits: 2},
+        {code: 2015662, name: 'Fundamentos de bromatología', credits: 2},
+        {code: 2015682, name: 'Farmacología especial', credits: 3},
+        {code: 2015674, name: 'Gestión en servicios farmacéuticos', credits: 2},
+        {code: 2015658, name: 'Farmacia química II', credits: 2},
+        {code: 2015649, name: 'Análisis instrumental farmacéutico', credits: 4},
+        {code: 2015672, name: 'Administración farmacéutica', credits: 2},
+        {code: 2015654, name: 'Farmacia hospitalaria i', credits: 5},
+        {code: 2015693, name: 'Toxicología', credits: 3},
+        {code: 2015676, name: 'Legislación farmacéutica', credits: 2},
+        {code: 2015656, name: 'Farmacia industrial', credits: 2},
+        {code: 2015673, name: 'Aseguramiento de calidad', credits: 2},
+        {code: 2015655, name: 'Farmacia hospitalaria II', credits: 5},
+        {code: 2015286, name: 'Trabajo de Grado', credits: 8},
+
+        #Quimica
+        {code: 2026364, name: 'Química fundamental', credits: 3},
+        {code: 1000025, name: 'Laboratorio tecnicas básicas en química', credits: 3},
+        {code: 2015589, name: 'Laboratorio de Química Inorgánica', credits: 4},
+        {code: 2015599, name: 'Química estructural', credits: 3},
+        {code: 2015576, name: 'Fundamentos de espectroscopía', credits: 2},
+        {code: 2016058, name: 'Atomos y Moléculas', credits: 3},
+        {code: 2015566, name: 'Análisis Químico Instrumental', credits: 3},
+        {code: 2025338, name: 'Laboratorio de fisicoquímica I', credits: 2},
+        {code: 2015578, name: 'Laboratorio de Análisis Químico Instrumental', credits: 4},
+        {code: 1000038, name: 'Fisicoquímica II', credits: 3},
+        {code: 2015572, name: 'Espectroscopía aplicada', credits: 2},
+        {code: 2015587, name: 'Laboratorio de Química Orgánica II', credits: 4},
+        {code: 2015595, name: 'Principios de Química Industrial', credits: 3},
+        {code: 2025339, name: 'Laboratorio de fisicoquímica II', credits: 2},
+        {code: 2015585, name: 'Laboratorio de bioquímica', credits: 4},
+        {code: 2015281, name: 'Trabajo de Grado', credits: 8},
+
+
         # -------------------------------------- MEDICINA ------------------------------------
         
         #Medicina
-        
         {code: 2017995, name: 'Histología I', credits: 2},
         {code: 2017988, name: 'Embriología', credits: 3},
         {code: 2021521, name: 'Introducción a la fisiología', credits: 3},
@@ -357,7 +411,6 @@ Subject.create([
         {code: 2025532, name: 'Trabajo de Grado de Medicina', credits: 6},
         
         #Fonoaudiologia
-        
         {code: 2015466, name: 'Lingüística general', credits: 3},
         {code: 2016149, name: 'Comunicación oral y escrita I', credits: 3},
         {code: 2025574, name: 'Anatomía e histología funcional', credits: 3},
@@ -390,7 +443,6 @@ Subject.create([
         {code: 2015310, name: 'Trabajo de Grado', credits: 8},
         
         #Terapia Ocupacional
-        
         {code: 2017040, name: 'Fundamentos de terapia ocupacional', credits: 4},
         {code: 2025537, name: 'Arte y desarrollo humano', credits: 3},
         {code: 2017045, name: 'Autocuidado y terapia ocupacional', credits: 2},
@@ -434,7 +486,6 @@ Subject.create([
         {code: 2017976, name: 'Trabajo de Grado', credits: 6},
         
         #Nutrición y dietética
-        
         {code: 2015788, name: 'Morfologia', credits: 4},
         {code: 1000041, name: 'Química básica', credits: 3},
         {code: 2015782, name: 'Laboratorio de química básica', credits: 2},
@@ -469,7 +520,6 @@ Subject.create([
         # -------------------------------------- ARTES ------------------------------------
         
         #Diseño Grafico
-        
         {code: 2016072, name: 'Gestión cultural y empresarial en las artes', credits: 3},
         {code: 2016104, name: 'Teoría de la mirada', credits: 3},
         {code: 2016075, name: 'Historia del diseño gráfico: De la imagen a la palabra', credits: 3},
@@ -504,7 +554,6 @@ Subject.create([
         {code: 2015304, name: 'Trabajo de Grado', credits: 6},
         
         #Diseño Industrial
-        
         {code: 2017315, name: 'Fundamentos en tecnología', credits: 3},
         {code: 2017323, name: 'Laboratorio de diseño I', credits: 4},
         {code: 2017312, name: 'Ergonomía Física', credits: 3},
@@ -543,7 +592,6 @@ Subject.create([
         # -------------------------------------- CIENCIAS AGRARIAS  ------------------------------------
         
         #Ingeniería Agronomica
-        
         {code: 2015897, name: 'Introducción a la ingeniería agronómica', credits: 3},
         {code: 2015877, name: 'Biología de plantas', credits: 4},
         {code: 2015878, name: 'Botánica taxonómica', credits: 3},
