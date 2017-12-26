@@ -234,7 +234,7 @@ Subject.create([
         
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         
-        #Nuevas de Economia
+        #Economia
         {code: 2015270, name: 'Fundamentos de economía', credits: 3},
         {code: 2016007, name: 'Fundamentos de administración', credits: 4},
         {code: 2016008, name: 'Fundamentos de contabilidad financiera', credits: 4},
@@ -267,6 +267,29 @@ Subject.create([
         {code: 8888884, name: 'Optativa', credits: 3},
         {code: 2015300, name: 'Trabajo de Grado', credits: 6},
         
+        #Administración de empresas
+        {code: 2016196, name: 'Español y Comunicación', credits: 3},
+        {code: 2016129, name: 'Teoría de la Organización', credits: 4},
+        {code: 2016038, name: 'Fundamentos de Contabilidad de Gestión', credits: 4},
+        {code: 2016117, name: 'Derecho comercial general y sociedades', credits: 3},
+        {code: 2016128, name: 'Teoría Contemporánea de la Organización', credits: 4},
+        {code: 2016116, name: 'Derecho de las relaciones laborales', credits: 3},
+        {code: 2016111, name: 'Administración de personal I', credits: 4},
+        {code: 2016036, name: 'Estrategia', credits: 4},
+        {code: 2016112, name: 'Administración de personal II', credits: 3},
+        {code: 2016039, name: 'Fundamentos de Finanzas', credits: 4},
+        {code: 2016121, name: 'Gestión de las operaciones y la producción I', credits: 4},
+        {code: 2016046, name: 'Mercados I', credits: 4},
+        {code: 2016056, name: 'Teoría de la decisión', credits: 4},
+        {code: 2016037, name: 'Finanzas avanzadas', credits: 4},
+        {code: 2016127, name: 'Problemas Económicos Colombianos', credits: 4},
+        {code: 2016122, name: 'Gestión de las operaciones y la producción II', credits: 3},
+        {code: 2016120, name: 'Estrategia de Mercados', credits: 3},
+        {code: 2016053, name: 'Sistemas de Información Gerencial', credits: 4},
+        {code: 2016028, name: 'Diseño, gestión y evaluación de proyectos', credits: 4},
+        {code: 2016042, name: 'Internacionalización de la Empresa', credits: 4},
+        {code: 2015306, name: 'Trabajo de Grado', credits: 6},
+
         
         # -------------------------------------- CIENCIAS ------------------------------------
         
