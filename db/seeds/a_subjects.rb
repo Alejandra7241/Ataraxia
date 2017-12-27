@@ -658,6 +658,37 @@ Subject.create([
         {code: 2015910, name: 'Tecnología de la Poscosecha', credits: 2},
         {code: 2015884, name: 'Ciclo II: Ejecución de un proyecto productivo', credits: 4},
         {code: 2015291, name: 'Trabajo de Grado', credits: 6},
-        {code: 2015934, name: 'Práctica Profesional', credits: 12}
+        {code: 2015934, name: 'Práctica Profesional', credits: 12},
+        
+        
+        # -------------------------------------- CIENCIAS HUMANAS  ------------------------------------
+        
+        #Antropología
+        {code: 2015271, name: 'Fundamentos de las ciencias sociales', credits: 3},
+        {code: 2015229, name: 'Colombia Contemporánea', credits: 3},
+        {code: 2022299, name: 'Ecología y Evolución', credits: 3},
+        {code: 2017366, name: 'Fundamentos de antropología', credits: 3},
+        {code: 2022300, name: 'Historia Sociocultural de Colombia', credits: 3},
+        {code: 2017375, name: 'Pensamiento arqueológico I', credits: 3},
+        {code: 2017367, name: 'Hominización', credits: 3},
+        {code: 2017377, name: 'Pensamiento Antropológico I', credits: 3},
+        {code: 2017376, name: 'Pensamiento arqueológico II', credits: 3},
+        {code: 2017354, name: 'Antropología Histórica I', credits: 3},
+        {code: 2017374, name: 'Pensamiento Antropológico II', credits: 3},
+        {code: 2017364, name: 'Etnología en Colombia', credits: 3},
+        {code: 2017357, name: 'Arqueologías Americanas', credits: 3},
+        {code: 2017355, name: 'Antropología Histórica II', credits: 3},
+        {code: 2017368, name: 'Introducción a la antropología lingüística', credits: 3},
+        {code: 2017353, name: 'Antropología en Colombia', credits: 3},
+        {code: 2017379, name: 'Técnicas de Investigación en Antropología I', credits: 3},
+        {code: 2017356, name: 'Arqueología y Sociedad', credits: 3},
+        {code: 2017363, name: 'Etnolingüística', credits: 3},
+        {code: 2017381, name: 'Teoría Social', credits: 3},
+        {code: 2017365, name: 'Etnología Regional', credits: 3},
+        {code: 2017378, name: 'Seminario del Departamento', credits: 3},
+        {code: 2017380, name: 'Técnicas de investigación en antropología II', credits: 4},
+        {code: 2017352, name: 'Antropología Aplicada y del Desarrollo', credits: 3},
+        {code: 2017382, name: 'Trabajo de Grado', credits: 10}
+
 ])
 # *************************************************************************
