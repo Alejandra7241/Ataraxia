@@ -290,7 +290,21 @@ Subject.create([
         {code: 2016042, name: 'Internacionalización de la Empresa', credits: 4},
         {code: 2015306, name: 'Trabajo de Grado', credits: 6},
 
-        
+        #Contaduria pública
+        {code: 2016113, name: 'Contabilidad de Operaciones', credits: 3},
+        {code: 2016114, name: 'Contabilidad de Inversiones y Financiación', credits: 3},
+        {code: 2016204, name: 'Contabilidad de Gestión Avanzada', credits: 4},
+        {code: 2016202, name: 'Contabilidad Proceso Contable', credits: 3},
+        {code: 2016217, name: 'Teoría de la Contabilidad I', credits: 4},
+        {code: 2016224, name: 'Regulación y Contabilidad Tributaria I', credits: 4},
+        {code: 2016025, name: 'Auditoría Financiera I', credits: 4},
+        {code: 2016115, name: 'Control Interno', credits: 3},
+        {code: 2016218, name: 'Teoría de la Contabilidad II', credits: 4},
+        {code: 2016226, name: 'Regulación y Contabilidad Tributaria II', credits: 4},
+        {code: 2016026, name: 'Auditoría Financiera II', credits: 4},
+        {code: 2016203, name: 'Contablilidad Pública', credits: 3},
+        {code: 2015308, name: 'Trabajo de Grado', credits: 6},
+
         # -------------------------------------- CIENCIAS ------------------------------------
         
         #Fisica
