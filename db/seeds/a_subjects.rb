@@ -688,7 +688,22 @@ Subject.create([
         {code: 2017378, name: 'Seminario del Departamento', credits: 3},
         {code: 2017380, name: 'Técnicas de investigación en antropología II', credits: 4},
         {code: 2017352, name: 'Antropología Aplicada y del Desarrollo', credits: 3},
-        {code: 2017382, name: 'Trabajo de Grado', credits: 10}
-
+        {code: 2017382, name: 'Trabajo de Grado', credits: 10},
+        
+        #Español y Filología Clásica
+        {code: 2015466, name: 'Lingüística general', credits: 3},
+        {code: 2015460, name: 'Introducción a la Literatura', credits: 3},
+        {code: 2015462, name: 'Latín básico I', credits: 4},
+        {code: 2015463, name: 'Latín básico II', credits: 4},
+        {code: 2015457, name: 'Griego básico I', credits: 4},
+        {code: 2015461, name: 'Introducción a la Filología Clásica', credits: 3},
+        {code: 2015477, name: 'Prosa latina', credits: 3},
+        {code: 2015458, name: 'Griego básico II', credits: 4},
+        {code: 2015491, name: 'Prosa griega', credits: 3},
+        {code: 2015475, name: 'Práctica docente', credits: 5},
+        {code: 2015486, name: 'Seminario de trabajo de grado I', credits: 4},
+        {code: 2015487, name: 'Seminario de trabajo de grado II', credits: 4},
+        {code: 2015302, name: 'Trabajo de Grado', credits: 10}
+        
 ])
 # *************************************************************************
