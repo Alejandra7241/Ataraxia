@@ -35,6 +35,16 @@ Subject.create([
         {code: 2021143, name: 'Cátedra de comercio, crisis y negocios internacionales', credits: 3},
         {code: 2022626, name: 'Francés II', credits: 3},
         
+        #Electivas
+        {code: 6666661, name: 'Libre elección', credits: 1},
+        {code: 6666662, name: 'Libre elección', credits: 2},
+        {code: 6666663, name: 'Libre elección', credits: 3},
+        {code: 6666664, name: 'Libre elección', credits: 4},
+        {code: 6666665, name: 'Libre elección', credits: 5},
+        {code: 6666666, name: 'Libre elección', credits: 6},
+        {code: 6666667, name: 'Libre elección', credits: 7},
+        {code: 6666668, name: 'Libre elección', credits: 8},
+        {code: 6666669, name: 'Libre elección', credits: 9},
         
         # -------------------------------------- INGENIERIA ------------------------------------
         

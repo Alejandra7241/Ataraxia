@@ -3,7 +3,7 @@
 <% begin %>
 <% @not_approved = true if array_of_not_approved.include? subj.code %>
 <% array_of_not_approved.delete(subj.code) if array_of_not_approved.include? subj.code %>
-
+<% machete = false %>
 <% rescue%>
 
 <% end %>
@@ -40,7 +40,15 @@
 
           <% elsif vista == "malla_avance" and @currently_attending %>
               <div class="rcorners1" align="center" style="background:purple; color: white;"><%= subj.credits %> </div>
-            <%elsif @not_approved%>
+            <% elsif vista == "malla_avance" and typ=='L' %>
+                <% @creditos_electivas = @creditos_electivas - subj.credits %>
+                <% if @creditos_electivas > 0 %>
+                    <div class="rcorners1" align="center" style="background:black; color: white;"><%= subj.credits %> </div>
+                    <% machete = true %>
+                <%else%>
+                    <div class="rcorners1" align="center" style="background:#45d0ff;"><%= subj.credits %> </div>
+                <%end%>
+            <%elsif @not_approved and not typ=='L'%>
              <div class="rcorners1" align="center" style="background:red; color: white;"><%= subj.credits %> </div>
             <%else%>
                 <% if typ=='B' %>
@@ -57,12 +65,20 @@
                         <div class="rcorners1" align="center" style="background:#C00000;"><%= subj.credits %> </div>
                     <% end %>
             <%end%>
-           <%if vista == "malla_avance"  and aprobada or @not_approved or @currently_attending%>
-               <% if  @currently_attending%>
+           <%if vista == "malla_avance"  and aprobada or @not_approved or @currently_attending or machete%>
+               <% if machete %>
+                   <div class="rcorners2" style="background:#ececec;" align="center">
+                       Libre elección
+                    </div>
+                <% elsif typ=='L'%> 
+                    <div class="rcorners2" align="center">
+                        Libre elección
+                 </div>
+               <% elsif  @currently_attending%>
                <div class="rcorners2" style="background:#f9e6ff;" align="center">
                 <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                 </div>
-                <%elsif @not_approved%>
+                <%elsif @not_approved %>
                 <div class="rcorners2" style="background:#ffcccc;" align="center">
                 <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                 </div>
@@ -74,9 +90,15 @@
               
 
             <%else%>
+                <% if typ=='L'%> 
+                    <div class="rcorners2" align="center">
+                        Libre elección
+                 </div>
+                <%elsif%>
                 <div class="rcorners2" align="center">
                     <%= link_to truncate(subj.name, :length => 35), open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %>
                  </div>
+                 <%end%>
              <%end%>
         </div>
         <% end %>

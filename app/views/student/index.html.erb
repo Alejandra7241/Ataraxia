@@ -62,8 +62,8 @@
                             <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
                             <ul class="dropdown-menu" style="height:115px; overflow: auto;" align="left">
                             <% Career.all.each do |career| %>
-                                <li
-                                   <% if career.faculty=="Ciencias Económicas" %> 
+                                <li 
+                            <% if career.faculty=="Ciencias Económicas" %> 
                                 style="background-color: #f9e6ff;" 
                             <%elsif career.faculty=="Ciencias"%>
                                 style="background-color: #d6f5d6;" 
@@ -77,7 +77,9 @@
                                 style="background-color: #ffd6cc;"
                             <%elsif career.faculty=="Ciencias Humanas"%>
                                 style="background-color: #d9b3ff;"
-                                ><%= link_to career.name, student_malla_estandar_path(career.id) %></li>
+                            <%end%>
+                        >
+                            <%= link_to career.name, guess_malla_path(career.id) %></li>
                             <% end %>
                             </ul>
                         </div>
@@ -96,4 +98,4 @@
 </div>
 
 
-<%= render 'layouts/footer', :vista=> "normal"%>
+<%= render 'layouts/footer', :vista => "normal" %>
