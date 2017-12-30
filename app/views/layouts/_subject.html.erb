@@ -68,11 +68,11 @@
            <%if vista == "malla_avance"  and aprobada or @not_approved or @currently_attending or machete%>
                <% if machete %>
                    <div class="rcorners2" style="background:#ececec;" align="center">
-                       Libre elección
+                       <%= truncate(subj.name, :length => 35) %>
                     </div>
                 <% elsif typ=='L'%> 
                     <div class="rcorners2" align="center">
-                        Libre elección
+                        <%= truncate(subj.name, :length => 35) %>
                  </div>
                <% elsif  @currently_attending%>
                <div class="rcorners2" style="background:#f9e6ff;" align="center">
@@ -92,7 +92,7 @@
             <%else%>
                 <% if typ=='L'%> 
                     <div class="rcorners2" align="center">
-                        Libre elección
+                        <%= truncate(subj.name, :length => 35) %>
                  </div>
                 <%elsif%>
                 <div class="rcorners2" align="center">

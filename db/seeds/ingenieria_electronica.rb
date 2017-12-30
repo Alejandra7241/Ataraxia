@@ -54,6 +54,11 @@ subj = Subject.find_by(code: 1000004)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #Introducción a la ingeniería electronica
 subj = Subject.find_by(code: 2016502)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
@@ -93,7 +98,11 @@ subj = Subject.find_by(code: 2016375)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 3
 
@@ -132,6 +141,11 @@ sem = mallaIEnica.semesters.find_by number: 4
 #Variable compleja
 subj = Subject.find_by(code: 2015159)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Fundamentos de oscilaciones, ondas y óptica
@@ -237,6 +251,11 @@ subj = Subject.find_by(code: 2016494)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #Electrónica de potencia
 subj = Subject.find_by(code: 2016497)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
@@ -247,7 +266,26 @@ sem.career_has_subjects << chs
 #Semestre 9
 
 sem = mallaIEnica.semesters.find_by number: 9
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #TPI
 subj = Subject.find_by(code: 2024045)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
@@ -257,7 +295,21 @@ sem.career_has_subjects << chs
 
 # Semestre 10
 sem = mallaIEnica.semesters.find_by number: 10
-
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #Trabajo de Grado
 subj = Subject.find_by(code: 2015316)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')

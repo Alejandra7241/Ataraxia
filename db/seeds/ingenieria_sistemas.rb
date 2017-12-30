@@ -402,7 +402,7 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Electiva
-subj = Subject.find_by(code: 6666664)
+subj = Subject.find_by(code: 9999998)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
