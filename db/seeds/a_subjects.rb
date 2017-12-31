@@ -793,7 +793,14 @@ Subject.create([
                 {code: 2016464, name: 'Historia de la Lengua Inglesa', credits: 2},
                 {code: 2016480, name: 'Práctica Docente del Inglés', credits: 4},
                 {code: 2016477, name: 'Literatura Inglesa I', credits: 3},
-                {code: 2016840, name: 'Trabajo de Grado', credits: 6}
+                {code: 2016840, name: 'Trabajo de Grado', credits: 6},
+                #Filosofia
+                {code: 2024747, name: 'Lógica I', credits: 4},
+                {code: 2017653, name: 'Propedéutica', credits: 4},
+                {code: 2024749, name: 'Lógica II', credits: 4},
+                {code: 2024750, name: 'Lógica III', credits: 4},
+                {code: 2017652, name: 'Preseminario', credits: 4},
+                {code: 2017848, name: 'Trabaho de Grado', credits: 8}
 
 ])      
 # *************************************************************************
