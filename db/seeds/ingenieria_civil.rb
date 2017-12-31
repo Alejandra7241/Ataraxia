@@ -74,6 +74,11 @@ subj = Subject.find_by(code: 2026186)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666662)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 2
 
@@ -91,6 +96,11 @@ sem.career_has_subjects << chs
 #Fundamentos de mecanica 
 subj = Subject.find_by(code: 1000019)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
@@ -135,22 +145,24 @@ subj = Subject.find_by(code: 1000007)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
 #Dinámica
 subj = Subject.find_by(code: 2015948)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
 #Geología
 subj = Subject.find_by(code: 2015956)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
 #Geomática Aplicada
 subj = Subject.find_by(code: 2015957)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
@@ -174,7 +186,11 @@ subj = Subject.find_by(code: 2015965)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 #Semestre 6
 
@@ -242,6 +258,11 @@ subj = Subject.find_by(code: 2015963)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 #Semestre 8
 
@@ -275,7 +296,12 @@ subj = Subject.find_by(code: 2015949)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-      
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
 #Semestre 9
 
 sem = mallaIC.semesters.find_by number: 9
@@ -296,6 +322,21 @@ subj = Subject.find_by(code: 2015972)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 10
 sem = mallaIC.semesters.find_by number: 10
@@ -304,7 +345,21 @@ subj = Subject.find_by(code: 9999998)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-        
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # ---------- PRERREQUISITOS INGENIERIA DE CIVIL ------------
 

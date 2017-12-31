@@ -800,7 +800,17 @@ Subject.create([
                 {code: 2024749, name: 'Lógica II', credits: 4},
                 {code: 2024750, name: 'Lógica III', credits: 4},
                 {code: 2017652, name: 'Preseminario', credits: 4},
-                {code: 2017848, name: 'Trabaho de Grado', credits: 8}
+                {code: 2017848, name: 'Trabaho de Grado', credits: 8},
+                #Historia
+                {code: 2015610, name: 'Introducción a la Historia', credits: 3},
+                {code: 2015623, name: 'Historia de Colombia I', credits: 3},
+                {code: 2015624, name: 'Historia de Colombia II', credits: 3},
+                {code: 2015630, name: 'Métodos históricos', credits: 3},
+                {code: 2015625, name: 'Historia de Colombia III', credits: 3},
+                {code: 2015626, name: 'Historia de Colombia IV', credits: 3},
+                {code: 2015629, name: 'Historia de Colombia V', credits: 3},
+                {code: 2015749, name: 'Taller Proyecto de Grado', credits: 3},
+                {code: 2015284, name: 'Trabajo de Grado', credits: 10}
 
 ])      
 # *************************************************************************
