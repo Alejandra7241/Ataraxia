@@ -824,7 +824,22 @@ Subject.create([
         {code: 2015989, name: 'Métodos cualitativos', credits: 3},
         {code: 2024392, name: 'Sintaxis', credits: 3},
         {code: 2015476, name: 'Pragmática', credits: 3},
-        {code: 2015297, name: 'Trabajo de Grado', credits: 10}
-
+        {code: 2015297, name: 'Trabajo de Grado', credits: 10},
+        
+        #Sociologia
+        {code: 2015249, name: 'Introducción a la Sociología', credits: 3},
+        {code: 2026176, name: 'Software aplicado a las ciencias sociales', credits: 3},
+        {code: 2025310, name: 'Análisis de datos cuantitativos', credits: 3},
+        {code: 2015853, name: 'Teoría sociológica: emile durkheim', credits: 3},
+        {code: 2015799, name: 'Demografía', credits: 3},
+        {code: 2015865, name: 'Teoría sociológica: karl marx', credits: 3},
+        {code: 2015813, name: 'Taller i documentación e investigación', credits: 5},
+        {code: 2015866, name: 'Teoría sociológica: max weber', credits: 3},
+        {code: 2015803, name: 'Indicadores sociales', credits: 3},
+        {code: 2015814, name: 'Taller II de proyecto de investigación', credits: 8},
+        {code: 2015806, name: 'Métodos cuantitativos', credits: 3},
+        {code: 2015805, name: 'Métodos cualitativos', credits: 3},
+        {code: 2015256, name: 'Pensamiento sociológico latinoamericano', credits: 3},
+        {code: 2015293, name: 'Trabajo de Grado', credits: 10}
 ])      
 # *************************************************************************
