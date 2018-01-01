@@ -701,7 +701,6 @@ Subject.create([
         {code: 2017382, name: 'Trabajo de Grado', credits: 10},
         
         #Español y Filología Clásica
-        {code: 2015466, name: 'Lingüística general', credits: 3},
         {code: 2015460, name: 'Introducción a la Literatura', credits: 3},
         {code: 2015462, name: 'Latín básico I', credits: 4},
         {code: 2015463, name: 'Latín básico II', credits: 4},
@@ -794,23 +793,38 @@ Subject.create([
                 {code: 2016480, name: 'Práctica Docente del Inglés', credits: 4},
                 {code: 2016477, name: 'Literatura Inglesa I', credits: 3},
                 {code: 2016840, name: 'Trabajo de Grado', credits: 6},
-                #Filosofia
-                {code: 2024747, name: 'Lógica I', credits: 4},
-                {code: 2017653, name: 'Propedéutica', credits: 4},
-                {code: 2024749, name: 'Lógica II', credits: 4},
-                {code: 2024750, name: 'Lógica III', credits: 4},
-                {code: 2017652, name: 'Preseminario', credits: 4},
-                {code: 2017848, name: 'Trabaho de Grado', credits: 8},
-                #Historia
-                {code: 2015610, name: 'Introducción a la Historia', credits: 3},
-                {code: 2015623, name: 'Historia de Colombia I', credits: 3},
-                {code: 2015624, name: 'Historia de Colombia II', credits: 3},
-                {code: 2015630, name: 'Métodos históricos', credits: 3},
-                {code: 2015625, name: 'Historia de Colombia III', credits: 3},
-                {code: 2015626, name: 'Historia de Colombia IV', credits: 3},
-                {code: 2015629, name: 'Historia de Colombia V', credits: 3},
-                {code: 2015749, name: 'Taller Proyecto de Grado', credits: 3},
-                {code: 2015284, name: 'Trabajo de Grado', credits: 10}
+                
+        #Filosofia
+        {code: 2024747, name: 'Lógica I', credits: 4},
+        {code: 2017653, name: 'Propedéutica', credits: 4},
+        {code: 2024749, name: 'Lógica II', credits: 4},
+        {code: 2024750, name: 'Lógica III', credits: 4},
+        {code: 2017652, name: 'Preseminario', credits: 4},
+        {code: 2017848, name: 'Trabaho de Grado', credits: 8},
+        
+        #Historia
+        {code: 2015610, name: 'Introducción a la Historia', credits: 3},
+        {code: 2015623, name: 'Historia de Colombia I', credits: 3},
+        {code: 2015624, name: 'Historia de Colombia II', credits: 3},
+        {code: 2015630, name: 'Métodos históricos', credits: 3},
+        {code: 2015625, name: 'Historia de Colombia III', credits: 3},
+        {code: 2015626, name: 'Historia de Colombia IV', credits: 3},
+        {code: 2015629, name: 'Historia de Colombia V', credits: 3},
+        {code: 2015749, name: 'Taller Proyecto de Grado', credits: 3},
+        {code: 2015284, name: 'Trabajo de Grado', credits: 10},
+        
+        #Linguistica
+        {code: 2015482, name: 'Taller de comprensión y producción de textos I', credits: 3},
+        {code: 2015993, name: 'Teorías de la Comunicación', credits: 3},
+        {code: 2024386, name: 'Fonética', credits: 3},
+        {code: 2024385, name: 'Fonología', credits: 3},
+        {code: 2015990, name: 'Métodos cuantitativos', credits: 3},
+        {code: 2024391, name: 'Morfología', credits: 3},
+        {code: 2015480, name: 'Semántica', credits: 3},
+        {code: 2015989, name: 'Métodos cualitativos', credits: 3},
+        {code: 2024392, name: 'Sintaxis', credits: 3},
+        {code: 2015476, name: 'Pragmática', credits: 3},
+        {code: 2015297, name: 'Trabajo de Grado', credits: 10}
 
 ])      
 # *************************************************************************
