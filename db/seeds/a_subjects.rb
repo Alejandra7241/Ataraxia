@@ -867,6 +867,34 @@ Subject.create([
         {code: 2003491, name: 'Proyectos de desarrollo social', credits: 3},
         {code: 2017495, name: 'Práctica I', credits: 8},
         {code: 2017496, name: 'Practica II', credits: 8},
-        {code: 2017520, name: 'Trabajo de Grado', credits: 8}
+        {code: 2017520, name: 'Trabajo de Grado', credits: 8},
+        
+        # -------------------------------------- DERECHO, CIENCIAS POLITICAS Y SOCIALES  ------------------------------------
+        
+        #Ciencia política
+        {code: 2015202, name: 'Teoria e historia constitucional', credits: 3},
+        {code: 2015192, name: 'Historia politica moderna', credits: 3},
+        {code: 2015190, name: 'Historia politica y socieconómica de colombia del s. xix', credits: 3},
+        {code: 2015194, name: 'Introduccion a la ciencia politica', credits: 3},
+        {code: 2015206, name: 'Teorías del estado', credits: 3},
+        {code: 2015199, name: 'Procesos politicos de america latina', credits: 3},
+        {code: 2015191, name: 'Historia politica y socieconomica de colombia del s. xx', credits: 3},
+        {code: 2015209, name: 'Teorías políticas modernas', credits: 3},
+        {code: 2015210, name: 'Teorias de las relaciones internacionales', credits: 3},
+        {code: 2015201, name: 'Sistemas politicos', credits: 3},
+        {code: 2015187, name: 'Economia pública', credits: 3},
+        {code: 2015195, name: 'Introducción a la investigación', credits: 3},
+        {code: 2015208, name: 'Teorías políticas contemporáneas', credits: 3},
+        {code: 2015205, name: 'Teorías de la globalización', credits: 3},
+        {code: 2015198, name: 'Partidos politicos y sistemas electorales', credits: 3},
+        {code: 2015203, name: 'Teorías de la administración pública', credits: 3},
+        {code: 2015197, name: 'Métodos cuantitativos y cualitativos', credits: 3},
+        {code: 2015207, name: 'Teorías del poder', credits: 3},
+        {code: 2015193, name: 'Instituciones y derecho internacional público', credits: 3},
+        {code: 2015200, name: 'Sistema politico colombiano', credits: 3},
+        {code: 2015189, name: 'Gobierno y politicas públicas', credits: 3},
+        {code: 2015196, name: 'Metodo y analisis comparado', credits: 3},
+        {code: 2015204, name: 'Teorias de la cultura política', credits: 3},
+        {code: 2015279, name: 'Trabajo de Grado', credits: 6}
 ])      
 # *************************************************************************
