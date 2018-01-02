@@ -674,7 +674,6 @@ Subject.create([
         # -------------------------------------- CIENCIAS HUMANAS  ------------------------------------
         
         #Antropología
-        {code: 2015271, name: 'Fundamentos de las ciencias sociales', credits: 3},
         {code: 2015229, name: 'Colombia Contemporánea', credits: 3},
         {code: 2022299, name: 'Ecología y Evolución', credits: 3},
         {code: 2017366, name: 'Fundamentos de antropología', credits: 3},
@@ -840,6 +839,34 @@ Subject.create([
         {code: 2015806, name: 'Métodos cuantitativos', credits: 3},
         {code: 2015805, name: 'Métodos cualitativos', credits: 3},
         {code: 2015256, name: 'Pensamiento sociológico latinoamericano', credits: 3},
-        {code: 2015293, name: 'Trabajo de Grado', credits: 10}
+        {code: 2015293, name: 'Trabajo de Grado', credits: 10},
+        
+        #Trabajo Social
+        {code: 2017486, name: 'Historia del Trabajo Social', credits: 3},
+        {code: 2003500, name: 'Ciencia politica', credits: 6},
+        {code: 2017481, name: 'Epistemología de la Investigación en Trabajo Social', credits: 3},
+        {code: 2017500, name: 'Problemas Sociales I', credits: 2},
+        {code: 2017484, name: 'Fundamentos de Psicoanálisis', credits: 3},
+        {code: 2017507, name: 'Teorías Contemporáneas de Trabajo Social', credits: 3},
+        {code: 2017501, name: 'Problemas Sociales II', credits: 2},
+        {code: 2017477, name: 'Teoría sociológica i (marx)', credits: 3},
+        {code: 2017913, name: 'Psicología Social', credits: 3},
+        {code: 2017493, name: 'Políticas Sociales I', credits: 2},
+        {code: 2017511, name: 'Trabajo Social Individual', credits: 3},
+        {code: 2017509, name: 'Trabajo Social de Grupo', credits: 3},
+        {code: 2017476, name: 'Historia del Siglo XX', credits: 3},
+        {code: 2017494, name: 'Políticas Sociales II', credits: 2},
+        {code: 2017508, name: 'Trabajo Social Comunitario', credits: 3},
+        {code: 2017510, name: 'Trabajo Social Familiar', credits: 3},
+        {code: 1000014, name: 'Estadística social fundamental', credits: 3},
+        {code: 2017479, name: 'Comunicación y Educación Popular', credits: 3},
+        {code: 2017492, name: 'Planeacion social', credits: 3},
+        {code: 2017506, name: 'Seminario Ambiental', credits: 3},
+        {code: 2017487, name: 'Intervención Social', credits: 3},
+        {code: 2017485, name: 'Gestión Social de Recursos', credits: 3},
+        {code: 2003491, name: 'Proyectos de desarrollo social', credits: 3},
+        {code: 2017495, name: 'Práctica I', credits: 8},
+        {code: 2017496, name: 'Practica II', credits: 8},
+        {code: 2017520, name: 'Trabajo de Grado', credits: 8}
 ])      
 # *************************************************************************
