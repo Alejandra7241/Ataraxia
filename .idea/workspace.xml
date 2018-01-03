@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a650b7de-7dd1-4513-91fa-e86f84fa6086" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student_has_subject.rb" afterPath="$PROJECT_DIR$/app/models/student_has_subject.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" afterPath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" />
     </list>
@@ -54,7 +54,7 @@
         <entry file="file://$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
-              <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -80,11 +80,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activities_spec.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activities_spec.rb" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="126">
               <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="173" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="192">
+              <caret line="127" column="71" lean-forward="true" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="student_has_subject.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/student_has_subject.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="211">
+              <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -124,7 +144,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>mis_cursos</find>
       <find>procesar_mis</find>
       <find>generate</find>
       <find>malla_optima</find>
@@ -154,15 +173,15 @@
       <find>show_va</find>
       <find>uapa</find>
       <find>faculty council</find>
+      <find>list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$/unarbitrary-laugh" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/spec/spec_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/student/malla_personal.html.erb" />
         <option value="$PROJECT_DIR$/db/migrate/20171112171914_add_field_to_student_has_subject.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/student.js" />
@@ -189,7 +208,6 @@
         <option value="$PROJECT_DIR$/app/models/malla.rb" />
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/app/models/student_has_subject.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
         <option value="$PROJECT_DIR$/app/models/historiaacademica.rb" />
         <option value="$PROJECT_DIR$/app/controllers/student_controller.rb" />
@@ -213,6 +231,8 @@
         <option value="$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb" />
         <option value="$USER_HOME$/unarbitrary-laugh/config/database.yml" />
         <option value="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" />
+        <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/student_has_subject.rb" />
       </list>
     </option>
   </component>
@@ -252,6 +272,28 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="users" type="462c0819:PsiDirectoryNode" />
+            </path>
             <path>
               <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
               <item name="unarbitrary-laugh" type="462c0819:PsiDirectoryNode" />
@@ -541,12 +583,12 @@
       <workItem from="1514408894033" duration="1902000" />
       <workItem from="1514918101633" duration="1095000" />
       <workItem from="1514923893061" duration="411000" />
-      <workItem from="1514929341613" duration="5943000" />
+      <workItem from="1514929341613" duration="6667000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="281465000" />
+    <option name="totallyTimeSpent" value="282189000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="493" y="-4" width="1857" height="1092" extended-state="6" />
@@ -605,20 +647,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/unarbitrary-laugh/spec/models/program_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/users_spec.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/events_controller_spec.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1163,7 +1191,7 @@
     <entry file="file://$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
-          <caret line="14" column="13" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1180,6 +1208,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="170" column="0" lean-forward="false" selection-start-line="170" selection-start-column="0" selection-end-line="173" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="127" column="71" lean-forward="true" selection-start-line="127" selection-start-column="71" selection-end-line="127" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/student_has_subject.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="93" column="39" lean-forward="false" selection-start-line="93" selection-start-column="39" selection-end-line="93" selection-end-column="39" />
           <folding />
         </state>
       </provider>

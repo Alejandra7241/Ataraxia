@@ -90,7 +90,9 @@ class StudentHasSubject < ApplicationRecord
           materias=[]
 
           @sem = Semester.find_by(number: user.current_semester, malla_id: malla.id)
-
+          if @sem.nil?
+              return creditos, materias
+          end
           @sem.career_has_subjects.each do |chs|
 
               #chs = CareerHasSubject.find(shs.career_has_subject_id)
