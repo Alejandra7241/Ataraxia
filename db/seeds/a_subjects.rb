@@ -241,6 +241,21 @@ Subject.create([
         {code: 2016497, name: 'Electrónica de potencia', credits: 4},
         {code: 2015316, name: 'Trabajo de Grado', credits: 6},
 
+        #Ingeniería Mecatrónica
+        {code: 2017278, name: 'Tecnologia Mecánica Básica', credits: 3},
+        {code: 2017265, name: 'Ingeniería y Desarrollo Sostenible', credits: 3},
+        {code: 2016640, name: 'Principios de Estática', credits: 3},
+        {code: 2017271, name: 'Principios de dinámica', credits: 3},
+        {code: 2017277, name: 'Resistencia de Materiales', credits: 3},
+        {code: 2017256, name: 'Ciencia e Ingeniería de Materiales', credits: 3},
+        {code: 2017282, name: 'Diseño Mecatrónico', credits: 3},
+        {code: 2016753, name: 'Microcontroladores', credits: 3},
+        {code: 2017287, name: 'Sensores y Actuadores', credits: 3},
+        {code: 2017288, name: 'Servomecanismos', credits: 3},
+        {code: 2016770, name: 'Robótica', credits: 3},
+        {code: 2017280, name: 'Automatización de Procesos de Manufactura', credits: 3},
+        {code: 2017275, name: 'Proyecto Aplicado de Ingeniería', credits: 4},
+        {code: 2017297, name: 'Trabajo de Grado', credits: 6},
         
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         
