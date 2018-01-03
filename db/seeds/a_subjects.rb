@@ -942,6 +942,22 @@ Subject.create([
         {code: 2015348, name: 'Derecho Internacional de los Derechos Humanos', credits: 2},
         {code: 2015438, name: 'Prácticas y Consultorio Jurídico II', credits: 3},
         {code: 2022262, name: 'Examen Preparatorio básico', credits: 0},
-        {code: 2015277, name: 'Trabajo de Grado', credits: 6}
+        {code: 2015277, name: 'Trabajo de Grado', credits: 6},
+        
+        # -------------------------------------- ENFERMERIA  ------------------------------------
+         
+        #Enfermería
+        {code: 2016576, name: 'Morfofisiologia I', credits: 3},
+        {code: 2016575, name: 'Microbiología', credits: 3},
+        {code: 2017937, name: 'Fundamentos psicosociales y culturales del cuidado', credits: 4},
+        {code: 2017967, name: 'Fundamentos en salud pública y salud colectiva', credits: 4},
+        {code: 2016569, name: 'Farmacología', credits: 3},
+        {code: 2017969, name: 'Fundamentos de administración en salud', credits: 4},
+        {code: 2017966, name: 'Prácticas y habilidades clínicas básicas', credits: 6},
+        {code: 2016578, name: 'Prácticas y habilidades clínicas avanzadas para el cuidado de enfermería', credits: 6},
+        {code: 2017935, name: 'Fundamentos de investigación en enfermería', credits: 2},
+        {code: 2017974, name: 'Trabajo de Grado', credits: 6}
+
+
 ])      
 # *************************************************************************
