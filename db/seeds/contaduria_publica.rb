@@ -100,7 +100,11 @@ subj = Subject.find_by(code: 2016021)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 3
 
@@ -140,7 +144,11 @@ subj = Subject.find_by(code: 2016023)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 #Semestre 5
 
@@ -191,7 +199,11 @@ subj = Subject.find_by(code: 2016218)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
         
 #Semestre 7
 
@@ -212,7 +224,11 @@ subj = Subject.find_by(code: 2016203)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
         
         
         
@@ -221,6 +237,33 @@ sem.career_has_subjects << chs
       
 #Semestre 9
 
+sem = mallaCP.semesters.find_by number: 9
+
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 10
 sem = mallaCP.semesters.find_by number: 10
@@ -230,7 +273,16 @@ subj = Subject.find_by(code: 2015308)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-        
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # ---------- PRERREQUISITOS CONTADURIA PÚBLICA ------------
 

@@ -1,12 +1,12 @@
 #-------------------------------------------------------------------------------------------
 
-#---------- Malla estándar Español y Filología Clásica ----------#
+#---------- Malla estándar Linguistica ----------#
 
-career = Career.create({code: 2526, name: 'Español y Filología Clásica', department: 'Departamento de Español y Filología Clásica', faculty: 'Ciencias Humanas'})
+career = Career.create({code: 2837, name: 'Lingüística', department: 'Departamento de Lingüística', faculty: 'Ciencias Humanas'})
 
-mallaAntropologia = Malla.create({tipo:'Estándar', career_id: career.id})
+malla = Malla.create({tipo:'Estándar', career_id: career.id})
 
-mallaAntropologia.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}])
+malla.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}])
 
 # Nivelación
 subj = Subject.find_by(code: 1000002)
@@ -47,89 +47,88 @@ career.career_has_subjects << chs
 
 # Semestre 1
 
-sem = mallaAntropologia.semesters.find_by number: 1
-
+sem = malla.semesters.find_by number: 1
+#Taller de comprensión y producción de textos I
+subj = Subject.find_by(code: 2015482)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 #Lingüística general
 subj = Subject.find_by(code: 2015466)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Introducción a la Literatura
-subj = Subject.find_by(code: 2015460)
+#Teorías de la Comunicación
+subj = Subject.find_by(code: 2015993)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Latín básico I
-subj = Subject.find_by(code: 2015462)
+#Fonética
+subj = Subject.find_by(code: 2024386)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-        
 # Semestre 2
 
-sem = mallaAntropologia.semesters.find_by number: 2
+sem = malla.semesters.find_by number: 2
         
-#Latín básico II
-subj = Subject.find_by(code: 2015463)
+#Fonología
+subj = Subject.find_by(code: 2024385)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Griego básico I
-subj = Subject.find_by(code: 2015457)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
+
         
 # Semestre 3
 
-sem = mallaAntropologia.semesters.find_by number: 3
+sem = malla.semesters.find_by number: 3
 
-#Introducción a la Filología Clásica
-subj = Subject.find_by(code: 2015461)
+#Métodos cuantitativos
+subj = Subject.find_by(code: 2015990)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Prosa latina
-subj = Subject.find_by(code: 2015477)
+#Morfología
+subj = Subject.find_by(code: 2024391)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Griego básico II
-subj = Subject.find_by(code: 2015458)
+#Semántica
+subj = Subject.find_by(code: 2015480)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-# Semestre 4
-
-sem = mallaAntropologia.semesters.find_by number: 4
-
-#Prosa griega
-subj = Subject.find_by(code: 2015491)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
         
+# Semestre 4
+
+sem = malla.semesters.find_by number: 4
+
+#Métodos cualitativos
+subj = Subject.find_by(code: 2015989)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Sintaxis
+subj = Subject.find_by(code: 2024392)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Pragmática
+subj = Subject.find_by(code: 2015476)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
 # Semestre 5
 
-sem = mallaAntropologia.semesters.find_by number: 5
+sem = malla.semesters.find_by number: 5
 #Electiva
 subj = Subject.find_by(code: 6666663)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
@@ -138,14 +137,9 @@ sem.career_has_subjects << chs
 
 # Semestre 6
 
-sem = mallaAntropologia.semesters.find_by number: 6
+sem = malla.semesters.find_by number: 6
 
 
-#Práctica docente
-subj = Subject.find_by(code: 2015475)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
 #Seminario de trabajo de grado I
 subj = Subject.find_by(code: 2015486)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
@@ -156,10 +150,15 @@ subj = Subject.find_by(code: 6666663)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666663)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 7
 
-sem = mallaAntropologia.semesters.find_by number: 7
+sem = malla.semesters.find_by number: 7
 
 
 #Seminario de trabajo de grado II
@@ -181,11 +180,11 @@ sem.career_has_subjects << chs
 
 # Semestre 8
 
-sem = mallaAntropologia.semesters.find_by number: 8
+sem = malla.semesters.find_by number: 8
 
 
 #Trabajo de Grado
-subj = Subject.find_by(code: 2015302)
+subj = Subject.find_by(code: 2015297)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
@@ -200,8 +199,7 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-
-
+        
 # ---------- PRERREQUISITOS ESPAÑOL Y FILOLOGÍA CLÁSICA ------------....... 
 
         
@@ -210,12 +208,24 @@ sem.career_has_subjects << chs
 
 
 #Seminario de trabajo de grado II
-chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2526).id, subject_id: Subject.find_by(code: 2015487).id) 
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2837).id, subject_id: Subject.find_by(code: 2015487).id) 
 chs_materia.followers << [
         #Seminario de trabajo de grado I
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2526).id, subject_id: Subject.find_by(code: 2015486).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2837).id, subject_id: Subject.find_by(code: 2015486).id)
         ]
 
+
         
+
+# Semestre 8
+
+
+#Trabajo de Grado
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2837).id, subject_id: Subject.find_by(code: 2015297).id) 
+chs_materia.followers << [
+        #Seminario de trabajo de grado I
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2837).id, subject_id: Subject.find_by(code: 2015486).id)
+        ]
+
 
 

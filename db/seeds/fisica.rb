@@ -73,6 +73,11 @@ subj = Subject.find_by(code: 2015555)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 2
 
@@ -233,15 +238,55 @@ subj = Subject.find_by(code: 2016689)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
 
 # Semestre 9
+
+sem = mallaFis.semesters.find_by number: 9
+
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
 # Semestre 10
 
 sem = mallaFis.semesters.find_by number: 10
+
 #Trabajo de Grado
 subj = Subject.find_by(code: 2016694)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 

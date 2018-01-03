@@ -16,7 +16,7 @@
              <div align="center">
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Carreras<span class="caret"></span></button>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu" style="height:300px; overflow: auto;" align="left">
                      <% Career.all.each do |career| %>
                         <li 
                             <% if career.faculty=="Ciencias Económicas" %> 
@@ -33,6 +33,10 @@
                                 style="background-color: #ffd6cc;"
                             <%elsif career.faculty=="Ciencias Humanas"%>
                                 style="background-color: #d9b3ff;"
+                            <%elsif career.faculty=="Derecho, ciencias políticas y sociales"%>
+                                style="background-color: #eeffcc;"
+                            <%elsif career.faculty=="Enfermería"%>
+                                style="background-color: #ffccff;"
                             <%end%>
                         >
                             <%= link_to career.name, guess_malla_path(career.id) %></li>

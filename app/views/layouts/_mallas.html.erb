@@ -7,7 +7,9 @@
 
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
-<% @creditos_electivas = @user.credits_l %>
+<% if not user == "guess" %>
+  <% @creditos_electivas = @user.credits_l %>
+<% end %>
 <% @malla = malla %>
 <h1><% s_vista ||= "not_assigned" %> </h1>
 <% array_of_not_approved = Malla.get_not_approved(@malla.id) %>
