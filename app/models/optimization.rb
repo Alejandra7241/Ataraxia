@@ -369,7 +369,9 @@ class Optimization < ApplicationRecord
     graph.each do |k, v|
         chs_id = k
         this_chs = CareerHasSubject.find(chs_id)
-        if Subject.find(this_chs.subject_id).name == "Trabajo de grado"
+        @no_prerequisites = CareerHasSubject.get_prerequisites(Career.find(this_chs.career_id).code, Subject.find(this_chs.subject_id).code).length == 0
+        @no_opened_subjects = CareerHasSubject.get_opened_subjects(Career.find(this_chs.career_id).code, Subject.find(this_chs.subject_id).code).length == 0
+        if Subject.find(this_chs.subject_id).name.downcase == "trabajo de grado" && @no_prerequisites && @no_opened_subjects
           chs_ids_deleted << chs_id
         end
 

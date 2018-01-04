@@ -38,8 +38,9 @@ class Historiaacademica < ApplicationRecord
     creditos_exigidos_electivas = 0
     checking_name = false
     informacion.each_line do |line|
-
+      puts "Process each line #{line}"
       if line =~ /\d/
+        puts "Process regular expression"
         line = line.split.join(" ")
         processing = line.split(' ')
         if processing[0].to_i == 1
@@ -140,6 +141,8 @@ class Historiaacademica < ApplicationRecord
         end
         puts line
       else
+
+        puts "First processing #{line}"
         line = line.split.join(" ")
         line = line.split(' ')
         i = 0
@@ -150,9 +153,10 @@ class Historiaacademica < ApplicationRecord
         end
         if checking_name
           while line[i] != "terminar" do
-            #puts "line #{line}"
+            #}puts "line #{line}"
             nombre += line[i].to_s.capitalize + " "
             i +=1
+            break if i > line.length
           end
           checking_name = false
 
@@ -207,8 +211,9 @@ class Historiaacademica < ApplicationRecord
 
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
-    Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
+    @result = Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
     #Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Optima')
+    return -1 if @result == -1
     ActiveRecord::Base.logger = old_logger
   end
 end
