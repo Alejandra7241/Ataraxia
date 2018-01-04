@@ -45,6 +45,7 @@ Subject.create([
         {code: 6666667, name: 'Libre elección', credits: 7},
         {code: 6666668, name: 'Libre elección', credits: 8},
         {code: 6666669, name: 'Libre elección', credits: 9},
+
         
         # -------------------------------------- INGENIERIA ------------------------------------
         
@@ -99,6 +100,7 @@ Subject.create([
         {code: 9999997, name: 'Libre elección', credits: 4},
         {code: 9999998, name: 'Trabajo de grado', credits: 6},
         
+        
         #Otras Electivas
         {code: 9999910, name: 'Libre elección', credits: 3},
         {code: 9999911, name: 'Libre elección', credits: 2},
@@ -110,6 +112,7 @@ Subject.create([
         {code: 9999917, name: 'Libre elección', credits: 3},
         {code: 9999918, name: 'Libre elección', credits: 3},
 
+        
         #Ingenieria Industrial
         {code: 2015811, name: 'Sociología especial: industrial y del trabajo', credits: 3},
         {code: 2026805, name: 'Introducción a la ingeniería industrial', credits: 3},
@@ -254,8 +257,28 @@ Subject.create([
         {code: 2017288, name: 'Servomecanismos', credits: 3},
         {code: 2016770, name: 'Robótica', credits: 3},
         {code: 2017280, name: 'Automatización de Procesos de Manufactura', credits: 3},
-        {code: 2017275, name: 'Proyecto Aplicado de Ingeniería', credits: 4},
         {code: 2017297, name: 'Trabajo de Grado', credits: 6},
+        
+        #Ingeniería Mecanica
+        {code: 2017257, name: 'Dibujo de Máquinas', credits: 4},
+        {code: 2017279, name: 'Termodinámica técnica', credits: 3},
+        {code: 2017268, name: 'Mecanismos', credits: 3},
+        {code: 2017267, name: 'Materiales de Ingeniería', credits: 3},
+        {code: 2017272, name: 'Principios de Mecánica de Fluidos', credits: 3},
+        {code: 2017266, name: 'Instalaciones y Máquinas Eléctricas', credits: 3},
+        {code: 2017293, name: 'Modelación matemática', credits: 3},
+        {code: 2017273, name: 'Procesos de Manufactura I', credits: 3},
+        {code: 2017262, name: 'Fundamentos de Transferencia de Calor', credits: 3},
+        {code: 2017260, name: 'Electrónica Básica', credits: 3},
+        {code: 2015942, name: 'Aplicaciones de elementos finitos', credits: 3},
+        {code: 2017258, name: 'Diseño de Elementos de Máquinas I', credits: 3},
+        {code: 2017274, name: 'Procesos de Manufactura II', credits: 3},
+        {code: 2017259, name: 'Diseño de Elementos de Máquinas II', credits: 3},
+        {code: 2017264, name: 'Ingeniería de Manufactura', credits: 3},
+        {code: 2015215, name: 'Análisis de sistemas dinámicos', credits: 3},
+        {code: 2017261, name: 'Fundamentos de control', credits: 3},
+        {code: 2017275, name: 'Proyecto Aplicado de Ingeniería', credits: 4},
+        {code: 2017295, name: 'Trabajo de Grado', credits: 6},
         
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         

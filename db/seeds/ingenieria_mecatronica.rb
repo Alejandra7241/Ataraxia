@@ -289,12 +289,12 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Electiva
-subj = Subject.find_by(code: 6666664)
+subj = Subject.find_by(code: 6666663)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Electiva
-subj = Subject.find_by(code: 6666664)
+subj = Subject.find_by(code: 6666663)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
@@ -313,17 +313,17 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Electiva
-subj = Subject.find_by(code: 6666664)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
 subj = Subject.find_by(code: 6666663)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 #Electiva
-subj = Subject.find_by(code: 6666663)
+subj = Subject.find_by(code: 6666666)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666669)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
@@ -542,4 +542,3 @@ chs_materia.followers << [
         #Control 
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2548).id, subject_id: Subject.find_by(code: 2016493).id)
         ]
-
