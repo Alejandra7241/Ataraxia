@@ -204,7 +204,7 @@ sem.career_has_subjects << chs
 
         
 # Semestre 6
-sem = mallaMed.semesters.find_by number: 9
+sem = mallaMed.semesters.find_by number: 6
 
 #Psiquiatría I
 subj = Subject.find_by(code: 2018009)
