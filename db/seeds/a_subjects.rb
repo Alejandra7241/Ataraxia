@@ -1020,8 +1020,52 @@ Subject.create([
         {code: 2017086, name: 'Rotación por laboratorios', credits: 8},
         {code: 6625552, name: 'Linea de profundización II', credits: 3},
         {code: 6625553, name: 'Practicas integradas de campo', credits: 20},
-        {code: 2017249, name: 'Trabajo de Grado', credits: 10}
-
+        {code: 2017249, name: 'Trabajo de Grado', credits: 10},
+        
+        # -------------------------------------- ODONTOLOGÍA  ------------------------------------
+        
+        #Odontología
+        {code: 2016536, name: 'Lógica Informal', credits: 3},
+        {code: 2023905, name: 'Biología Celular', credits: 4},
+        {code: 2023903, name: 'Anatomía e histología I', credits: 4},
+        {code: 2016539, name: 'Morfología Oral', credits: 3},
+        {code: 2016528, name: 'Determinantes del Proceso Salud - Enfermedad', credits: 3},
+        {code: 2023904, name: 'Anatomía e histología II', credits: 8},
+        {code: 2016532, name: 'Fisiología general', credits: 6},
+        {code: 2016537, name: 'Microbiología General y Oral', credits: 6},
+        {code: 2016538, name: 'Morfología Oral y Oclusión', credits: 3},
+        {code: 2016534, name: 'Imagenología', credits: 3},
+        {code: 2016531, name: 'Farmacología', credits: 4},
+        {code: 2016547, name: 'Patología General y Oral I', credits: 3},
+        {code: 2016517, name: 'Cariología', credits: 3},
+        {code: 2016529, name: 'Endodoncia', credits: 3},
+        {code: 2016552, name: 'Principios Quirúrgicos y Anestesiología', credits: 3},
+        {code: 2016548, name: 'Patología General y Oral II', credits: 2},
+        {code: 2016557, name: 'Semiología', credits: 3},
+        {code: 2016544, name: 'Operatoria y Materiales Dentales', credits: 3},
+        {code: 2016549, name: 'Periodoncia', credits: 3},
+        {code: 2016551, name: 'Políticas Públicas y Administración en Salud', credits: 2},
+        {code: 2016542, name: 'Odontopediatría', credits: 3},
+        {code: 2016546, name: 'Ortodoncia, Crecimiento y Desarrollo', credits: 3},
+        {code: 2016518, name: 'Clínica Odontológica de Adulto I', credits: 2},
+        {code: 2016554, name: 'Rehabilitación Oral I', credits: 3},
+        {code: 2016530, name: 'Epidemiología', credits: 3},
+        {code: 2016520, name: 'Clínica odontológica del Niño I', credits: 2},
+        {code: 2016521, name: 'Clínica odontológica de Cirugía oral I', credits: 2},
+        {code: 2016519, name: 'Clínica Odontológica de Adulto II', credits: 3},
+        {code: 2016555, name: 'Rehabilitación Oral II', credits: 3},
+        {code: 2016513, name: 'Bioética', credits: 2},
+        {code: 2016526, name: 'Clínica odontológica del niño II', credits: 3},
+        {code: 2016523, name: 'Clínica odontológica de Ortodoncia I', credits: 1},
+        {code: 2016525, name: 'Clínica odontológica de Cirugía oral II', credits: 2},
+        {code: 2016522, name: 'Clínica odontológica del Adulto III', credits: 3},
+        {code: 2016524, name: 'Clínica odontológica de Ortodoncia II', credits: 2},
+        {code: 2023906, name: 'Clínica odontológica del Adulto Mayor', credits: 2},
+        {code: 2016527, name: 'Clínica odontológica del Adulto IV', credits: 3},
+        {code: 2016556, name: 'Salud Pública', credits: 2},
+        {code: 2016648, name: 'Clínica de odontología hospitalaria', credits: 2},
+        {code: 2015318, name: 'Trabajo de Grado', credits: 6}
+        
 
 ])      
 # *************************************************************************
