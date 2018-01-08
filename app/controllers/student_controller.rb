@@ -2,8 +2,8 @@ class StudentController < ApplicationController
     
 
     before_action :require_login
-    #DESCOMENTAAAAAAAAAAAAAAAAAAAAAAAAAR DESPUÉS DE PROBAR
-    #before_action :check_academic_history, only: [:historia_academica, :index]
+    before_action :check_academic_history, only: [:historia_academica, :index]
+    before_action :check_mis_cursos, only: [ :mis_cursos]
     #self.check_complete_data_for_academic_history(id)
     
     def malla_estandar
@@ -116,8 +116,10 @@ class StudentController < ApplicationController
 
         redirect_to student_index_path
       else
-        Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization, finals, @credits.to_i) # (student_id, career_id, malla_id)
-
+        @optimization = Malla.complete_for_malla_optima(current_user.id, @malla_optima.career_id, @malla_optima.id, @optimization, finals, @credits.to_i) # (student_id, career_id, malla_id)
+        puts @optimization
+        # puts "jijij"
+        # puts xxx
       end
 
         respond_to do |format| 
@@ -223,6 +225,21 @@ class StudentController < ApplicationController
           redirect_to get_historia_academica_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(get_historia_academica_path)
       end
     end
+
+
+    def check_mis_cursos
+      puts current_user.mis_cursos_added
+      if current_user.mis_cursos_added
+        # puts "AH setted"
+        #flash[:notice] = "Para volver a introducir la historia academica, busca la opción en editar perfil."
+        redirect_to student_index_path  unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(student_index_path)
+        #redirect_to get_historia_academica_path
+      else
+        # puts " AH unsetted"
+        flash[:notice] = "Primero actualiza tus datos pegando tu historia académica."
+        redirect_to get_mis_cursos_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(get_mis_cursos_path)
+      end
+    end
     public
     def index
         @user=current_user
@@ -273,7 +290,7 @@ class StudentController < ApplicationController
         @unknown_subject_code = -1
         @unknown_subject_name = ""
         @unknown_subject_credits = -1
-
+        User.update(current_user.id, mis_cursos_added: true)
         StudentHasSubject.delete_old_mis_cursos(current_user.id, @malla_personal.career.id)
         @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @mis_cursos_data.each_line do |line|
@@ -322,7 +339,7 @@ class StudentController < ApplicationController
                   #   #THey are not added to StudentHasSubjects
                   #   #current_user.career_has_subjects << chs
                   # if @updated
-                  #     User.update(current_user.id, mis_cursos_added: true)
+                  #
                   #     @updated = true
                   # end
 
