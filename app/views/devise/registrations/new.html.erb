@@ -7,10 +7,10 @@
         <div align="center"><img src="/logo_final.png" class="imageWell"></div>
         <%= form_for @user do |f| %>
           <br>
-          <div class="field">
+          <!--<div class="field">
             <%= f.label :avatar %><br />
             <%= f.file_field :avatar %>
-          </div>
+          </div>-->
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, :required => true, :pattern => '[^@\s]+@[^@\s]+\.[^@\s]+', title: "Dirección de correo inválida", placeholder: 'Ingrese su correo', class: 'form-control'%>

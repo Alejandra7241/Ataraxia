@@ -24,47 +24,51 @@
                   <% if sem.number > user.current_semester %>
                     <th  style="background-color: #F0FFFF">
                       <p class="semestre" style="font-size: 50%">
-
                         <% if sem.number == 777 %>
-                            Intersemestral
-                            <% else%>
-                            Semestre <br> <%= sem.number %>
-                            <% end %></p>
+                          Intersemestral
+                        <% else%>
+                          Semestre <br> <%= sem.number %>
+                        <% end %>
+                      </p>
                     </th>
                   <% elsif sem.number==user.current_semester%>
-                  <th  style="background-color: #cceeff">
-                      <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
-                            Intersemestral
+                    <th  style="background-color: #cceeff">
+                      <p class="semestre" style="font-size: 50%"> 
+                        <% if sem.number == 777 %>
+                          Intersemestral
                         <% else%>
                             Semestre <br> <%= sem.number %>
                         <% end %>
                       </p>
                     </th>
-
                   <%else%>
                     <th>
-                        <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
-                              Intersemestral
-                          <% else%>
-                              Semestre  <br><%= sem.number %>
-                          <% end %>
-                        </p>
-                      </th>
+                      <p class="semestre" style="font-size: 50%"> 
+                        <% if sem.number == 777 %>
+                          Intersemestral
+                        <% else%>
+                          Semestre  <br><%= sem.number %>
+                        <% end %>
+                      </p>
+                    </th>
                   <%end%>
                 <% else %>
                   <th style="background-color: #E6E6FA">
-                      <p class="semestre" style="font-size: 50%"> <% if sem.number == 777 %>
-                            Intersemestral
-                        <% else%>
-                            Semestre <br> <%= sem.number %>
-                        <% end %>
-                      </p>
-                    </th>
+                    <p class="semestre" style="font-size: 50%"> 
+                      <% if sem.number == 777 %>
+                        Intersemestral
+                      <% else%>
+                        Semestre <br> <%= sem.number %>
+                      <% end %>
+                    </p>
+                  </th>
                 <%end%>
               <% end %>
               <% if add_subjects_enabled %>
-                 <th >
-                  <p class="semestre" style="font-size: 50%"> Opciones</p>
+                <th >
+                  <p class="semestre" style="font-size: 50%"> 
+                    Opciones
+                  </p>
                 </th>
               <% end %>
             </tr>

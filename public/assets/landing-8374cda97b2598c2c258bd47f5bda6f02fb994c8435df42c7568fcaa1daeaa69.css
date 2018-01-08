@@ -1,0 +1,90 @@
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.main-text {
+  color: #fff;
+  top: 15%;
+  width: 96.6667%;
+  position: absolute;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.main-email {
+  top: 2%;
+  left: 2%;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+#main {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 11vw;
+  margin: 0 0 -25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.botons {
+  margin: 0px 9px 0px 6px;
+}
+
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel-inner > .item {
+  position: relative;
+  display: none;
+  -webkit-transition: 0.2s ease-in-out left;
+  transition: 0.2s ease-in-out left;
+}
+
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel, .item, .active {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel-inner {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.glyphicon-envelope {
+  margin: 0px 15px;
+  text-align: center;
+}
+
+/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.semi-transparent-button {
+  display: block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  padding: 8px;
+  width: 80%;
+  max-width: 200px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+  text-decoration: none;
+  letter-spacing: 1px;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+/* line 68, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.semi-transparent-button:hover,
+.semi-transparent-button:focus,
+.semi-transparent-button:active {
+  background: #fff;
+  color: #000;
+  -webkit-transition: all 0.5s ease-in;
+  transition: all 0.5s ease-in;
+}

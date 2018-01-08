@@ -1,0 +1,123 @@
+/* line 5, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.main-text {
+  color: #fff;
+  top: 15%;
+  width: 96.6667%;
+  position: absolute;
+}
+
+/* line 12, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.main-email {
+  top: 2%;
+  left: 2%;
+}
+
+/* line 17, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+#main {
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
+  font-size: 11vw;
+  margin: 0 0 -25px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* line 28, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.botons {
+  margin: 0px 9px 0px 6px;
+}
+
+/* line 32, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel-inner > .item {
+  position: relative;
+  display: none;
+  -webkit-transition: 0.2s ease-in-out left;
+  transition: 0.2s ease-in-out left;
+}
+
+/* line 41, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 42, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel, .item, .active {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 43, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.carousel-inner {
+  height: 100%;
+  width: 100%;
+}
+
+/* line 46, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.glyphicon-envelope {
+  margin: 0px 15px;
+  text-align: center;
+}
+
+/* line 52, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 1px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 63, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button:hover,
+.ghost-button:active {
+  background-color: #fff;
+  color: #000;
+}
+
+/* line 69, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button-rounded-corners {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 3px solid #fff;
+  border-radius: 5px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+}
+
+/* line 80, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button-rounded-corners:hover,
+.ghost-button-rounded-corners:active {
+  background-color: #fff;
+  color: #000;
+}
+
+/* line 86, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button-transition {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  color: #fff;
+  border: 2px solid #fff;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  -webkit-transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+}
+
+/* line 98, /home/ubuntu/workspace/app/assets/stylesheets/landing.scss */
+.ghost-button-transition:hover,
+.ghost-button-transition:active {
+  background-color: #fff;
+  color: #000;
+  -webkit-transition: background-color 0.3s ease-in, color 0.3s ease-in;
+  transition: background-color 0.3s ease-in, color 0.3s ease-in;
+}

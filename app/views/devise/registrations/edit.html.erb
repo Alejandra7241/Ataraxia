@@ -14,14 +14,14 @@
                   <% unless current_user.admin? %>
                   <div class="form-group" align="center" >
                     <%= link_to 'Actualizar historia academica', actualizar_historia_academica_path, :class => "btn btn-info", :onclick => 'recharge2()' %>
-                    <%= link_to 'Actualizar mis cursos', actualizar_mis_cursos_path, :class => "btn btn-warning" %>
+                    <%= link_to 'Actualizar mis cursos', actualizar_mis_cursos_path, :class => "btn btn-warning", :onclick => 'recharge2()' %>
                   </div>
                 <% end %>
               
-                <div class="field">
+                <!--<div class="field">
                   <%= f.label :avatar %><br />
                   <%= f.file_field :avatar %>
-                </div> 
+                </div>--> 
                 <br>
                   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
