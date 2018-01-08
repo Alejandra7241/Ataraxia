@@ -20,49 +20,38 @@
             <div class="item">
                 <img src="/universidad3.png" alt="universidad1" style="width:100%;height:100%">
             </div>
+            <div class="item">
+                <img src="/testlanding.jpg" alt="universidad1" style="width:100%;height:100%">
+            </div>
         </div>
     </div>
     <div class="main-text hidden-xs">
-      <div class="row">
-        <div class="col-xs-12">  
-          <div>
-            <%= link_to "<p class='glyphicon glyphicon-envelope'></p>".html_safe, contact_direct_path, :target => "_self", :class => "btn btn-default" %>
-          </div>
-        </div>
-      </div>
       <div class="col-md-12 text-center">
-          <p id="main">Ataraxia</p>
-          <div class="row">
-              <div class="col-xs-12">
-                <div  class="text-center">
-                  <% if user_signed_in? %>
-                    <% if current_user.admin? %>
-                    <%= link_to "Menú principal", admin_index_path, :class => "btn btn-primary btn-large botons" %>
-                    <% else %>
-                    <%= link_to "Menú principal", student_index_path, :class => "btn btn-primary btn-large botons" %>
-                    <% end %>
-                  
+          <p id="main" style=" font-family: Papyrus, fantasy; text-shadow: -2px -2px 1px #000, 2px 2px 1px #000, -2px 2px 1px #000, 2px -2px 1px #000;">Ataraxia<sub style="font-size: 2vw; font-family: 'Trebuchet MS', Helvetica, sans-serif; ">BETA</sub></p>
+          <article>
+            <nav class="btn-bar nav-dark">
+              <% if user_signed_in? %>
+                  <% if current_user.admin? %>
+                      <%= link_to "Menú principal", admin_index_path, :class => "btn btn-primary btn-large " %>
+                  <% else %>
+                      <%= link_to "Menú principal", student_index_path, :class => "btn btn-primary btn-large " %>
+                  <% end %>
                   <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-info btn-large botons" %>
                   <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
-                  <% else %>
-                  <div class="btn-group">
-                    <%= link_to "Registrarse", new_user_registration_path, :class => "btn btn-primary btn-large botons"
-                    # Cuando se sepa la ruta reemplazar: link_to "Entrar como invitado", :controller => :my_controller, :action => :index, :class => "btn btn-primary btn-large botons"
-                    %>
-                    <%= link_to "Entrar", new_user_session_path, :class => "btn btn-info btn-large botons" %>
-                     <%= link_to "Invitado", guess_index_path, :class => "btn btn-info btn-large botons" %>
-                     <% if Rails.env.production? %>
-                     <!--link_to "Entrar con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-danger btn-large botons"-->
-                     <%= link_to "Entrar con Google", user_google_oauth2_omniauth_authorize_path , :class => "btn btn-danger btn-large botons "%> 
-                  <% end %>
-                  </div>
-                  <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              <% else %>
+                <%= link_to "Registrarse", new_user_registration_path, :class => "btn  btn-large btn-danger", :style => "background-color: black;"%>
+                <%= link_to "Entrar", new_user_session_path, :class => "btn  btn-large ", :style => "background-color: gray;"%>
+                <%= link_to "Invitado", guess_index_path, :class => "btn  btn-large ", :style => "background-color: gray;" %>
+                <%= link_to "¿Qué es Ataraxia?", welcome_ataraxia_path, :class => "btn  btn-large btn-danger", :style => "background-color: black;" %>
+                <% if Rails.env.production? %>
+                  <%= link_to "Entrar con Google", user_google_oauth2_omniauth_authorize_path , :class => "btn btn-warning btn-large botons ", :style => "background-color: black;"%> 
+                <% end %>
+              <% end %>
+            </nav>
+          </article>
       </div>
+    </div>
+  </div>
 
 </body>
 </html>

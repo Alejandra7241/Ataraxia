@@ -135,7 +135,7 @@ class StudentController < ApplicationController
         respond_to do |format| 
             format.html
             format.json
-            format.pdf {render template:'student/ malla_optima_from_personal', pdf:'ataraxia_malla_personal_optimizada'}
+            format.pdf {render template:'student/malla_optima_from_personal', pdf:'ataraxia_malla_personal_optimizada'}
         end
       @credits =  params[:credits]
 
