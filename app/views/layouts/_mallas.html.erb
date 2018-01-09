@@ -19,7 +19,7 @@
         <table id="tableSemesters" class="table table-bordered .table-responsive ">
           <thead class="thead">
             <tr>
-              <% @malla.semesters.each do |sem| %>
+              <% @malla.semesters.order('number ASC').each do |sem| %>
                 <% if vista=="malla_avance" or vista=="student_malla" %>
                   <% if sem.number > user.current_semester %>
                     <th  style="background-color: #F0FFFF">
