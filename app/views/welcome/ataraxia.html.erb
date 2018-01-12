@@ -14,6 +14,8 @@
       <li data-target="#myCarousel" data-slide-to="4"></li>
       <li data-target="#myCarousel" data-slide-to="5"></li>
       <li data-target="#myCarousel" data-slide-to="6"></li>
+      <li data-target="#myCarousel" data-slide-to="7"></li>
+      <li data-target="#myCarousel" data-slide-to="8"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -26,11 +28,21 @@
         </div>      
       </div>
       
-<div class="item">
+      <div class="item">
+        <img src="/grado.png" alt="Los ales" >
+        <div class="carousel-caption">
+          <h3>Mallas Estandar</h3>
+          <p>Consulta las mallas estandar de las diferentes carreras en la Universidad Nacional de Colombia</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_estandar", "data-toggle"=>"modal", :style => "color: black"%>
+        </div>      
+      </div>
+      
+      <div class="item">
         <img src="/grado.png" alt="New York" >
         <div class="carousel-caption">
           <h3>Malla Óptima</h3>
           <p>Consulta la malla creada por Ataraxia para graduarte en el menor tiempo posible.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_optima", "data-toggle"=>"modal", :style => "color: black"%>
         </div>      
       </div>
       
@@ -39,6 +51,16 @@
         <div class="carousel-caption">
           <h3>Tus Datos</h3>
           <p>Consulta tu PAPA, PA y porcentaje de avance en los diferentes componentes de tu carrera.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_tusdatos", "data-toggle"=>"modal", :style => "color: black"%>
+        </div>      
+      </div>
+      
+      <div class="item">
+        <img src="/grado.png" alt="Chicago">
+        <div class="carousel-caption">
+          <h3>Calculadora de PAPPI</h3>
+          <p>Calcula tu PAPPI variando las notas de las materias que estés viendo o verás.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_pappi", "data-toggle"=>"modal", :style => "color: black"%>
         </div>      
       </div>
     
@@ -47,6 +69,7 @@
         <div class="carousel-caption">
           <h3>Malla Personal</h3>
           <p>Cuadra tus proximos semestres usando Ataraxia, de una manera muy fácil e intuitiva.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_personal", "data-toggle"=>"modal", :style => "color: black"%>
         </div>  
       </div>
       
@@ -55,26 +78,30 @@
         <div class="carousel-caption">
           <h3>Malla de Avance</h3>
           <p>Consulta tu avance en la carrera de una manera grafica.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_avance", "data-toggle"=>"modal", :style => "color: black"%>
         </div>      
       </div>
       
-       <div class="item">
-        <img src="/grado.png" alt="Los ales" >
-        <div class="carousel-caption">
-          <h3>Mallas Estandar</h3>
-          <p>Consulta las mallas estandar de las diferentes carreras en la Universidad Nacional de Colombia</p>
-        </div>      
-      </div>
           <div class="item">
         <img src="/grado.png" alt="Los ales" >
         <div class="carousel-caption">
-          <h3>Estadisticas</h3>
-          <p>Compara tus notas con nuestros otros usuarios y consulta otros datos de interes.</p>
+          <h3>Notas promedio</h3>
+          <p>Compara tus notas con las notas de nuestros otros usuarios.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_notas", "data-toggle"=>"modal", :style => "color: black"%>
+        </div>      
+      </div>
+
+          <div class="item">
+        <img src="/grado.png" alt="Los ales" >
+        <div class="carousel-caption">
+          <h3>Malla de Materias difíciles</h3>
+          <p>Averigua con qué materias debes tener cuidado a lo largo de tu carrera.</p>
+          <%= link_to "Más información",'#', "data-target" => "#modal_dificiles", "data-toggle"=>"modal", :style => "color: black"%>
         </div>      
       </div>
       </div>
     </div>
-
+    
     <!-- Left and right controls -->
     <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev"  style="height: 260px;">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -148,5 +175,142 @@
   </div>
 </div>
 
-
+<div id="modal_estandar" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_estandar.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>Opción especialmente pensada para personas ajenas a la universidad, interesadas en consultar los planes curriculares de las diferentes carreras.<br> 
+          En Ataraxia te garantizamos SIEMPRE encontrar las mallas actualizadas.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div id="modal_optima" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_optima.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>Malla creada por Ataraxia, teniendo en cuenta lo que el estudiante ha visto y lo que puede ver, para ayudarlo a graduarse en el menor tiempo posible. <br> 
+          La cantidad de creditos máximos por semestre es escogida por el usuario.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+<div id="modal_tusdatos" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_tusdatos.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>En tu perfil encontraras diversa información que te podría interesar: Porcentajes de avance dependiendo la tipologia. PAPA, PA y el PAPPI de tu semestre anterior.<br> 
+          Además podrás ver tu materia con la nota más alta y con la nota más baja, pero no te preocupes, solo contamos la nota de la última vez que la viste.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal_pappi" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_pappi.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>En tu perfil podrás encontrar una calculadora de Pappi intuitiva y fácil de usar.<br> 
+          Está se sincroniza con las materias que estás viendo o que verás el proximo semestre.
+          </p>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div id="modal_personal" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_personal2.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>En tu malla personal podras observar graficamente qué has visto en cada uno de tus semestres pasados y armar tus proximos semestres. <br> 
+          Además tienes la opción de optimizar esta malla y de compartirla con tus amigos, pero no te preocupes, puedes escojer si generarla mostrando tus materias perdidas, o no.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div id="modal_avance" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_avance.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>Con tu malla de avance puedes observar intuitivamente qué materias ya has visto y qué materias te faltan en tu respectiva carrera.<br> 
+          Funciona para darte una idea de qué tan atrasado vas respecto a la malla estandar de tu carrera.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="modal_notas" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_notas.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>En Ataraxia calculamos el promedio de la nota que sacan los estudiantes en las diversas materias.<br> 
+          Puedes comparar la nota que sacaste con la del promedio y verás en verde si estás arriba del promedio o en rojo en el caso contrario.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+    <div id="modal_dificiles" class="modal fade" role="dialog">
+    <div class="modal-dialog" style="width: 1500px;">
+    <!-- Modal content -->
+      <div class="modal-content">
+        <div class="modal-header" >
+          <div align="center"><img width="80%" class="img-responsive" src="/modal_dificiles.png" class="img-fluid" alt="help" /></div>
+        </div>
+        <div class="modal-body" style="color: black">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <p>Si hay materias que aún no has visto puedes consultar qué tan difíciles son. <br> 
+           Ataraxia te muestra una escala de colores para que identifiques en qué materias nuestros usuarios han tenido más problemas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 <%= render 'layouts/footer', :vista=> "normal"%>

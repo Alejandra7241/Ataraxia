@@ -39,13 +39,10 @@
                   <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-info btn-large botons" %>
                   <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
               <% else %>
-                <%= link_to "Registrarse", new_user_registration_path, :class => "btn  btn-large btn-danger", :style => "background-color: black;"%>
+                <%= link_to "Registrarse", new_user_registration_path, :class => "btn  btn-large ", :style => "background-color: black;"%>
                 <%= link_to "Entrar", new_user_session_path, :class => "btn  btn-large ", :style => "background-color: gray;"%>
                 <%= link_to "Invitado", guess_index_path, :class => "btn  btn-large ", :style => "background-color: gray;" %>
-                <%= link_to "¿Qué es Ataraxia?", welcome_ataraxia_path, :class => "btn  btn-large btn-danger", :style => "background-color: black;" %>
-                <% if Rails.env.production? %>
-                  <%= link_to "Entrar con Google", user_google_oauth2_omniauth_authorize_path , :class => "btn btn-warning btn-large botons ", :style => "background-color: black;"%> 
-                <% end %>
+                <%= link_to "¿Qué es Ataraxia?", welcome_ataraxia_path, :class => "btn  btn-large ", :style => "background-color: black;" %>
               <% end %>
             </nav>
           </article>
