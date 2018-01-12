@@ -30,8 +30,8 @@
                <p><b>Funcionalidades extra:</b></p>
 
               <div class="form-group" >
-                <%= link_to "Calculadora de PAPPI",'#',"data-target" => "#PAPPICalculator", "data-toggle"=>"modal", :class => "btn btn-success", :style => 'margin-bottom:15px' %>
-                <%= link_to "Calculadora de PAPA",'#',"data-target" => "#PAPACalculator", "data-toggle"=>"modal", :class => "btn btn-danger" , :style => 'margin-bottom:15px' %>
+                <%= link_to "Calculadora de PAPPI",'#',"data-target" => "#PAPPICalculator", "data-toggle"=>"modal", :class => "btn btn-success", :style => 'margin-bottom:15px', :onclick => 'limpiar()' %>
+                <%= link_to "Calculadora de PAPA",'#',"data-target" => "#PAPACalculator", "data-toggle"=>"modal", :class => "btn btn-danger" , :style => 'margin-bottom:15px', :onclick => 'limpiar2()' %>
                <%= link_to '¿Qué puedo ver el siguiente semestre?', actualizar_mis_cursos_path, :class => "btn btn-primary disabled", :onclick => 'recharge2()' %>
 
 
@@ -185,26 +185,26 @@
           <thead>
           <tr>
             <th>P.A.P.A deseado</th>
-            <th>Créditos en el semestre</th>
+            <th>Créditos que inscribirás</th>
           </tr>
           </thead>
           <tbody>
               <tr>
-                <td><input type="text" value="0.0" id="papa" size="5" required pattern="^\d+$" title = "El P.A.P.A debe contener sólo números" placeholder="0" class="form-control" /></td>
-                <td><input type="text" value="0" id="creditos_papa" size="5" required pattern="^\d+$" title = "Los creditos solo deben contener números" placeholder="0" class="form-control" /></td>
+                <td><input type="text"  value="0.0" id="papa" size="5" required pattern="^\d+$" title = "El P.A.P.A debe contener sólo números" placeholder="0" class="form-control" /></td>
+                <td><input type="text"  value="0" id="creditos_papa" size="5" required pattern="^\d+$" title = "Los creditos solo deben contener números" placeholder="0" class="form-control" /></td>
                </tr>
           </tbody>
         </table>
         <div align="center" style="margin-bottom:20px">
           <div id="pappineeded" class="well" style="padding: 5px;margin: 15px 100px;"></div>
           <%= button_tag 'Calcular', :onclick => "getPAPA('#{@ponderation}', '#{@total_credits.to_f}')", :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
-          <%= button_tag 'Limpiar', :onclick => 'limpiar()', :class => 'btn btn-danger btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <%= button_tag 'Limpiar', :onclick => 'limpiar2()', :class => 'btn btn-danger btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
         </div>
 
 
         <div align="center" style="margin-bottom:20px">
           <h4 align="center"> <b>¿Cuál sería mi P.A.P.A máximo en lo que me resta de carrera?</b></h4>
-          <h5>*Consulta esta información bajo tu propio riesgo.</h5>
+          <h5><i>Consulta esta información bajo tu propio riesgo.</i></h5>
           <div id="maxpapa" class="well" style="padding: 5px;margin: 15px 100px;"></div>
           <%= button_tag 'Ver', :onclick => "maxPAPA('#{@ponderation}', '#{current_user.remaining_credits}', '#{@total_credits + current_user.remaining_credits}')", :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
         </div>

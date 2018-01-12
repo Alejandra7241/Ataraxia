@@ -14,33 +14,29 @@
         aux.value="0.0";
         aux=document.getElementById("creditos_papa");
         aux.value="0";
-        document.getElementById("pappineeded").innerHTML='';
+
       }
       
         function getPAPI(creditos){
 
             var creditos= creditos;
-            if(creditos="[]"){
-              document.getElementById("papirico").innerHTML='<h4> Por favor pega "Mis cursos" o arma tu proximo semestre en tu Malla personal.</h4>'; 
-            }else{
-              var notas = document.getElementsByName('nota'); 
-              var papi=0;
-              var total=0;
-              var crd=[];
-              for(var i=0; i<creditos.length; i++){
-                if(creditos[i]!="[" && creditos[i]!="," && creditos[i]!="]" && creditos[i]!=" "){
-                  total=total+parseInt(creditos[i]);
-                  crd.push(parseInt(creditos[i]));
-                }
+            var notas = document.getElementsByName('nota'); 
+            var papi=0;
+            var total=0;
+            var crd=[];
+            for(var i=0; i<creditos.length; i++){
+              if(creditos[i]!="[" && creditos[i]!="," && creditos[i]!="]" && creditos[i]!=" "){
+                total=total+parseInt(creditos[i]);
+                crd.push(parseInt(creditos[i]));
               }
-              for (var i = 0; i < notas.length; i++) { 
-                  papi =  papi + (crd[i]*notas.item(i).value);
-              }
-              var cancelados=document.getElementById("cancelado").value;
-              papi=papi+(cancelados*0);
-              total=total+parseInt(cancelados);
-              document.getElementById("papirico").innerHTML='<h4><b>Tu P.A.P.P.I: </b>'+ (papi/total).toFixed(2); + '</h4>';
             }
+            for (var i = 0; i < notas.length; i++) { 
+                papi =  papi + (crd[i]*notas.item(i).value);
+            }
+            var cancelados=document.getElementById("cancelado").value;
+            papi=papi+(cancelados*0);
+            total=total+parseInt(cancelados);
+            document.getElementById("papirico").innerHTML='<h4><b>Tu P.A.P.P.I: </b>'+ (papi/total).toFixed(2); + '</h4>';
           }
 
       function getPAPA(ponderacion, creditos_totales){
@@ -63,21 +59,21 @@
           console.log(ponderacion);
           if(creditos_para_el_semestre < 0){document.getElementById("pappineeded").innerHTML='<h4>No puedes desinscribir créditos por más que quieras, lo lamentamos.</h4>';}
           else if(nota_requerida == -Infinity || nota_requerida == Infinity){document.getElementById("pappineeded").innerHTML='<h4>¿Realmente esperas poder subir tu P.A.P.A sin inscribir ningún credito? <b>¡Imposible!</b></h4>';}
-          else if(nota_requerida > 5){document.getElementById("pappineeded").innerHTML='<h4><b>¡Lo sentimos! </b> Nunca obtendrás ese P.A.P.A. <br> Necesitarías '+ nota_requerida.toFixed(2) + ' en tu PAPPI. </h4>';}
-          else if(nota_requerida < 0) {document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Nunca obtendrás ese P.A.P.A. <br> Necesitarías '+ nota_requerida.toFixed(2) + ' en tu PAPPI </h4>';}
+          else if(nota_requerida > 5){document.getElementById("pappineeded").innerHTML='<h4><b>¡Lo sentimos! </b> Nunca obtendrás ese P.A.P.A. <br> Necesitarias un P.A.P.P.I de  '+ nota_requerida.toFixed(2) + 'en este semestre. </h4>';}
+          else if(nota_requerida < 0) {document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Nunca obtendrás ese P.A.P.A. <br> Necesitarías un P.A.P.P.I de '+ nota_requerida.toFixed(2) + 'en este semestre </h4>';}
           else {
             if(nota_requerida.toFixed(2)<1.5){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>¿De verdad necesitas tan poco?</i></h4>';
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>¿De verdad necesitas tan poco?</i></h4>';
             }else if(nota_requerida.toFixed(2)>=1.5 && (nota_requerida.toFixed(2)<3)){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>Casi ni necesitas esforzarte</i></h4>';
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>Casi ni necesitas esforzarte</i></h4>';
             }else if(nota_requerida.toFixed(2)>=3 && (nota_requerida.toFixed(2)<3.5)){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>No te será difícil.</i></h4>';
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>No te será difícil.</i></h4>';
             }else if(nota_requerida.toFixed(2)>=3.5 && (nota_requerida.toFixed(2)<4)){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>¡Tú puedes!</i></h4>';
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>¡Tú puedes!</i></h4>';
             }else if(nota_requerida.toFixed(2)>=4 && (nota_requerida.toFixed(2)<4.5)){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>No es imposible</i></h4>';            
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>No es imposible</i></h4>';            
             }else if(nota_requerida.toFixed(2)>=4.5 && (nota_requerida.toFixed(2)<=5)){
-              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>Uff, sin palabras</i></h4>';                          
+              document.getElementById("pappineeded").innerHTML='<h4><b>Necesitas obtener este semestre un P.A.P.P.I de: </b>'+ nota_requerida.toFixed(2) + '<br><i>Uff, sin palabras</i></h4>';                          
             }
           }
       }
@@ -92,3 +88,4 @@
           resultado = Math.round( resultado * 10 ) / 10;
           document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(2); + '</h4>';
       }
+;

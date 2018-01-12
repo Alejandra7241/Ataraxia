@@ -92,3 +92,4 @@
           resultado = Math.round( resultado * 10 ) / 10;
           document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(2); + '</h4>';
       }
+;

@@ -20,7 +20,16 @@
       <%= link_to root_path do %>
         <%= image_tag 'logo_final.png', height: 40, :style => "margin-top: 5px" %>
         <% end %>
-      <%= link_to 'Ataraxia', root_path, {:style=>'font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 250%', :class => "navbar-brand", :onclick => 'recharge2()'} %>
+        
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to 'Ataraxia', admin_index_path, {:style=>'font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 250%', :class => "navbar-brand", :onclick => 'recharge2()'} %>
+        <%else%>
+          <%= link_to 'Ataraxia', student_index_path, {:style=>'font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 250%', :class => "navbar-brand", :onclick => 'recharge2()'} %>
+        <%end%>
+      <%else%>
+        <%= link_to 'Ataraxia', root_path, {:style=>'font-family: "Trebuchet MS", Helvetica, sans-serif; font-size: 250%', :class => "navbar-brand", :onclick => 'recharge2()'} %>
+      <%end%>
     </div>
     
     <div class="collapse navbar-collapse" id="myNavbar">
