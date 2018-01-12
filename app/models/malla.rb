@@ -38,6 +38,27 @@ class Malla < ApplicationRecord
     end
     
     def self.complete_for_malla_optima(student_id, career_id, malla_id, optimization, finals, max_credits)
+        puts "finals: #{finals}"
+        puts "optimization #{optimization}"
+        puts "Esto #{Career.find(career_id).l_credits} - #{User.find(student_id).credits_l}"
+        @creditos_electivas_restantes = [0, Career.find(career_id).l_credits - User.find(student_id).credits_l].max
+        @credits_current_semester = 0
+
+        # Uncomment when chs is added correctly
+        # optimization.each do |k, v|
+        #     @credits_current_semester = 0
+        #     v.each do |chs_id|
+        #         @credits_current_semester += Subject.find(CareerHasSubject.find(chs_id).subject_id).credits
+        #     end
+        #     while @credits_current_semester < max_credits
+        #
+        #         @credits_cur_electiva = [4,@creditos_electivas_restantes].min
+        #         break if @credits_cur_electiva == 0
+        #         optimization[k] << @credits_cur_electiva
+        #         @creditos_electivas_restantes -= @credits_cur_electiva
+        #         @credits_current_semester += @credits_cur_electiva
+        #     end
+        # end
 
         @credits_for_last_semester = 0
         optimization[optimization.keys.last].each do |chs_id|
@@ -108,6 +129,7 @@ class Malla < ApplicationRecord
         #         #     SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
         #         # end
         # end
+        return optimization
     end
     
     def self.get_not_approved(malla_id)
