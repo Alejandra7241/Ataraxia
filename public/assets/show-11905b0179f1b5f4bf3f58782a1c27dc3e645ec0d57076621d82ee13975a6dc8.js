@@ -36,7 +36,7 @@
           var creditos_para_el_semestre = document.getElementById('creditos_papa').value;
           if(papa.length == 1) papa += ".0";
           papa = parseFloat(papa);
-          creditos_para_el_semestre = parseFloat(creditos_para_el_semestre)+0.0;
+          creditos_para_el_semestre = parseFloat(creditos_para_el_semestre);
           creditos_totales = parseFloat(creditos_totales);
           ponderacion = parseFloat(ponderacion);
           papa -= 0.04;
@@ -50,7 +50,7 @@
           console.log("Ponderacion");
           console.log(ponderacion);
           if(creditos_para_el_semestre < 0){document.getElementById("pappineeded").innerHTML='<h4>No puedes desinscribir créditos por más que quieras, lo lamentamos.</h4>';}
-          else if(nota_requerida == -Infinity || nota_requerida == Infinity){document.getElementById("pappineeded").innerHTML='<h4>¿Realmente esperas poder subir tu P.A.P.A sin inscribir ningún credito? <b>¡Imposible!</b></h4>';}
+          else if(nota_requerida == -Infinity){document.getElementById("pappineeded").innerHTML='<h4>¿Realmente esperas poder subir tu P.A.P.A sin inscribir ningún credito? <b>¡Imposible!</b></h4>';}
           else if(nota_requerida > 5){document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es insubible. Necesitarias sacar '+ nota_requerida.toFixed(2) + ' en esos créditos para subirlo. </h4>';}
           else if(nota_requerida < 0) {document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es inbajable. Necesitarias sacar '+ nota_requerida.toFixed(2) + ' en esos créditos para bajarlo. </h4>';}
           else {document.getElementById("pappineeded").innerHTML='<h4><b>P.A.P.P.I a obtener este semestre: </b>'+ nota_requerida.toFixed(2) + '</h4>';}
@@ -66,3 +66,4 @@
           resultado = Math.round( resultado * 10 ) / 10;
           document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(2); + '</h4>';
       }
+;

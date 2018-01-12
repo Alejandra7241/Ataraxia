@@ -236,7 +236,8 @@ class StudentController < ApplicationController
         #redirect_to get_historia_academica_path
       else
         # puts " AH unsetted"
-        flash[:notice] = "Primero actualiza tus datos pegando tu historia académica."
+        flash[:notice] = "No has actualizado la información de las materias de este semestre, omite este mensaje si estás en vacaciones."
+        #I dedicate this line of code to Lizzy.
         redirect_to get_mis_cursos_path unless Rails.application.routes.recognize_path(request.original_url) == Rails.application.routes.recognize_path(get_mis_cursos_path)
       end
     end
