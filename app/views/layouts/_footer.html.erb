@@ -13,6 +13,9 @@
           <% if vista=="admin_malla" %>
               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal3", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
           <% end %>
+          <% if vista=="guess_index" %>
+            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+          <% end %>
           <% if vista=="guess_malla" %>
             <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
             <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, guess_malla_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
