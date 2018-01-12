@@ -53,3 +53,4 @@
           else if(nota_requerida > 0) {document.getElementById("pappineeded").innerHTML='<h4><b>P.A.P.P.I a obtener este semestre: </b>'+ nota_requerida.toFixed(2); + '</h4>';}
           else {document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es inbajable. Necesitarias sacar '+ nota_requerida.toFixed(2); + ' en esos créditos para bajarlo. </h4>';}
             }
+;

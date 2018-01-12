@@ -60,8 +60,8 @@ class User < ApplicationRecord
     return true
   end
   
-  def self.set_data_from_academic_history(id, nombre_sin_apellido, porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, intersemestrales)
-      User.update(id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas, :current_semester => semestre_actual, :intersemestrales => intersemestrales )
+  def self.set_data_from_academic_history(id, nombre_sin_apellido, porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, intersemestrales, ponderacion, creditos_totales)
+      User.update(id, :name =>nombre_sin_apellido , :percentage => porcentaje, :papa => papa, :pa => pa, :carrer => codigo_carrera, :last_name => apellidos, :avaliable_credits => creditos_sobrantes, :p_d => porcentaje_disciplinar, :p_f => porcentaje_fundamentacion, :p_e => porcentaje_electivas, :current_semester => semestre_actual, :intersemestrales => intersemestrales, :grades_times_credits => ponderacion, :approved_credits => creditos_totales)
   end
     
   def self.is_admin(admin)
@@ -97,6 +97,11 @@ class User < ApplicationRecord
   
   def self.find_by_id(user_id)
     self.find(user_id)
+  end
+
+  def self.get_ponderation_and_approved_credits(user_id)
+    current_user = User.find(user_id)
+    return current_user.grades_times_credits, current_user.approved_credits
   end
     
 end

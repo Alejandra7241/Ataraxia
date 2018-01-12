@@ -410,7 +410,7 @@
 
               <%= form_for :post, :url => submit_optativa_path, remote: true do |f|  %>
                   <%= hidden_field_tag :malla_id, @malla.id %>
-                  <%= f.submit 'Agregar optativa', :class => 'btn btn-default' %>
+                  <%= f.submit 'Agregar optativa', :class => 'btn btn-default disabled' %>
 
               <% end %>
             </div>

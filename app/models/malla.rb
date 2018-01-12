@@ -190,7 +190,7 @@ class Malla < ApplicationRecord
         @nueva_malla = Malla.create(tipo: nuevo_tipo, career_id: @malla_original.career_id, admin_id: @malla_original.admin_id, student_id: @malla_original.student_id)
 
         @malla_original.semesters.each do |sem|
-            next if sem.number > User.find(student_id).current_semester
+            next if sem.number >= User.find(student_id).current_semester
             @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
 
             sem.career_has_subjects.each do |chs|

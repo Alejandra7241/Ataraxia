@@ -49,7 +49,24 @@
           console.log(creditos_para_el_semestre);
           console.log("Ponderacion");
           console.log(ponderacion);
-          if(nota_requerida > 5){document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es insubible. Necesitarias sacar '+ nota_requerida.toFixed(2); + ' en esos créditos para subirlo. </h4>';}
-          else if(nota_requerida > 0) {document.getElementById("pappineeded").innerHTML='<h4><b>P.A.P.P.I a obtener este semestre: </b>'+ nota_requerida.toFixed(2); + '</h4>';}
+          // var papi=0;
+          // var total=0;
+          // var crd=[];
+          // for(var i=0; i<creditos.length; i++){
+          //     if(creditos[i]!="[" && creditos[i]!="," && creditos[i]!="]" && creditos[i]!=" "){
+          //         total=total+parseInt(creditos[i]);
+          //         crd.push(parseInt(creditos[i]));
+          //     }
+          // }
+          // for (var i = 0; i < notas.length; i++) {
+          //     papi =  papi + (crd[i]*notas.item(i).value);
+          // }
+          // var cancelados=document.getElementById("cancelado").value;
+          // papi=papi+(cancelados*0);
+          // total=total+parseInt(cancelados);
+          console.log(nota_requerida > 5)
+          if(nota_requerida > 0) {document.getElementById("pappineeded").innerHTML='<h4><b>P.A.P.P.I a obtener este semestre: </b>'+ nota_requerida.toFixed(2); + '</h4>';}
+          else if(nota_requerida > 5){document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es insubible. Necesitarias sacar '+ nota_requerida.toFixed(2); + ' en esos créditos para subirlo. </h4>';}
           else {document.getElementById("pappineeded").innerHTML='<h4><b>¡Felicidades! </b> Ese P.A.P.A es inbajable. Necesitarias sacar '+ nota_requerida.toFixed(2); + ' en esos créditos para bajarlo. </h4>';}
-            }
+        }
+;
