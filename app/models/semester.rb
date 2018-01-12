@@ -1,5 +1,6 @@
 class Semester < ApplicationRecord
     belongs_to :malla
+    default_scope { order('number ASC') }
     
     has_many :semester_has_subjects, dependent: :destroy
     has_many :career_has_subjects, through: :semester_has_subjects
