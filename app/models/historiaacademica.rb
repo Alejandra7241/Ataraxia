@@ -206,8 +206,8 @@ class Historiaacademica < ApplicationRecord
       nombre_sin_apellido += " " if i < (splitting.length)-3
       i +=1
     end
-
-    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, @intersemestrales, ponderacion, creditos_totales, creditos_requeridos - creditos_aprobados)
+    puts "Vistos #{creditos_totales}, requeridos #{creditos_requeridos}, aprobados #{creditos_aprobados}"
+    User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, @intersemestrales, ponderacion, creditos_totales.to_i, creditos_requeridos.to_i - creditos_aprobados.to_i)
 
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
