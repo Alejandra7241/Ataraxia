@@ -116,4 +116,52 @@
     </div>
   </div>
   
+  
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#bienvenida").modal('show');
+    });
+</script>
+
+<div id="bienvenida" class="modal fade">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: black">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               ¡Hola!, por favor lee lo siguiente:
+            </div>
+            <div class="modal-body">
+               <h4 align="center"><b>Ataraxia aún no está completa</b></h4><br>
+               No contamos aún con las mallas estandar de:
+               <br>
+               <ul type = disk >
+                    <li>Arquitectura</li>
+                    <li>Artes plásticas</li>
+                    <li>Biología</li>
+                    <li>Ciencias de la computación</li>
+                    <li>Cine y televisión</li>
+                    <li>Estudios literarios</li>
+                    <li>Fisioterapia</li>
+                    <li>Geografía</li>
+                    <li>Geología</li>
+                    <li>Ingeniería eléctrica</li>
+                    <li>Matemáticas</li>
+                    <li>Música</li>
+                    <li>Música internacional</li>
+                    <li>Odontología</li>
+                    <li>Psicología</li>
+                    <li>Zootecnia</li>
+                </ul>
+                Y algunas de las mallas de las carreras que sí tenemos, están incompletas. <br>
+                Te pedimos paciencia mientras completamos la página, puedes seguirnos en <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> para enterarte de todas las actualizaciones.</p>
+                
+            </div>
+            <div class="modal-footer" style="background-color: black">
+Recuerda que si eres un estudiante de la UN, no dudes en registrarte.
+                </div>
+        </div>
+    </div>
+</div>
+
+  
 <%= render 'layouts/footer', :vista=> "guess_index"%>

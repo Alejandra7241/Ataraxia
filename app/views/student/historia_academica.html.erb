@@ -45,4 +45,50 @@
   </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#bienvenida").modal('show');
+    });
+</script>
+
+<div id="bienvenida" class="modal fade">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: black">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               ¡Hola!, parece que eres un nuevo usuario
+            </div>
+            <div class="modal-body">
+               <h4 align="center"><b>Ataraxia aún no está disponible para toda la universidad</b></h4><br>
+               Si eres de alguna de las siguientes carreras:
+               <br>
+               <ul type = disk >
+                    <li>Arquitectura</li>
+                    <li>Artes plásticas</li>
+                    <li>Biología</li>
+                    <li>Ciencias de la computación</li>
+                    <li>Cine y televisión</li>
+                    <li>Estudios literarios</li>
+                    <li>Fisioterapia</li>
+                    <li>Geografía</li>
+                    <li>Geología</li>
+                    <li>Ingeniería eléctrica</li>
+                    <li>Matemáticas</li>
+                    <li>Música</li>
+                    <li>Música internacional</li>
+                    <li>Odontología</li>
+                    <li>Psicología</li>
+                    <li>Zootecnia</li>
+                </ul>
+                aún no agregamos tu carrera a la página, pero no es porque nuestros desarrolladores sean vagos, bueno sí son vagos, pero no es por eso. <br>
+                <p>La razón es que no hemos podido encontrar la malla estandar de esas carreras, si tú la tienes o conoces a alguien que la tenga por favor que nos la envie a nuestro  <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> y la agregaremos en cuanto podamos.</p>
+                <br><b>Si no eres de esas carreras y aún así no pudiste entrar, te agradeceriamos mucho si nos escribes para informarnos del error.</b>            
+            </div>
+            <div class="modal-footer" style="background-color: black">
+Siguenos en Facebook para enterarte de todas las novedades
+                </div>
+        </div>
+    </div>
+</div>
+
 <%= render 'layouts/footer', :vista=> "normal"%>

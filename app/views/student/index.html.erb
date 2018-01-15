@@ -105,5 +105,34 @@
     </div>
 </div>
 
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#bienvenida").modal('show');
+    });
+</script>
+
+<div id="bienvenida" class="modal fade">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: black">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               ¡Hola!, por favor lee lo siguiente:
+            </div>
+            <div class="modal-body">
+               <h4 align="center"><b>Te queremos recordar un par de cosas:</b></h4><br>
+               <ul type = disk >
+                    <li>Esta página web AÚN NO ESTÁ TERMINADA. Lo que estás usando es una versión Beta, en la cual es probable que encuentres <b>errores</b>.</li>
+                    <li>Es muy importante que nos informes de estos errores para poder arreglarlos lo más pronto posible. Puedes contactarte con nosotros a través de nuestro <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> o de nuestra sección de <%= link_to "Contactanos", contact_direct_path %>. </li>
+                    <li>Nos faltan dos componentes importantes: <b>óptativas y correquisitos.</b> Así que si tu carrera cuenta con lo anterior, te pedimos paciencia mientras terminamos <i>Ataraxia</i>.<br>Aún puedes usar la página, pero tu experiencia no será completa. </li>
+                    <li>La sección de <%= link_to "Estadisticas", student_estadisticas_path %> usa los datos de nuestros usuarios, así que si eres una de las primeras personas en usar <i>Ataraxia</i> notarás las estadisticas un poco vacias, te pedimos que nos ayudes a crecer y recomiendes nuestra página con tus amigos. <br><i>Entre más gente use la página, nuestras estadisticas estarán más completas</i>.</li>
+                </ul>
+
+            </div>
+            <div class="modal-footer" style="background-color: black">
+¡Qué tengas buen día!
+                </div>
+        </div>
+    </div>
+</div>
 
 <%= render 'layouts/footer', :vista => "normal" %>

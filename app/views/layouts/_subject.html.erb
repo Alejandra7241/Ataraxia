@@ -42,7 +42,7 @@
               <div class="rcorners1" align="center" style="background:purple; color: white;"><%= subj.credits %> </div>
             <% elsif vista == "malla_avance" and typ=='L' %>
                 <% @creditos_electivas = @creditos_electivas - subj.credits %>
-                <% if @creditos_electivas > 0 %>
+                <% if @creditos_electivas >= 0 %>
                     <div class="rcorners1" align="center" style="background:black; color: white;"><%= subj.credits %> </div>
                     <% machete = true %>
                 <%else%>

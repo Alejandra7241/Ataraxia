@@ -168,6 +168,15 @@ class Career < ApplicationRecord
         self.find_by(code: code)
     end
     
+    def self.complete_missing_information(fundamentacion, disciplinar, electivas, nivelacion, code_career)
+        current_career = Career.find_by(code: code_career)
+        Career.update(current_career.id, b_credits: fundamentacion) if current_career.b_credits == -1
+        Career.update(current_career.id, c_credits: fundamentacion) if current_career.c_credits == -1
+        Career.update(current_career.id, l_credits: fundamentacion) if current_career.l_credits == -1
+        Career.update(current_career.id, p_credits: fundamentacion) if current_career.p_credits == -1
+    end
+
+
     
     
     

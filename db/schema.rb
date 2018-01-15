@@ -27,10 +27,10 @@ ActiveRecord::Schema.define(version: 20171112225843) do
     t.string "name"
     t.string "department"
     t.string "faculty"
-    t.integer "b_credits"
-    t.integer "c_credits"
-    t.integer "l_credits"
-    t.integer "p_credits"
+    t.integer "b_credits", default: -1
+    t.integer "c_credits", default: -1
+    t.integer "l_credits", default: -1
+    t.integer "p_credits", default: -1
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "code"

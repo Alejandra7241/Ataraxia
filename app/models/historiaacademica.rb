@@ -54,6 +54,7 @@ class Historiaacademica < ApplicationRecord
           creditos_exigidos_fundamentacion = processing[1].to_f
           creditos_exigidos_disciplinar = processing[2].to_f
           creditos_exigidos_electivas = processing[3].to_f
+          creditos_exigidos_nivelacion = processing[-2].to_f
 
         end
         if processing[0] == "aprobados" && processing[1] == "plan"
@@ -208,7 +209,7 @@ class Historiaacademica < ApplicationRecord
     end
 
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, @intersemestrales, ponderacion, creditos_totales, creditos_requeridos - creditos_aprobados)
-
+    Career.complete_missing_information(creditos_exigidos_fundamentacion,creditos_exigidos_disciplinar,creditos_exigidos_electivas, creditos_exigidos_nivelacion, codigo_carrera)
     #print @new_subjects
     puts "Array of subjects !!!! y #{@carrera} con #{current_user.id}"
     @result = Career.add_array_of_subjects(@carrera, current_user.id, @hap, @new_subjects, 'Personal')
