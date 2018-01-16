@@ -61,7 +61,8 @@
                         <div class="dropdown" style="display: inline-block;">
                             <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Consultar<span class="caret"></span></button>
                             <ul class="dropdown-menu" style="height:115px; overflow: auto;" align="left">
-                            <% Career.all.each do |career| %>
+                            <% aux=Career.all.order(:name) %>
+                             <% aux.each do |career| %>
                                 <li 
                             <% if career.faculty=="Ciencias Económicas" %> 
                                 style="background-color: #f9e6ff;" 

@@ -17,7 +17,8 @@
                 <div class="dropdown" style="display: inline-block">
                     <button class="btn btn-success btn-lg dropdown-toggle" type="button" data-toggle="dropdown">Carreras<span class="caret"></span></button>
                     <ul class="dropdown-menu" style="height:300px; overflow: auto;" align="left">
-                     <% Career.all.each do |career| %>
+                    <% aux=Career.all.order(:name) %>
+                     <% aux.each do |career| %>
                         <li 
                             <% if career.faculty=="Ciencias Económicas" %> 
                                 style="background-color: #f9e6ff;" 
@@ -143,8 +144,8 @@
                     <li>Estudios literarios</li>
                     <li>Fisioterapia</li>
                     <li>Geografía</li>
-                    <li>Geología</li>
                     <li>Ingeniería eléctrica</li>
+                    <li>Ingeniería mecánica</li>
                     <li>Matemáticas</li>
                     <li>Música</li>
                     <li>Música internacional</li>
@@ -153,7 +154,7 @@
                     <li>Zootecnia</li>
                 </ul>
                 Y algunas de las mallas de las carreras que sí tenemos, están incompletas. <br>
-                Te pedimos paciencia mientras completamos la página, puedes seguirnos en <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> para enterarte de todas las actualizaciones.</p>
+                Te pedimos paciencia mientras completamos la página, puedes seguirnos en <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> para enterarte de todas las actualizaciones y sugerirnos cambios.</p>
                 
             </div>
             <div class="modal-footer" style="background-color: black">

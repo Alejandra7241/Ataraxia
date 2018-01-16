@@ -47,21 +47,22 @@ career.career_has_subjects << chs
 # Semestre 1
 sem = mallaInd.semesters.find_by number: 1
 
+#Calculo diferencial
 subj = Subject.find_by(code: 1000004)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Sociologia especial, industrial y dle trabajo
 subj = Subject.find_by(code: 2015811)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Introducción a la ingeniería industrial
 subj = Subject.find_by(code: 2026805)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Programación de computadores
 subj = Subject.find_by(code: 2015734)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
@@ -71,21 +72,22 @@ sem.career_has_subjects << chs
 # Semestre 2
 sem = mallaInd.semesters.find_by number: 2
 
+#Calculo integral
 subj = Subject.find_by(code: 1000005)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Algebra lineal
 subj = Subject.find_by(code: 1000003)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de invencion y cretividad
 subj = Subject.find_by(code: 2016615)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Programación orientada a objetos
 subj = Subject.find_by(code: 2016375)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
@@ -99,55 +101,56 @@ sem.career_has_subjects << chs
 # Semestre 3
 sem = mallaInd.semesters.find_by number: 3
 
+#Cálculo en varias variables
 subj = Subject.find_by(code: 1000006)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Fundamentos de mecánica
 subj = Subject.find_by(code: 1000019)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Economía general
 subj = Subject.find_by(code: 2016592)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de herramientas y problemas en ingeniería industrial
 subj = Subject.find_by(code: 2026488)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Probabilidad
 subj = Subject.find_by(code: 2015178)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-
 # Semestre 4
 sem = mallaInd.semesters.find_by number: 4
 
+#Ecuaciones Diferenciales
 subj = Subject.find_by(code: 1000007)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Electro
 subj = Subject.find_by(code: 1000017)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Sistemas de costos
 subj = Subject.find_by(code: 2016610)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Creación y gestión de empresas
 subj = Subject.find_by(code: 2026551)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de ciencia y tecnología de materiales
 subj = Subject.find_by(code: 2025993)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
@@ -157,31 +160,32 @@ sem.career_has_subjects << chs
 # Semestre 5
 sem = mallaInd.semesters.find_by number: 5
 
+#Modelos y simulación
 subj = Subject.find_by(code: 2025970)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Optimización
 subj = Subject.find_by(code: 2025971)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Ingeniería económica y análisis de riesgo
 subj = Subject.find_by(code: 2025986)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de Procesos Químicos y Biotecnológicos
 subj = Subject.find_by(code: 2016619)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de Procesos Metalmecánicos
 subj = Subject.find_by(code: 2016618)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Inferencia estadística
 subj = Subject.find_by(code: 2016379)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
@@ -191,26 +195,27 @@ sem.career_has_subjects << chs
 # Semestre 6
 sem = mallaInd.semesters.find_by number: 6
 
+#Modelos estocásticos para procesos de manufactura y sistemas de servicios
 subj = Subject.find_by(code: 2025987)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Gerencia y gestión de proyectos
 subj = Subject.find_by(code: 2015702)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Finanzas
 subj = Subject.find_by(code: 2016741)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de Ergonomía e Ingeniería de Métodos
 subj = Subject.find_by(code: 2016613)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Control y Gestión de Calidad
 subj = Subject.find_by(code: 2016589)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
@@ -220,26 +225,27 @@ sem.career_has_subjects << chs
 # Semestre 7
 sem = mallaInd.semesters.find_by number: 7
 
+#Taller de simulación procesos de manufactura y sistemas de servicios
 subj = Subject.find_by(code: 2025988)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Sistemas de información
 subj = Subject.find_by(code: 2025982)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Seguridad industrial
 subj = Subject.find_by(code: 2016609)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de Ingeniería de la Producción
 subj = Subject.find_by(code: 2016614)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Taller de Metodología de la Investigación
 subj = Subject.find_by(code: 2016616)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
@@ -249,17 +255,23 @@ sem.career_has_subjects << chs
 # Semestre 8
 sem = mallaInd.semesters.find_by number: 8
 
+#Logística
 subj = Subject.find_by(code: 2016605)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Gestión Tecnológica
 subj = Subject.find_by(code: 2016600)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
+#Gerencia de recursos humanos
 subj = Subject.find_by(code: 2015701)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Taller de diseño de plantas
+subj = Subject.find_by(code: 2016612)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
@@ -345,7 +357,7 @@ chs_materia.followers << [
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026805).id)
         ]   
 #Programación orientada a objetos
-chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016615).id) 
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016375).id) 
 chs_materia.followers << [
         #Programación de computadores
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2015734).id)
@@ -413,13 +425,17 @@ chs_materia.followers << [
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016610).id) 
 chs_materia.followers << [
         #Taller de herramientas y problemas en ingeniería industrial
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026488).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026488).id),
+        #Economía general
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016592).id)
         ] 
 #Creación y gestión de empresas
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026551).id) 
 chs_materia.followers << [
         #Taller invencion y creatividad
-        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016615).id)
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016615).id),
+        #Economía general
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016592).id)
         ] 
 #Taller de ciencia y tecnología de materiales
 chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2025993).id) 
@@ -431,7 +447,7 @@ chs_materia.followers << [
 #Semestre 5
 
 #Modelos y simulación
-chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2025993).id) 
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2025970).id) 
 chs_materia.followers << [
         #Calculo en varias variables
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 1000006).id),
@@ -579,4 +595,13 @@ chs_materia.followers << [
         #Creacion y gestion de empresas
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2026551).id)
         ]
-        
+#Taller de diseño de plantas   
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016612).id) 
+chs_materia.followers << [
+        #Seguridad industrial 
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016609).id),
+        #Taller de Ingeniería de la Producción
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2016614).id),
+        #Sistemas de información
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2546).id, subject_id: Subject.find_by(code: 2025982).id)
+        ]

@@ -32,12 +32,12 @@
             <nav class="btn-bar nav-dark">
               <% if user_signed_in? %>
                   <% if current_user.admin? %>
-                      <%= link_to "Menú principal", admin_index_path, :class => "btn btn-primary btn-large " %>
+                      <%= link_to "Menú principal", admin_index_path, :class => "btn btn-primary btn-large ", :style => "background-color: black;" %>
                   <% else %>
-                      <%= link_to "Menú principal", student_index_path, :class => "btn btn-primary btn-large " %>
+                      <%= link_to "Menú principal", student_index_path, :class => "btn btn-primary btn-large ", :style => "background-color: black;" %>
                   <% end %>
-                  <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-info btn-large botons" %>
-                  <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-danger btn-large botons" %>
+                  <%= link_to "Editar perfil de #{current_user.email}", edit_user_registration_path, :class => "btn btn-large", :style => "background-color: gray;" %>
+                  <%= link_to 'Cerrar sesión', destroy_user_session_path, method: :delete, :class => "btn btn-large", :style => "background-color: black;" %>
               <% else %>
                 <%= link_to "Registrarse", new_user_registration_path, :class => "btn  btn-large ", :style => "background-color: black;"%>
                 <%= link_to "Entrar", new_user_session_path, :class => "btn  btn-large ", :style => "background-color: gray;"%>
@@ -49,6 +49,44 @@
       </div>
     </div>
   </div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#bienvenida").modal('show');
+    });
+</script>
+
+<div id="bienvenida" class="modal fade">
+    <div class="modal-dialog" style="width: 1000px;">
+        <div class="modal-content">
+            <div class="modal-header" style="background-color: black">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+               ¡Hola!, queremos informarte nuestros ultimos cambios:
+            </div>
+            <div class="modal-body">
+               <h4 align="center"><b>Actualización 16/Enero/2018</b></h4><br>
+               - Nuevas carreras implementadas en la página:
+               <br>
+               <ul type = disk >
+                    <li>Geología</li>
+                </ul>
+                 - Carreras corregidas:
+               <br>
+               <ul type = disk >
+                    <li>Ingeniería industrial.</li>
+                </ul>
+                - Corregido error en el que <i>Música intrumental</i> aparecía como <i>Música internacional.</i> <br>
+                - Ingeniería Mecanica agregada a la lista de carreras pendientes.
+                - Aclaración en la página que es sólo para sede UN. 
+                - Ahora se presentan en orden alfabetico las carreras en la malla estandar. 
+                <br>Te pedimos paciencia mientras completamos la página, puedes seguirnos en <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> para enterarte de todas las actualizaciones y sugerirnos cambios.</p>
+                
+            </div>
+            <div class="modal-footer" style="background-color: black">
+                  Recuerda que si eres un estudiante de la UN, no dudes en registrarte.
+              </div>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
