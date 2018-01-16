@@ -36,6 +36,7 @@ class Historiaacademica < ApplicationRecord
     creditos_exigidos_fundamentacion = 0
     creditos_exigidos_disciplinar = 0
     creditos_exigidos_electivas = 0
+    creditos_exigidos_nivelacion = 0
     checking_name = false
     informacion.each_line do |line|
       puts "Process each line #{line}"
