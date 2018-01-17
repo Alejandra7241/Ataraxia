@@ -467,8 +467,21 @@ Subject.create([
         {code: 2015558, name: 'Campo v: practicas geologia de colombia y yacimientos', credits: 3},
         {code: 2015559, name: 'Campo VI: Cartografía Geológica', credits: 6},
         {code: 2015280, name: 'Trabajo de Grado', credits: 10},
-
-
+        
+        #Biología
+        {code: 2017777, name: 'Ecología', credits: 4},
+        {code: 2017776, name: 'Ciencias de la tierra', credits: 3},
+        {code: 2015877, name: 'Biología de plantas', credits: 4},
+        {code: 2017774, name: 'Biología evolutiva', credits: 4},
+        {code: 2017772, name: 'Biología animal', credits: 4},
+        {code: 2017773, name: 'Biología de microorganismos', credits: 4},
+        {code: 2023214, name: 'Principios de bioquímica', credits: 3},
+        {code: 2017010, name: 'Laboratorio principios de bioquímica', credits: 3},
+        {code: 2017775, name: 'Biologia molecular de la célula', credits: 4},
+        {code: 2017778, name: 'Fundamentos de investigación', credits: 2},
+        {code: 2017779, name: 'Genética', credits: 4},
+        {code: 2023028, name: 'Trabajo de Grado', credits: 8},
+        
         # -------------------------------------- MEDICINA ------------------------------------
         
         #Medicina
