@@ -185,12 +185,17 @@ class Malla < ApplicationRecord
 
 
     def self.duplicate_malla_without_not_approved(id_malla_original, nuevo_tipo, student_id)
-
+        @current_user = User.find(student_id)
         @malla_original = Malla.find(id_malla_original)
         @nueva_malla = Malla.create(tipo: nuevo_tipo, career_id: @malla_original.career_id, admin_id: @malla_original.admin_id, student_id: @malla_original.student_id)
 
         @malla_original.semesters.each do |sem|
-            next if sem.number >= User.find(student_id).current_semester
+            if @current_user.mis_cursos_added
+                next if sem.number > @current_user.current_semester
+            else
+                next if sem.number >= @current_user.current_semester
+            end
+            
             @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
 
             sem.career_has_subjects.each do |chs|

@@ -85,8 +85,7 @@ class Historiaacademica < ApplicationRecord
 
 
             @string_used = processing[-1].split('-')[-1]
-            puts "#{@string_used} ---> \n\n\n arr: #{arr} ---> \n\n\n new_subujects_hash: #{new_subjects_hash} \n\n\n new_subjects: #{new_subjects} \n\n\n hap #{hap}"
-            puts "99999999999999999999999999999999999"
+            #puts "#{@string_used} ---> \n\n\n arr: #{arr} ---> \n\n\n new_subujects_hash: #{new_subjects_hash} \n\n\n new_subjects: #{new_subjects} \n\n\n hap #{hap}"
 
             print arr
             hap << arr
@@ -191,7 +190,7 @@ class Historiaacademica < ApplicationRecord
     @nombre = nombre
     @new_subjects = new_subjects
     semestre_actual = @hap.length+1 - @intersemestrales
-    puts "PORCENTAJEEES #{@hap.length}"
+    #puts "PORCENTAJEEES #{@hap.length}"
     puts porcentaje_disciplinar
     puts porcentaje_electivas
     puts porcentaje_fundamentacion

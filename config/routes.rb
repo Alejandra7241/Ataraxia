@@ -107,7 +107,7 @@ Rails.application.routes.draw do
     
     #Mis cursos:
     get 'mis_cursos', to: 'student#mis_cursos', as: 'get_mis_cursos'
-    get 'actualizar_mis_cursos', to: 'student#mis_cursos', as: 'actualizar_mis_cursos'
+    get 'actualizar_mis_cursos', to: 'student#actualizar_mis_cursos', as: 'actualizar_mis_cursos'
     post 'procesar_mis_cursos', to: 'student#procesar_mis_cursos', as: 'submit_mis_cursos'
     
     #Mallas
