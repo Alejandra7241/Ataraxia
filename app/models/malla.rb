@@ -195,7 +195,7 @@ class Malla < ApplicationRecord
             else
                 next if sem.number >= @current_user.current_semester
             end
-            
+
             @new_sem = Semester.create(number: sem.number, malla_id: @nueva_malla.id, electivas_not_assigned: sem.electivas_not_assigned)
 
             sem.career_has_subjects.each do |chs|
