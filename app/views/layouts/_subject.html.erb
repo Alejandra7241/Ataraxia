@@ -132,9 +132,9 @@
                     <br> 
                     <% @average = Subject.get_average_grade(subj.code)  %>
                     <% unless @average == -1 %>
-                    <p>Promedio: <%= @average.round(2) %></p>
+                        <p>Promedio: <%= @average.round(2) %></p>
                     <% else %>
-                    <p>Promedio: ------</p>
+                        <p>Promedio: ------</p>
                     <% end %>
                     <% if grade != 5.1 %>
                         <% if grade <0 %>
