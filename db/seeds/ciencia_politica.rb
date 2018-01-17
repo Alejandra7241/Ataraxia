@@ -264,6 +264,5 @@ sem.career_has_subjects << chs
 
 
 
-# ---------- PRERREQUISITOS CIENCIA POLITICA------------....... 
 
         

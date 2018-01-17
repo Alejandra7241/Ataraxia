@@ -172,8 +172,6 @@ career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
 
-# ---------- PRERREQUISITOS HISTORIA ------------....... 
-
         
 
 
