@@ -5,8 +5,88 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a650b7de-7dd1-4513-91fa-e86f84fa6086" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/malla.rb" afterPath="$PROJECT_DIR$/app/models/malla.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/a_subjects.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/a_subjects.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/administracion_de_empresas.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/administracion_de_empresas.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/administracion_de_empresas_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/administracion_de_empresas_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/antropologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/antropologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/antropologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/antropologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ciencia_politica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ciencia_politica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ciencia_politica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ciencia_politica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/contaduria_publica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/contaduria_publica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/contaduria_publica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/contaduria_publica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/derecho.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/derecho.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/derecho_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/derecho_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/diseño_grafico.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/diseño_grafico.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/diseño_grafico_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/diseño_grafico_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/diseño_industrial.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/diseño_industrial.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/diseño_industrial_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/diseño_industrial_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/economia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/economia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/economia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/economia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/enfermeria.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/enfermeria.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/enfermeria_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/enfermeria_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/español_y_filologia_clasica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/español_y_filologia_clasica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/español_y_filologia_clasica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/español_y_filologia_clasica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/estadistica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/estadistica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/estadistica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/estadistica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/farmacia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/farmacia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/farmacia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/farmacia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_aleman.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_aleman.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_aleman_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_aleman_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_frances.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_frances.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_frances_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_frances_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_ingles.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_ingles.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filologia_e_idiomas_ingles_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filologia_e_idiomas_ingles_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filosofia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filosofia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/filosofia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/filosofia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/fisica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/fisica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/fisica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/fisica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/fonoaudiologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/fonoaudiologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/fonoaudiologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/fonoaudiologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/historia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/historia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/historia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/historia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_agricola.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_agricola.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_agricola_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_agricola_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_agronomica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_agronomica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_agronomica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_agronomica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_civil.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_civil.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_civil_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_civil_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_electrica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_electrica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_electrica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_electrica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_electronica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_electronica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_electronica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_electronica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_industrial.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_industrial.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_industrial_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_industrial_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_quimica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_quimica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_quimica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_quimica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_sistemas.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_sistemas.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/ingenieria_sistemas_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_sistemas_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/linguistica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/linguistica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/linguistica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/linguistica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/medicina.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/medicina.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/medicina_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/medicina_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/medicina_veterinaria.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/medicina_veterinaria.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/medicina_veterinaria_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/medicina_veterinaria_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/nutricion_y_dietetica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/nutricion_y_dietetica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/nutricion_y_dietetica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/nutricion_y_dietetica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/odontologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/odontologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/odontologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/odontologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/quimica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/quimica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/quimica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/quimica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/sociologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/sociologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/sociologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/sociologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/terapia_ocupacional.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/terapia_ocupacional.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/terapia_ocupacional_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/terapia_ocupacional_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/trabajo_social.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/trabajo_social.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds/trabajo_social_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/trabajo_social_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/a_subjects.rb" afterPath="$PROJECT_DIR$/db/seeds/a_subjects.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/biologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/biologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/biologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/biologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/geologia.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/geologia.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/geologia_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/geologia_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/ingenieria_mecanica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_mecanica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/ingenieria_mecanica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_mecanica_p.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/ingenieria_mecatronica.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_mecatronica.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/db/seeds_s/ingenieria_mecatronica_p.rb" afterPath="$PROJECT_DIR$/db/seeds_completos/ingenieria_mecatronica_p.rb" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" afterPath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" />
     </list>
@@ -76,7 +156,7 @@
         <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-849">
-              <caret line="116" column="69" lean-forward="true" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
+              <caret line="116" column="69" lean-forward="false" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -625,35 +705,34 @@
       <workItem from="1515780132108" duration="6413000" />
       <workItem from="1515802649480" duration="1341000" />
       <workItem from="1516162925531" duration="7392000" />
-      <workItem from="1516228482123" duration="43000" />
+      <workItem from="1516228482123" duration="186000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="321507000" />
+    <option name="totallyTimeSpent" value="321650000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="482" y="-4" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1774461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1774461" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35264227" sideWeight="0.23935877" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35264227" sideWeight="0.5041459" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22357723" sideWeight="0.49585405" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.49806094" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35264227" sideWeight="0.7606412" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35264227" sideWeight="0.7606412" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292683" sideWeight="0.49806523" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22446808" sideWeight="0.49806094" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1267,7 +1346,7 @@
     <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-849">
-          <caret line="116" column="69" lean-forward="true" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
+          <caret line="116" column="69" lean-forward="false" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
           <folding />
         </state>
       </provider>
