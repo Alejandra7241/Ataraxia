@@ -344,6 +344,24 @@ chs_materia.followers << [
         CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2017493).id)
         ]
 
+#Semestre 8
+
+#ESTO NO ES DEL SIA
+#Practica I
+chs_materia = CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2017495).id) 
+chs_materia.followers << [
+        #Intervención Social
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2017487).id),
+        #Gestión Social de Recursos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2017485).id),
+        #Proyectos de desarrollo social
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2003491).id),
+        #Métodos cualitativos
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2015989).id),
+        #Políticas Sociales II
+        CareerHasSubject.find_by(career_id: Career.find_by(code: 2537).id, subject_id: Subject.find_by(code: 2017494).id)
+        ]
+        
 # Semestre 9
 
 #Practica II
