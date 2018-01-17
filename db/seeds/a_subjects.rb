@@ -269,7 +269,27 @@ Subject.create([
         {code: 2016851, name: 'Análisis de Sistemas de Potencia', credits: 3},
         {code: 2016866, name: 'Trabajo de Grado', credits: 6},
         
-        
+        #Ingenieria Mecánica
+        {code: 2017257, name: 'Dibujo de Máquinas', credits: 4},
+        {code: 2017279, name: 'Termodinámica técnica', credits: 3},
+        {code: 2017266, name: 'Instalaciones y Máquinas Eléctricas', credits: 3},
+        {code: 2017268, name: 'Mecanismos', credits: 3},
+        {code: 2017267, name: 'Materiales de Ingeniería', credits: 3},
+        {code: 2017272, name: 'Principios de Mecánica de Fluidos', credits: 3},
+        {code: 2017293, name: 'Modelación matemática', credits: 3},
+        {code: 2017273, name: 'Procesos de Manufactura I', credits: 3},
+        {code: 2017262, name: 'Fundamentos de Transferencia de Calor', credits: 3},
+        {code: 2017260, name: 'Electrónica Básica', credits: 3},
+        {code: 2008643, name: 'Aplicaciones de elementos finitos', credits: 3},
+        {code: 2017258, name: 'Diseño de Elementos de Máquinas I', credits: 3},
+        {code: 2017274, name: 'Procesos de Manufactura II', credits: 3},
+        {code: 2017259, name: 'Diseño de Elementos de Máquinas II', credits: 3},
+        {code: 2017264, name: 'Ingeniería de Manufactura', credits: 3},
+        {code: 2015215, name: 'Análisis de sistemas dinámicos', credits: 3},
+        {code: 2017261, name: 'Fundamentos de control', credits: 3},
+        {code: 2017275, name: 'Proyecto Aplicado de Ingeniería', credits: 4},
+        {code: 2017295, name: 'Trabajo de Grado', credits: 6},
+
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         
         #Economia
