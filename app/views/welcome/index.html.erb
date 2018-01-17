@@ -60,10 +60,10 @@
         <div class="modal-content">
             <div class="modal-header" style="background-color: black">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-               ¡Hola!, queremos informarte nuestros ultimos cambios:
+               ¡Hola!, queremos informarte nuestros últimos cambios:
             </div>
             <div class="modal-body">
-               <h4 align="center"><b>Actualización 16/Enero/2018</b></h4><br>
+               <h4 align="center"><b>Actualización 17/Enero/2018</b></h4><br>
                - Nuevas carreras implementadas en la página:
                <br>
                <ul type = disk >
@@ -93,7 +93,28 @@
                 
             </div>
             <div class="modal-footer" style="background-color: black">
-                  Ten un lindo día.
+                <% aux=rand(1..10) %> 
+                <% if aux==1 %>
+                      Ten un lindo día :3.
+                 <%elsif aux==2 %>
+                     ¿Ya nos sigues en Facebook? ¿Qué estás esperando?.
+                <%elsif aux==3 %>
+                     Si encuentras un bug no dudes en escribirnos.
+                <%elsif aux==4 %>
+                     Este mensaje cambiará cuando recargues la página.
+                <%elsif aux==5 %>
+                     ¡Dale al botón "¿Qué es Ataraxia?"!.
+                <%elsif aux==6 %>
+                     ¡Este semestre vas a subir PAPA!.
+                <%elsif aux==7 %>
+                     La verdad creamos esta página porque vamos atrasados en nuestra carrera :c.
+                <%elsif aux==8 %>
+                     ¿Y pa cuándo el grado mijo?.
+                <%elsif aux==9 %>
+                     Ataraxia para todos y todas :v.
+                <%elsif aux==10 %>
+                     Si tienes alguna sugerencia no dudes en escribirnos.
+                 <%end%>
               </div>
         </div>
     </div>
