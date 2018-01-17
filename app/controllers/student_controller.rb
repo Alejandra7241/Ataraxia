@@ -3,7 +3,7 @@ class StudentController < ApplicationController
 
     before_action :require_login
     before_action :check_academic_history, only: [:historia_academica, :index]
-    before_action :check_mis_cursos, only: [ :mis_cursos]
+    before_action :check_mis_cursos, only: [:mis_cursos]
     #self.check_complete_data_for_academic_history(id)
     
     def malla_estandar
@@ -228,7 +228,7 @@ class StudentController < ApplicationController
 
 
     def check_mis_cursos
-      puts current_user.mis_cursos_added
+      #puts current_user.mis_cursos_added
       if current_user.mis_cursos_added
         # puts "AH setted"
         #flash[:notice] = "Para volver a introducir la historia academica, busca la opción en editar perfil."
@@ -277,6 +277,11 @@ class StudentController < ApplicationController
 
     end
 
+
+    def actualizar_mis_cursos
+
+    end
+
     def procesar_mis_cursos
         puts "Data to process"
 
@@ -296,15 +301,15 @@ class StudentController < ApplicationController
         @semester = Semester.create(number: @current_semester, malla_id: @malla_personal.id)
         @mis_cursos_data.each_line do |line|
             if line =~ /\d/
-                puts line
+                #puts line
                 line = line.split.join(" ")
                 processing = line.split(' ')
                 print processing
-                puts ""
-                puts ""
+                #puts ""
+                #puts ""
 
-                puts "matches? #{/(\d)*(-)(\d)*/.match(processing[0]).nil?}"
-                puts "------------------------------------------------------------------------"
+                #puts "matches? #{/(\d)*(-)(\d)*/.match(processing[0]).nil?}"
+                #puts "------------------------------------------------------------------------"
                 break if processing[0] == "Ciudad"
               unless /(\d)*(-)(\d)*/.match(processing[0]).nil?
                 @ready_to_read = true
@@ -320,6 +325,8 @@ class StudentController < ApplicationController
                   if @unknown_subject
                     @unknown_subject_credits =  processing[0].to_i
                     puts "Name: #{@unknown_subject_name} Code #{@unknown_subject_code} Credits: #{@unknown_subject_credits}"
+                    next if @unknown_subject_credits > 160
+                    next if @unknown_subject_code < 666
                     puts "creating subject"
                     subj = Subject.create({code: @unknown_subject_code, name: @unknown_subject_name, credits: @unknown_subject_credits})
                     SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: @semester.id)

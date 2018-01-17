@@ -65,6 +65,9 @@ class Career < ApplicationRecord
         puts "semester: #{semester}, and current_semester #{current_semester}"
         #sem = Semester.create(number: current_semester, malla_id: current_malla.id)
         semester.each do |code_subject, grade_subject|
+            if grade_subject.to_f >  5.0 or grade_subject.to_f <  0
+                return -1
+            end
             puts "Code subject: #{code_subject}, Grade subject: #{grade_subject}"
             subj = Subject.find_by(code: code_subject)
 
