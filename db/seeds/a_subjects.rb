@@ -257,6 +257,19 @@ Subject.create([
         {code: 2017275, name: 'Proyecto Aplicado de Ingeniería', credits: 4},
         {code: 2017297, name: 'Trabajo de Grado', credits: 6},
         
+        #Ingeniería Eléctrica
+        {code: 2016856, name: 'Introducción a ingeniería eléctrica', credits: 5},
+        {code: 2016862, name: 'Taller de ingeniería eléctrica', credits: 2},
+        {code: 2016845, name: 'Mecánica para Ingeniería', credits: 3},
+        {code: 1000021, name: 'Fundamentos de Mecánica de Fluidos', credits: 3},
+        {code: 2016865, name: 'Transmisión y Distribución', credits: 3},
+        {code: 2016861, name: 'Introducción a los sistemas de energía eléctrica', credits: 3},
+        {code: 2017003, name: 'Instalaciones eléctricas', credits: 3},
+        {code: 2016863, name: 'Taller de ingeniería', credits: 3},
+        {code: 2016851, name: 'Análisis de Sistemas de Potencia', credits: 3},
+        {code: 2016866, name: 'Trabajo de Grado', credits: 6},
+        
+        
         # -------------------------------------- CIENCIAS ECONOMICAS ------------------------------------
         
         #Economia
