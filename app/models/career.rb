@@ -75,7 +75,8 @@ class Career < ApplicationRecord
 
                 current_information_for_subject_not_added = Career.search_in_new_subjects(new_subjects,code_subject)
                 puts "Finding this: #{Career.search_in_new_subjects(new_subjects,code_subject)}"
-               
+                next if current_information_for_subject_not_added[-1].to_i > 160
+                next if code_subject < 666
                 subj = Subject.create({code: code_subject, name: current_information_for_subject_not_added[1].to_s, credits: current_information_for_subject_not_added[-1].to_i})
                 SemesterHasStudentSubject.create(subject_id: subj.id, semester_id: sem.id)
                 puts "before"
