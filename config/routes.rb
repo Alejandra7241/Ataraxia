@@ -31,6 +31,7 @@ Rails.application.routes.draw do
     
     #Otros
     get 't', to: 'admin#t', as: 'admin_remote_modal'
+    get 'dangerous_remove_all_from_date', to: 'admin#dangerous_remove_all_from_date', as: 'dangerous_remove_all_from_date'
     
     #Adding subjects via post
     post 'search_prerequisite/:id_career', to:'admin#search_prerequisite', as: 'search_prerequisite'

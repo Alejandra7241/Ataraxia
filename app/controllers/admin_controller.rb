@@ -20,6 +20,25 @@ class AdminController < ApplicationController
       @career = Career.new
       
   end
+
+  def dangerous_remove_all_from_date
+    @time_to_remove = 2.hours.ago..Time.now
+    3.times do
+      Career.where(:created_at  => @time_to_remove).destroy_all
+      Historiaacademica.where(:created_at  => @time_to_remove).destroy_all
+      Malla.where(:created_at  => @time_to_remove).destroy_all
+      Optimization.where(:created_at  => @time_to_remove).destroy_all
+      Semester.where(:created_at  => @time_to_remove).destroy_all
+      SemesterHasStudentSubject.where(:created_at  => @time_to_remove).destroy_all
+      SemesterHasSubject.where(:created_at  => @time_to_remove).destroy_all
+      StudentHasSubject.where(:created_at  => @time_to_remove).destroy_all
+      Subject.where(:created_at  => @time_to_remove).destroy_all
+      User.where(:created_at  => @time_to_remove).destroy_all
+    end
+
+    flash[:notice] = 'Se han eliminado'
+    redirect_to admin_index_path
+  end
   
   def career
     @career = Career.create(code: params[:career][:code].to_i, name: params[:career][:name], faculty: params[:career][:faculty], department: params[:career][:department])
