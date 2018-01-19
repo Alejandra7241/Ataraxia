@@ -24,3 +24,6 @@
 #Ignore dotenv file
 .env
 
+#Ignore local database
+/db/development.sqlite3
+
