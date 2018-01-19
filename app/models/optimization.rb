@@ -107,7 +107,12 @@ class Optimization < ApplicationRecord
           pila << graph[u][i]
  
         else
-          distancia[graph[u][i]] = distancia[graph[u][i]] + distancia[u] + 1
+          # Revise esto en la de primer semestre
+          # puts "distancia[graph[u][i]] #{distancia[graph[u][i]]} distancia[u] #{distancia[u]} u #{u} i #{i}"
+          # puts distancia
+          # puts "//"
+          # puts graph
+          distancia[graph[u][i]] = distancia[graph[u][i]] + distancia[u] + 1 rescue -1
           #Suma la distancia del camino ya existente, con la del camino nuevo
         end
         i+=1

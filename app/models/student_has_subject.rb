@@ -146,6 +146,7 @@ class StudentHasSubject < ApplicationRecord
             end
             i=i+1
         end
+        return 0 if suma_creditos == 0
         return aux/suma_creditos
     end
 

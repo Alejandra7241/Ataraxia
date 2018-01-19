@@ -16,7 +16,7 @@
   
   <div class="col-sm-4">
      <h1 align="center">Malla Personal</h1>
-     <h3 align="center"><%= @user.carrer %></h3>
+     <h3 align="center"><%= Career.find_by_code(@user.carrer).name %> (<%= @user.carrer %>)</h3>
   </div>
   
   <div class="col-sm-4">

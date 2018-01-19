@@ -143,9 +143,11 @@
               <% if add_subjects_enabled %>
                 <td align="center">
                       <%= link_to "¡Añadir semestre #{ (@malla.semesters.length+1) - current_user.intersemestrales}!", new_semester_path(@malla.id), class: "btn btn-success", :id => "annadir", :onclick => 'deshabilitar()', :style => 'margin: 5px 5px;' %>
-                    <% if empty_semester && current_semester == @malla.semesters.length  %>
+                    <% if empty_semester && current_semester == @malla.semesters.length && !(current_semester <= 0) %>
+
                        <%= link_to "¡Eliminar semestre #{current_semester}!", remove_semester_path(@malla.id, current_semester), :id => "eliminnar", :onclick => 'deshabilitar()', class: "btn btn-danger", :style => 'margin: 5px 5px;' %>
-                    <%else%>
+
+                  <%else%>
                                           <div class="well form-group" align="center" style="margin: 5px 5px; padding-top: 2px;">
                             <%= form_for :post, :url => generate_malla_optima_from_personal_path do |f|  %>
                               <%= f.label "Créditos", :style => "font-size: 15px;" %>
