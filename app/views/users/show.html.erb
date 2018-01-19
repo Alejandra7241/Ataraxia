@@ -64,6 +64,7 @@
                             <div style="height:20px;"></div>
                                 <% nota_mejor, nombre_mejor= StudentHasSubject.get_best_grade(@malla, current_user)%></p>
                                 <% nota_peor, nombre_peor= StudentHasSubject.get_worst_grade(@malla, current_user)%></p>
+                      <% unless nombre_peor.length <= 0 &&  nombre_mejor.length <= 0%>
                                 <table style="height:100%">
                                     <tr>
                                     <th style="font-size:16pt">Tu nota más alta</th>
@@ -82,6 +83,9 @@
                                     <% i=i+1 %>
                                   <% end %>
                                 </table>
+                          <% else %>
+                          <h2>Aún no tienes notas para tener porcentajes de avance o tener mejores o peores notas.</h2>
+                          <% end %>
                             <br>
                             <br>
                             <div class="bpostContent" align="center">

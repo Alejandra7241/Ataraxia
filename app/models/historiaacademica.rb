@@ -107,7 +107,8 @@ class Historiaacademica < ApplicationRecord
           nombre_materia = ""
           procesando_nombre_terminado = false
           while true
-            #puts "Que pasa #{index_for_nombre} #{processing[index_for_nombre]}"
+            puts "Que pasa #{index_for_nombre} --- #{processing[index_for_nombre].nil?}-- #{processing.empty?}"
+
 
 
 
@@ -117,6 +118,7 @@ class Historiaacademica < ApplicationRecord
             end
             processing[index_for_nombre].upcase! if roman_numbers.include? processing[index_for_nombre]
             #puts "Roman? #{processing[index_for_nombre]} ---> #{roman_numbers.include? processing[index_for_nombre]}"
+            break if processing[index_for_nombre].nil?
             nombre_materia += processing[index_for_nombre] + " "
             if index_for_nombre == 1
               nombre_materia.capitalize!
@@ -208,6 +210,11 @@ class Historiaacademica < ApplicationRecord
       i +=1
     end
     puts "Vistos #{creditos_totales}, requeridos #{creditos_requeridos}, aprobados #{creditos_aprobados}"
+    papa = 0.0 if papa > 5.0
+    pa = 0.0 if pa > 5.0
+    # porcentaje_disciplinar = 0.0 if  porcentaje_disciplinar > 101.0
+    # porcentaje_fundamentacion = 0.0 if  porcentaje_fundamentacion > 101.0
+    # porcentaje_electivas = 0.0 if  porcentaje_electivas > 101.0
     User.set_data_from_academic_history(current_user.id, nombre_sin_apellido , porcentaje, papa, pa, codigo_carrera, apellidos, creditos_sobrantes, porcentaje_disciplinar, porcentaje_fundamentacion, porcentaje_electivas, semestre_actual, @intersemestrales, ponderacion, creditos_totales, creditos_requeridos - creditos_aprobados)
     Career.complete_missing_information(creditos_exigidos_fundamentacion,creditos_exigidos_disciplinar,creditos_exigidos_electivas, creditos_exigidos_nivelacion, codigo_carrera)
     #print @new_subjects

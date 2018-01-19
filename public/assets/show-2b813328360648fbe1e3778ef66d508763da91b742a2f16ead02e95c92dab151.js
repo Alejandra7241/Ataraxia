@@ -51,8 +51,7 @@
               papa = parseFloat(papa);
               papa -= 0.04;
           }else papa = parseFloat(papa);
-          console.log("Dat papa");
-          console.log(papa)
+
           creditos_para_el_semestre = parseFloat(creditos_para_el_semestre)+0.0;
           creditos_totales = parseFloat(creditos_totales);
           ponderacion = parseFloat(ponderacion);
@@ -95,8 +94,7 @@
           var ponderacion_restante = parseFloat(creditos_restantes)*5.0;
           ponderacion = parseFloat(ponderacion) + ponderacion_restante;
           var resultado = ponderacion / parseFloat(creditos_totales);
-          //console.log("Resultado del maximo PAPA " + resultado.toString() + " " + resultado.toFixed(2).toString());
-          //resultado = Math.round( resultado * 10 ) / 10;
-
-          document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(1); + '</h4>';
+          resultado = Math.round( resultado * 10 ) / 10;
+          document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(2); + '</h4>';
       }
+;

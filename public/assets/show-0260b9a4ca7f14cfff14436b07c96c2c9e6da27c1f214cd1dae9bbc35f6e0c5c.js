@@ -95,8 +95,7 @@
           var ponderacion_restante = parseFloat(creditos_restantes)*5.0;
           ponderacion = parseFloat(ponderacion) + ponderacion_restante;
           var resultado = ponderacion / parseFloat(creditos_totales);
-          //console.log("Resultado del maximo PAPA " + resultado.toString() + " " + resultado.toFixed(2).toString());
-          //resultado = Math.round( resultado * 10 ) / 10;
-
-          document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(1); + '</h4>';
+          resultado = Math.round( resultado * 10 ) / 10;
+          document.getElementById("maxpapa").innerHTML='<h4><b>Máximo P.A.P.A: </b>'+ resultado.toFixed(2); + '</h4>';
       }
+;
