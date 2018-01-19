@@ -63,38 +63,43 @@
                ¡Hola!, queremos informarte nuestros últimos cambios:
             </div>
             <div class="modal-body">
-               <h4 align="center"><b>Actualización 17/Enero/2018</b></h4><br>
-               - Nuevas carreras implementadas en la página:
+               <h4 align="center"><b>Actualización 20/Enero/2018</b></h4><br>
+               
+               <!-- - Nuevas carreras implementadas en la página:
                <br>
                <ul type = disk >
-                    <li>Biología</li>
-                    <li>Geología</li>
-                    <li>Ingeniería eléctrica</li>
-                    <li>Ingeniería mecanica</li>
-                </ul>
+                    <li></li>
+                </ul> -->
+
                 <!-- - Carreras actualizadas:
                <br>
                <ul type = disk >
-                    <li>Derecho.</li>
-                    <li>Ingeniería industrial.</li>
-                    <li>Trabajo social.</li>
+                    <li></li>
                 </ul> -->
+                
+                 - Nuevas Funcionalidades:
+               <br>
+               <ul type = disk >
+                    <li>Reestructuración estetica de la malla de notas promedio.</li>
+                </ul> 
+                
                 - Bugs corregidos:
                 <ul type = disk >
-                    <li>Error en el que <i>Música intrumental</i> aparecía como <i>Música internacional.</i></li>
-                    <li>Errores al pegar "Mis cursos"</li>
+                    <li>Errores en promedios de materias que eran mayores a 5.</i></li>
+                    <li>Errores en la malla de notas promedio.</i></li>
                 </ul>
-                 - Sugerencias de nuestros usuarios:
+                
+                  - Sugerencias de nuestros usuarios:
                 <ul type = disk >
-                    <li>Aclaración en la página que es sólo para la sede Bogotá. </i></li>
-                    <li>Ahora se presentan en orden alfabetico las carreras.</li>
-                </ul>
+                    <li>Botones de ayuda y de cerrar son más visibles.</li>
+                    <li>Ahora se muestra el nombre completo de las materias en la malla de notas promedio, al pasar el puntero por encima.</li>
+                </ul> 
  
                 <br>Te pedimos paciencia mientras completamos la página, puedes seguirnos en <a href="https://www.facebook.com/AtaraxiaUN/" target="_blank">Facebook</a> para enterarte de todas las actualizaciones y sugerirnos cambios.</p>
                 
             </div>
             <div class="modal-footer" style="background-color: black">
-                <% aux=rand(1..10) %> 
+                <% aux=rand(1..12) %> 
                 <% if aux==1 %>
                       Ten un lindo día :3.
                  <%elsif aux==2 %>
@@ -115,6 +120,10 @@
                      Ataraxia para todos y todas :v.
                 <%elsif aux==10 %>
                      Si tienes alguna sugerencia no dudes en escribirnos.
+                <%elsif aux==11 %>
+                     ¿Alguien se fija acá abajo?.
+                <%elsif aux==12 %>
+                     ¡No olvides usar nuestro botón de ayuda ubicado en la parte de abajo!.
                  <%end%>
               </div>
         </div>
