@@ -11,36 +11,36 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <% if vista=="admin_malla" %>
-              <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal3", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+              <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p  class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal3", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
           <% end %>
           <% if vista=="guess_index" %>
-            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
           <% end %>
           <% if vista=="guess_malla" %>
-            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
-            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, guess_malla_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
+            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p style='color: white;' ='glyphicon glyphicon-download-alt'></p>".html_safe, guess_malla_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
           <% end %>
           <% if vista=="student_malla" %>
              <%if s_vista=="estandar" %>
-                <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+                <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                 <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estandar_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()'  %></span></li>
              <%elsif s_vista=="avance"%>
-               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_avance_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
              <%elsif s_vista=="personal"%>
-               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p  style='color: white;'class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_personal_path(0, format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
              <%elsif s_vista=="personal_optimizada"%>
-               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p  style='color: white;'class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                <!--<li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, generate_malla_optima_from_personal_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>-->
             <%elsif s_vista=="optima"%>
-            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+            <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p  style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal6", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
               <!--<li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, generate_malla_optima_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li> -->
             <%elsif s_vista=="estadisticas"%>
-               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                <!--<li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_estadisticas_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>-->
               <%elsif s_vista=="dificiles"%>
-               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
+               <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Ayuda!"><%= link_to "<p style='color: white;' class='glyphicon glyphicon-question-sign'></p>".html_safe,'#', "data-target" => "#myModal4", "data-toggle"=>"modal", :class => "MainNavText navbar-brand" %></span></li>
                <li><span data-toggle = "tooltip" data-placement = "top" title = "¡Generar PDF!"><%= link_to "<p class='glyphicon glyphicon-download-alt'></p>".html_safe, student_malla_dificiles_path(format: :pdf), :class => "MainNavText navbar-brand", :onclick => 'myFunction()' %></span></li>
              <%end%>
           <% end %>
