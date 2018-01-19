@@ -8,6 +8,8 @@ class CareerHasSubject < ApplicationRecord
     has_many :student_has_subjects, dependent: :destroy
     has_many :students, class_name: "User", through: :student_has_subjects
     
+# ***** Requisites magic *****
+
     # follower_requisites "names" the Requisite join table for accessing through the follower association
     has_many :follower_requisites, foreign_key: :followee_id, class_name: "Requisite" 
     # source: :follower matches with the belong_to :follower identification in the Requisite model 
@@ -17,7 +19,22 @@ class CareerHasSubject < ApplicationRecord
     has_many :followee_requisites, foreign_key: :follower_id, class_name: "Requisite"    
     # source: :followee matches with the belong_to :followee identification in the Requisite model   
     has_many :followees, through: :followee_requisites, source: :followee
+
+# *****--*--*****
+
+# ***** Optatives magic *****
+
+    # group_optatives "names" the Optative join table for accessing through the group association
+    has_many :group_optatives, foreign_key: :available_id, class_name: "Optative" 
+    # source: :group matches with the belong_to :group identification in the Optative model 
+    has_many :groups, through: :group_optatives, source: :group
     
+    # available_optatives "names" the Optative join table for accessing through the available association
+    has_many :available_optatives, foreign_key: :group_id, class_name: "Optative"    
+    # source: :available matches with the belong_to :available identification in the Optative model   
+    has_many :available, through: :available_optatives, source: :available
+
+# *****--*--***** 
     
     
     def self.get_prerequisites(code_carrer, code_subject)

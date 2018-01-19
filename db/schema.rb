@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112225843) do
+ActiveRecord::Schema.define(version: 20180119053533) do
 
   create_table "career_has_subjects", force: :cascade do |t|
     t.string "typology"
@@ -61,6 +61,13 @@ ActiveRecord::Schema.define(version: 20171112225843) do
     t.index ["admin_id"], name: "index_mallas_on_admin_id"
     t.index ["career_id"], name: "index_mallas_on_career_id"
     t.index ["student_id"], name: "index_mallas_on_student_id"
+  end
+
+  create_table "optatives", force: :cascade do |t|
+    t.integer "group_id", null: false
+    t.integer "available_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "optimizations", force: :cascade do |t|
