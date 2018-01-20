@@ -108,3 +108,4 @@ function action_for_typology(typology, number_action){
             break;
     }
 }
+
