@@ -994,6 +994,30 @@ Subject.create([
         {code: 2017496, name: 'Practica II', credits: 8},
         {code: 2017520, name: 'Trabajo de Grado', credits: 8},
         
+        #Psicología
+        {code: 2017881, name: 'Fundamentos de psicología', credits: 4},
+        {code: 1000009, name: 'Biología general', credits: 3},
+        {code: 2021668, name: 'Problemática Social Colombiana', credits: 3},
+        {code: 2017875, name: 'Epistemología de las ciencias sociales', credits: 3},
+        {code: 1000014, name: 'Estadística social fundamental', credits: 3},
+        {code: 2017857, name: 'Bases Biológicas del Comportamiento', credits: 3},
+        {code: 2017874, name: 'Epistemología de las ciencias naturales', credits: 3},
+        {code: 2017858, name: 'Bases Socio-culturales del Comportamiento Humano', credits: 3},
+        {code: 2017860, name: 'Métodos cuantitativos en psicología', credits: 3},
+        {code: 2017861, name: 'Métodos cualitativos en psicología', credits: 3},
+        {code: 2017906, name: 'Psicología del desarrollo', credits: 3},
+        {code: 2017873, name: 'Epistemología de la psicología', credits: 3},
+        {code: 2021669, name: 'Procesos básicos en psicología social', credits: 3},
+        {code: 2017908, name: 'Psicología Diferencial', credits: 3},
+        {code: 2021667, name: 'Perspectivas contemporáneas en psicología social', credits: 3},
+        {code: 2017905, name: 'Psicología de lo Anormal', credits: 3},
+        {code: 2026113, name: 'Evaluación psicológica', credits: 3},
+        {code: 2026114, name: 'Psicología profesional', credits: 3},
+        {code: 2017897, name: 'Práctica 1', credits: 7},
+        {code: 2017898, name: 'Práctica 2', credits: 7},
+        {code: 2017946, name: 'Trabajo de Grado', credits: 6},
+
+        
         # -------------------------------------- DERECHO, CIENCIAS POLITICAS Y SOCIALES  ------------------------------------
         
         #Ciencia política
