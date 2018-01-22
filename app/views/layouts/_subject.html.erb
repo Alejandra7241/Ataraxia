@@ -112,7 +112,7 @@
                     <div class="rcorners1" align="center"><%= subj.credits %> </div>
                 <% else %>
                     <% @average = Subject.get_average_grade(subj.code) %>
-                    <% if grade != 5.1 %>
+                    <% if grade != 5.1 or grade !=-1 %>
                         <% if @average>grade %>
                             <div class="rcorners1" align="center" style="background:#ff6666;"><span data-toggle = "tooltip" data-placement = "top" title = "<%= subj.name %>"><%= link_to subj.name.partition(" ").first + "...", open_modal_for_subject_path(:s => subj.id, :typ => typ, :code_career => code_career, :role => vista), remote: true, :style => 'color: black;' %></span></div>
                         <% else %>
@@ -132,7 +132,7 @@
                         <% else %>
                             <p>Promedio: ---</p>
                         <% end %>
-                        <% if grade != 5.1 %>
+                        <% if grade != 5.1 or grade != -1%>
                             <% if @average<=grade %>
                                 <strong><p style="color: #006400;">Tu nota: <%= grade %></p></strong>
                             <% else %>
