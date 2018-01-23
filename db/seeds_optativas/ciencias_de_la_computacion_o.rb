@@ -227,7 +227,7 @@ chs_materia.followers << [
 
 # MATERIA
 
-subj_opt = Subject.create({code:29330005, name: 'Computación cientifica', credits: -2})
+subj_opt = Subject.create({code:29330005, name: 'Computación aplicada', credits: -2})
 chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
 chs_opt.available << [
     CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2027641).id),
