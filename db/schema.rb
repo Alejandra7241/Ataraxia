@@ -121,7 +121,7 @@ ActiveRecord::Schema.define(version: 20180119053533) do
     t.integer "student_id"
     t.integer "career_has_subject_id"
     t.boolean "currently_attending", default: false
-    t.boolean "fake_approved"
+    t.boolean "fake_approved", default: false
     t.index ["career_has_subject_id"], name: "index_student_has_subjects_on_career_has_subject_id"
     t.index ["student_id"], name: "index_student_has_subjects_on_student_id"
   end

@@ -154,7 +154,6 @@ Subject.create([
         {code: 1000030, name: 'Principios de química orgánica', credits: 3},
         {code: 2015743, name: 'Transferencia de calor', credits: 4},
         {code: 2015726, name: 'Manejo de sólidos', credits: 3},
-        {code: 2015707, name: 'Balance de energía y equilibrio químico', credits: 3},
         {code: 1000031, name: 'Laboratorio principios de química orgánica', credits: 2},
         {code: 2015744, name: 'Transferencia de masa', credits: 3},
         {code: 2015736, name: 'Taller 2', credits: 1},
