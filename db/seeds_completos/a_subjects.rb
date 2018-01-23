@@ -140,6 +140,7 @@ Subject.create([
         
         #Ingenieria Quimica
         {code: 1000024, name: 'Principios de quimica', credits: 3},
+        {code: 2015707, name: 'Balance de energía y equilibrio químico', credits: 3},
         {code: 1000025, name: 'Laboratorio tecnicas básicas en química', credits: 3},
         {code: 2015718, name: 'Introducción a la Ingeniería Química', credits: 3},
         {code: 1000026, name: 'Principios de análisis químico', credits: 3},
@@ -514,6 +515,17 @@ Subject.create([
         {code: 2027313, name: 'Teoría de Codificación', credits: 4},
         {code: 2027629, name: 'Lógica computacional', credits: 4},
         {code: 9992933, name: 'Trabajo de Grado', credits: 8},
+        
+        #Matematicas
+        {code: 2015180, name: 'Programación y métodos numéricos', credits: 4},
+        {code: 2015152, name: 'Grupos y anillos', credits: 4},
+        {code: 2015153, name: 'Integración y series', credits: 4},
+        {code: 2015158, name: 'Topología general', credits: 4},
+        {code: 2015149, name: 'Algebra multilineal y formas canónicas', credits: 4},
+        {code: 2015151, name: 'Análisis vectorial', credits: 4},
+        {code: 2015156, name: 'Lógica matemática', credits: 4},
+        {code: 2015157, name: 'Teoría de cuerpos', credits: 4},
+        {code: 2015154, name: 'Trabajo de Grado', credits: 8},
 
         # -------------------------------------- MEDICINA ------------------------------------
         
