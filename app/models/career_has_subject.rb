@@ -86,6 +86,7 @@ class CareerHasSubject < ApplicationRecord
         Requisite.find_by(followee_id: chs_materia.id, follower_id: chs_prerrequisito.id).destroy
 
     end
+
     
     # Materias no aprobadas de la carrera
     def self.get_subjects_not_approved_by_a_student(id_student, id_career)

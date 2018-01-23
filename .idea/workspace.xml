@@ -5,17 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a650b7de-7dd1-4513-91fa-e86f84fa6086" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/public/nicolas.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/show.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/show.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/users_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/users_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/historiaacademica.rb" afterPath="$PROJECT_DIR$/app/models/historiaacademica.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/optimization.rb" afterPath="$PROJECT_DIR$/app/models/optimization.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/student_has_subject.rb" afterPath="$PROJECT_DIR$/app/models/student_has_subject.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/application.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/subject.js" afterPath="$PROJECT_DIR$/app/assets/javascripts/subject.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/subjects_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/subjects_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/career.rb" afterPath="$PROJECT_DIR$/app/models/career.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/career_has_subject.rb" afterPath="$PROJECT_DIR$/app/models/career_has_subject.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/optative.rb" afterPath="$PROJECT_DIR$/app/models/optative.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/student/index.html.erb" afterPath="$PROJECT_DIR$/app/views/student/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/student/malla_personal.html.erb" afterPath="$PROJECT_DIR$/app/views/student/malla_personal.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/users/show.html.erb" afterPath="$PROJECT_DIR$/app/views/users/show.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/_subject.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/_subject.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/routes.rb" afterPath="$PROJECT_DIR$/config/routes.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/migrate/20171112225843_add_fake_approved_to_student_has_subject.rb" afterPath="$PROJECT_DIR$/db/migrate/20171112225843_add_fake_approved_to_student_has_subject.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/seeds.rb" afterPath="$PROJECT_DIR$/db/seeds.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/assets/.sprockets-manifest-f125da551dadb8e57c5dd6a0de83aff5.json" afterPath="$PROJECT_DIR$/public/assets/.sprockets-manifest-f125da551dadb8e57c5dd6a0de83aff5.json" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" afterPath="$USER_HOME$/distressed-anteater/src/components/activities/ActivitiesForm.vue" />
       <change type="MODIFICATION" beforePath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" afterPath="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" />
@@ -62,76 +64,159 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="lizzy.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/lizzy.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nicolas2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/nicolas2.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_tusdatos.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/modal_tusdatos.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_personal2.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/modal_personal2.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_personal.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/modal_personal.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_pappi.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/modal_pappi.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_optima.png" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/modal_optima.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="modal_notas.png" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/modal_notas.png">
-          <provider selected="true" editor-type-id="images">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="robots.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/robots.txt">
+      <file leaf-file-name="_subject.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_subject.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="-853">
+              <caret line="96" column="23" lean-forward="false" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+              <folding>
+                <element signature="n#style#0;n#div#8;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="optative.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/optative.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jamiexx.jpg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/jamiexx.jpg">
-          <provider selected="true" editor-type-id="images">
-            <state />
+      <file leaf-file-name="subjects_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/subjects_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="732">
+              <caret line="363" column="48" lean-forward="false" selection-start-line="363" selection-start-column="48" selection-end-line="363" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_mallas.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="236">
+              <caret line="431" column="37" lean-forward="true" selection-start-line="431" selection-start-column="37" selection-end-line="431" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="career.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/career.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="182" column="0" lean-forward="false" selection-start-line="182" selection-start-column="0" selection-end-line="184" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ingenieria_industrial.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds_completos/ingenieria_industrial.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="welcome_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="54">
+              <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="subject.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/subject.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="460" column="0" lean-forward="true" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
+              <folding>
+                <marker date="1516432042909" expanded="true" signature="203:219" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="343:359" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="521:625" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="600:616" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1034:1052" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1089:1107" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1151:1169" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1344:1362" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1726:2533" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="1773:2501" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="2707:3514" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="2754:3482" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="7969:8558" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="8012:8530" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="10492:11082" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="10535:11054" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="12885:13475" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="12928:13447" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="13645:14241" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="13688:14213" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="16455:17039" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="16498:17011" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="18635:19219" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="18678:19191" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="21820:22409" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="21863:22381" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="24366:24956" ph="..." />
+                <marker date="1516432042909" expanded="true" signature="24409:24928" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="optativas_prueba.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db/seeds_lizzy/optativas_prueba.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="72">
+              <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="application.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+              <folding>
+                <marker date="1516423100976" expanded="true" signature="0:855" ph="//..." />
+                <marker date="1516423100976" expanded="true" signature="1078:1638" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="1677:2080" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2102:2128" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2158:2208" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2266:3308" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2290:3306" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2309:2490" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2343:2471" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2368:2415" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2508:2693" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2543:2674" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2568:2618" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2711:2896" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2746:2877" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2771:2821" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2914:3098" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="2949:3079" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="2974:3023" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="3116:3300" ph="..." />
+                <marker date="1516423100976" expanded="true" signature="3151:3281" ph="{...}" />
+                <marker date="1516423100976" expanded="true" signature="3176:3225" ph="..." />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -139,22 +224,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>show_va</find>
-      <find>uapa</find>
-      <find>faculty council</find>
-      <find>list</find>
-      <find>while</find>
-      <find>procesar</find>
-      <find>grado</find>
-      <find>mis_cursos_added</find>
-      <find>PAPA</find>
-      <find>ponderacion</find>
-      <find>myMOdal</find>
-      <find>optativa</find>
-      <find>GETpAPI</find>
-      <find>papi</find>
-      <find>creditos_sobrantes</find>
-      <find>estadisticas</find>
       <find>creditos_totales</find>
       <find>creditos_requeridos</find>
       <find>mis_cursos</find>
@@ -169,23 +238,31 @@
       <find>return ar</find>
       <find>suma</find>
       <find>eliminar semestre</find>
+      <find>OPEN</find>
+      <find>TYPOLOGY</find>
+      <find>typology</find>
+      <find>tablePrerrequisitosSubjectModal</find>
+      <find>open_MODAL</find>
+      <find>modal_for_op</find>
+      <find>optativa</find>
+      <find>electivas</find>
+      <find>2016741</find>
+      <find>remove_post</find>
+      <find>load_pre_post</find>
+      <find>loadPreAndPostLink</find>
+      <find>create_o</find>
+      <find>code</find>
+      <find>electiva</find>
+      <find>optatives</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/layouts/_optativas.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/subject.rb" />
-        <option value="$PROJECT_DIR$/app/assets/javascripts/subject.js" />
-        <option value="$PROJECT_DIR$/app/views/subjects/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/subjects/_subjects_by_typology.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/subjects_controller.rb" />
-        <option value="$PROJECT_DIR$/app/views/student/malla_optima.html.erb" />
-        <option value="$PROJECT_DIR$/config/environments/development.rb" />
-        <option value="$PROJECT_DIR$/db/migrate/20170919175731_add_attachment_avatar_to_users.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$USER_HOME$/unarbitrary-laugh/spec/factories/act_archives.rb" />
@@ -203,7 +280,6 @@
         <option value="$USER_HOME$/unarbitrary-laugh/app/services/act/get.rb" />
         <option value="$USER_HOME$/unarbitrary-laugh/config/database.yml" />
         <option value="$USER_HOME$/unarbitrary-laugh/spec/requests/api/v1/activities_spec.rb" />
-        <option value="$PROJECT_DIR$/app/models/career_has_subject.rb" />
         <option value="$PROJECT_DIR$/app/models/semester.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/mailer/confirmation_instructions.text.erb" />
         <option value="$PROJECT_DIR$/app/views/devise/mailer/confirmation_instructions.html.erb" />
@@ -211,16 +287,11 @@
         <option value="$PROJECT_DIR$/app/models/user.rb" />
         <option value="$PROJECT_DIR$/app/controllers/student_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/malla.rb" />
-        <option value="$PROJECT_DIR$/db/seeds.rb" />
         <option value="$PROJECT_DIR$/deletemodels" />
-        <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
         <option value="$PROJECT_DIR$/app/mailers/user_mailer.rb" />
-        <option value="$PROJECT_DIR$/app/models/career.rb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/show.js" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
         <option value="$PROJECT_DIR$/app/views/student/index.html.erb" />
         <option value="$PROJECT_DIR$/app/models/student_has_subject.rb" />
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
@@ -228,6 +299,21 @@
         <option value="$PROJECT_DIR$/app/views/users/show.html.erb" />
         <option value="$PROJECT_DIR$/app/models/optimization.rb" />
         <option value="$PROJECT_DIR$/app/views/student/malla_personal.html.erb" />
+        <option value="$PROJECT_DIR$/db/migrate/20171112225843_add_fake_approved_to_student_has_subject.rb" />
+        <option value="$PROJECT_DIR$/db/migrate/20180119224431_add_fields_to_career.rb" />
+        <option value="$PROJECT_DIR$/db/seeds.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/admin_controller.rb" />
+        <option value="$PROJECT_DIR$/app/models/optative.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_subject.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/career_has_subject.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/views/subjects/load_pre_post.js.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_mallas.html.erb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/subject.js" />
+        <option value="$PROJECT_DIR$/app/controllers/subjects_controller.rb" />
+        <option value="$PROJECT_DIR$/db/seeds_lizzy/optativas_prueba.rb" />
+        <option value="$PROJECT_DIR$/app/models/career.rb" />
       </list>
     </option>
   </component>
@@ -242,7 +328,7 @@
     <handled-path value="$USER_HOME$/distressed-anteater/node_modules" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1443" />
+    <option name="x" value="463" />
     <option name="y" value="-4" />
     <option name="width" value="920" />
     <option name="height" value="1016" />
@@ -263,7 +349,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -370,6 +458,13 @@
               <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="subjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="user_mailer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -392,14 +487,25 @@
             <path>
               <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
               <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="migrate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds_completos" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Ataraxia" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Ataraxia" type="462c0819:PsiDirectoryNode" />
+              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="seeds_lizzy" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -615,24 +721,27 @@
       <workItem from="1515802649480" duration="1341000" />
       <workItem from="1516162925531" duration="7392000" />
       <workItem from="1516228482123" duration="5976000" />
-      <workItem from="1516333684012" duration="9197000" />
+      <workItem from="1516333684012" duration="9796000" />
+      <workItem from="1516394977913" duration="26896000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="340776000" />
+    <option name="totallyTimeSpent" value="368271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2835821" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22222222" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35264227" sideWeight="0.5041459" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19308943" sideWeight="0.24267551" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32946378" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22357723" sideWeight="0.49585405" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32978722" sideWeight="0.49806094" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292683" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35264227" sideWeight="0.7606412" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19308943" sideWeight="0.7573245" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -641,7 +750,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22357723" sideWeight="0.49585405" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
@@ -673,152 +781,11 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1188">
-          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="6" column="54" lean-forward="false" selection-start-line="6" selection-start-column="54" selection-end-line="6" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/student/actualizar_mis_cursos.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="40" column="29" lean-forward="false" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-849">
-          <caret line="116" column="69" lean-forward="false" selection-start-line="116" selection-start-column="69" selection-end-line="116" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/user.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1116">
-          <caret line="62" column="11" lean-forward="false" selection-start-line="62" selection-start-column="11" selection-end-line="62" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/deletemodels" />
-    <entry file="file://$PROJECT_DIR$/app/models/contact.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/ingenieria_electrica.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="14" lean-forward="false" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="67">
-          <caret line="23" column="36" lean-forward="false" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/biologia.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1621">
-          <caret line="142" column="4" lean-forward="false" selection-start-line="142" selection-start-column="4" selection-end-line="142" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/seeds/a_subjects.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-423">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rbenv/versions/2.4.1/lib/ruby/gems/2.4.0/gems/actionmailer-5.1.3/lib/action_mailer/base.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-121">
-          <caret line="812" column="8" lean-forward="false" selection-start-line="812" selection-start-column="8" selection-end-line="812" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dbreset">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="33" column="39" lean-forward="false" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/application_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/user_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="6" lean-forward="false" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/user_mailer/welcome_email.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="27" lean-forward="false" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/student/mis_cursos.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/subject.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/student_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5886">
@@ -871,7 +838,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="108">
           <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -879,7 +845,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
           <caret line="27" column="23" lean-forward="false" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -887,7 +852,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="427">
           <caret line="97" column="12" lean-forward="false" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -903,7 +867,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="539">
           <caret line="207" column="23" lean-forward="true" selection-start-line="207" selection-start-column="23" selection-end-line="207" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -919,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="36">
           <caret line="65" column="120" lean-forward="false" selection-start-line="65" selection-start-column="120" selection-end-line="65" selection-end-column="120" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -927,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1174">
           <caret line="114" column="86" lean-forward="false" selection-start-line="114" selection-start-column="86" selection-end-line="114" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -935,23 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2628">
-          <caret line="146" column="0" lean-forward="false" selection-start-line="146" selection-start-column="0" selection-end-line="146" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/career.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="87" column="16" lean-forward="false" selection-start-line="87" selection-start-column="16" selection-end-line="87" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -983,11 +927,7 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/nicolas.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/nicolas.png" />
     <entry file="file://$PROJECT_DIR$/public/robots.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1029,6 +969,238 @@
     <entry file="file://$PROJECT_DIR$/public/modal_notas.png">
       <provider selected="true" editor-type-id="images">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20171112225843_add_fake_approved_to_student_has_subject.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="69" lean-forward="false" selection-start-line="2" selection-start-column="69" selection-end-line="2" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180119053533_create_optatives.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20171109202922_add_field_to_user.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="44" lean-forward="false" selection-start-line="2" selection-start-column="44" selection-end-line="2" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_electivas.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="99" lean-forward="false" selection-start-line="2" selection-start-column="99" selection-end-line="2" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/admin_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2483">
+          <caret line="3" column="2" lean-forward="false" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/career_has_subject.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="39" column="13" lean-forward="false" selection-start-line="39" selection-start-column="13" selection-end-line="39" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="91" column="54" lean-forward="false" selection-start-line="91" selection-start-column="54" selection-end-line="91" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="111" column="0" lean-forward="false" selection-start-line="111" selection-start-column="0" selection-end-line="111" selection-end-column="0" />
+          <folding>
+            <marker date="1516423100976" expanded="true" signature="0:855" ph="//..." />
+            <marker date="1516423100976" expanded="true" signature="1078:1638" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="1677:2080" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2102:2128" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2158:2208" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2266:3308" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2290:3306" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2309:2490" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2343:2471" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2368:2415" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2508:2693" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2543:2674" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2568:2618" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2711:2896" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2746:2877" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2771:2821" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2914:3098" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="2949:3079" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="2974:3023" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="3116:3300" ph="..." />
+            <marker date="1516423100976" expanded="true" signature="3151:3281" ph="{...}" />
+            <marker date="1516423100976" expanded="true" signature="3176:3225" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/subjects/load_pre_post.js.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="15" lean-forward="false" selection-start-line="0" selection-start-column="15" selection-end-line="0" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/optative.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="5" lean-forward="false" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_subject.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-853">
+          <caret line="96" column="23" lean-forward="false" selection-start-line="96" selection-start-column="23" selection-end-line="96" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#div#8;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/subjects/load_pre_post.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/welcome_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="4" lean-forward="true" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/malla.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/subject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="460" column="0" lean-forward="true" selection-start-line="460" selection-start-column="0" selection-end-line="460" selection-end-column="0" />
+          <folding>
+            <marker date="1516432042909" expanded="true" signature="203:219" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="343:359" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="521:625" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="600:616" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1034:1052" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1089:1107" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1151:1169" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1344:1362" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1726:2533" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="1773:2501" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="2707:3514" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="2754:3482" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="7969:8558" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="8012:8530" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="10492:11082" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="10535:11054" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="12885:13475" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="12928:13447" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="13645:14241" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="13688:14213" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="16455:17039" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="16498:17011" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="18635:19219" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="18678:19191" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="21820:22409" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="21863:22381" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="24366:24956" ph="..." />
+            <marker date="1516432042909" expanded="true" signature="24409:24928" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/subjects_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="732">
+          <caret line="363" column="48" lean-forward="false" selection-start-line="363" selection-start-column="48" selection-end-line="363" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20180119224431_add_fields_to_career.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="61" lean-forward="false" selection-start-line="2" selection-start-column="61" selection-end-line="2" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds_lizzy/optativas_prueba.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds_completos/ingenieria_industrial.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="50" lean-forward="true" selection-start-line="15" selection-start-column="50" selection-end-line="15" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_mallas.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="236">
+          <caret line="431" column="37" lean-forward="true" selection-start-line="431" selection-start-column="37" selection-end-line="431" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#table#0;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/career.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="182" column="0" lean-forward="false" selection-start-line="182" selection-start-column="0" selection-end-line="184" selection-end-column="7" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

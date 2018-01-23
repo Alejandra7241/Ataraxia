@@ -187,9 +187,29 @@
         <div class="modal-body">
           <div id="subjectData"></div>
             <br>
-            <h4 class = "text-left"><b>Prerrequisitos: </b></h4>
-            <h5 id = "jschangeiii"></h5>
 
+          <h4 class = "text-left" id="optativasHeader"><b>Materias asociadas a esta optativa: </b></h4>
+          <h5 id = "jschangev"></h5>
+
+
+          <table class="table table-striped" id = "tableOptativasSubjectModal"  style="font-size: 7px;"  >
+            <thead>
+            <tr class="encabezadoTabla">
+              <th>Código</th>
+              <th>Nombre</th>
+              <th>Créditos</th>
+              <% if vista == "admin_malla" %>
+                  <th>Acción</th>
+              <% end %>
+              <th>Ver requisitos</th>
+            </tr>
+            </thead>
+            <tbody id="tbodyidtableOptativasSubjectModal">
+            </tbody>
+          </table>
+
+          <h4 class = "text-left" id="headerPrerrequisitos"><b>Prerrequisitos: </b></h4>
+          <h5 id = "jschangeiii"></h5>
     <table class="table table-striped" id = "tablePrerrequisitosSubjectModal"  style="font-size: 7px;"  >
     <thead>
       <tr class="encabezadoTabla">
@@ -205,7 +225,7 @@
     </tbody>
   </table>
 
-          <h4 class = "text-left"><b>Materias que se pueden ver con esta materia: </b></h4>
+          <h4 class = "text-left" id="headerPostrequisitos"><b>Materias que se pueden ver con esta materia: </b></h4>
 
           <h5 id = "jschangeiv"></h5>
           <table class="table table-striped" id = "tablePostrrequisitosSubjectModal"  style="font-size: 7px;"  >
@@ -409,11 +429,12 @@
                   <%= f.submit 'Agregar electiva', :class => 'btn btn-default' %>
               <% end %>
 
-
+              <% if Career.has_optatives?(current_user.carrer) %>
               <%= form_for :post, :url => submit_optativa_path, remote: true do |f|  %>
                   <%= hidden_field_tag :malla_id, @malla.id %>
                   <%= f.submit 'Agregar optativa', :class => 'btn btn-default disabled' %>
 
+              <% end %>
               <% end %>
             </div>
           </div>

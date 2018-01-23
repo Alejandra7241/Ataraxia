@@ -1,6 +1,6 @@
 class SubjectsController < ApplicationController
   before_action :set_subject, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token, only: [:assign_electiva]
+  skip_before_action :verify_authenticity_token, only: [:assign_electiva, :load_pre_post]
   # GET /subjects
   # GET /subjects.json
   def index
@@ -161,38 +161,56 @@ class SubjectsController < ApplicationController
     puts "Role: #{@role}"
     @subject = Subject.find_by_id(params[:s])
     name = @subject.name
-    code = @subject.code
+    @code = @subject.code
+
+
+
     preList = ""
     postList = ""
-    puts code
-    if CareerHasSubject.has_prerequisites(@code_career,code) == true
-      CareerHasSubject.get_prerequisites(@code_career, code).each do |pre|
+    optativesList = ""
+    puts "This code #{@code}"
+    if CareerHasSubject.has_prerequisites(@code_career,@code) == true
+      CareerHasSubject.get_prerequisites(@code_career, @code).each do |pre|
         cur_subj = Subject.find_by_id(pre.subject_id)
         typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
         preList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
       end
     end
 
-    if CareerHasSubject.is_prerequisite_of_something(@code_career,code) == true
-      CareerHasSubject.get_opened_subjects(@code_career, code).each do |post|
+    if CareerHasSubject.is_prerequisite_of_something(@code_career,@code) == true
+      CareerHasSubject.get_opened_subjects(@code_career, @code).each do |post|
         cur_subj = Subject.find_by_id(post.subject_id)
         typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
         postList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
       end
     end
+
+    typology = params[:typ]
+    if typology == 'O'
+      Optative.get_group_of_optatives(@code_career, @code).each do |chs_optative|
+        puts "Optativa #{chs_optative}"
+
+        cur_subj = Subject.find_by_id(chs_optative.subject_id)
+        optativesList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
+      end
+    end
+
     preList.chop!
     puts "#####//////////"
     print preList
     puts "#########/////"
     postList.chop!
+    optativesList.chop!
     puts "#####//////////"
     print postList
     puts "#########/////"
-    typology = params[:typ]
+    puts "#####//////////"
+    print optativesList
+    puts "#########/////"
     credits = @subject.credits
     
     respond_to do |format|
-      format.js { render :js => "modal_for_subject('#{code}','#{name}','#{credits}','#{typology}','#{preList}', '#{postList}', '#{role}', '#{code_career}')" }
+        format.js { render :js => "modal_for_subject('#{@code}','#{name}','#{credits}','#{typology}','#{preList}', '#{postList}', '#{role}', '#{code_career}', '#{optativesList}')" }
     end
     
   end
@@ -306,6 +324,55 @@ class SubjectsController < ApplicationController
 
   end
 
+
+
+  def load_pre_post
+
+    #@subject = Subject.new(subject_params)
+    #puts @subject.typology
+
+    @career = Career.find_by_code(params[:code_career].to_i)
+    @subject_to_search = Subject.find_by_code(params[:code].to_i)
+    @subject = Subject.find_by_code(params[:code_to_search])
+    puts "cr #{@career.code} sts #{@subject_to_search.code} fake #{@subject}"
+    preList = ""
+    postList = ""
+
+    if CareerHasSubject.has_prerequisites(@career.code,@subject_to_search.code) == true
+      CareerHasSubject.get_prerequisites(@career.code, @subject_to_search.code).each do |pre|
+        cur_subj = Subject.find_by_id(pre.subject_id)
+        typology = CareerHasSubject.get_typology(cur_subj.id, @career.id) unless cur_subj.nil?
+        preList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
+      end
+    end
+
+    if CareerHasSubject.is_prerequisite_of_something(@career.code,@subject_to_search.code) == true
+      CareerHasSubject.get_opened_subjects(@career.code, @subject_to_search.code).each do |post|
+        cur_subj = Subject.find_by_id(post.subject_id)
+        typology = CareerHasSubject.get_typology(cur_subj.id, Career.find_by_code(@code_career).id) unless cur_subj.nil?
+        postList +=  cur_subj.code.to_s + "&" +  cur_subj.name.to_s + "&"  +  cur_subj.credits.to_s + "&" +  typology.to_s + "|"
+      end
+    end
+
+    preList.chop!
+    puts "#####//////////"
+    print preList
+    puts "#########/////"
+    postList.chop!
+    puts "#####//////////"
+    print postList
+    puts "Lizzy made the next render possible <2+1 "
+
+
+
+    respond_to do |format|
+      format.js { render :js => "update_optativa_pre_post('#{preList}', '#{postList}', '#{@subject_to_search.name}')" }
+
+    end
+
+
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subject
@@ -318,5 +385,8 @@ class SubjectsController < ApplicationController
       #params.require(:subject).permit(:code, :name, :credits)
       
     end
+
+
+
 
 end

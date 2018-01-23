@@ -89,6 +89,7 @@ Rails.application.routes.draw do
     get 'remove_subject/:chs_id/:sem_id', to: 'subjects#remove_subject', as: 'remove_subject'
     post 'add_electiva', to: 'subjects#add_electiva', as: 'submit_electiva'
     post 'add_optativa', to: 'subjects#add_optativa', as: 'submit_optativa'
+    post 'load_pre_post', to: 'subjects#load_pre_post'
     get 'create_fake_partial_for_electiva/:semester/:malla_id', to: 'subjects#create_fake_partial_for_electiva'
     get 'create_fake_partial_for_optativa/:semester/:malla_id', to: 'subjects#create_fake_partial_for_optativa'
     

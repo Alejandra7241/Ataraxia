@@ -180,7 +180,9 @@ class Career < ApplicationRecord
         Career.update(current_career.id, p_credits: fundamentacion) if current_career.p_credits == -1
     end
 
-
+    def self.has_optatives?(career_code)
+        return !([2879, 2546].include? career_code)
+    end
     
     
     

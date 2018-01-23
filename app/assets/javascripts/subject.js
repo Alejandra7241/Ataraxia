@@ -77,7 +77,7 @@ function searchSubject(name,code,typology, credits, message, malla_id, code_care
 
 
 
-function modal_for_subject(code,name,credits,typology, array_prerequisites, array_postrequisites, role, code_career){
+function modal_for_subject(code,name,credits,typology, array_prerequisites, array_postrequisites, role, code_career, array_optatives){
     
     console.log(name);
     console.log(array_prerequisites);
@@ -87,7 +87,13 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     console.log(array_postrequisites.length);
     //$('#editingSubjectsi').modal('toggle');
     document.getElementById("nameSubjectModal").innerHTML = name;
-    document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
+
+
+    if(typology == 'O'){
+        document.getElementById("headerPrerrequisitos").innerHTML = '';
+        document.getElementById("headerPostrequisitos").innerHTML = '';
+    }else
+        document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Código: </b>' + code + '</h4>' + '<h4 class = "text-left"><b>Creditos: </b>' + credits + '</h4>';
     $('#editingSubjectsii').modal('show');
     switch (typology) {
         case 'B':
@@ -100,7 +106,7 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
             document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Disciplinar</h4>';
             break;
         case 'O':
-            document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Optativa</h4>';
+            document.getElementById("subjectData").innerHTML = '<h4 class = "text-left"><b>Tipología: </b>Optativa</h4>';
             break;
         case 'P':
             document.getElementById("subjectData").innerHTML += '<h4 class = "text-left"><b>Tipología: </b>Nivelación</h4>';
@@ -126,8 +132,11 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
     $('#tablePrerrequisitosSubjectModal').each(function() {
         $(this).hide();
     });
+
+
     $("#tbodyidPrerrequisitosSubjectModal").empty();
-    var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink;
+
+    var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink; var loadPreAndPostLink;
     var array_of_subjects  = array_prerequisites.split("|")
     if(array_prerequisites.length == 0){
        if (role == "admin_malla") document.getElementById("jschangeiii").innerHTML = 'Esta materia aún no tiene prerequisitos, agregalos abajo.';
@@ -202,10 +211,72 @@ function modal_for_subject(code,name,credits,typology, array_prerequisites, arra
         }
     }
 
+
+    $('#tableOptativasSubjectModal').each(function() {
+        $(this).hide();
+    });
+
+    $("#tbodyidtableOptativasSubjectModal").empty();
+
+    $('#optativasHeader').each(function() {
+        $(this).hide();
+    });
+
+    array_of_subjects  = array_optatives.split("|")
+    if(array_optatives.length == 0){
+        if (role == "admin_malla") document.getElementById("jschangeiv").innerHTML = 'Esta materia no tiene optativas asignadas aún.';
+        else if (typology == 'O') document.getElementById("jschangev").innerHTML = 'No hay optativas asociadas a este grupo aún.';
+    }else{
+        document.getElementById("jschangev").innerHTML = '';
+        for (index = 0; index < array_of_subjects.length; ++index) {
+            var current_subject = array_of_subjects[index].split("&");
+
+            current_code = current_subject[0];
+            current_name = current_subject[1];
+            current_credits = current_subject[2];
+            current_typology = current_subject[3];
+            postLink =  `  <form action="/admin/remove_post" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                    <button type="submit">
+                    <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
+                    <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
+                    <input type="hidden" name="code_to_remove" id="setTypology" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+
+                     <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    </form> `;
+
+
+            loadPreAndPostLink =  `  <form action="/subjects/load_pre_post" method="post" enctype="multipart/form-data" class="form-horizontal"  data-remote="true">
+                    <button type="submit">
+                    <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
+                    <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
+                    <input type="hidden" name="code_to_search" id="setCodeToSearch" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+
+                     <span class="glyphicon glyphicon-eye-open"></span>
+                    </button>
+                    </form> `;
+
+
+            $('#tableOptativasSubjectModal').each(function() {
+                $(this).show();
+            });
+            $('#optativasHeader').each(function() {
+                $(this).show();
+            });
+            firsttr = action_for_typology(current_typology, 1);
+            if(role == "admin_malla")$('#tableOptativasSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
+            else $('#tableOptativasSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + loadPreAndPostLink + '</td></tr>');
+        }
+    }
+
+    if(typology == 'O') {
+        document.getElementById("jschangeiii").innerHTML = '';
+        document.getElementById("jschangeiv").innerHTML = '';
+    }
    
 }
-
-
 
 
 function modal_for_electiva(array_electivas, semester_id){
@@ -269,7 +340,7 @@ function modal_for_optativa(array_electivas, semester_id){
     console.log(array_electivas)
 
     $('#modalForOptativa').modal('show');
-    document.getElementById("divElectivaModal").className = "modal-header modal-electiva";
+    document.getElementById("divElectivaModal").className = "modal-header modal-optativa";
 
 
     var firsttr;
@@ -329,5 +400,107 @@ function create_optativa(malla_id){
 
 
     //console.log("reached");
+
+}
+
+
+
+
+function update_optativa_pre_post(array_prerequisites, array_postrequisites, name){
+
+
+    var role = "student";
+var code = 2323;
+
+    var credits = 5;
+    var typology = 'O';
+    var code_career = 2548;
+    var firsttr;
+    $('#tablePrerrequisitosSubjectModal').each(function() {
+        $(this).hide();
+    });
+
+
+    document.getElementById("jschangeiii").innerHTML = '';
+    document.getElementById("jschangeiv").innerHTML = '';
+    $("#tbodyidPrerrequisitosSubjectModal").empty();
+
+    var index; var auxindex; var current_code; var current_name; var current_credits; var current_typology; var postLink; var loadPreAndPostLink;
+    var array_of_subjects  = array_prerequisites.split("|")
+    if(array_prerequisites.length == 0){
+        document.getElementById("headerPrerrequisitos").innerHTML = '<b>' + name + ' </b> no tiene prerequisitos.';
+
+    }else{
+        document.getElementById("headerPrerrequisitos").innerHTML = '<b> Prerrequisitos de ' + name + '</b>';
+
+        for (index = 0; index < array_of_subjects.length; ++index) {
+            var current_subject = array_of_subjects[index].split("&");
+
+            current_code = current_subject[0];
+            current_name = current_subject[1];
+            current_credits = current_subject[2];
+            current_typology = current_subject[3];
+            postLink =  `  <form action="/admin/remove_pre" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                    <button type="submit">
+                    <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
+                    <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
+                    <input type="hidden" name="code_to_remove" id="setTypology" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+                     <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    </form> `;
+
+            $('#tablePrerrequisitosSubjectModal').each(function() {
+                $(this).show();
+            });
+            firsttr = action_for_typology(current_typology, 1);
+            if(role == "admin_malla")$('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
+            else $('#tablePrerrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td></tr>');
+        }
+    }
+
+    //Materias que se abren
+
+    if (role == "admin_malla"){ document.getElementById('subject_code_subject_to_add').value = code;}
+    var firsttr;
+    $('#tablePostrrequisitosSubjectModal').each(function() {
+        $(this).hide();
+    });
+    $("#tbodyidPostrrequisitosSubjectModal").empty();
+
+    array_of_subjects  = array_postrequisites.split("|")
+    if(array_postrequisites.length == 0){
+        if (role == "admin_malla") document.getElementById("jschangeiv").innerHTML = 'Esta materia aún no abre ninguna otra, intenta agregarla como prerrequisito de otra.';
+        else document.getElementById("headerPostrequisitos").innerHTML = '<b> ' + name + '</b> es fin de linea.';
+    }else{
+
+        document.getElementById("headerPostrequisitos").innerHTML = 'Materias que se pueden ver con ' + name;
+        for (index = 0; index < array_of_subjects.length; ++index) {
+            var current_subject = array_of_subjects[index].split("&");
+
+            current_code = current_subject[0];
+            current_name = current_subject[1];
+            current_credits = current_subject[2];
+            current_typology = current_subject[3];
+            postLink =  `  <form action="/admin/remove_post" method="post" enctype="multipart/form-data" id="form-product" class="form-horizontal">
+                    <button type="submit">
+                    <input type="hidden" name="code" id="setCode" value="` + current_code +`" />
+                    <input type="hidden" name="typology" id="setTypology" value="` + current_typology +`" />
+                    <input type="hidden" name="code_to_remove" id="setTypology" value="` + code +`" />
+                    <input type="hidden" name="code_career" id="setCodeCareer" value="` + code_career +`" />
+
+                     <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                    </form> `;
+
+            $('#tablePostrrequisitosSubjectModal').each(function() {
+                $(this).show();
+            });
+            firsttr = action_for_typology(current_typology, 1);
+            if(role == "admin_malla")$('#tablePostrrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td><td> ' + postLink + '</td></tr>');
+            else $('#tablePostrrequisitosSubjectModal > tbody:last-child').append( firsttr + '<td>' + current_code+ '</td><td>' + current_name + '</td><td class="text-right">' + current_credits  + '</td></tr>');
+        }
+    }
+
 
 }
