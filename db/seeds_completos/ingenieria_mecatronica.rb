@@ -169,6 +169,8 @@ subj = Subject.find_by(code: 2015159)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+
+
 #Resistencia de Materiales
 subj = Subject.find_by(code: 2017277)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
