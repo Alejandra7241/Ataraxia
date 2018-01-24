@@ -17,26 +17,26 @@ malla = Malla.find_by(tipo:'Estándar', career_id: career.id)
 subj = Subject.find_by_code(2015695) 
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 #Derecho laboral
-subj = Subject.create({code:2015694, name: 'Derecho laboral', credits: 3})
+subj = Subject.find_by_code(2015694)
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 #Administración de empresas
-subj = Subject.create({code:2015698, name: 'Administración de empresas', credits: 3})
+subj = Subject.find_by_code(2015698)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 chs_materia.followers << [
     # Ingeniería económica
     CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015703).id)
 ]
 #Administración de mercados
-subj = Subject.create({code:2015699, name: 'Administración de mercados', credits: 3})
+subj = Subject.find_by_code(2015699)
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 #Fundamentos de contabilidad financiera
-subj = Subject.create({code:2015700, name: 'Fundamentos de contabilidad financiera', credits: 3})
+subj = Subject.find_by_code(2015700)
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 #Mercadeo internacional
-subj = Subject.create({code:2015704, name: 'Mercadeo internacional', credits: 3})
+subj = Subject.find_by_code(2015704)
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 #Mercados I
-subj = Subject.create({code:2015705, name: 'Mercados I', credits: 4})
+subj = Subject.find_by_code(2015705)
 CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 # Teoría de la decisión
 subj = Subject.find_by_code(2016056) 
@@ -61,7 +61,7 @@ CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 
 # MATERIA
 
-subj_opt = Subject.create({code:25490001, name: 'Administración de empresas', credits: -2})
+subj_opt = Subject.find_by_code(25490001)
 chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
 chs_opt.available << [
     CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015695).id),

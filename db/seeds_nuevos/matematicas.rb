@@ -1,12 +1,12 @@
-#-------------------------------------------------------------------------------------------
 
-#---------- Malla estándar Economía ----------#
+#---------- Malla estándar Matemáticas ----------#
 
-career = Career.create({code: 2522, name: 'Economía', department: 'Departamento de Ciencias Económicas', faculty: 'Ciencias Económicas'})
+career = Career.create({code: 2518, name: 'Matemáticas', department: 'Departamento de Matemáticas', faculty: 'Ciencias'})
 
-mallaEco = Malla.create({tipo:'Estándar', career_id: career.id})
+malla = Malla.create({tipo:'Estándar', career_id: career.id})
 
-mallaEco.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}, {:number => 10}])
+malla.semesters.create([{:number => 1}, {:number => 2}, {:number => 3}, {:number => 4}, {:number => 5}, {:number => 6}, {:number => 7}, {:number => 8}, {:number => 9}])
+
 
 # Nivelación
 subj = Subject.find_by(code: 1000002)
@@ -46,231 +46,199 @@ chs = CareerHasSubject.create( :subject => subj, :typology => 'P')
 career.career_has_subjects << chs
 
 # Semestre 1
-sem = mallaEco.semesters.find_by number: 1
+sem = malla.semesters.find_by number: 1
 
-subj = Subject.find_by(code: 2015270)
+#Fundamentos de matemáticas
+subj = Subject.find_by(code: 2015168)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Cálculo diferencial en una variable
+subj = Subject.find_by(code: 2016377)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-subj = Subject.find_by(code: 2016007)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016008)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016015)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 1000004)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
 
 # Semestre 2
-sem = mallaEco.semesters.find_by number: 2
+sem = malla.semesters.find_by number: 2
 
-subj = Subject.find_by(code: 2016012)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+#Álgebra lineal básica
+subj = Subject.find_by(code: 2015555)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016017)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+#Cálculo integral en una variable
+subj = Subject.find_by(code: 2015556)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016011)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+#Sistemas numéricos
+subj = Subject.find_by(code: 2015181)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016021)
+#Programación y métodos numéricos
+subj = Subject.find_by(code: 2015180)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Programación y métodos numéricos
+subj = Subject.find_by(code: 2015180)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
-subj = Subject.find_by(code: 9999990)
+        
+
+# Semestre 3
+sem = malla.semesters.find_by number: 3
+
+#Introducción a la teoría de conjuntos
+subj = Subject.find_by(code: 2025819)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Calculo vectorial
+subj = Subject.find_by(code: 2015162)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva 
+subj = Subject.find_by(code: 6666664)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-
-# Semestre 3
-sem = mallaEco.semesters.find_by number: 3
-
-subj = Subject.find_by(code: 2016013)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016018)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016009)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-
-
-subj = Subject.find_by(code: 2016020)
+#Mecanica newtoniana 
+subj = Subject.find_by(code: 2015176)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
 # Semestre 4
-sem = mallaEco.semesters.find_by number: 4
+sem = malla.semesters.find_by number: 4
 
-subj = Subject.find_by(code: 2016014)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016019)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016005)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016002)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666662)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-# Semestre 5
-sem = mallaEco.semesters.find_by number: 5
-
-subj = Subject.find_by(code: 2016022)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016023)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016006)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016003)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016001)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-# Semestre 6
-sem = mallaEco.semesters.find_by number: 6
-
-subj = Subject.find_by(code: 2016004)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016010)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016024)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-
-subj = Subject.find_by(code: 2016016)
+#Cálculo de ecuaciones diferenciales ordinarias
+subj = Subject.find_by(code: 2016342)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666662)
+#Introducción al análisis real
+subj = Subject.find_by(code: 2015155)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Probabilidad
+subj = Subject.find_by(code: 2015178)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'B')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
+
+
+# Semestre 5
+sem = malla.semesters.find_by number: 5
+
+#Grupos y anillos
+subj = Subject.find_by(code: 2015152)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Integración y series
+subj = Subject.find_by(code: 2015153)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Topología general
+subj = Subject.find_by(code: 2015158)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Análisis numérico
+subj = Subject.find_by(code: 2015150)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+
+
+# Semestre 6
+sem = malla.semesters.find_by number: 6
+
+#Algebra multilineal y formas canónicas
+subj = Subject.find_by(code: 2015149)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Análisis vectorial 
+subj = Subject.find_by(code: 2015151)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Lógica matemática 
+subj = Subject.find_by(code: 2015156)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva 
+subj = Subject.find_by(code: 6666664)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+
 
 # Semestre 7
-sem = mallaEco.semesters.find_by number: 7
+sem = malla.semesters.find_by number: 7
 
-
-subj = Subject.find_by(code: 9999999)
+#Teoría de cuerpos
+subj = Subject.find_by(code: 2015157)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva 
+subj = Subject.find_by(code: 6666664)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+#Variable compleja
+subj = Subject.find_by(code: 2015159)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
 
 # Semestre 8
-sem = mallaEco.semesters.find_by number: 8
+sem = malla.semesters.find_by number: 8
 
 
-
-#Electiva
-subj = Subject.find_by(code: 6666663)
+#Electiva 
+subj = Subject.find_by(code: 6666664)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
+#Electiva 
+subj = Subject.find_by(code: 6666664)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
 
 
 # Semestre 9
-sem = mallaEco.semesters.find_by number: 9
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
-#Electiva
-subj = Subject.find_by(code: 6666663)
-chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
-career.career_has_subjects << chs
-sem.career_has_subjects << chs
+sem = malla.semesters.find_by number: 9
 
-
-# Semestre 10
-sem = mallaEco.semesters.find_by number: 10
-
-subj = Subject.find_by(code: 2015300)
+#Trabajo de Grado
+subj = Subject.find_by(code: 2015154)
 chs = CareerHasSubject.create( :subject => subj, :typology => 'C')
 career.career_has_subjects << chs
 sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
+#Electiva
+subj = Subject.find_by(code: 6666664)
+chs = CareerHasSubject.create( :subject => subj, :typology => 'L')
+career.career_has_subjects << chs
+sem.career_has_subjects << chs
 
+#-------------------------------------------------------------------------------------------
