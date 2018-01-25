@@ -4,7 +4,8 @@
 <%= javascript_include_tag 'student', "data-turbolinks-track" => true %>
 <% end %>
 
-
+<% array_aux_optativas_vistas = [] %>
+<% array_aux_optativas_viendo = [] %>
 <% tipos_materia= ['electiva', 'optativa', 'disciplinar', 'fundamentacion', 'nivelacion'] %>
 <% @user = current_user %>
 <% if not user == "guess" %>
@@ -86,8 +87,38 @@
                     <% if vista=="admin_malla" %>
                     <%= render partial: "layouts/subject", locals: {estadisticas: false, vista: "admin_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), chs: chs } %>
                     <% elsif vista == "malla_avance" %>
+                      <% subjects_currently_attending = CareerHasSubject.current_subjects_by_student(current_user.id, @malla.career_id) %>
                       <% @aprobada = false %>
                       <% @aprobada = true if @chss_approved.include? chs %>
+                      <% if chs.typology == 'O' %>
+                        <% chs.available.each do |ava| %>
+                          <%  if @chss_approved.include? ava  %>
+                            <% if not array_aux_optativas_vistas.include? ava %>
+                                <% @aprobada = true %>
+                                <% array_aux_optativas_vistas << ava%>
+                              <% break %>
+                            <% end %>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                      
+                      
+                      <% @currently_attending = false %>
+                      <% subjects_currently_attending.each do |chs2| %>
+                          <% @currently_attending = true if  chs.id == chs2.id%>
+                      <% end %>
+                      <% if chs.typology == 'O' %>
+                        <% chs.available.each do |ava| %>
+                          <% subjects_currently_attending.each do |chs2| %>
+                            <% if  ava.id == chs2.id  and not array_aux_optativas_viendo.include? ava %>
+                              <% @currently_attending = true %>
+                              <% array_aux_optativas_viendo << ava%>
+                              <% break %>
+                            <%end%>
+                          <%end%>
+                        <%end%>
+                      <%end%>
+                      
                       <%= render partial: "layouts/subject.html.erb", locals: {aprobada: @aprobada,estadisticas: false, vista: "malla_avance", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla),   chs: chs, s_vista: s_vista, subjects_currently_attending: CareerHasSubject.current_subjects_by_student(current_user.id, @malla.career_id)} %>
                     <% elsif estadisticas %>
                     <%= render partial: "layouts/subject.html.erb", locals: {estadisticas: true, notas: notas, vista: "student_malla", subj: Subject.find(chs.subject_id), typ: chs.typology, sem: sem, code_career: Career.find_carrer_code_by_malla(@malla), grade: StudentHasSubject.get_grade_for_student(current_user.id, chs.id),  chs: chs, s_vista: s_vista} %>
