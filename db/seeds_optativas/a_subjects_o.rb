@@ -6,6 +6,7 @@ Subject.create([
         
         #Administración de empresas
         {code: 25200001, name: 'Formación Básica', credits: -2},
+        {code: 25200001, name: 'Formación Básica', credits: -2},
             {code: 2016043, name: 'Matemáticas financieras', credits: 4},
             {code: 1000015, name: 'Probabilidad fundamental', credits: 3},
             {code: 1000016, name: 'Inferencia estadística fundamental', credits: 3},
@@ -136,7 +137,53 @@ Subject.create([
             {code: 2015699, name: 'Administración de mercados', credits: 3},
             {code: 2015700, name: 'Fundamentos de contabilidad financiera', credits: 3},
             {code: 2015704, name: 'Mercadeo internacional', credits: 3},
-            {code: 2015705, name: 'Mercados I', credits: 4}
+            {code: 2015705, name: 'Mercados I', credits: 4},
+            
+        # -------------------------------------- MEDICINA   ------------------------------------    
+        
+        #Fisioterapia
+        {code: 25500001, name: 'Biologia', credits: -2},
+        {code: 25500002, name: 'Quimica', credits: -2},
+        {code: 25500003, name: 'Ciencias sociales y humanas', credits: -2},
+        {code: 25500004, name: 'Ciencias sociales y humanas', credits: -2},
+            {code: 2017502, name: 'Procesos comunitarios', credits: 3},
+            {code: 2017903, name: 'Psicología Comunitaria', credits: 3},
+            {code: 2017914, name: 'Psicología y Salud Ocupacional', credits: 3},
+            {code: 2024774, name: 'Medicina Social y Salud Colectiva: fundamentos conceptuales', credits: 3},
+        {code: 25500005, name: 'Optativa profesional', credits: -2},
+            {code: 2016242, name: 'Epidemiología social', credits: 2},
+            {code: 2016263, name: 'Mi cuerpo, sus cuerpos, nuestros cuerpos', credits: 2},
+            {code: 2016289, name: 'Manejo del dolor', credits: 2},
+            {code: 2016292, name: 'Música y bienestar ocupacional', credits: 2},
+            {code: 2016294, name: 'Potenciales evocados', credits: 3},
+            {code: 2016296, name: 'Reflexiones entorno al proceso de envejecimiento', credits: 3},
+            {code: 2016298, name: 'Bioseguridad', credits: 2},
+            {code: 2016300, name: 'Investigación biomédica y social', credits: 3},
+            {code: 2017939, name: 'Primeros auxilios', credits: 2},
+            {code: 2021165, name: 'Ingenieria tisular', credits: 2},
+            {code: 2022175, name: 'Cuerpo e imagen', credits: 3},
+            {code: 2022733, name: 'Iniciacion a estudios feministas y de género', credits: 3},
+            {code: 2022841, name: 'Fundamentación y practica en salud de los trabajadores', credits: 4},
+            {code: 2023478, name: 'Contexto bioseguridad', credits: 2},
+        {code: 25500006, name: 'Optativa de profundización I', credits: -2},
+            {code: 2016221, name: 'Actividad física y deporte I', credits: 2},
+            {code: 2016254, name: 'Comunidad y desarrollo humano I', credits: 2},
+            {code: 2016257, name: 'Kinesioterapia I', credits: 2},
+            {code: 2016268, name: 'Movimiento corporal humano salud y trabajo I', credits: 2},
+            {code: 2016260, name: 'Mecánica y neuromecánica del movimiento I', credits: 2},
+        {code: 25500007, name: 'Optativa de profundización II', credits: -2},
+            {code: 2016223, name: 'Actividad física y deporte II', credits: 2},
+            {code: 2016255, name: 'Comunidad y desarrollo humano II', credits: 2},
+            {code: 2016258, name: 'Kinesioterapia II', credits: 2},
+            {code: 2016261, name: 'Mecánica y neuromecánica del movimiento II', credits: 2},
+            {code: 2016266, name: 'Movimiento corporal humano salud y trabajo II', credits: 2},
+        {code: 25500008, name: 'Optativa de profundización III', credits: -2},
+            {code: 2016225, name: 'Actividad física y deporte III', credits: 2},
+            {code: 2016256, name: 'Comunidad y desarrollo humano III', credits: 2},
+            {code: 2016259, name: 'Kinesioterapia III', credits: 2},
+            {code: 2016262, name: 'Mecánica y neuromecánica del movimiento III', credits: 2},
+            {code: 2016267, name: 'Movimiento corporal humano salud y trabajo III', credits: 2}
+
             
 ]) 
 # *************************************************************************
