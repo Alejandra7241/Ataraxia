@@ -85,6 +85,34 @@ class StudentHasSubject < ApplicationRecord
         return @worst, @nombres
     end
     
+    def self.get_subjects_faltantes(malla, user)
+        @chss_approved = CareerHasSubject.get_subjects_approved_by_a_student(user.id, malla.career_id) 
+        @nombres= []
+        malla.semesters.each do |sem| 
+            sem.career_has_subjects.each do |chs|
+                @aprobada = false
+                if @chss_approved.include? chs
+                    @aprobada = true 
+                end
+                if not @aprobada
+                    @key=true
+                    chs.followers.each do |pre|
+                        if not @chss_approved.include? pre
+                            @key = false
+                        end
+                    end
+                    if @key
+                        materia = Subject.find(chs.subject_id)
+                        if chs.typology != 'L' and materia.name != "Trabajo de grado"
+                            @nombres.push(materia.name) 
+                        end
+                    end
+                end
+            end
+        end 
+        return @nombres
+    end
+    
       def self.list_subjects_current_semester(malla,user)
           creditos=[]
           materias=[]

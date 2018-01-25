@@ -32,7 +32,7 @@
               <div class="form-group" >
                 <%= link_to "Calculadora de PAPPI",'#',"data-target" => "#PAPPICalculator", "data-toggle"=>"modal", :class => "btn btn-success", :style => 'margin-bottom:15px', :onclick => 'limpiar()' %>
                 <%= link_to "Calculadora de PAPA",'#',"data-target" => "#PAPACalculator", "data-toggle"=>"modal", :class => "btn btn-danger" , :style => 'margin-bottom:15px', :onclick => 'limpiar2()' %>
-               <%= link_to '¿Qué puedo ver el siguiente semestre?', actualizar_mis_cursos_path, :class => "btn btn-primary disabled", :onclick => 'recharge2()' %>
+                <%= link_to "Preguntas de interes",'#',"data-target" => "#interes", "data-toggle"=>"modal", :class => "btn btn-primary" , :style => 'margin-bottom:15px', :onclick => 'limpiar3()' %>
 
 
               </div>
@@ -178,7 +178,7 @@
   <div class="modal-dialog">
     <!-- Modal content -->
     <div class="modal-content" style="width:80%">
-      <div class="modal-header" style="background-color: #48bf48">
+      <div class="modal-header" style="background-color: #d9534f">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         <h2 align="center">Calculadora de P.A.P.A</h2>
       </div>
@@ -205,16 +205,66 @@
           <%= button_tag 'Limpiar', :onclick => 'limpiar2()', :class => 'btn btn-danger btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
         </div>
 
-
-        <div align="center" style="margin-bottom:20px">
-          <h4 align="center"> <b>¿Cuál sería mi P.A.P.A máximo en lo que me resta de carrera?</b></h4>
-          <h5><i>Consulta esta información bajo tu propio riesgo.</i></h5>
-          <div id="maxpapa" class="well" style="padding: 5px;margin: 15px 100px;"></div>
-          <%= button_tag 'Ver', :onclick => "maxPAPA('#{@ponderation}', '#{current_user.remaining_credits}', '#{@total_credits + current_user.remaining_credits}')", :class => 'btn btn-success btn-ms', :style => 'margin-top: -8% align: center', :align => 'center' %>
-        </div>
       </div>
     </div>
   </div>
 </div>
 
+<script>
+  function atrasado(numero_semestres, semestre_actual, avance){
+
+
+          var semestre_actual_porcentaje = semestre_actual * 100 / numero_semestres;
+          resultado = semestre_actual_porcentaje - avance;
+          if (resultado > 0){
+            document.getElementById("maxpapa").innerHTML='<h4><b>¡Lo sentimos! Vas atrasado: </b>'+ resultado.toFixed(2) + '%</h4>';
+          }else{
+            document.getElementById("maxpapa").innerHTML='<h4><b>¡Felicidades! Vas adelantado: </b>'+ resultado.toFixed(2) + '%</h4>';
+          }
+      }
+  
+        function limpiar3(){
+
+        document.getElementById("maxpapa").innerHTML='';
+      }
+      
+      
+      function siguiente(faltantes){
+        document.getElementById("maxpapa").innerHTML='<h4><b>Puedes ver: </b>'+ faltantes + '</h4>';
+      }
+  
+        function limpiar3(){
+
+        document.getElementById("maxpapa").innerHTML='';
+      }  
+</script>
+
+<div id="interes" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content -->
+    <div class="modal-content" style="width:80%">
+      <div class="modal-header" style="background-color: #428bca">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h2 align="center">Preguntas de interes</h2>
+      </div>
+      <div class="modal-body" >
+
+  
+        <div align="center" style="margin-bottom:20px">
+          <h4 align="center"> <b></b></h4>
+          <% faltantes = StudentHasSubject.get_subjects_faltantes(@malla, current_user)%></p>
+          <% malla = Malla.find_by({tipo:'Estándar', career_id: @career.id}) %>
+          <% numero_semestres = malla.semesters.length %>
+          <h5><i>Consulta esta información bajo tu propio riesgo.</i></h5>
+          <%= button_tag '¿Cuál sería mi P.A.P.A máximo en lo que me resta de carrera?', :onclick => "maxPAPA('#{@ponderation}', '#{current_user.remaining_credits}', '#{@total_credits + current_user.remaining_credits}')", :class => 'btn btn-default btn-ms btn-block', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <%= button_tag '¿Qué tan atrasado voy en mi carrera?', :onclick => "atrasado('#{numero_semestres}', '#{current_user.current_semester - 1}', '#{current_user.percentage}')", :class => 'btn btn-default btn-ms btn-block', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <%= button_tag '¿Qué puedo ver el siguiente semestre?', :onclick => "siguiente('#{faltantes}')", :class => 'btn btn-default btn-ms btn-block', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <%= button_tag '¿Cuál es el PAPA promedio de los que entraron conmigo?', :onclick => "siguiente('#{faltantes}')", :class => 'btn btn-default disabled btn-ms btn-block', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <%= button_tag '¿Cuál es el avance promedio de los que entraron conmigo?', :onclick => "siguiente('#{faltantes}')", :class => 'btn btn-default disabled btn-ms btn-block', :style => 'margin-top: -8% align: center', :align => 'center' %>
+          <div id="maxpapa" class="well" style="padding: 5px;margin: 15px 100px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   <%= render 'layouts/footer', :vista=> "normal"%>

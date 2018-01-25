@@ -17,6 +17,11 @@
         document.getElementById("pappineeded").innerHTML='';
       }
       
+      function limpiar3(){
+
+        document.getElementById("maxpapa").innerHTML='';
+      }
+      
         function getPAPI(creditos){
 
             var creditos= creditos;
