@@ -241,10 +241,18 @@ chs_materia.followers << [
 #  auditoría financiera i
 subj = Subject.find_by_code(2016025)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Fundamentos de contabilidad financiera
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016008).id)
+]
 
 #  auditoría financiera ii
 subj = Subject.find_by_code(2016026)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # auditoría financiera i 
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025).id)
+]
 	
 #  mercadeo internacional
 subj = Subject.find_by_code(2016044)
@@ -253,6 +261,10 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 #  mercado de capitales y banca de inversión
 subj = Subject.find_by_code(2016045)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Finanzas avanzadas
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016037).id)
+]
 
 #  modelos económicos computacionales
 subj = Subject.find_by_code(2016047)
@@ -261,14 +273,26 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 #  contabilidad de operaciones
 subj = Subject.find_by_code(2016113)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Fundamentos de contabilidad financiera
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016008).id)
+]
 
 # contabilidad de inversiones y financiación
 subj = Subject.find_by_code(2016114)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # contabilidad de operaciones
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113).id)
+]
 
 # control interno
 subj = Subject.find_by_code(2016115)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Fundamentos de contabilidad financiera
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016008).id)
+]
 
 # derecho internacional
 subj = Subject.find_by_code(2016119)
@@ -277,6 +301,10 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 # investigación operativa
 subj = Subject.find_by_code(2016124)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Gestión de las operaciones y la producción II
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016122).id)
+]
 
 # planeación estratégica
 subj = Subject.find_by_code(2016126)
@@ -333,6 +361,12 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 # economía política i
 subj = Subject.find_by_code(2016005)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+chs_materia.followers << [
+    # Historia del pensamiento económico
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009).id),
+    # Macroeconomía I
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016012).id)
+]
 
 # gerencia de recursos humanos
 subj = Subject.find_by_code(2016358)
@@ -374,5 +408,110 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 subj = Subject.find_by_code(2021835)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 
+#  Contabilidad de inversiones y financiacion
+subj = Subject.find_by_code(2006824)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 
+#  control interno y gestion
+subj = Subject.find_by_code(2006838)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 
+#  investigacion operativa
+subj = Subject.find_by_code(2006871)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+#  planeacion estrategica
+subj = Subject.find_by_code(2006926)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+#  pensamiento economico
+subj = Subject.find_by_code(2006966)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+#  microeconomia ii
+subj = Subject.find_by_code(2019594)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+	
+#  asignatura genérica
+subj = Subject.find_by_code(2022104)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+#  macroeconomia ii
+subj = Subject.find_by_code(2023780)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+# economia politica i
+subj = Subject.find_by_code(2006973)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+
+# microeconomia ii
+subj = Subject.find_by_code(2006979)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+	
+#MATERIA
+
+subj_opt = Subject.find_by_code(25200004)
+chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
+chs_opt.available << [
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code().id),
+]
+
+sem.career_has_subjects << chs_opt
+#---------fin optativa--------------------------------
+
+#  ------ Interdisciplinar 2   ------
+
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015193
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015203
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015205
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015734
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016000
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016011
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016013
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016018
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016026
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016044
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016045
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016047
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016114
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016115
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016119
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016124
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016126
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016589
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016609
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016703
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017309
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017321
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024578
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015214
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015344
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015411
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015445
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015702
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015701
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016005
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016358
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016587
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016600
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016605
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017865
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017872
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017911
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017914
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021667
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021835
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006824
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006838
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006871
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006926
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006966
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2019594
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2022104
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2023780
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006973
+CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006979
+ 
