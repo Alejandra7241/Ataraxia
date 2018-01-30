@@ -402,7 +402,6 @@ Subject.create([
         {code: 2015168, name: 'Fundamentos de matemáticas', credits: 4},
         {code: 2016366, name: 'Estadística Descriptiva y Exploratoria', credits: 4},
         {code: 2015181, name: 'Sistemas numéricos', credits: 4},
-        {code: 2015178, name: 'Probabilidad', credits: 4},
         {code: 2016378, name: 'Álgebra matricial', credits: 4},
         {code: 2016360, name: 'Análisis de Regresión', credits: 4},
         {code: 2016345, name: 'Seminario de Estadística', credits: 2},
@@ -904,7 +903,6 @@ Subject.create([
         #Filología e idiomas
         {code: 2016382, name: 'Fundamentos de la Educación', credits: 2},
         {code: 2016386, name: 'Morfosintaxis Española I', credits: 3},
-        {code: 2015460, name: 'Introducción a la Literatura', credits: 3},
         {code: 2016388, name: 'Psicología y educación', credits: 3},
         {code: 2015998, name: 'Sociolinguística', credits: 3},
         {code: 2016427, name: 'Metodología de la Investigación', credits: 3},
