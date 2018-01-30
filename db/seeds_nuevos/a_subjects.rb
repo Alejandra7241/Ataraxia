@@ -1,68 +1,6 @@
 # ***************************** Lista de Materias***********************************
 
 Subject.create([
-        
-        # -------------------------------------- GENERAL ------------------------------------
-        
-      #Ciencias de la computación
-        {code: 2026573, name: 'Introducción a las ciencias de la computación y a la programación', credits: 3},
-        {code: 2015181, name: 'Sistemas numéricos', credits: 4},
-        {code: 2025819, name: 'Introducción a la teoría de conjuntos', credits: 4},
-        {code: 2026519, name: 'Ecuaciones en diferencias finitas y sistemas dinámicos', credits: 4},
-        {code: 2015155, name: 'Introducción al análisis real', credits: 4},
-        {code: 2026555, name: 'Algebra abstracta y computacional', credits: 4},
-        {code: 2027312, name: 'Introducción al análisis combinatorio', credits: 4},
-        {code: 2015184, name: 'Teoría de grafos', credits: 4},
-        {code: 2015150, name: 'Análisis numérico', credits: 4},
-        {code: 2027313, name: 'Teoría de Codificación', credits: 4},
-        {code: 2027629, name: 'Lógica computacional', credits: 4},
-        {code: 9992933, name: 'Trabajo de Grado', credits: 8},
-        #Matematicas
-        {code: 2015180, name: 'Programación y métodos numéricos', credits: 4},
-        {code: 2015152, name: 'Grupos y anillos', credits: 4},
-        {code: 2015153, name: 'Integración y series', credits: 4},
-        {code: 2015158, name: 'Topología general', credits: 4},
-        {code: 2015149, name: 'Algebra multilineal y formas canónicas', credits: 4},
-        {code: 2015151, name: 'Análisis vectorial', credits: 4},
-        {code: 2015156, name: 'Lógica matemática', credits: 4},
-        {code: 2015157, name: 'Teoría de cuerpos', credits: 4},
-        {code: 2015154, name: 'Trabajo de Grado', credits: 8},
-        #Fisioterapia
-        {code: 2016282, name: 'Taller de cuerpo y movimiento', credits: 2},
-        {code: 2016299, name: 'Historia, transformaciones y perspectivas de la fisioterapia', credits: 1},
-        {code: 2025569, name: 'Fisiología general', credits: 4},
-        {code: 1000022, name: 'Fluidos y electromagnetismo para biociencias', credits: 4},
-        {code: 2016248, name: 'Fisiología del ejercicio y la actividad física', credits: 2},
-        {code: 2016305, name: 'Patología', credits: 3},
-        {code: 2016230, name: 'Aprendizaje y control motor', credits: 2},
-        {code: 2016308, name: 'Procesos evaluativos I', credits: 2},
-        {code: 2016234, name: 'Biomecánica de tejidos', credits: 2},
-        {code: 2025482, name: 'Modalidades cinéticas: Masoterapia', credits: 1},
-        {code: 2016283, name: 'Taller de prescripción del ejercicio', credits: 2},
-        {code: 2025480, name: 'Farmacologia', credits: 2},
-        {code: 2016273, name: 'Principios de facilitación del movimiento', credits: 2},
-        {code: 2016309, name: 'Procesos evaluativos II', credits: 2},
-        {code: 2016233, name: 'Biomecanica articular y de movimiento complejo', credits: 2},
-        {code: 2025481, name: 'Modalidades Físicas y Neumáticas', credits: 3},
-        {code: 2016302, name: 'Modalidades cinéticas: principios fundamentales', credits: 2},
-        {code: 2016269, name: 'Patokinesiología cardiopulmonar', credits: 2},
-        {code: 2016304, name: 'Patokinesiología osteomuscular y tegumentario', credits: 2},
-        {code: 2016270, name: 'Patokinesiología neurológica', credits: 2},
-        {code: 2016284, name: 'Tecnología en rehabilitación', credits: 2},
-        {code: 2016227, name: 'Actividades básicas de la vida diaria', credits: 2},
-        {code: 2016249, name: 'Fisioterapia en trabajo y comunidad', credits: 2},
-        {code: 2016271, name: 'Practica académica en actividad física y deporte', credits: 7},
-        {code: 2025484, name: 'Fundamentos de administración en salud', credits: 1},
-        {code: 2016272, name: 'Practica académica en salud trabajo y comunidad', credits: 7},
-        {code: 2016239, name: 'Diseño, gestión y evaluacion de proyectos', credits: 2},
-        {code: 2016231, name: 'Bioetica y legislación', credits: 2},
-        {code: 2016276, name: 'Psicopatología', credits: 2},
-        {code: 2025483, name: 'Epidemiología', credits: 2},
-        {code: 2016306, name: 'Practica académica clinica adultos', credits: 7},
-        {code: 2025485, name: 'Salud pública', credits: 2},
-        {code: 2016251, name: 'Fundamentos de investigacion cualitativa y cuantitativa', credits: 2},
-        {code: 2016307, name: 'Practica académica clinica niños', credits: 7},
-        {code: 2016280, name: 'Seminario de trabajo de grado', credits: 1},
-        {code: 2015312, name: 'Trabajo de Grado', credits: 6}
+     
 ])      
 # *************************************************************************

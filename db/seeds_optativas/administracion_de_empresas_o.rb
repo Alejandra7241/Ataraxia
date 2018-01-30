@@ -453,65 +453,191 @@ chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :care
 subj_opt = Subject.find_by_code(25200004)
 chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
 chs_opt.available << [
-    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code().id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015193).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015203).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015205).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015734).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016000).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016011).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016013).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016018).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016026).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016044).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016045).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016047).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016114).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016115).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016119).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016124).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016126).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016589).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016609).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016703).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017309).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017321).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024578).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015214).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015344).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015411).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015445).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015702).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015701).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016005).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016358).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016587).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016600).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016605).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017865).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017872).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017911).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017914).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021667).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021835).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006824).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006838).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006871).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006926).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006966).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2019594).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2022104).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2023780).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006973).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006979).id)
 ]
 
 sem.career_has_subjects << chs_opt
 #---------fin optativa--------------------------------
 
 #  ------ Interdisciplinar 2   ------
+# POSIBLES MISMAS
 
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015193
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015203
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015205
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015734
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016000
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016011
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016013
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016018
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016026
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016044
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016045
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016047
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016114
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016115
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016119
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016124
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016126
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016589
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016609
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016703
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017309
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017321
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024578
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015214
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015344
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015411
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015445
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015702
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015701
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016005
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016358
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016587
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016600
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016605
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017865
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017872
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017911
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017914
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021667
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021835
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006824
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006838
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006871
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006926
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006966
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2019594
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2022104
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2023780
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006973
-CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006979
- 
+subj_opt = Subject.find_by_code(25200005)
+chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
+chs_opt.available << [
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015193).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015203).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015205).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015734).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016000).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016011).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016013).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016018).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016026).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016044).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016045).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016047).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016114).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016115).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016119).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016124).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016126).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016589).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016609).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016703).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017309).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017321).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024578).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015214).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015344).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015411).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015445).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015702).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015701).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016005).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016358).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016587).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016600).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016605).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017865).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017872).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017911).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017914).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021667).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021835).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006824).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006838).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006871).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006926).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006966).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2019594).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2022104).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2023780).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006973).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006979).id)
+]
+
+sem.career_has_subjects << chs_opt
+#---------fin optativa--------------------------------
+
+#  ------ Interdisciplinar 3   ------
+
+# Semestre 8
+sem = malla.semesters.find_by(number: 8)
+
+# POSIBLES MISMAS
+
+subj_opt = Subject.find_by_code(25200006)
+chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
+chs_opt.available << [
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015193).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015203).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015205).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015734).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016000).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016009).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016011).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016013).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016018).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016025).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016026).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016044).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016045).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016047).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016113).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016114).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016115).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016119).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016124).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016126).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016589).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016609).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016703).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017309).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017321).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024578).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015214).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015344).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015411).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015445).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015702).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015701).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016005).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016358).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016587).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016600).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2016605).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017865).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017872).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017911).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017914).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021667).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2021835).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006824).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006838).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006871).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006926).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006966).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2019594).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2022104).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2023780).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006973).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2006979).id)
+]
+
+sem.career_has_subjects << chs_opt
