@@ -440,8 +440,28 @@ Subject.create([
             {code: 2016072, name: 'Gestión cultural y empresarial en las artes', credits: 3},
             {code: 2016073, name: 'Herencias - Una mirada a la historia de las artes', credits: 3},
             {code: 2016082, name: 'Problemas contemporáneos de las artes', credits: 3},
-            {code: 2016085, name: 'Responsabilidad socio-ambiental de las artes', credits: 3}
-
+            {code: 2016085, name: 'Responsabilidad socio-ambiental de las artes', credits: 3},
+            
+        #Diseño grafico
+        {code: 25090001, name: 'El contexto de las artes', credits: -2},
+        {code: 25090002, name: 'El contexto de las artes', credits: -2},
+            {code: 2016085, name: 'Responsabilidad socio-ambiental de las artes', credits: 3},
+            {code: 2016073, name: 'Herencias - Una mirada a la historia de las artes', credits: 3},
+            {code: 2016082, name: 'Problemas contemporáneos de las artes', credits: 3},
+        {code: 25090003, name: 'Taller de enfasis i', credits: -2},
+            {code: 2016087, name: 'taller de énfasis en ilustración i', credits: 3},
+            {code: 2016089, name: 'taller de énfasis en imagen fotográfica i', credits: 3},
+            {code: 2016091, name: 'taller de énfasis en multimedia e imagen digital i', credits: 3},
+            {code: 2016093, name: 'taller de énfasis en animación y narrativas audiovisuales i', credits: 3},
+            {code: 2016095, name: 'taller de énfasis en teoría, historia y estética i', credits: 3},
+            {code: 2016097, name: 'taller de énfasis en tipografía y diagramación i', credits: 3},
+        {code: 25090004, name: 'Taller de enfasis ii', credits: -2},
+            {code: 2016088, name: 'taller de énfasis en ilustración ii', credits: 3},
+            {code: 2016090, name: 'taller de énfasis en imagen fotográfica ii', credits: 3},
+            {code: 2016092, name: 'taller de énfasis en multimedia e imagen digital ii', credits: 3},
+            {code: 2016094, name: 'taller de énfasis en animación y narrativas audiovisuales ii', credits: 3},
+            {code: 2016096, name: 'taller de énfasis en teoría, historia y estética ii', credits: 3},
+            {code: 2016098, name: 'taller de énfasis en tipografía y diagramación ii', credits: 3}
 ]) 
 
 # *************************************************************************
