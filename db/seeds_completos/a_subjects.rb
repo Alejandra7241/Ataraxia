@@ -1214,6 +1214,36 @@ Subject.create([
         {code: 6625553, name: 'Practicas integradas de campo', credits: 20},
         {code: 2017249, name: 'Trabajo de Grado', credits: 10},
         
+        #Zootecnia
+        {code: 2017126, name: 'Introducción a la Zootecnia', credits: 4},
+        {code: 2017105, name: 'Anatomía animal', credits: 4},
+        {code: 2015272, name: 'Suelos', credits: 3},
+        {code: 2017106, name: 'Fisiología animal', credits: 4},
+        {code: 2017133, name: 'Microbiología general', credits: 4},
+        {code: 2017107, name: 'Anatomía y fisiología de la reproducción', credits: 4},
+        {code: 2017114, name: 'Diseño experimental', credits: 3},
+        {code: 2017123, name: 'Genética animal', credits: 4},
+        {code: 2017137, name: 'Nutrición y alimentación I', credits: 4},
+        {code: 2017140, name: 'Pastos y forrajes', credits: 3},
+        {code: 2017143, name: 'Reproducción animal', credits: 3},
+        {code: 2017130, name: 'Mejoramiento animal', credits: 4},
+        {code: 2017138, name: 'Nutrición y alimentación 2', credits: 4},
+        {code: 2017255, name: 'Política agropecuaria', credits: 3},
+        {code: 2017124, name: 'Gestión ambiental', credits: 3},
+        {code: 2017149, name: 'Sistemas de producción bovina', credits: 4},
+        {code: 2017148, name: 'Sistemas de producción avícola', credits: 4},
+        {code: 2017157, name: 'Sistemas de producción porcina', credits: 4},
+        {code: 2017158, name: 'Sistemas pecuarios', credits: 3},
+        {code: 2017108, name: 'Bioseguridad y trazabilidad', credits: 3},
+        {code: 2017146, name: 'Sistemas de producción acuícola', credits: 4},
+        {code: 2017125, name: 'Gestión de empresas agropecuarias', credits: 3},
+        {code: 2017099, name: 'Agroindustria de productos cárnicos', credits: 3},
+        {code: 2017100, name: 'Agroindustria de productos lácteos', credits: 3},
+        {code: 2017957, name: 'Trabajo de Grado', credits: 6},
+        {code: 2017253, name: 'Extensión rural', credits: 3},
+        {code: 2017251, name: 'Bioética y bienestar animal', credits: 3},
+        {code: 2017141, name: 'Práctica integral', credits: 10},
+
         # -------------------------------------- ODONTOLOGÍA  ------------------------------------
         
         #Odontología
