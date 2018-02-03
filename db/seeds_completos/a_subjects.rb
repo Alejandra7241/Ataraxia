@@ -1058,7 +1058,6 @@ Subject.create([
         #Psicología
         {code: 2021668, name: 'Problemática Social Colombiana', credits: 3},
         {code: 2017875, name: 'Epistemología de las ciencias sociales', credits: 3},
-        {code: 1000014, name: 'Estadística social fundamental', credits: 3},
         {code: 2017857, name: 'Bases Biológicas del Comportamiento', credits: 3},
         {code: 2017874, name: 'Epistemología de las ciencias naturales', credits: 3},
         {code: 2017858, name: 'Bases Socio-culturales del Comportamiento Humano', credits: 3},
