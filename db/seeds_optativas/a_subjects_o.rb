@@ -90,10 +90,48 @@ Subject.create([
             {code: 2024579, name: 'la ciudad: reflexiones socioeconomicas sobre la espacialidad urbana', credits: 3},
             {code: 2024596, name: 'economia de los grupos economicos', credits: 3},
             
-            
-            
-            
-        # -------------------------------------- CIENCIAS  ------------------------------------
+        #Contaduria Publica
+            {code: 25210001, name: 'Cuantitativo', credits: -2},
+            {code: 25210002, name: 'Cuantitativo', credits: -2},
+            {code: 25210003, name: 'Formación básica universitaria', credits: -2},
+                {code: 2016211, name: 'Historia Constitucional Colombiana', credits: 2},
+                {code: 2015422, name: 'Derecho Constitucional Económico', credits: 2},
+            {code: 25210004, name: 'Teorias y modelos contables', credits: -2},
+                {code: 2016201, name: 'Contabilidad de Consolidación de Sociedades', credits: 3},
+                {code: 2016215, name: 'Sistemas de Información', credits: 3},
+            {code: 25210005, name: 'Ética y responsabilidad social', credits: -2},
+                {code: 2016207, name: 'Ética y Reglamentación Profesional Contable', credits: 3},
+                {code: 2016213, name: 'Responsablilidad Social Empresarial', credits: 3},
+            {code: 25210006, name: 'Regulación', credits: -2},
+                {code: 2005858, name: 'Regimen tributario', credits: 3},
+                {code: 2015394, name: 'Derecho Tributario', credits: 2},
+                {code: 2015393, name: 'Derecho Procesal Tributario', credits: 2},
+                {code: 2005870, name: 'Procedimiento tributario', credits: 3},
+            {code: 25210007, name: 'Disciplinares profesionales', credits: -2},
+            {code: 25210009, name: 'Disciplinares profesionales', credits: -2},
+            {code: 25210010, name: 'Disciplinares profesionales', credits: -2},
+                {code: 2019597, name: 'Producción II', credits: 4},
+                {code: 2019599, name: 'Microeconomia ii', credits: 4},
+                {code: 2023848, name: 'Gestion siglo xxi: nuevas tendencias en gestion organizacional', credits: 3},
+                {code: 2023849, name: 'Herramientas gerenciales para negociacion y liderazgo', credits: 3},
+                {code: 2023850, name: 'Desarrollo de habilidades gerenciales', credits: 3},
+                {code: 2023867, name: 'Juego gerencial', credits: 3},
+                {code: 2023868, name: 'Integracion internacional y apertura', credits: 3},
+                {code: 2023869, name: 'Creacion de empresas', credits: 3},
+                {code: 2023870, name: 'Creatividad empresarial', credits: 3},
+                {code: 2023877, name: 'Macroeconomia ii', credits: 3},
+                {code: 2007384, name: 'Econometria', credits: 3},
+                {code: 2008376, name: 'Comercio exterior', credits: 3},
+                {code: 2003949, name: 'Evaluacion de proyectos', credits: 3},
+                {code: 2007869, name: 'Gerencia de proyectos', credits: 3},
+                {code: 2016200, name: 'Comercio internacional', credits: 4},
+                {code: 2016210, name: 'Gestión de operaciones internacionales', credits: 3},
+            {code: 25210008, name: 'Información y control públicos', credits: -2},
+                {code: 2016208, name: 'Finanzas y Presupuesto Público', credits: 3},
+                {code: 2016214, name: 'Revisoría Fiscal', credits: 3},
+                
+
+       # -------------------------------------- CIENCIAS  ------------------------------------
         
         #Ciencias de la computación
         {code: 29330001, name: 'Física', credits: -2},
@@ -266,7 +304,6 @@ Subject.create([
             {code: 2013124, name: 'teoria politica para no politologos', credits: 3},
             {code: 2014487, name: 'introduccion a los estudios urbanos', credits: 3},
         {code: 25160002, name: 'Estadística', credits: -2},
-            {code: 1000015, name: 'Probabilidad fundamental', credits: 3},
         {code: 25160003, name: 'Programación y metodos numéricos', credits: -2},
             {code: 2016652, name: 'Programación e introducción a los métodos numéricos', credits: 3},
         {code: 25160005, name: 'Electrónica e instrumentación', credits: -2},
