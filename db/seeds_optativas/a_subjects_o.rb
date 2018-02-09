@@ -884,8 +884,24 @@ Subject.create([
             {code: 2017154, name: 'sistemas de producción de especies silvestres', credits: 3},
             {code: 2017155, name: 'sistemas de producción de mascotas', credits: 3},
             {code: 2017156, name: 'sistemas de producción de pequeños rumiantes', credits: 3},
-            {code: 2024452, name: 'sistemas de producción de peces ornamentales (agua dulce)', credits: 3}
- 
+            {code: 2024452, name: 'sistemas de producción de peces ornamentales (agua dulce)', credits: 3},
+        
+        # -------------------------------------- CIENCIAS HUMANAS ------------------------------------
+        
+        #Antropologia
+        {code: 25230001, name: 'Diseño de proyecto', credits: -2},
+            {code: 2017360, name: 'Diseño de Proyecto en Antropología Social', credits: 5},
+            {code: 2017362, name: 'Diseño de Proyecto en Arqueología', credits: 5},
+            {code: 2017358, name: 'Diseño de Proyecto en Antropología Biológica', credits: 5},
+            {code: 2017359, name: 'Diseño de Proyecto en Antropología Lingüística', credits: 5},
+            {code: 2017361, name: 'Diseño de Proyecto en Antropología Histórica', credits: 5},
+        {code: 25230002, name: 'Laboratorio', credits: -2},
+            {code: 2017369, name: 'Laboratorio en Antropología Social', credits: 10},
+            {code: 2017373, name: 'Laboratorio en Arqueología', credits: 10},
+            {code: 2017370, name: 'Laboratorio en Antropología Biológica', credits: 10},
+            {code: 2017372, name: 'Laboratorio en Antropología Lingüística', credits: 10},
+            {code: 2017371, name: 'Laboratorio en Antropología Histórica', credits: 10}
+        
 ]) 
 
 # *************************************************************************
