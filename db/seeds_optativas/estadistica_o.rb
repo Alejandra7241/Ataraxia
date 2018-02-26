@@ -1,4 +1,4 @@
-# ******************* Optativas  Biología  **********************
+# ******************* Optativas  Estadistica  **********************
 
 career = Career.find_by_code(2514)
 malla = Malla.find_by(tipo:'Estándar', career_id: career.id)
@@ -13,7 +13,6 @@ subj = Subject.find_by_code(2016343)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
 subj = Subject.find_by_code(2015709)
 chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
-
 #Comunicación
 subj_opt = Subject.find_by_code(25140001)
 chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
