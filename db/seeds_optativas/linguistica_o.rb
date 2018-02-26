@@ -285,11 +285,11 @@ chs_opt.available << [
 sem.career_has_subjects << chs_opt
 
 subj = Subject.find_by_code(2024390)
-chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 subj = Subject.find_by_code(2024388)
-chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 subj = Subject.find_by_code(2024389)
-chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'B', :career => career)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
 #Investigación de trabajo de grado
 subj_opt = Subject.find_by_code(28370015)
 chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
