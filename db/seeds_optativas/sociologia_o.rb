@@ -637,5 +637,64 @@ chs_opt.available << [
 ]
 sem.career_has_subjects << chs_opt
 
-
+subj = Subject.find_by_code(2015250)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015630)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015631)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015634)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015794)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015796)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015797)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015798)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015802)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015804)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015812)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015816)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2015979)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2017488)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2017893)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2024520)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2025849)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+subj = Subject.find_by_code(2027233)
+chs_materia = CareerHasSubject.create( :subject => subj, :typology => 'C', :career => career)
+#Metodología e investigación
+subj_opt = Subject.find_by_code(25360015)
+chs_opt = CareerHasSubject.create( :subject => subj_opt, :typology => 'O', :career => career)
+chs_opt.available << [
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015250).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015630).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015631).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015634).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015794).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015796).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015797).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015798).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015802).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015804).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015812).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015816).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2015979).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017488).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2017893).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2024520).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2025849).id),
+    CareerHasSubject.find_by(career_id: career.id, subject_id: Subject.find_by_code(2027233).id)
+]
+sem.career_has_subjects << chs_opt
 
